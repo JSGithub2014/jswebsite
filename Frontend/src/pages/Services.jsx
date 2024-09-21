@@ -1,0 +1,47 @@
+import React from 'react';
+import ServicesCard from '../components/ServicesCard';
+
+const services = [
+    {
+        logo: '../src/assets/Services-finance.png',
+        title: 'FINANCE',
+        description: 'We specialize in providing expert lending consultancy services tailored to meet the unique needs of small and mid-sized businesses. Our mission is to empower our clients with the knowledge and resources necessary to secure the financing they need for growth and success.',
+    },
+    {
+        logo: '../src/assets/Services-insurance.png',
+        title: 'INSURANCE',
+        description: 'We are dedicated to providing exceptional insurance consultancy services tailored to meet the unique needs of individuals and businesses. With a commitment to integrity and excellence, we help our clients navigate the complex world of insurance to ensure they are adequately protected.',
+    },
+    {
+        logo: '../src/assets/Services-real-estate.png',
+        title: 'REAL ESTATE',
+        description: 'We are committed to providing expert real estate consultancy services that empower clients to make informed decisions in the dynamic property market. With a focus on integrity, professionalism, and personalized service, we guide individuals and businesses through every aspect of real estate transactions.',
+    },
+];
+
+function Services() {
+    return (
+        <React.Fragment>
+
+            <div className=' relative w-full h-screen  bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
+
+                <h1 className='text-6xl font-semibold'>Our Services</h1>
+                <div><p >we offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.</p></div>
+                <div className="flex justify-center flex-wrap ">
+                    {services.map((service, index) => (
+                        <ServicesCard
+                            className='z-10 bg-white'
+                            key={index}
+                            logo={service.logo}
+                            title={service.title}
+                            description={service.description}
+                        />
+                    ))}
+                </div>
+                <div className=' absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
+            </div>
+        </React.Fragment>
+    )
+}
+
+export default Services
