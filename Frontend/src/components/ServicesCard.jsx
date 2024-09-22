@@ -2,15 +2,26 @@ import React from 'react';
 
 function ServicesCard({ logo, title, description }) {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 m-4 max-w-sm ">
+    <article className="bg-white shadow-lg rounded-lg p-6 m-4 max-w-sm transition-transform duration-300 ease-in-out transform hover:scale-105">
       <img 
         src={logo} 
-        alt="Service Logo" 
+        alt={`${title} service logo`} 
         className="w-24 h-24 mx-auto mb-4" 
       />
-      <h2 className="text-xl font-semibold text-center mb-2">{title}</h2>
-      <p className="text-gray-600  text-justify">{description} <span className='text-[#ff7c02] font-semibold cursor-pointer'>read more..</span></p>
-    </div>
+      <h2 className="text-xl font-semibold text-center mb-2" aria-label={title}>
+        {title}
+      </h2>
+      <p className="text-gray-600 text-justify">
+        {description}{' '}
+        <a 
+          href={`/services/${title.toLowerCase()}`} 
+          className="text-[#ff7c02] font-semibold cursor-pointer hover:underline"
+          aria-label={`Read more about ${title}`}
+        >
+          read more...
+        </a>
+      </p>
+    </article>
   );
 }
 
