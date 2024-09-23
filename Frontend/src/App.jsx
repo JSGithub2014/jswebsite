@@ -6,6 +6,7 @@ import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import Testimonial from './pages/Testimonial';
 import Footer from './pages/Footer';
+import WhyUs from './pages/WhyUs';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </section>
         <section id="testimonials">
           <Testimonial />
+        </section>
+        <section id="whyUs">
+          <WhyUs/>
         </section>
         <Footer />
       </React.Fragment>
