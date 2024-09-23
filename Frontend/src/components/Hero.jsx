@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { FaPhone } from 'react-icons/fa'; // Import the phone icon
+import heroImage from '../assets/hero.png'; // Adjust the path as necessary
 
 function Hero() {
     useEffect(() => {
@@ -43,7 +44,7 @@ function Hero() {
                         </button>
                     </aside>
                     <aside className='hero-section-right flex justify-center md:justify-end'>
-                        <img className='w-full md:w-[45vw] pt-5 md:pt-0' src="../src/assets/hero.png" alt="Finance, Insurance, and Real Estate" />
+                        <img className='w-full md:w-[45vw] pt-5 md:pt-0 opacity-0' src={heroImage} alt="Finance, Insurance, and Real Estate" />
                     </aside>
                 </div>
             </main>

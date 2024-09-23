@@ -1,19 +1,22 @@
 import React from 'react';
 import ServicesCard from '../components/ServicesCard';
+import financeLogo from '../assets/Services-finance.png'; // Adjust the path as necessary
+import insuranceLogo from '../assets/Services-insurance.png'; // Adjust the path as necessary
+import realEstateLogo from '../assets/Services-real-estate.png'; // Adjust the path as necessary
 
 const services = [
     {
-        logo: '../src/assets/Services-finance.png',
+        logo: financeLogo,
         title: 'FINANCE',
         description: 'We specialize in providing expert lending consultancy services tailored to meet the unique needs of small and mid-sized businesses. Our mission is to empower our clients with the knowledge and resources necessary to secure the financing they need for growth and success.',
     },
     {
-        logo: '../src/assets/Services-insurance.png',
+        logo: insuranceLogo,
         title: 'INSURANCE',
         description: 'We are dedicated to providing exceptional insurance consultancy services tailored to meet the unique needs of individuals and businesses. With a commitment to integrity and excellence, we help our clients navigate the complex world of insurance to ensure they are adequately protected.',
     },
     {
-        logo: '../src/assets/Services-real-estate.png',
+        logo: realEstateLogo,
         title: 'REAL ESTATE',
         description: 'We are committed to providing expert real estate consultancy services that empower clients to make informed decisions in the dynamic property market. With a focus on integrity, professionalism, and personalized service, we guide individuals and businesses through every aspect of real estate transactions.',
     },
@@ -34,7 +37,6 @@ function Services() {
                             className="transition-transform duration-300 ease-in-out transform hover:scale-105"
                         >
                             <ServicesCard
-                                className='z-10 bg-white'
                                 logo={service.logo}
                                 title={service.title}
                                 description={service.description}

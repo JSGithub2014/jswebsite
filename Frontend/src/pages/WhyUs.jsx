@@ -1,13 +1,14 @@
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
+import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 
 function WhyUs() {
   return (
     <React.Fragment>
       <main className='w-full h-screen flex justify-evenly items-center'>
         <div>
-          <img src="../src/assets/why us.jpeg" alt="Why Us" />
+          <img src={whyUsImage} alt="Why Us" className='object-cover' />
         </div>
         <div className='flex flex-col space-y-4'>
           <h1 className='text-4xl font-semibold'>Why Us?</h1>
