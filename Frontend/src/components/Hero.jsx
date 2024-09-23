@@ -12,7 +12,7 @@ function Hero() {
     }, []);
 
     const handleCall = () => {
-        window.location.href = 'tel:+1234567890'; // Replace with the actual phone number
+        window.location.href = 'tel:+912245120755'; // Replace with the actual phone number
     };
 
     return (

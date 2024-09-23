@@ -13,6 +13,7 @@ function App() {
   return (
     <Router> {/* Wrap your app with Router */}
       <React.Fragment>
+        <div>
         <section id="landing">
           <Landing />
         </section>
@@ -32,6 +33,8 @@ function App() {
           <WhyUs/>
         </section>
         <Footer />
+        </div>
+        
       </React.Fragment>
     </Router>
   );
