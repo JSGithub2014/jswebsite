@@ -24,7 +24,7 @@ const FAQSection = () => {
     realEstate: [
       { question: "What is a mortgage?", answer: "A mortgage is a loan used to purchase real estate, where the property itself serves as collateral." },
       { question: "What is the difference between a fixed-rate and adjustable-rate mortgage?", answer: "A fixed-rate mortgage has the same interest rate for the entire term, while an adjustable-rate mortgage’s interest rate can change over time." },
-      { question: "How do I determine my home’s value?", answer: "Your home’s value can be determined by factors such as market trends, location, and recent sales of similar properties in your area." },
+      { question: "How do I determine my home's value?", answer: "Your home's value can be determined by factors such as market trends, location, and recent sales of similar properties in your area." },
       { question: "What are closing costs?", answer: "Closing costs are fees associated with the purchase of real estate, including appraisal fees, title insurance, and lawyer fees." },
     ],
   };

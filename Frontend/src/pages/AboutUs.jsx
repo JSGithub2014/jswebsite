@@ -1,25 +1,38 @@
 import React from 'react';
 
-const WhoWeAre = () => {
+function AboutUs() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen">
-      {/* Left Side with two background colors and animated text */}
-      <div className="w-full md:w-1/2 h-64 md:h-screen bg-gradient-to-b from-[#F6EDE1] to-[#F6980B] flex items-center justify-center p-10">
-        <p className="text-2xl md:text-4xl text-gray-800 font-semibold animate-fade-in-up">
-          Who We Are
-        </p>
-      </div>
+    <React.Fragment>
+      <main className="aboutus-page w-full bg-black relative">
+        <div className="aboutus-container flex flex-col md:flex-row">
+          {/* Main heading */}
+          <h1 className="text-5xl md:text-7xl font-semibold absolute text-center md:text-left left-1/2 md:left-[25.5%] top-[26%] z-10 transform md:-translate-x-0 -translate-x-1/2 z-10">
+            W<span className="font-thin">ho</span> <span className="text-orange-255">We</span> A<span className="font-thin">re</span>
+          </h1>
 
-      {/* Right Side with white box, curved corners, and scale-in animation */}
-      <div className="w-full md:w-1/2 bg-white rounded-3xl shadow-lg p-10 m-10 animate-fade-in-scale">
-        <p className="text-gray-700 text-lg md:text-xl">
-          We are a passionate team of developers dedicated to building modern web
-          applications. Our goal is to deliver top-notch digital experiences that
-          help businesses grow in the online world.
-        </p>
-      </div>
-    </div>
+          {/* Text content */}
+          <div className="w-full md:w-2/6 absolute bg-white py-8 md:py-10 rounded-lg md:left-[61.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-base md:text-lg text-justify font-semibold shadow-lg px-8 md:px-14 leading-loose">
+            <p className="mb-4">
+              We specialize in expert finance, insurance, and real estate advisory services, empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique needs, ensuring optimized financial health and comprehensive protection.
+            </p>
+            <p className="mb-4">
+              From investment management and business funding to customized insurance plans, we guide you every step of the way.
+            </p>
+            <p className="mb-4">
+              As real estate advisors, we navigate market complexities, providing strategic insights for informed decisions.
+            </p>
+            <p>
+              With a commitment to trust, integrity, and exceptional service, we strive to exceed expectations, helping you secure your future and grow your investments.
+            </p>
+          </div>
+
+          {/* Background sections */}
+          <div className="color1 bg-[#F6EDE1] w-full md:w-4/6 h-96 md:h-screen"></div>
+          <div className="color2 bg-[#F6980B] w-full md:w-2/6 h-96 md:h-screen"></div>
+        </div>
+      </main>
+    </React.Fragment>
   );
-};
+}
 
-export default WhoWeAre;
+export default AboutUs;

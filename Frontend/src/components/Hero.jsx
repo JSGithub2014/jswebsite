@@ -17,7 +17,7 @@ function Hero() {
 
     return (
         <React.Fragment>
-            <main className='w-full h-screen flex items-center justify-center px-24'>
+            <main className='w-full h-screen flex items-center justify-center px-10'>
                 <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-8 md:px-16'>
                     <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
                         <h1 className='text-4xl md:text-7xl font-semibold mb-4'>
