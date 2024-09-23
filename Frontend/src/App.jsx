@@ -7,6 +7,8 @@ import Testimonial from './pages/Testimonial';
 import Footer from './pages/Footer';
 import WhyUs from './pages/WhyUs';
 import Achievement from './pages/Achievement';
+import Faqs from './pages/Faqs';
+import Partners from './pages/Partners';
 
 
 function App() {
@@ -30,6 +32,12 @@ function App() {
         </section>
         <section id="whyUs">
           <WhyUs/>
+        </section>
+        <section id="faqs">
+          <Faqs/>
+        </section>
+        <section id="partners">
+          <Partners/>
         </section>
         <Footer />
       </React.Fragment>
