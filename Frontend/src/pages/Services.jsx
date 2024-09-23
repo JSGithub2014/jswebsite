@@ -22,26 +22,30 @@ const services = [
 function Services() {
     return (
         <React.Fragment>
-
-            <div className=' relative w-full h-screen  bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
-
+            <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
                 <h1 className='text-6xl font-semibold'>Our Services</h1>
-                <div><p >we offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.</p></div>
-                <div className="flex justify-center flex-wrap ">
+                <div>
+                    <p>We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.</p>
+                </div>
+                <div className="flex justify-center flex-wrap">
                     {services.map((service, index) => (
-                        <ServicesCard
-                            className='z-10 bg-white'
-                            key={index}
-                            logo={service.logo}
-                            title={service.title}
-                            description={service.description}
-                        />
+                        <div 
+                            key={index} 
+                            className="transition-transform duration-300 ease-in-out transform hover:scale-105"
+                        >
+                            <ServicesCard
+                                className='z-10 bg-white'
+                                logo={service.logo}
+                                title={service.title}
+                                description={service.description}
+                            />
+                        </div>
                     ))}
                 </div>
-                <div className=' absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
+                <div className='absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
             </div>
         </React.Fragment>
-    )
+    );
 }
 
-export default Services
+export default Services;
