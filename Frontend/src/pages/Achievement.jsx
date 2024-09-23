@@ -31,7 +31,7 @@ function Achievement() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full h-screen px-24">
       <div className="md:w-1/2 flex flex-col justify-center p-4">
         <h2 className="text-xl font-bold mb-4">Our Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
