@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Testimonial from './pages/Testimonial';
 import Footer from './pages/Footer';
 import WhyUs from './pages/WhyUs';
+import Achievement from './pages/Achievement';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
         </section>
         <section id="testimonials">
           <Testimonial />
+        </section>
+        <section id="achievement">
+          <Achievement />
         </section>
         <section id="whyUs">
           <WhyUs/>
