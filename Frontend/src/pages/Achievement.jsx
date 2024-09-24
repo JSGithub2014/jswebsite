@@ -51,7 +51,7 @@ function Achievement() {
       </div>
       <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
         <div className="text-center mb-4">
-          <p className="text-base md:text-lg text-justify leading-tight tracking-wide">
+          <p className=" md:text-lg text-justify leading-tight tracking-wide text-2xl">
             Customer satisfaction <br />is a priority for us and <br /> we always take care of <br /> it!
           </p>
         </div>

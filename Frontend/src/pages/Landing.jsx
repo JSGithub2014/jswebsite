@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 function Landing() {
   return (
     <React.Fragment>
-      <div className='bg-[#ff7c02]'>
+      <div className='bg-[rgb(255,102,0)]'>
         <Navbar />
         <div className="pt-10"> 
           <Hero />

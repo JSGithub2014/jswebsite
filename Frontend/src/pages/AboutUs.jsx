@@ -7,7 +7,7 @@ function AboutUs() {
         <div className="aboutus-container flex flex-col md:flex-row">
           {/* Main heading for large screens */}
           <h1 className="hidden lg:block text-4xl md:text-6xl font-semibold text-center text-black mt-10 mb-4 md:mb-6 absolute left-1/2 transform -translate-x-1/2 z-10 md:top-[20%] md:left-[25%]">
-            W<span className="font-thin">ho</span> <span className="text-orange-500">We</span> A<span className="font-thin">re</span>
+            W<span className="font-thin">ho</span> <span className="text-[rgb(255,102,0)]">We</span> A<span className="font-thin">re</span>
           </h1>
 
           {/* Main heading for mobile devices */}

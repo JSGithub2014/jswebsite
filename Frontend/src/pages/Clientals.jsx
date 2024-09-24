@@ -75,11 +75,11 @@ const ClientalsSection = () => {
       {/* Tailwind CSS for Animations */}
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
 
         .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
+          animation: marquee-reverse 40s linear infinite;
         }
 
         @keyframes marquee {

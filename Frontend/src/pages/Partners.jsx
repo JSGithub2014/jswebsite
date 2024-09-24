@@ -84,11 +84,11 @@ const PartnerSection = () => {
       {/* Tailwind CSS for Animations */}
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 50s linear infinite;
         }
 
         .animate-marquee-reverse {
-          animation: marquee-reverse 40s linear infinite;
+          animation: marquee-reverse 50s linear infinite;
         }
 
         @keyframes marquee {

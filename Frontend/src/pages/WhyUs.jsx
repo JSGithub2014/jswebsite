@@ -25,7 +25,7 @@ function WhyUs() {
         </div>
         <div className='flex items-center'>
           <MdDone className='text-[#F3BA73]' />
-          <p className='ml-2 text-base md:text-lg'>Multi-Language Babysitters for International Families</p>
+          <p className='ml-2 text-base md:text-lg'>Long-Term Relationships</p>
         </div>
         <div>
           <a

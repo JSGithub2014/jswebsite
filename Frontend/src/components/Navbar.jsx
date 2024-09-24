@@ -45,21 +45,21 @@ function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[#ff7c02]">
+        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[rgb(255,102,0)]">
           <div className="brand-logo">
             <a href="#landing">
               <img className="w-20 pt-2" src={brandLogo} alt="Brand Logo" />
             </a>
           </div>
-          <div className="flex-1 hidden md:flex justify-center brand-options gap-8 uppercase font-semibold">
-            <a href="#landing" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">Home</a>
-            <a href="#about" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">About</a>
-            <a href="#services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">Services</a>
+          <div className="flex-1 hidden md:flex justify-center brand-options gap-8 uppercase font-bold">
+            <a href="#landing" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Home</a>
+            <a href="#about" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">About</a>
+            <a href="#services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Services</a>
           </div>
           <div className="hidden md:flex items-center gap-4">
             <button 
               onClick={handleLogin}
-              className="bg-white text-[#ff7c02] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white"
+              className="bg-white text-[rgb(255,102,0)] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white"
             >
               Login
             </button>
@@ -84,20 +84,20 @@ function Navbar() {
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
         >
-          <div className="bg-[#ff7c02] flex flex-col items-center">
-            <a href="#landing" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">Home</a>
-            <a href="#about" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">About</a>
-            <a href="#services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[#ff7c02]">Services</a>
+          <div className="bg-[rgb(255,102,0)] flex flex-col items-center rounded-b-lg p-6">
+            <a href="#landing" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Home</a>
+            <a href="#about" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">About</a>
+            <a href="#services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Services</a>
             <div className="flex gap-2 mt-4">
               <button 
                 onClick={handleLogin}
-                className="bg-white text-[#ff7c02] px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[#ff7c02] hover:text-white"
+                className="bg-white text-[rgb(255,102,0)] px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[rgb(255,102,0)] hover:text-white"
               >
                 Login
               </button>
               <button 
                 onClick={handleSignup}
-                className="bg-black text-white px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[#ff7c02] hover:text-black"
+                className="bg-black text-white px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[rgb(255,102,0)] hover:text-black"
               >
                 Signup
               </button>

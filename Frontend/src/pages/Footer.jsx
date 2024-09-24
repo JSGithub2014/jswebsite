@@ -1,71 +1,111 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import brandLogo from '../assets/brand-logo-transperent.png'; // Import the brand logo
 
 function Footer() {
   return (
-    <footer className="w-full bg-zinc-700 text-white py-10 relative">
+    <footer className="w-full text-white py-10 relative bg-[rgb(255,102,0)]">
       {/* Decorative Pattern on Top */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-700 to-transparent opacity-10 pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
+      <div className="container mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
 
         {/* Brand Logo */}
-        <div className="brand-logo mb-8 md:mb-0">
+        <div className="brand-logo mb-8 md:mb-0 flex-shrink-0">
           <a href="#landing" aria-label="Brand Logo">
             <img
-              className="w-28 hover:scale-110 transition-transform duration-300"
-              src={brandLogo} // Use the imported logo
+              className="w-32 hover:scale-110 transition-transform duration-300"
+              src={brandLogo}
               alt="Brand Logo"
               loading="lazy"
             />
           </a>
         </div>
 
-        {/* Menu Section */}
-        <div className="footer-section">
-          <h3 className="text-xl font-semibold mb-4">Menu</h3>
-          <ul className="space-y-2">
-            <li><a href="#about" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">About Us</a></li>
-            <li><a href="#services" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Services</a></li>
-            <li><a href="#contact" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Contact Us</a></li>
-            <li><a href="#careers" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Careers</a></li>
-          </ul>
-        </div>
+        {/* Footer Sections */}
+        <div className="flex flex-col md:flex-row w-full justify-between">
+          {/* Menu Section */}
+          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-3">Menu</h3>
+            <ul className="space-y-2">
+              {["About Us", "Services", "Contact Us", "Careers"].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase().replace(/\s/g, '')}`}
+                    className="hover:text-black transition-colors duration-300 text-sm md:text-base"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Support Section */}
-        <div className="footer-section">
-          <h3 className="text-xl font-semibold mb-4">Support</h3>
-          <ul className="space-y-2">
-            <li><a href="#faq" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">FAQs</a></li>
-            <li><a href="#help" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Help Center</a></li>
-            <li><a href="#contact-support" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Contact Support</a></li>
-          </ul>
-        </div>
+          {/* Support Section */}
+          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-3">Support</h3>
+            <ul className="space-y-2">
+              {["FAQs", "Help Center", "Contact Support"].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase().replace(/\s/g, '')}`}
+                    className="hover:text-black transition-colors duration-300 text-sm md:text-base"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Links Section */}
-        <div className="footer-section">
-          <h3 className="text-xl font-semibold mb-4">Links</h3>
-          <ul className="space-y-2">
-            <li><a href="#privacy" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Privacy Policy</a></li>
-            <li><a href="#terms" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Terms & Conditions</a></li>
-            <li><a href="#sitemap" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Sitemap</a></li>
-          </ul>
-        </div>
+          {/* Links Section */}
+          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-3">Links</h3>
+            <ul className="space-y-2">
+              {["Privacy Policy", "Terms & Conditions", "Sitemap"].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase().replace(/\s/g, '')}`}
+                    className="hover:text-black transition-colors duration-300 text-sm md:text-base"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Contact Us Section */}
-        <div className="footer-section">
-          <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <ul className="space-y-2">
-            <li><a href="tel:+123456789" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">+1 234 567 89</a></li>
-            <li><a href="mailto:support@example.com" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">support@example.com</a></li>
-            <li><a href="#location" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">1234 Main St, City, Country</a></li>
-          </ul>
+          {/* Contact Us Section */}
+          <div className="footer-section w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-3">Contact Us</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center justify-end">
+                <FaPhoneAlt className="mr-2" />
+                <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300 text-sm md:text-base">
+                  +91 2245120755
+                </a>
+              </li>
+              <li className="flex items-center justify-end">
+                <FaEnvelope className="mr-2" />
+                <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300 text-sm md:text-base">
+                  info@jsasia.net
+                </a>
+              </li>
+              <li className="flex items-center justify-end">
+                <FaMapMarkerAlt className="mr-2" />
+                <span className="text-sm md:text-base">
+                  1202 Lodha Supremus,<br />
+                  Saki Vihar Road,<br />
+                  Powai, Mumbai 400072, MH
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Social Media Icons */}
-      <div className="container mx-auto mt-10 flex justify-center gap-8 text-3xl">
+      <div className="container mx-auto mt-10 flex justify-center gap-6 text-3xl">
         <a
           href="https://facebook.com"
           target="_blank"
@@ -94,7 +134,7 @@ function Footer() {
           <FaLinkedinIn />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
