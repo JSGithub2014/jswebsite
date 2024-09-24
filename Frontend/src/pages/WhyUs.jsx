@@ -5,7 +5,7 @@ import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 
 function WhyUs() {
   return (
-    <main className='flex flex-col md:flex-row justify-center items-center w-full min-h-screen px-4 md:px-24'>
+    <main className='flex flex-col md:flex-row justify-between items-center w-full min-h-screen px-4 md:px-24'>
       <div className='md:w-1/2'>
         <img src={whyUsImage} alt="Why choose us for your needs" className='object-cover w-full h-auto rounded-md' />
       </div>
