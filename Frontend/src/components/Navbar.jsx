@@ -47,14 +47,14 @@ function Navbar() {
       >
         <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[rgb(255,102,0)]">
           <div className="brand-logo">
-            <a href="#landing">
+            <a href="#Home">
               <img className="w-20 pt-2" src={brandLogo} alt="Brand Logo" />
             </a>
           </div>
           <div className="flex-1 hidden md:flex justify-center brand-options gap-8 uppercase font-bold">
-            <a href="#landing" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Home</a>
-            <a href="#about" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">About</a>
-            <a href="#services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Services</a>
+            <a href="#Home" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Home</a>
+            <a href="#About" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">About</a>
+            <a href="#Services" className="px-4 py-2 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]">Services</a>
           </div>
           <div className="hidden md:flex items-center gap-4">
             <button 

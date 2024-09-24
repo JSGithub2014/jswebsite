@@ -38,7 +38,7 @@ function Hero() {
                         </p>
                         <div className="flex justify-center md:justify-start"> {/* Centering the button for mobile */}
                             <button 
-                                className='flex items-center bg-green-600 text-black hover:text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-300'
+                                className='flex items-center bg-[rgb(58,59,59)] text-[rgb(255,102,0)] hover:text-[rgb(58,59,59)] px-4 py-2 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
                                 onClick={handleCall}
                             >
                                 <FaPhone className='mr-2 rotate-90' /> Call Now
