@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import brandLogo from '../assets/brand-logo-transperent.png'; // Import the brand logo
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
           <a href="#landing" aria-label="Brand Logo">
             <img
               className="w-28 hover:scale-110 transition-transform duration-300"
-              src="./src/assets/brand-logo-transperent.png"
+              src={brandLogo} // Use the imported logo
               alt="Brand Logo"
               loading="lazy"
             />

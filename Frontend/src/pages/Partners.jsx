@@ -1,29 +1,48 @@
 import React from 'react';
+import BOI from '../assets/partners/BOI.jpg';
+import BOM from '../assets/partners/BOM.jpg';
+import DBS from '../assets/partners/DBS.jpg';
+import DCB from '../assets/partners/DCB.jpg';
+import DNS from '../assets/partners/DNS.jpg';
+import GP_Parsik from '../assets/partners/GP-parsik.jpg';
+import GS_Maha from '../assets/partners/GS-maha.jpg';
+import HDFC_Ltd from '../assets/partners/HDFC-ltd.jpg';
+import HDFC from '../assets/partners/HDFC.jpg';
+import HSBC from '../assets/partners/HSBC.jpg';
+import ICICI_Finance from '../assets/partners/ICICI-finance.jpg';
+import ICICI from '../assets/partners/ICICI.jpg';
+import IDBI from '../assets/partners/IDBI.jpg';
+import IDFC1st from '../assets/partners/IDFC1st.jpg';
+import KNS from '../assets/partners/KNS.jpg';
+import LT_Fin_1 from '../assets/partners/L&T-Fin-1.jpg';
+import LIC_HFL from '../assets/partners/LIC-HFL.jpg';
+import PNB from '../assets/partners/PNB-1.jpg';
+import RBL from '../assets/partners/RBL.jpg';
 
 const PartnerSection = () => {
   const partnersLine1 = [
-    '../src/assets/partners/BOI.jpg',
-    '../src/assets/partners/BOM.jpg',
-    '../src/assets/partners/DBS.jpg',
-    '../src/assets/partners/DCB.jpg',
-    '../src/assets/partners/DNS.jpg',
-    '../src/assets/partners/GP-parsik.jpg',
-    '../src/assets/partners/GS-maha.jpg',
-    '../src/assets/partners/HDFC-ltd.jpg',
-    '../src/assets/partners/HDFC.jpg',
-    '../src/assets/partners/HSBC.jpg',
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
   ];
 
   const partnersLine2 = [
-    '../src/assets/partners/ICICI-finance.jpg',
-    '../src/assets/partners/ICICI.jpg',
-    '../src/assets/partners/IDBI.jpg',
-    '../src/assets/partners/IDFC1st.jpg',
-    '../src/assets/partners/KNS.jpg',
-    '../src/assets/partners/L&T-Fin-1.jpg',
-    '../src/assets/partners/LIC-HFL.jpg',
-    '../src/assets/partners/PNB-1.jpg',
-    '../src/assets/partners/RBL.jpg',
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
   ];
 
   const duplicateLogos = (logos) => {

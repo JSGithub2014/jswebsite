@@ -2,7 +2,7 @@ import React from 'react';
 
 function ServicesCard({ logo, title, description }) {
   return (
-    <article className="bg-white shadow-lg rounded-lg p-4 sm:p-6 m-4 max-w-sm transition-transform duration-300 ease-in-out transform hover:scale-105 overflow-hidden">
+    <article className="bg-white shadow-lg rounded-lg p-4 sm:p-6 transition-transform duration-300 ease-in-out transform hover:scale-105 h-72 flex flex-col justify-between">
       <img 
         src={logo} 
         alt={`${title} service logo`} 
@@ -11,7 +11,7 @@ function ServicesCard({ logo, title, description }) {
       <h2 className="text-lg sm:text-xl font-semibold text-center mb-2" aria-label={title}>
         {title}
       </h2>
-      <p className="text-sm sm:text-gray-600 text-justify overflow-hidden text-ellipsis">
+      <p className="text-sm sm:text-gray-600 text-justify">
         {description}{' '}
         <a 
           href={`/services/${title.toLowerCase()}`} 

@@ -3,22 +3,20 @@
 @tailwind utilities;
 
 
+
 html {
   scroll-behavior: smooth;
 }
+
 /* styles.css or your relevant CSS file */
 .hero-section-left,
 .hero-section-right img {
-    opacity: 0;
+  opacity: 0;
 }
 
 @font-face {
-  font-family: 'Swiss721 cn bt'; 
-  src: url('./assets/Swiss721CondensedBT.ttf') format('truetype'); 
-  font-weight: bold; 
+  font-family: 'Swiss721 cn bt';
+  src: url('./assets/Swiss721CondensedBT.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
-
-
-
-

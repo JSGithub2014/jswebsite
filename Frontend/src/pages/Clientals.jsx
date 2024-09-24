@@ -1,29 +1,42 @@
 import React from 'react';
+import Tricity from '../assets/clientals/tricity.jpg';
+import Raheja from '../assets/clientals/raheja.jpg';
+import Rustomjee from '../assets/clientals/rustomjee.jpg';
+import Oberoy from '../assets/clientals/oberoy.jpg';
+import Hiranandani from '../assets/clientals/hiranandani.jpg';
+import Dosti from '../assets/clientals/dosti.jpg';
+import Godrej from '../assets/clientals/godrej.jpg';
+import Akshar from '../assets/clientals/akshar.jpg';
+import TheWadhvaGroup from '../assets/clientals/the-wadhva-group.jpg';
+import Rajesh from '../assets/clientals/rajesh.jpg';
+import Regency from '../assets/clientals/regency.jpg';
+import Arihant from '../assets/clientals/arihant.jpg';
+import Marathon from '../assets/clientals/marathon.jpg';
+import Lodha from '../assets/clientals/lodha.jpg';
 
-const PartnerSection = () => {
+const ClientalsSection = () => {
   const clientalsLine1 = [
-    '../src/assets/clientals/tricity.jpg',
-    '../src/assets/clientals/raheja.jpg',
-    '../src/assets/clientals/rustomjee.jpg',
-    '../src/assets/clientals/oberoy.jpg',
-    '../src/assets/clientals/hiranandani.jpg',
-    '../src/assets/clientals/dosti.jpg',
-    '../src/assets/clientals/godrej.jpg',
-    '../src/assets/clientals/akshar.jpg',
-    '../src/assets/clientals/the-wadhva-group.jpg',
-    '../src/assets/clientals/rajesh.jpg',
+    Tricity,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
   ];
 
   const clientalsLine2 = [
-    '../src/assets/clientals/regency.jpg',
-    '../src/assets/clientals/arihant.jpg',
-    '../src/assets/clientals/marathon.jpg',
-    '../src/assets/clientals/lodha.jpg',
-    // Add any additional clientals if necessary
+    Regency,
+    Arihant,
+    Marathon,
+    Lodha,
   ];
 
   const clientalsLine3 = [
-    // If you want to add more clientals, continue here
+    // Add any additional clientals if necessary
   ];
 
   return (
@@ -48,7 +61,6 @@ const PartnerSection = () => {
       {/* Second Marquee */}
       <div className="relative overflow-hidden mt-6">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {/* Here you can add additional lines if necessary */}
           {clientalsLine3.concat(clientalsLine3).map((logo, index) => (
             <img
               key={index}
@@ -92,4 +104,4 @@ const PartnerSection = () => {
   );
 };
 
-export default PartnerSection;
+export default ClientalsSection;

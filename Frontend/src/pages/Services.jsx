@@ -36,7 +36,7 @@ function Services() {
                     {services.map((service, index) => (
                         <div 
                             key={index} 
-                            className="transition-transform duration-300 ease-in-out transform hover:scale-105 w-full sm:w-1/2 lg:w-1/3"
+                            className="w-full sm:w-1/2 lg:w-1/3 p-4"
                         >
                             <ServicesCard
                                 logo={service.logo}
