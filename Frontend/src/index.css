@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: 'Swis721 Cn BT';
-}
+
 html {
   scroll-behavior: smooth;
 }
@@ -14,6 +12,12 @@ html {
     opacity: 0;
 }
 
+@font-face {
+  font-family: 'Swiss721 cn bt'; 
+  src: url('./assets/Swiss721CondensedBT.ttf') format('truetype'); 
+  font-weight: bold; 
+  font-style: normal;
+}
 
 
 
