@@ -7,10 +7,10 @@ function Footer() {
       {/* Decorative Pattern on Top */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-700 to-transparent opacity-10 pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
 
         {/* Brand Logo */}
-        <div className="brand-logo">
+        <div className="brand-logo mb-8 md:mb-0">
           <a href="#landing" aria-label="Brand Logo">
             <img
               className="w-28 hover:scale-110 transition-transform duration-300"
@@ -21,63 +21,86 @@ function Footer() {
           </a>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="social-icons flex gap-8 text-3xl">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-blue-700 transition-colors duration-300 transform hover:scale-110"
-          >
-            <FaLinkedinIn />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="hover:text-pink-500 transition-colors duration-300 transform hover:scale-110"
-          >
-            <FaInstagram />
-          </a>
+        {/* Menu Section */}
+        <div className="footer-section">
+          <h3 className="text-xl font-semibold mb-4">Menu</h3>
+          <ul className="space-y-2">
+            <li><a href="#about" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">About Us</a></li>
+            <li><a href="#services" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Services</a></li>
+            <li><a href="#contact" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Contact Us</a></li>
+            <li><a href="#careers" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Careers</a></li>
+          </ul>
         </div>
 
-        {/* Footer Links */}
-        <nav className="footer-links flex flex-col md:flex-row gap-6">
-          <a
-            href="#privacy"
-            className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105"
-            aria-label="Privacy Policy"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="#terms"
-            className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105"
-            aria-label="Terms and Conditions"
-          >
-            Terms & Conditions
-          </a>
-        </nav>
+        {/* Support Section */}
+        <div className="footer-section">
+          <h3 className="text-xl font-semibold mb-4">Support</h3>
+          <ul className="space-y-2">
+            <li><a href="#faq" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">FAQs</a></li>
+            <li><a href="#help" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Help Center</a></li>
+            <li><a href="#contact-support" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Contact Support</a></li>
+          </ul>
+        </div>
+
+        {/* Links Section */}
+        <div className="footer-section">
+          <h3 className="text-xl font-semibold mb-4">Links</h3>
+          <ul className="space-y-2">
+            <li><a href="#privacy" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Privacy Policy</a></li>
+            <li><a href="#terms" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Terms & Conditions</a></li>
+            <li><a href="#sitemap" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">Sitemap</a></li>
+          </ul>
+        </div>
+
+        {/* Contact Us Section */}
+        <div className="footer-section">
+          <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+          <ul className="space-y-2">
+            <li><a href="tel:+123456789" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">+1 234 567 89</a></li>
+            <li><a href="mailto:support@example.com" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">support@example.com</a></li>
+            <li><a href="#location" className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-105">1234 Main St, City, Country</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Social Media Icons */}
+      <div className="container mx-auto mt-10 flex justify-center gap-8 text-3xl">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          className="hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
+        >
+          <FaFacebookF />
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          className="hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+        >
+          <FaTwitter />
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="hover:text-blue-700 transition-colors duration-300 transform hover:scale-110"
+        >
+          <FaLinkedinIn />
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="hover:text-pink-500 transition-colors duration-300 transform hover:scale-110"
+        >
+          <FaInstagram />
+        </a>
       </div>
 
       {/* Divider */}
