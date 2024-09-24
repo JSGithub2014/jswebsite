@@ -48,8 +48,8 @@ function AboutUs() {
           </div>
 
           {/* Background sections - only visible on larger screens */}
-          <div className="hidden md:block color1 bg-[#F6EDE1] w-full md:w-4/6 h-60 md:h-screen"></div>
-          <div className="hidden md:block color2 bg-[#F6980B] w-full md:w-2/6 h-60 md:h-screen"></div>
+          <div className="hidden md:block color1 bg-[#F6EDE1] w-full md:w-full h-60 md:h-screen"></div>
+          <div className="hidden md:block color2 bg-[#f6980b8a] w-96 rounded-full md:w-96 top-20 absolute h-96 md:h-96"></div>
         </div>
       </main>
     </React.Fragment>

@@ -1,8 +1,8 @@
 import React from 'react';
 import ServicesCard from '../components/ServicesCard';
-import financeLogo from '../assets/Services-finance.png'; // Adjust the path as necessary
-import insuranceLogo from '../assets/Services-insurance.png'; // Adjust the path as necessary
-import realEstateLogo from '../assets/Services-real-estate.png'; // Adjust the path as necessary
+import financeLogo from '../assets/Services-finance.png';
+import insuranceLogo from '../assets/Services-insurance.png';
+import realEstateLogo from '../assets/Services-real-estate.png';
 
 const services = [
     {
@@ -26,15 +26,17 @@ function Services() {
     return (
         <React.Fragment>
             <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
-                <h1 className='text-6xl font-semibold'>Our Services</h1>
+                <h1 className='text-5xl md:text-6xl font-semibold text-center'>Our Services</h1>
                 <div>
-                    <p>We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.</p>
+                    <p className='text-base md:text-lg text-center'>
+                        We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
+                    </p>
                 </div>
                 <div className="flex justify-center flex-wrap">
                     {services.map((service, index) => (
                         <div 
                             key={index} 
-                            className="transition-transform duration-300 ease-in-out transform hover:scale-105"
+                            className="transition-transform duration-300 ease-in-out transform hover:scale-105 w-full sm:w-1/2 lg:w-1/3"
                         >
                             <ServicesCard
                                 logo={service.logo}

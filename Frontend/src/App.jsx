@@ -9,40 +9,40 @@ import WhyUs from './pages/WhyUs';
 import Achievement from './pages/Achievement';
 import Faqs from './pages/Faqs';
 import Partners from './pages/Partners';
-
+import Clientals from './pages/Clientals';
 
 function App() {
   return (
-    <Router> {/* Wrap your app with Router */}
+    <Router>
       <React.Fragment>
         <div>
-        <section id="landing">
-          <Landing />
-        </section>
-        <section id="about">
-          <AboutUs />
-        </section>
-        <section id="services">
-          <Services />
-        </section>
-        <section id="testimonials">
+          <section id="Home">
+            <Landing />
+          </section>
+          <section id="About">
+            <AboutUs />
+          </section>
+          <section id="Services">
+            <Services />
+          </section>
+
+          <Partners />
+          <Clientals />
+
           <Testimonial />
-        </section>
-        <section id="achievement">
-          <Achievement />
-        </section>
-        <section id="whyUs">
-          <WhyUs/>
-        </section>
-        <section id="faqs">
-          <Faqs/>
-        </section>
-        <section id="partners">
-          <Partners/>
-        </section>
-        <Footer />
+
+          <section id="Achievement">
+            <Achievement />
+          </section>
+          <section id="Whyus">
+            <WhyUs />
+          </section>
+          <section id="FAQs">
+            <Faqs />
+          </section>
+
+          <Footer />
         </div>
-        
       </React.Fragment>
     </Router>
   );

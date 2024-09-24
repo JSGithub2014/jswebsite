@@ -24,73 +24,20 @@ const PartnerSection = () => {
     '../src/assets/partners/LIC-HFL.jpg',
     '../src/assets/partners/PNB-1.jpg',
     '../src/assets/partners/RBL.jpg',
-    '../src/assets/partners/Rajesh.jpg',
-    '../src/assets/partners/Regency.jpg',
   ];
 
-  const partnersLine3 = [
-    '../src/assets/partners/SBI.jpg',
-    '../src/assets/partners/SVC.jpg',
-    '../src/assets/partners/TJSB.jpg',
-    '../src/assets/partners/The-Wadhva-Group.jpg',
-    '../src/assets/partners/YES.jpg',
-    '../src/assets/partners/abhyuday.jpg',
-    '../src/assets/partners/akshar.jpg',
-    '../src/assets/partners/apna-sahakari.jpg',
-    '../src/assets/partners/arihant.jpg',
-    '../src/assets/partners/axis.jpg',
-  ];
-
-  const partnersLine4 = [
-    '../src/assets/partners/bajaj.jpg',
-    '../src/assets/partners/bankofbaroda.jpg',
-    '../src/assets/partners/bharat.jpg',
-    '../src/assets/partners/canara.jpg',
-    '../src/assets/partners/centralbank.jpg',
-    '../src/assets/partners/cosmos.jpg',
-    '../src/assets/partners/dhanalakshmi.jpg',
-    '../src/assets/partners/dosti.jpg',
-    '../src/assets/partners/godrej.jpg',
-    '../src/assets/partners/greater.jpg',
-  ];
-
-  const partnersLine5 = [
-    '../src/assets/partners/hiranandani.jpg',
-    '../src/assets/partners/indiabulls.jpg',
-    '../src/assets/partners/indian.jpg',
-    '../src/assets/partners/indian_overseas.jpg',
-    '../src/assets/partners/indusind.jpg',
-    '../src/assets/partners/kotak.jpg',
-    '../src/assets/partners/lakshmi.jpg',
-    '../src/assets/partners/lodha.jpg',
-    '../src/assets/partners/marathon.jpg',
-    '../src/assets/partners/muthut.jpg',
-  ];
-
-  const partnersLine6 = [
-    '../src/assets/partners/oberoy.jpg',
-    '../src/assets/partners/punjab-sind.jpg',
-    '../src/assets/partners/punjab.jpg',
-    '../src/assets/partners/raheja.jpg',
-    '../src/assets/partners/rustomjee.jpg',
-    '../src/assets/partners/saraswat.jpg',
-    '../src/assets/partners/stdcharted.jpg',
-    '../src/assets/partners/sundharam.jpg',
-    '../src/assets/partners/tata-capital.jpg',
-    '../src/assets/partners/tricity.jpg',
-    '../src/assets/partners/uco.jpg',
-    '../src/assets/partners/union.jpg',
-  ];
+  const duplicateLogos = (logos) => {
+    return [...logos, ...logos, ...logos]; // Duplicate three times for seamless effect
+  };
 
   return (
-    <div className="bg-white py-8">
-      <h2 className="text-3xl font-bold text-center text-gray-700 mb-6">Our Partners</h2>
+    <div className="bg-white py-8 overflow-hidden">
+      <h2 className="text-4xl font-bold text-center text-gray-700 mb-6">Our Partners</h2>
 
-      {/* First Marquee */}
-      <div className="relative overflow-hidden">
+      {/* First Marquee Line */}
+      <div className="relative overflow-hidden mb-6">
         <div className="flex animate-marquee whitespace-nowrap">
-          {/* Duplicate the array for seamless scrolling */}
-          {partnersLine1.concat(partnersLine2).concat(partnersLine1).concat(partnersLine2).map((logo, index) => (
+          {duplicateLogos(partnersLine1).map((logo, index) => (
             <img
               key={index}
               src={logo}
@@ -101,15 +48,14 @@ const PartnerSection = () => {
         </div>
       </div>
 
-      {/* Second Marquee */}
-      <div className="relative overflow-hidden mt-6">
+      {/* Second Marquee Line */}
+      <div className="relative overflow-hidden">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {/* Duplicate the array for seamless scrolling */}
-          {partnersLine3.concat(partnersLine4).concat(partnersLine5).concat(partnersLine6).concat(partnersLine3).concat(partnersLine4).concat(partnersLine5).concat(partnersLine6).map((logo, index) => (
+          {duplicateLogos(partnersLine2).map((logo, index) => (
             <img
               key={index}
               src={logo}
-              alt={`Partner ${index + 11}`}
+              alt={`Partner ${index + partnersLine1.length + 1}`}
               className="inline-block mx-4 h-16"
             />
           ))}
@@ -119,28 +65,28 @@ const PartnerSection = () => {
       {/* Tailwind CSS for Animations */}
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
 
         .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
+          animation: marquee-reverse 40s linear infinite;
         }
 
         @keyframes marquee {
           0% {
-            transform: translateX(100%);
+            transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-33.33%); /* Adjust this based on the number of duplicates */
           }
         }
 
         @keyframes marquee-reverse {
           0% {
-            transform: translateX(-100%);
+            transform: translateX(33.33%);
           }
           100% {
-            transform: translateX(100%);
+            transform: translateX(0);
           }
         }
       `}</style>

@@ -1,4 +1,3 @@
-// src/pages/Achievement.jsx
 import React from 'react';
 import AchievementCard from '../components/AchievementCard';
 import achievementImage from '../assets/achievement-page-img.png'; 
@@ -36,13 +35,12 @@ function Achievement() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen px-24">
+    <div className="flex flex-col md:flex-row w-full min-h-screen px-4 md:px-24 py-8">
       <div className="md:w-1/2 flex flex-col justify-center p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {achievements.map((achievement, index) => (
             <AchievementCard
               key={index}
-              numberOfDeals={achievement.Deals}
               imgSrc={achievement.imgSrc}
               title={achievement.title}
               description={achievement.description}
@@ -53,13 +51,13 @@ function Achievement() {
       </div>
       <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
         <div className="text-center mb-4">
-          <p className="text-lg text-justify leading-tighter tracking-wider ">
+          <p className="text-base md:text-lg text-justify leading-tight tracking-wide">
             Customer satisfaction <br />is a priority for us and <br /> we always take care of <br /> it!
           </p>
         </div>
         <img
           src={achievementImage}
-          alt="Achievements"
+          alt="Illustration of achievements"
           className="w-full h-auto rounded-md"
         />
       </div>

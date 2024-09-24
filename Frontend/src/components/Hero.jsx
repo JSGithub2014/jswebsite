@@ -20,7 +20,7 @@ function Hero() {
             <main className='w-full h-screen flex items-center justify-center px-4 md:px-10'>
                 <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16'>
                     <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
-                        <h1 className='text-3xl md:text-7xl font-semibold mb-4'>
+                        <h1 className='text-2xl md:text-6xl font-semibold mb-4'>
                             Your Trusted Partner <br /> in 
                             <div className='landing-text-animation inline overflow-hidden'> 
                                 <span className='services-name' style={{ opacity: 0, transform: 'translateX(300px)' }}> Finance,</span>
@@ -33,15 +33,17 @@ function Hero() {
                                 <span className='services-name' style={{ opacity: 0, transform: 'translateX(300px)' }}> Real Estate.</span>
                             </div>
                         </h1>
-                        <p className='text-base md:text-xl mb-6'>
+                        <p className='text-sm md:text-lg mb-6'>
                             We provide expert guidance and tailored solutions to help you navigate the complex world of finance and real estate.
                         </p>
-                        <button 
-                            className='flex items-center bg-green-600 text-black hover:text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-300'
-                            onClick={handleCall}
-                        >
-                            <FaPhone className='mr-2 rotate-90' /> Call Now
-                        </button>
+                        <div className="flex justify-center md:justify-start"> {/* Centering the button for mobile */}
+                            <button 
+                                className='flex items-center bg-green-600 text-black hover:text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-300'
+                                onClick={handleCall}
+                            >
+                                <FaPhone className='mr-2 rotate-90' /> Call Now
+                            </button>
+                        </div>
                     </aside>
                     <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[45vw]'>
                         <img className='w-full h-auto max-h-60 md:max-h-none pt-5 md:pt-0 opacity-0' src={heroImage} alt="Finance, Insurance, and Real Estate" />

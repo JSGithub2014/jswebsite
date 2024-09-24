@@ -1,4 +1,3 @@
-// src/components/AchievementCard.jsx
 import React from 'react';
 
 function AchievementCard({ imgSrc, title, description, achievementNumber }) {
@@ -11,14 +10,14 @@ function AchievementCard({ imgSrc, title, description, achievementNumber }) {
         className="w-16 h-16 object-contain rounded-md mb-2"
       />
 
-      {/* Achievement number below the image, aligned to the left */}
-      <p className="text-lg font-extrabold text-left mt-2">{achievementNumber}</p> {/* Updated alignment */}
+      {/* Achievement number */}
+      <p className="text-base md:text-lg font-extrabold text-left mt-2">{achievementNumber}</p>
 
-      {/* Title below the achievement number */}
-      <h1 className="text-md font-medium text-left mt-1">{title}</h1>
+      {/* Title */}
+      <h2 className="text-sm md:text-md font-medium text-left mt-1">{title}</h2>
       
-      {/* Description Paragraph */}
-      <p className="text-gray-600 text-xs text-left mt-1">{description}</p>
+      {/* Description */}
+      <p className="text-gray-600 text-xs md:text-sm text-left mt-1">{description}</p>
     </div>
   );
 }
