@@ -1,44 +1,43 @@
 // src/pages/Achievement.jsx
 import React from 'react';
 import AchievementCard from '../components/AchievementCard';
-import achievementImage from '../assets/achievement-page-img.png'; // Adjust the path as necessary
-import GrowthIcon from '../assets/achivement-growth-icon.jpg'; // Make sure the image path is correct
-import BuildingIcon from '../assets/achivement-building-icon.png'; // Make sure the image path is correct
-import RupeesIcon from '../assets/achivement-rupees-icon.png'; // Make sure the image path is correct
-import InsuranceIcon from '../assets/achivement-insurance-icon.png'; // Make sure the image path is correct
+import achievementImage from '../assets/achievement-page-img.png'; 
+import GrowthIcon from '../assets/achivement-growth-icon.jpg'; 
+import BuildingIcon from '../assets/achivement-building-icon.png'; 
+import RupeesIcon from '../assets/achivement-rupees-icon.png'; 
+import InsuranceIcon from '../assets/achivement-insurance-icon.png'; 
 
 function Achievement() {
   const achievements = [
-    { 
-      imgSrc: GrowthIcon, // Path to the image
-      Deals:"576+",
-      title: 'Business/Individual Served', 
-      description: 'With a proven track record of serving over 576 businesses and individuals, we take pride in our commitment to excellence and customer satisfaction.' 
+    {
+      imgSrc: GrowthIcon,
+      achievementNumber: "576+",
+      title: 'Business/Individual Served',
+      description: 'With a proven track record of serving over 576 businesses and individuals, we take pride in our commitment to excellence and customer satisfaction.'
     },
-    { 
+    {
       imgSrc: BuildingIcon,
-      Deals:"576+",
-      title: 'Real Estate Deals', 
-      description: 'With over 350 real estate deals successfully closed, our expertise and dedication have made us a trusted partner in the real estate industry.' 
+      achievementNumber: "350+",
+      title: 'Real Estate Deals',
+      description: 'With over 350 real estate deals successfully closed, our expertise and dedication have made us a trusted partner in the real estate industry.'
     },
-    { 
-      imgSrc: InsuranceIcon, // Use the same or different images as needed
-      Deals:"576+",
-      title: 'Families Protected', 
-      description: 'We are proud to have safeguarded over 150 families, providing them with the security and peace of mind they deserve.' 
+    {
+      imgSrc: InsuranceIcon,
+      achievementNumber: "150+",
+      title: 'Families Protected',
+      description: 'We are proud to have safeguarded over 150 families, providing them with the security and peace of mind they deserve.'
     },
-    { 
-      imgSrc: RupeesIcon, // Use the same or different images as needed
-      Deals:"576+",
-      title: 'Loan Disbursed', 
-      description: 'We are proud to have disbursed over ₹1,250 crore in loans, empowering businesses and individuals to achieve their financial goals.' 
+    {
+      imgSrc: RupeesIcon,
+      achievementNumber: "1250Cr.+",
+      title: 'Loan Disbursed',
+      description: 'We are proud to have disbursed over ₹1,250 crore in loans, empowering businesses and individuals to achieve their financial goals.'
     },
   ];
 
   return (
     <div className="flex flex-col md:flex-row w-full h-screen px-24">
       <div className="md:w-1/2 flex flex-col justify-center p-4">
-        <h2 className="text-xl font-bold mb-4">Our Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {achievements.map((achievement, index) => (
             <AchievementCard
@@ -47,11 +46,17 @@ function Achievement() {
               imgSrc={achievement.imgSrc}
               title={achievement.title}
               description={achievement.description}
+              achievementNumber={achievement.achievementNumber}
             />
           ))}
         </div>
       </div>
       <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
+        <div className="text-center mb-4">
+          <p className="text-lg text-justify leading-tighter tracking-wider ">
+            Customer satisfaction <br />is a priority for us and <br /> we always take care of <br /> it!
+          </p>
+        </div>
         <img
           src={achievementImage}
           alt="Achievements"

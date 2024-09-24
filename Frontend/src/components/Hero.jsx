@@ -17,7 +17,7 @@ function Hero() {
 
     return (
         <React.Fragment>
-            <main className='w-full h-screen flex items-center justify-center px-10'>
+            <main className='w-full h-screen flex items-center  justify-center px-10'>
                 <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-8 md:px-16'>
                     <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
                         <h1 className='text-4xl md:text-7xl font-semibold mb-4'>
@@ -37,10 +37,10 @@ function Hero() {
                             We provide expert guidance and tailored solutions to help you navigate the complex world of finance and real estate.
                         </p>
                         <button 
-                            className='flex items-center bg-green-600 text-white px-4 py-2 rounded-md hover:bg-[#e66b00] transition duration-300'
+                            className='flex items-center bg-green-600 text-black hover:text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-300'
                             onClick={handleCall}
                         >
-                            <FaPhone className='mr-2' /> Call Now
+                            <FaPhone className='mr-2 rotate-90' /> Call Now
                         </button>
                     </aside>
                     <aside className='hero-section-right flex justify-center md:justify-end'>
