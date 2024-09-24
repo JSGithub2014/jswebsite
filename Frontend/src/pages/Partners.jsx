@@ -6,7 +6,7 @@ import DCB from '../assets/partners/DCB.jpg';
 import DNS from '../assets/partners/DNS.jpg';
 import GP_Parsik from '../assets/partners/GP-parsik.jpg';
 import GS_Maha from '../assets/partners/GS-maha.jpg';
-import HDFC_Ltd from '../assets/partners/HDFC-ltd.jpg';
+import HDFC_Ltd from '../assets/partners/HDFC-Ltd.jpg';
 import HDFC from '../assets/partners/HDFC.jpg';
 import HSBC from '../assets/partners/HSBC.jpg';
 import ICICI_Finance from '../assets/partners/ICICI-finance.jpg';
