@@ -10,6 +10,7 @@ import Achievement from './pages/Achievement';
 import Faqs from './pages/Faqs';
 import Partners from './pages/Partners';
 import Clientals from './pages/Clientals';
+import Robustfoundation from './pages/Robust foundation'
 
 function App() {
   return (
@@ -40,7 +41,9 @@ function App() {
           <section id="FAQs">
             <Faqs />
           </section>
-
+          <section id="Robust foundation">
+            <Robustfoundation />
+          </section>
           <Footer />
         </div>
       </React.Fragment>
