@@ -1,4 +1,5 @@
-import React from 'react';
+import Lenis from 'lenis'
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Landing from "./pages/Landing";
 import AboutUs from './pages/AboutUs';
@@ -10,8 +11,10 @@ import Achievement from './pages/Achievement';
 import Faqs from './pages/Faqs';
 import Partners from './pages/Partners';
 import Clientals from './pages/Clientals';
-import Robustfoundation from './pages/RobustFoundation'; // Adjusted path
+import RobustFoundation from './pages/RobustFoundation'; // Adjusted path
 import ScrollToTop from './components/ScrollToTop'; // Adjust the path if necessary
+import Navbar from './components/Navbar';
+import Ourstrengths from './pages/Ourstrength';
 
 function App() {
   useEffect(() => {
@@ -59,9 +62,8 @@ function App() {
           <section id="FAQs">
             <Faqs />
           </section>
-          <section id="RobustFoundation">
-            <Robustfoundation />
-          </section>
+          <Ourstrengths/>
+            <RobustFoundation />
           <Footer />
           <ScrollToTop /> {/* Add the ScrollToTop button here */}
         </div>

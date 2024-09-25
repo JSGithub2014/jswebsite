@@ -61,7 +61,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block mx-4 h-16"
+              className="inline-block mx-4 h-16 border border-black" // Add border here if needed
             />
           ))}
         </div>
@@ -75,40 +75,42 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + partnersLine1.length + 1}`}
-              className="inline-block mx-4 h-16"
+              className="inline-block mx-4 h-16 border border-black" // Add border here if needed
             />
           ))}
         </div>
       </div>
 
       {/* Tailwind CSS for Animations */}
-      <style jsx>{`
-        .animate-marquee {
-          animation: marquee 50s linear infinite;
-        }
+      <style>
+        {`
+          .animate-marquee {
+            animation: marquee 50s linear infinite;
+          }
 
-        .animate-marquee-reverse {
-          animation: marquee-reverse 50s linear infinite;
-        }
+          .animate-marquee-reverse {
+            animation: marquee-reverse 50s linear infinite;
+          }
 
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-33.33%); /* Adjust this based on the number of duplicates */
+            }
           }
-          100% {
-            transform: translateX(-33.33%); /* Adjust this based on the number of duplicates */
-          }
-        }
 
-        @keyframes marquee-reverse {
-          0% {
-            transform: translateX(33.33%);
+          @keyframes marquee-reverse {
+            0% {
+              transform: translateX(33.33%);
+            }
+            100% {
+              transform: translateX(0);
+            }
           }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

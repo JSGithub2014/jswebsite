@@ -35,10 +35,6 @@ const ClientalsSection = () => {
     Lodha,
   ];
 
-  const clientalsLine3 = [
-    // Add any additional clientals if necessary
-  ];
-
   return (
     <div className="bg-white py-8">
       <h2 className="text-4xl font-bold text-center text-gray-700 mb-6">Clientele</h2>
@@ -46,7 +42,6 @@ const ClientalsSection = () => {
       {/* First Marquee */}
       <div className="relative overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
-          {/* Duplicate the array for seamless scrolling */}
           {clientalsLine1.concat(clientalsLine2).concat(clientalsLine1).concat(clientalsLine2).map((logo, index) => (
             <img
               key={index}
@@ -61,7 +56,7 @@ const ClientalsSection = () => {
       {/* Second Marquee */}
       <div className="relative overflow-hidden mt-6">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {clientalsLine3.concat(clientalsLine3).map((logo, index) => (
+          {clientalsLine2.concat(clientalsLine2).map((logo, index) => (
             <img
               key={index}
               src={logo}
@@ -73,33 +68,35 @@ const ClientalsSection = () => {
       </div>
 
       {/* Tailwind CSS for Animations */}
-      <style jsx>{`
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
+      <style>
+        {`
+          .animate-marquee {
+            animation: marquee 40s linear infinite;
+          }
 
-        .animate-marquee-reverse {
-          animation: marquee-reverse 40s linear infinite;
-        }
+          .animate-marquee-reverse {
+            animation: marquee-reverse 40s linear infinite;
+          }
 
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
+          @keyframes marquee {
+            0% {
+              transform: translateX(100%);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
           }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
 
-        @keyframes marquee-reverse {
-          0% {
-            transform: translateX(-100%);
+          @keyframes marquee-reverse {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
           }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

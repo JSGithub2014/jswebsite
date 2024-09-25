@@ -5,7 +5,7 @@ import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 
 function WhyUs() {
   return (
-    <main className='flex flex-col md:flex-row items-center min-h-screen px-4 md:px-24 w-full'>
+    <main className='flex flex-col md:flex-row items-center min-h-[50vh] px-4 md:px-24 w-full'>
       <div className='flex flex-col md:flex-row w-full justify-between items-center md:gap-32'> {/* Use gap only for medium screens and larger */}
         <div className='whyus-img md:w-1/2 mb-4 md:mb-0 md:scale-110'> {/* Scale image on larger screens */}
           <img src={whyUsImage} alt="Why choose us for your needs" className='object-cover w-full h-auto rounded-md' />
