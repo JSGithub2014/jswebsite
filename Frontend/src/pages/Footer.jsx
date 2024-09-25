@@ -4,17 +4,17 @@ import brandLogo from '../assets/brand-logo-transperent.png'; // Import the bran
 
 function Footer() {
   return (
-    <footer className="w-full text-white py-10 relative bg-[rgb(255,102,0)]">
+    <footer className="w-full text-white pt-4 pb-2 relative bg-[rgb(255,102,0)]">
       {/* Decorative Pattern on Top */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-700 to-transparent opacity-10 pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
+      <div className="container mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-start gap-6 relative z-10">
 
         {/* Brand Logo */}
-        <div className="brand-logo mb-8 md:mb-0 flex-shrink-0">
+        <div className="brand-logo mb-4 md:mb-0 flex-shrink-0">
           <a href="#landing" aria-label="Brand Logo">
             <img
-              className="w-32 hover:scale-110 transition-transform duration-300"
+              className="w-28 hover:scale-110 transition-transform duration-300"
               src={brandLogo}
               alt="Brand Logo"
               loading="lazy"
@@ -25,9 +25,9 @@ function Footer() {
         {/* Footer Sections */}
         <div className="flex flex-col md:flex-row w-full justify-between">
           {/* Menu Section */}
-          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
-            <h3 className="text-lg md:text-xl font-bold mb-3">Menu</h3>
-            <ul className="space-y-2">
+          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-2">Menu</h3>
+            <ul className="space-y-1">
               {["About Us", "Services", "Contact Us", "Careers"].map((item) => (
                 <li key={item}>
                   <a
@@ -42,9 +42,9 @@ function Footer() {
           </div>
 
           {/* Support Section */}
-          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
-            <h3 className="text-lg md:text-xl font-bold mb-3">Support</h3>
-            <ul className="space-y-2">
+          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-2">Support</h3>
+            <ul className="space-y-1">
               {["FAQs", "Help Center", "Contact Support"].map((item) => (
                 <li key={item}>
                   <a
@@ -59,9 +59,9 @@ function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="footer-section mb-8 md:mb-0 w-full md:w-1/4 text-right">
-            <h3 className="text-lg md:text-xl font-bold mb-3">Links</h3>
-            <ul className="space-y-2">
+          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
+            <h3 className="text-lg md:text-xl font-bold mb-2">Links</h3>
+            <ul className="space-y-1">
               {["Privacy Policy", "Terms & Conditions", "Sitemap"].map((item) => (
                 <li key={item}>
                   <a
@@ -77,23 +77,23 @@ function Footer() {
 
           {/* Contact Us Section */}
           <div className="footer-section w-full md:w-1/4 text-right">
-            <h3 className="text-lg md:text-xl font-bold mb-3">Contact Us</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center justify-end">
-                <FaPhoneAlt className="mr-2" />
-                <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300 text-sm md:text-base">
+            <h3 className="text-lg md:text-xl font-bold mb-2">Contact Us</h3>
+            <ul className="space-y-1 text-sm md:text-base">
+              <li className="flex items-center justify-end space-x-2">
+                <FaPhoneAlt />
+                <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300">
                   +91 2245120755
                 </a>
               </li>
-              <li className="flex items-center justify-end">
-                <FaEnvelope className="mr-2" />
-                <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300 text-sm md:text-base">
+              <li className="flex items-center justify-end space-x-2">
+                <FaEnvelope />
+                <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300">
                   info@jsasia.net
                 </a>
               </li>
               <li className="flex items-center justify-end">
-                <FaMapMarkerAlt className="mr-2" />
-                <span className="text-sm md:text-base">
+                <FaMapMarkerAlt />
+                <span className="ml-2 text-left">
                   1202 Lodha Supremus,<br />
                   Saki Vihar Road,<br />
                   Powai, Mumbai 400072, MH
@@ -105,7 +105,7 @@ function Footer() {
       </div>
 
       {/* Social Media Icons */}
-      <div className="container mx-auto mt-10 flex justify-center gap-6 text-3xl">
+      <div className="container mx-auto mt-8 flex justify-center gap-6 text-2xl">
         <a
           href="https://facebook.com"
           target="_blank"
@@ -145,13 +145,13 @@ function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="container mx-auto mt-10">
+      <div className="container mx-auto mt-4">
         <hr className="border-t border-zinc-500 opacity-50" />
       </div>
 
       {/* Copyright */}
-      <div className="text-center mt-8 px-4 relative z-10">
-        <p className="text-sm font-light">
+      <div className="text-center mt-2 px-4 relative z-10">
+        <p className="text-xs md:text-sm font-light">
           &copy; {new Date().getFullYear()} J&S Group. All rights reserved.
         </p>
       </div>
