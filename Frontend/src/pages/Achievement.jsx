@@ -37,6 +37,11 @@ function Achievement() {
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen px-4 md:px-24 py-8">
       <div className="md:w-1/2 flex flex-col justify-center p-4">
+        {/* Engaging Heading at the Top */}
+        <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6 text-center md:text-left">
+          Our Achievements: A Journey of Trust and Success
+        </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {achievements.map((achievement, index) => (
             <AchievementCard
@@ -51,14 +56,13 @@ function Achievement() {
       </div>
       <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
         <div className="text-center mb-4">
-          <p className=" md:text-lg text-justify leading-tight tracking-wide text-2xl">
-            Customer satisfaction <br />is a priority for us and <br /> we always take care of <br /> it!
-          </p>
+         
         </div>
         <img
           src={achievementImage}
           alt="Illustration of achievements"
           className="w-full h-auto rounded-md"
+          loading="lazy" // Improve SEO by lazy loading the image
         />
       </div>
     </div>
