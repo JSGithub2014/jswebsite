@@ -7,7 +7,7 @@ function Landing() {
     <React.Fragment>
       <div className='bg-[rgb(255,102,0)]'>
         <Navbar />
-        <div className="pt-10"> 
+        <div >
           <Hero />
         </div>
       </div>

@@ -4,9 +4,9 @@ function TestimonialCard({ name, position, quote, photo }) {
   return (
     <div className="bg-white shadow-lg rounded-lg p-5 m-4 flex flex-col md:flex-row">
       <img 
-        src={photo} 
-        alt={`Photo of ${name}`} 
-        className="w-16 h-16 rounded-full mr-4 mb-4 md:mb-0 md:mr-4" 
+        src={photo}
+        alt={`Photo of ${name}`}
+        className="w-16 h-16 rounded-full  mr-4 mb-4 md:mb-0 md:mr-4" 
         loading="lazy" 
       />
       <div className="flex-grow">

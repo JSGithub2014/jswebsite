@@ -1,25 +1,28 @@
 import React from 'react';
 import TestimonialCard from '../components/TestimonialCards';
 import { RiDoubleQuotesL } from "react-icons/ri";
+import img1 from '../assets/testimonial-male.jpeg'; 
+import img2 from '../assets/testimonial-male-2.jpeg'; 
+import img3 from '../assets/testimonial-male-3.jpeg'; 
 
 const testimonials = [
   {
     name: 'Sharad Dedhia',
     position: 'Client',
     quote: "“Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
-    photo: 'https://via.placeholder.com/150', // Replace with actual image URL
+    photo: img1, // Replace with actual image URL
   },
   {
     name: 'Dinesh Suthar',
     position: 'Old Member',
     quote: '“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”',
-    photo: 'https://via.placeholder.com/150', // Replace with actual image URL
+    photo: img2, // Replace with actual image URL
   },
   {
     name: 'Navnath Ghadge',
     position: 'Client',
     quote: '“Good with the services, will rate 5 of 5 but, there is a compulsion of taking the insurance and they say “it is mandatory”. Impress with the work and please make some changes in your policies as very few are only interested in insurance.”',
-    photo: 'https://via.placeholder.com/150', // Replace with actual image URL
+    photo: img3, // Replace with actual image URL
   },
 ];
 

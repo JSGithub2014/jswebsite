@@ -12,7 +12,7 @@ function ServicesCard({ logo, title, description }) {
         {title}
       </h2>
       <p className="text-sm sm:text-gray-600 text-justify flex-grow">
-        {description}{' '}
+        {description}
         <a 
           href={`/services/${title.toLowerCase()}`} 
           className="text-[rgb(255,102,0)] font-semibold cursor-pointer hover:underline"
