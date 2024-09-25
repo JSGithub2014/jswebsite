@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* styles.css or your relevant CSS file */
+.hero-section-left,
+.hero-section-right img {
+  opacity: 0;
+}
+
+@font-face {
+  font-family: 'Swiss721 cn bt';
+  src: url('./assets/Swiss721CondensedBT.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+::-webkit-scrollbar{
+  background-color: rgb(58,59,59);
+  width: 8px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(255,102,0);
+  border-radius: 2px;
+}

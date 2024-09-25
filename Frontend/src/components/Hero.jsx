@@ -1,0 +1,57 @@
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { FaPhone } from 'react-icons/fa';
+import heroImage from '../assets/hero.png'; // Adjust the path as necessary
+
+function Hero() {
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.to('.hero-section-left', { opacity: 1, y: 0, duration: 1 })
+          .to('.hero-section-right img', { opacity: 1, scale: 1, duration: 1 }, "-=0.5")
+          .to('.services-name', { opacity: 1, x: 0, duration: 1, stagger: 0.5, ease: 'power2.out' }, "<");
+    }, []);
+
+    const handleCall = () => {
+        window.location.href = 'tel:+912245120755'; // Replace with the actual phone number
+    };
+
+    return (
+        <React.Fragment>
+            <main className='w-full h-screen flex items-center justify-center px-4 md:px-10'>
+                <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16'>
+                    <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
+                        <h1 className='text-2xl md:text-6xl font-semibold mb-4'>
+                            Your Trusted Partner <br /> in 
+                            <div className='landing-text-animation inline overflow-hidden'> 
+                                <span className='services-name' style={{ opacity: 0, transform: 'translateX(300px)' }}> Finance,</span>
+                            </div>
+                            <div className='landing-text-animation inline overflow-hidden'> 
+                                <span className='services-name' style={{ opacity: 0, transform: 'translateX(300px)' }}> Insurance,</span>
+                            </div>
+                            <br /> and 
+                            <div className='landing-text-animation inline overflow-hidden'> 
+                                <span className='services-name' style={{ opacity: 0, transform: 'translateX(300px)' }}> Real Estate.</span>
+                            </div>
+                        </h1>
+                        <p className='text-sm md:text-lg mb-6'>
+                            We provide expert guidance and tailored solutions to help you navigate the complex world of finance and real estate.
+                        </p>
+                        <div className="flex justify-center md:justify-start"> {/* Centering the button for mobile */}
+                            <button 
+                                className='flex items-center bg-[rgb(58,59,59)] text-[rgb(255,102,0)] hover:text-[rgb(58,59,59)] px-4 py-2 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
+                                onClick={handleCall}
+                            >
+                                <FaPhone className='mr-2 rotate-90' /> Call Now
+                            </button>
+                        </div>
+                    </aside>
+                    <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[45vw]'>
+                        <img className='w-full h-auto max-h-60 md:max-h-none pt-5 md:pt-0 opacity-0' src={heroImage} alt="Finance, Insurance, and Real Estate" />
+                    </aside>
+                </div>
+            </main>
+        </React.Fragment>
+    );
+}
+
+export default Hero;
