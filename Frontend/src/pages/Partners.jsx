@@ -50,8 +50,8 @@ const PartnerSection = () => {
   };
 
   return (
-    <div className="bg-white py-8 overflow-hidden">
-      <h2 className="text-4xl font-bold text-center text-gray-700 mb-6">Our Partners</h2>
+    <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
+      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Our Partners</h2>
 
       {/* First Marquee Line */}
       <div className="relative overflow-hidden mb-6">
@@ -61,7 +61,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block mx-4 h-16 border border-black" // Add border here if needed
+              className="inline-block mx-4 h-16" 
             />
           ))}
         </div>
@@ -75,7 +75,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + partnersLine1.length + 1}`}
-              className="inline-block mx-4 h-16 border border-black" // Add border here if needed
+              className="inline-block mx-4 h-16 " 
             />
           ))}
         </div>

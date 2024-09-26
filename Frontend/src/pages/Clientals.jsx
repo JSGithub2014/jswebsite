@@ -36,8 +36,8 @@ const ClientalsSection = () => {
   ];
 
   return (
-    <div className="bg-white py-8">
-      <h2 className="text-4xl font-bold text-center text-gray-700 mb-6">Clientele</h2>
+    <div className="bg-white py-8 flex justify-center items-center flex-col">
+      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Clientele</h2>
 
       {/* First Marquee */}
       <div className="relative overflow-hidden">

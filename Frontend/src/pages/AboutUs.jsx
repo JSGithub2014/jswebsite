@@ -3,7 +3,7 @@ const WhoWeAre = () => {
     <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
       <div className="container mx-auto text-center">
         {/* Main heading for SEO */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-[rgb(255,102,0)] mb-6">
           Who We Are
         </h1>
 
@@ -17,7 +17,7 @@ const WhoWeAre = () => {
         {/* Services section */}
         <div className="grid md:grid-cols-2 gap-8">
           <article className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold text-blue-800 mb-4">
+            <h2 className="text-xl font-semibold text-[rgb(58,59,59)] mb-4">
               Comprehensive Financial Solutions
             </h2>
             <p className="text-gray-600">
@@ -27,7 +27,7 @@ const WhoWeAre = () => {
           </article>
 
           <article className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold text-green-800 mb-4">
+            <h2 className="text-xl font-semibold text-[rgb(58,59,59)] mb-4">
               Strategic Real Estate Advisory
             </h2>
             <p className="text-gray-600">
@@ -39,7 +39,7 @@ const WhoWeAre = () => {
 
         {/* Our Commitment Section */}
         <div className="mt-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl font-bold text-[rgb(255,102,0)] mb-6">
             Our Commitment
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">

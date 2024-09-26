@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
-const FAQSection = () => {
+const Faqs = () => {
+  const [openCategory, setOpenCategory] = useState(null);
   const [openQuestion, setOpenQuestion] = useState(null);
+
+  const toggleCategory = (category) => {
+    setOpenCategory(openCategory === category ? null : category);
+    setOpenQuestion(null); // Close questions when changing category
+  };
 
   const toggleQuestion = (index) => {
     setOpenQuestion(openQuestion === index ? null : index);
@@ -33,94 +39,53 @@ const FAQSection = () => {
     <div className="max-w-5xl mx-auto p-8 bg-gray-50">
       <h2 className="text-4xl font-bold text-center mb-12 text-orange-600">Frequently Asked Questions</h2>
 
-      {/* Finance Section */}
-      <div>
-        <h3 className="text-3xl font-semibold mb-6 text-gray-700 border-b-4 border-orange-500 pb-2">Finance</h3>
-        {faqData.finance.map((item, index) => (
-          <div key={index} className="mb-6">
-            <button
-              className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out transform hover:scale-105"
-              onClick={() => toggleQuestion(`finance-${index}`)}
-            >
-              {item.question}
-              <FaChevronDown
-                className={`ml-2 transform transition-transform duration-300 ${
-                  openQuestion === `finance-${index}` ? 'rotate-180 text-orange-600' : ''
-                }`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
-                openQuestion === `finance-${index}` ? 'max-h-screen' : 'max-h-0'
+      {Object.keys(faqData).map((category) => (
+        <div key={category} className="mb-12">
+          <button
+            className="w-full flex justify-between items-center text-left text-3xl font-semibold text-gray-700 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
+            onClick={() => toggleCategory(category)}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+            <FaChevronDown
+              className={`ml-2 transform transition-transform duration-300 ${
+                openCategory === category ? 'rotate-180 text-orange-600' : ''
               }`}
-            >
-              <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
-                {item.answer}
-              </p>
-            </div>
+            />
+          </button>
+          <div
+            className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+              openCategory === category ? 'max-h-screen' : 'max-h-0'
+            } mt-4`} 
+          >
+            {faqData[category].map((item, index) => (
+              <div key={index} className="mb-6">
+                <button
+                  className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
+                  onClick={() => toggleQuestion(index)}
+                >
+                  {item.question}
+                  <FaChevronDown
+                    className={`ml-2 transform transition-transform duration-300 ${
+                      openQuestion === index ? 'rotate-180 text-orange-600' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                    openQuestion === index ? 'max-h-screen' : 'max-h-0'
+                  }`}
+                >
+                  <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* Insurance Section */}
-      <div className="mt-12">
-        <h3 className="text-3xl font-semibold mb-6 text-gray-700 border-b-4 border-orange-500 pb-2">Insurance</h3>
-        {faqData.insurance.map((item, index) => (
-          <div key={index} className="mb-6">
-            <button
-              className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out transform hover:scale-105"
-              onClick={() => toggleQuestion(`insurance-${index}`)}
-            >
-              {item.question}
-              <FaChevronDown
-                className={`ml-2 transform transition-transform duration-300 ${
-                  openQuestion === `insurance-${index}` ? 'rotate-180 text-orange-600' : ''
-                }`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
-                openQuestion === `insurance-${index}` ? 'max-h-screen' : 'max-h-0'
-              }`}
-            >
-              <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
-                {item.answer}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Real Estate Section */}
-      <div className="mt-12">
-        <h3 className="text-3xl font-semibold mb-6 text-gray-700 border-b-4 border-orange-500 pb-2">Real Estate</h3>
-        {faqData.realEstate.map((item, index) => (
-          <div key={index} className="mb-6">
-            <button
-              className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out transform hover:scale-105"
-              onClick={() => toggleQuestion(`realEstate-${index}`)}
-            >
-              {item.question}
-              <FaChevronDown
-                className={`ml-2 transform transition-transform duration-300 ${
-                  openQuestion === `realEstate-${index}` ? 'rotate-180 text-orange-600' : ''
-                }`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
-                openQuestion === `realEstate-${index}` ? 'max-h-screen' : 'max-h-0'
-              }`}
-            >
-              <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
-                {item.answer}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default FAQSection;
+export default Faqs;

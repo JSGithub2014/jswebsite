@@ -10,19 +10,19 @@ const testimonials = [
     name: 'Sharad Dedhia',
     position: 'Client',
     quote: "“Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
-    photo: img1, // Replace with actual image URL
+    photo: img1,
   },
   {
     name: 'Dinesh Suthar',
     position: 'Old Member',
     quote: '“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”',
-    photo: img2, // Replace with actual image URL
+    photo: img2,
   },
   {
     name: 'Navnath Ghadge',
     position: 'Client',
     quote: '“Good with the services, will rate 5 of 5 but, there is a compulsion of taking the insurance and they say “it is mandatory”. Impress with the work and please make some changes in your policies as very few are only interested in insurance.”',
-    photo: img3, // Replace with actual image URL
+    photo: img3,
   },
 ];
 
@@ -35,16 +35,18 @@ function Testimonial() {
           What Our <br /> Clients Say?
         </h1>
       </div>
-      <div className="md:w-1/2 flex flex-col space-y-6">
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard
-            key={index}
-            name={testimonial.name}
-            position={testimonial.position}
-            quote={testimonial.quote}
-            photo={testimonial.photo} // Pass the photo prop
-          />
-        ))}
+      <div className="md:w-1/2 h-96 overflow-y-auto custom-scrollbar"> 
+        <div className="flex flex-col space-y-6 p-4">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={index}
+              name={testimonial.name}
+              position={testimonial.position}
+              quote={testimonial.quote}
+              photo={testimonial.photo}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
