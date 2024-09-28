@@ -75,9 +75,9 @@ function Navbar() {
             onClick={toggleMenu}
           >
             {isMenuOpen ? (              
-              <HiX className="w-8 h-8 transition-transform duration-300 ease-in-out" />
+              <HiX className="w-8 h-8 transition-transform duration-300 ease-in-out text-white" />
             ) : (
-              <HiMenu className="w-8 h-8 transition-transform duration-300 ease-in-out" />
+              <HiMenu className="w-8 h-8 transition-transform duration-300 ease-in-out text-white" />
             )}
           </button>
         </nav>

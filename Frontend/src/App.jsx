@@ -39,6 +39,7 @@ function App() {
   return (
     <Router>
       <React.Fragment>
+        <div className=' overflow-x-hidden'>
         <Navbar /> {/* Add the Navbar here */}
         <div>
           <section id="Home">
@@ -67,6 +68,8 @@ function App() {
           <Footer />
           <ScrollToTop /> {/* Add the ScrollToTop button here */}
         </div>
+        </div>
+        
       </React.Fragment>
     </Router>
   );
