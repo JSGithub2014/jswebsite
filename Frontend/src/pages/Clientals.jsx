@@ -68,11 +68,11 @@ const ClientalsSection = () => {
   ];
 
   return (
-    <div className="bg-white py-8 flex justify-center items-center flex-col">
+    <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
       <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Clientele</h2>
 
       {/* First Marquee */}
-      <div className="relative overflow-x-hidden">
+      <div className="relative ">
         <div className="flex animate-marquee whitespace-nowrap">
           {clientalsLine1.concat(clientalsLine2).concat(clientalsLine1).concat(clientalsLine2).map((logo, index) => (
             <img
