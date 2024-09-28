@@ -69,7 +69,7 @@ const ClientalsSection = () => {
 
   return (
     <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
-      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Clientele</h2>
+      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700  w-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">Clientele</h2>
 
       {/* First Marquee */}
       <div className="relative ">

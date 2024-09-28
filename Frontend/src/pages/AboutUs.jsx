@@ -32,7 +32,7 @@ const WhoWeAre = () => {
             </h2>
             <p className="text-gray-600">
               As trusted real estate advisors, we help you navigate market complexities, providing the 
-              <strong>strategic insights</strong> you need to make informed decisions.
+              <strong> strategic insights</strong> you need to make informed decisions.
             </p>
           </article>
         </div>

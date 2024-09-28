@@ -26,9 +26,9 @@ function Services() {
     return (
         <React.Fragment>
             <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
-                <h1 className='text-5xl md:text-6xl font-semibold text-center'>Our Services</h1>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-center'>Our Services</h1>
                 <div>
-                    <p className='text-base md:text-lg text-center'>
+                    <p className='text-sm md:text-base lg:text-lg text-center'>
                         We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
                     </p>
                 </div>
