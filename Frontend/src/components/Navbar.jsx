@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
-import brandLogo from '../assets/brand-logo-transperent.png'; // Adjust the path as necessary
+import brandLogo from '../assets/Brand.png'; // Adjust the path as necessary
 
 function Navbar() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -48,7 +48,7 @@ function Navbar() {
         <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[rgb(58,59,59)]">
           <div className="brand-logo">
             <a href="#Home">
-              <img className="w-20 pt-2" src={brandLogo} alt="Brand Logo" />
+              <img className="w-14 pt-2 py-2" src={brandLogo} alt="Brand Logo" />
             </a>
           </div>
           <div className="flex-1 hidden md:flex justify-center brand-options gap-8 uppercase font-bold">

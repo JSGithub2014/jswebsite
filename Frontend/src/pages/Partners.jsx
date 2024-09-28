@@ -46,12 +46,14 @@ const PartnerSection = () => {
   ];
 
   const duplicateLogos = (logos) => {
-    return [...logos, ...logos, ...logos]; // Duplicate three times for seamless effect
+    return [...logos, ...logos, ...logos];
   };
 
   return (
     <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
-      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Our Partners</h2>
+      <h2 className="text-4xl font-bold text-center px-10 py-3 text-white rounded-full bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
+        Our Partners
+      </h2>
 
       {/* First Marquee Line */}
       <div className="relative overflow-hidden mb-6">
@@ -67,7 +69,7 @@ const PartnerSection = () => {
         </div>
       </div>
 
-      {/* Second Marquee Line */}
+     
       <div className="relative overflow-hidden">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
           {duplicateLogos(partnersLine2).map((logo, index) => (
@@ -80,8 +82,6 @@ const PartnerSection = () => {
           ))}
         </div>
       </div>
-
-      {/* Tailwind CSS for Animations */}
       <style>
         {`
           .animate-marquee {
@@ -114,5 +114,4 @@ const PartnerSection = () => {
     </div>
   );
 };
-
 export default PartnerSection;
