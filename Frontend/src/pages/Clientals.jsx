@@ -26,6 +26,16 @@ const ClientalsSection = () => {
     Akshar,
     TheWadhvaGroup,
     Rajesh,
+    Tricity,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
   ];
 
   const clientalsLine2 = [
@@ -33,6 +43,28 @@ const ClientalsSection = () => {
     Arihant,
     Marathon,
     Lodha,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
+    Regency,
+    Arihant,
+    Marathon,
+    Lodha,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
   ];
 
   return (
@@ -40,7 +72,7 @@ const ClientalsSection = () => {
       <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700 rounded-full bg-[rgb(255,102,0)] mb-6">Clientele</h2>
 
       {/* First Marquee */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-x-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {clientalsLine1.concat(clientalsLine2).concat(clientalsLine1).concat(clientalsLine2).map((logo, index) => (
             <img
@@ -54,7 +86,7 @@ const ClientalsSection = () => {
       </div>
 
       {/* Second Marquee */}
-      <div className="relative overflow-hidden mt-6">
+      <div className="relative overflow-hidden mt-6 w-full">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
           {clientalsLine2.concat(clientalsLine2).map((logo, index) => (
             <img
@@ -80,7 +112,7 @@ const ClientalsSection = () => {
 
           @keyframes marquee {
             0% {
-              transform: translateX(100%);
+              transform: translateX(10%);
             }
             100% {
               transform: translateX(-100%);
@@ -89,7 +121,7 @@ const ClientalsSection = () => {
 
           @keyframes marquee-reverse {
             0% {
-              transform: translateX(-100%);
+              transform: translateX(-10%);
             }
             100% {
               transform: translateX(100%);

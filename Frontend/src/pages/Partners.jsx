@@ -43,6 +43,15 @@ const PartnerSection = () => {
     LIC_HFL,
     PNB,
     RBL,
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
   ];
 
   const duplicateLogos = (logos) => {
@@ -70,7 +79,7 @@ const PartnerSection = () => {
       </div>
 
      
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden w-full">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
           {duplicateLogos(partnersLine2).map((logo, index) => (
             <img

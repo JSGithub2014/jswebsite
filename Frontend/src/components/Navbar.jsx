@@ -74,7 +74,7 @@ function Navbar() {
             className={`md:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}
             onClick={toggleMenu}
           >
-            {isMenuOpen ? (
+            {isMenuOpen ? (              
               <HiX className="w-8 h-8 transition-transform duration-300 ease-in-out" />
             ) : (
               <HiMenu className="w-8 h-8 transition-transform duration-300 ease-in-out" />
