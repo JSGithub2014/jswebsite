@@ -45,9 +45,9 @@ function App() {
     };
   }, []);
 
-  // if (loading) {
-  //   return  <Loading />; // Show loading screen while loading
-  // }
+  if (loading) {
+    return  <Loading />; // Show loading screen while loading
+  }
 
   return (
     <Router>
