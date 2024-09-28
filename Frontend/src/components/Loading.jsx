@@ -20,9 +20,9 @@ const Loading = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(255,102,0)] z-50">
-      <img src={logo} alt="Company Logo" className=" w-64 h-auto mb-4 -mt-5" />
-      <div className="text-xl font-bold">
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(255,102,0)] z-50 p-4">
+      <img src={logo} alt="Company Logo" className="w-32 h-auto mb-4 md:w-48" /> {/* Adjust logo size */}
+      <div className="text-sm md:text-lg font-bold flex justify-center space-x-1"> {/* Flex container for horizontal layout */}
         {['Bouldless', 'Committed', 'Pragmatic'].map((word, index) => (
           <span 
             key={index} 
@@ -33,7 +33,7 @@ const Loading = () => {
             }}
           >
             {word}
-            {index < 2 && ' | '} {/* Add separator except for the last word */}
+            {index < 2 && <span className="text-sm"> | </span>} {/* Add separator except for the last word */}
           </span>
         ))}
       </div>

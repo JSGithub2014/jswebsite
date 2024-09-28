@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
-import heroImage from '../assets/hero.png'; // Adjust the path as necessary
-import callBtn from '../assets/call-us-img.png'; // Adjust the path as necessary
+import heroImage from '../assets/hero.png';
+import callBtn from '../assets/call-us-img.png'; 
 
 function Hero() {
     useEffect(() => {
@@ -15,7 +15,7 @@ function Hero() {
         window.location.href = 'tel:+912245120755'; // Replace with the actual phone number
     };
 
-    return (
+    return (                                           
         <React.Fragment>
             <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center px-4 md:px-10 pt-16 md:pt-0'>
                 <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16'>

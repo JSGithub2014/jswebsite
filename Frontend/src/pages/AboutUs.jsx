@@ -2,12 +2,12 @@ const WhoWeAre = () => {
   return (
     <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
       <div className="container mx-auto text-center">
-        {/* Main heading for SEO */}
+        
         <h1 className="text-4xl md:text-5xl font-extrabold text-[rgb(255,102,0)] mb-6">
           Who We Are
         </h1>
 
-        {/* Descriptive paragraph */}
+        
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
           We specialize in <strong>expert financial services, insurance solutions, and real estate advisory</strong>, 
           empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique 

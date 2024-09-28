@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Ourstrengths from './pages/Ourstrength';
 import Loading from './components/Loading'; // Adjust the path as needed
+import ContactUs from './pages/ContactUs';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,9 +45,9 @@ function App() {
     };
   }, []);
 
-  if (loading) {
-    return <Loading />; // Show loading screen while loading
-  }
+  // if (loading) {
+  //   return  <Loading />; // Show loading screen while loading
+  // }
 
   return (
     <Router>
@@ -77,6 +78,7 @@ function App() {
             </section>
             <Ourstrengths />
             <RobustFoundation />
+            <ContactUs />
             <Footer />
             <ScrollToTop />
           </div>

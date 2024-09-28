@@ -24,22 +24,6 @@ function Footer() {
 
         {/* Footer Sections */}
         <div className="flex flex-col md:flex-row w-full justify-between">
-          {/* Menu Section */}
-          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
-            <h3 className="text-lg md:text-xl font-bold mb-2">Menu</h3>
-            <ul className="space-y-1">
-              {["About Us", "Services", "Contact Us", "Careers"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase().replace(/\s/g, '')}`}
-                    className="hover:text-black transition-colors duration-300 text-sm md:text-base"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Support Section */}
           <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
@@ -76,7 +60,7 @@ function Footer() {
           </div>
 
           {/* Contact Us Section */}
-          <div className="footer-section w-full md:w-1/4 text-right">
+          <div className="footer-section w-full md:w-1/4 text-right flex flex-col ">
             <h3 className="text-lg md:text-xl font-bold mb-2">Contact Us</h3>
             <ul className="space-y-1 text-sm md:text-base">
               <li className="flex items-center justify-end space-x-2">
@@ -91,12 +75,12 @@ function Footer() {
                   info@jsasia.net
                 </a>
               </li>
-              <li className="flex items-center justify-end">
+              <li className="flex items-center justify-end  text-right">
                 <FaMapMarkerAlt />
-                <span className="ml-2 text-left">
-                  1202 Lodha Supremus,<br />
-                  Saki Vihar Road,<br />
-                  Powai, Mumbai 400072, MH
+                <span className="ml-2 text-left text-xs">
+                  1202 Lodha Supremus<br />
+                  Saki Vihar Road,Powai<br />
+                  Mumbai 400072
                 </span>
               </li>
             </ul>
