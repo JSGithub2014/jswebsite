@@ -42,8 +42,8 @@ const OurStrengths = () => {
     <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
       <div className="container mx-auto text-center">
         {/* More engaging heading */}
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">
-           The Pillars of Success
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+           The <span className="font-semibold  text-[rgb(255,102,0)]">Pillars</span> of<span className="font-semibold text-[rgb(255,102,0)] "> Success</span>
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

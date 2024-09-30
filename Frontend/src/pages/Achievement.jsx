@@ -37,8 +37,8 @@ function Achievement() {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 md:px-24 py-8">
       {/* Page Heading */}
-      <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6 text-center">
-        Our Achievements: A Journey of Trust and Success
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+        <span className='Font-extrabolder text-[rgb(255,102,0)]'>Our Achievements: </span> <span className='font-semibold black'>Journey of Trust and Success</span>
       </h2>
 
       <div className="flex flex-col md:flex-row w-full">
