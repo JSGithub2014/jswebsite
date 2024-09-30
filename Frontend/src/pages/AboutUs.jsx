@@ -5,7 +5,7 @@ const WhoWeAre = () => {
         {`
           @font-face {
             font-family: 'Gendy';
-            src: url('../assets/TTF/Gendy.ttf') format('truetype');
+            src: url('/assets/TTF/Gendy.ttf') format('truetype');
           }
           .heading-font {
             font-family: 'Gendy', sans-serif;
@@ -15,11 +15,11 @@ const WhoWeAre = () => {
       <div className="container mx-auto text-center">
         
         <h1 className="text-4xl md:text-5xl text-[rgb(255,102,0)] mb-6 heading-font tracking-wider">
-           <span className="font-extrabold text-black tracking-wider ">Who </span>We Are
+           <span className=" text-black tracking-wider ">Who </span>We Are
         </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
-          We specialize in <strong>expert financial services, insurance solutions, and real estate advisory</strong>, 
+          We specialize in expert financial services, insurance solutions, and real estate advisory, 
           empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique 
           needs, ensuring optimized financial health and comprehensive protection.
         </p>
@@ -31,7 +31,7 @@ const WhoWeAre = () => {
               Comprehensive Financial Solutions
             </h2>
             <p className="text-gray-600">
-              From <strong>investment management</strong> and business funding to customized insurance plans, we guide 
+              From investment management and business funding to customized insurance plans, we guide 
               you every step of the way with our expert solutions.
             </p>
           </article>
@@ -42,7 +42,7 @@ const WhoWeAre = () => {
             </h2>
             <p className="text-gray-600">
               As trusted real estate advisors, we help you navigate market complexities, providing the 
-              <strong> strategic insights</strong> you need to make informed decisions.
+               strategic insights you need to make informed decisions.
             </p>
           </article>
         </div>
@@ -53,7 +53,7 @@ const WhoWeAre = () => {
             <span className=" font-black text-black tracking-wider">Our </span>Commitment
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            With a commitment to <strong>trust, integrity, and exceptional service</strong>, 
+            With a commitment to trust, integrity, and exceptional service, 
             we strive to exceed your expectations, helping you secure your future and grow your investments.
           </p>
         </div>
