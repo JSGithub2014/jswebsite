@@ -12,7 +12,7 @@ function WhyUs() {
         </div>
         <div className='whyus-text w-full md:w-1/2 mt-4 md:mt-0'>
           <div className='flex flex-col space-y-4 p-4'>
-            <h1 className='text-3xl md:text-5xl font-semibold'>Why Us?</h1> {/* Larger text for larger screens */}
+            <h1 className='text-3xl md:text-5xl font-semibold'>  <span className='font-bold )]'>W</span>hy  <span className='font-bold text-[rgb(255,102,0)]'>Us</span>?</h1> {/* Larger text for larger screens */}
             <div className='flex items-center'>
               <MdDone className='text-[#F3BA73]' />
               <p className='ml-2 text-base md:text-lg'>Proven Track Record of Success</p>

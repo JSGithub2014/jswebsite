@@ -3,8 +3,8 @@ const WhoWeAre = () => {
     <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
       <div className="container mx-auto text-center">
         
-        <h1 className="text-4xl md:text-5xl font-extrabold text-[rgb(255,102,0)] mb-6">
-          Who We Are
+        <h1 className="text-4xl md:text-5xl  text-[rgb(255,102,0)] mb-6">
+           <span className="font-extrabold text-black ">Who </span>We Are
         </h1>
 
         
@@ -39,8 +39,8 @@ const WhoWeAre = () => {
 
         {/* Our Commitment Section */}
         <div className="mt-12">
-          <h2 className="text-3xl font-bold text-[rgb(255,102,0)] mb-6">
-            Our Commitment
+          <h2 className="text-3xl font-bold  text-[rgb(255,102,0)] mb-6">
+            <span className="font-extrabold text-black ">Our </span>Commitment
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
             With a commitment to <strong>trust, integrity, and exceptional service</strong>, 

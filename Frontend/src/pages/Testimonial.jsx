@@ -32,7 +32,7 @@ function Testimonial() {
       <div className="md:w-1/2 px-6 mb-8 md:mb-0 flex flex-col justify-center">
         <RiDoubleQuotesL className='text-8xl text-zinc-500 mb-[2vw]' aria-hidden="true" />
         <h1 className="text-4xl md:text-6xl font-semibold mb-4 text-black" aria-label="What Our Clients Say">
-          What Our <br /> Clients Say?
+          <span className='font-bold  text-[rgb(255,102,0)]'>W</span>hat <span className='font-semibold  text-[rgb(255,102,0)]'>Our</span><br /> Clients Say?
         </h1>
       </div>
       <div className="md:w-1/2 h-96 overflow-y-auto custom-scrollbar"> 
