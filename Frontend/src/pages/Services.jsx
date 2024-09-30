@@ -26,9 +26,9 @@ function Services() {
     return (
         <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
             <div>
-                <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-center tracking-wider'>
-                    <span className='font-bold heading-font tracking-wider'>Our </span>
-                    <span className='font-light heading-font text-[rgb(255,102,0)]'>Service</span>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl font-thin text-center tracking-wider'>
+                    <span className=' heading-font tracking-wider'>Our </span>
+                    <span className=' heading-font text-[rgb(255,102,0)]'>Service</span>
                 </h1>
             </div>
             <div>

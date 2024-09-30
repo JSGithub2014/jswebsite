@@ -68,8 +68,8 @@ const PartnerSection = () => {
                 `}
             </style>
 
-      <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
-        <span>Our</span>  <span className='font-thin tracking-wider'>Partners</span>
+      <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider font-thin bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
+        <span>Our</span>  <span className=' tracking-wider'>Partners</span>
       </h2>
 
       {/* First Marquee Line */}

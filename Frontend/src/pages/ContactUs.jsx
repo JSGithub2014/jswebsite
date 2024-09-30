@@ -4,9 +4,9 @@ import contactShowcase from '../assets/contact-us.gif';
 const ContactUs = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider">
-        <span className='font-bold'>Contact</span> 
-        <span className='font-bold text-black heading-font tracking-wider'> Us</span>
+      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider">
+        <span >Contact</span> 
+        <span className='  text-black heading-font tracking-wider'> Us</span>
       </h1>
 
       <div className="flex flex-col md:flex-row w-full max-w-6xl">

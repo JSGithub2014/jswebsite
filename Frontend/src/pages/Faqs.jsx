@@ -37,9 +37,9 @@ const Faqs = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-8 bg-gray-50">
-      <h1 className='text-4xl md:text-5xl lg:text-5xl mb-5 font-semibold text-center tracking-wider'>
-        <span className='font-bold heading-font tracking-wider'>Frequently </span>
-        <span className='font-light heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
+      <h1 className='text-4xl md:text-5xl lg:text-5xl mb-5 font-thin text-center tracking-wider'>
+        <span className='heading-font tracking-wider'>Frequently </span>
+        <span className=' heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
       </h1>
 
       {Object.keys(faqData).map((category) => (

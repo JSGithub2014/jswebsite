@@ -4,9 +4,9 @@ const WhoWeAre = () => {
     return (
         <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
             <div className="container mx-auto text-center">
-                <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-center tracking-wider mb-4'>
-                    <span className='font-bold heading-font tracking-wider'>Who</span>
-                    <span className='font-light heading-font text-[rgb(255,102,0)]'> We Are</span>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl font-thin text-center tracking-wider mb-4 heading-font'>
+                    <span >Who</span>
+                    <span className=' text-[rgb(255,102,0)]'> We Are</span>
                 </h1>
 
                 <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
@@ -18,7 +18,7 @@ const WhoWeAre = () => {
                 {/* Services section */}
                 <div className="grid md:grid-cols-2 gap-8">
                     <article className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105">
-                        <h2 className="text-xl font-semibold text-[rgb(58,59,59)] mb-4">
+                        <h2 className="text-xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider">
                             Comprehensive Financial Solutions
                         </h2>
                         <p className="text-gray-600">
@@ -28,7 +28,7 @@ const WhoWeAre = () => {
                     </article>
 
                     <article className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105">
-                        <h2 className="text-xl font-semibold text-[rgb(58,59,59)] mb-4">
+                        <h2 className="text-xl  text-[rgb(58,59,59)] mb-4 heading-font tracking-wider">
                             Strategic Real Estate Advisory
                         </h2>
                         <p className="text-gray-600">
@@ -40,9 +40,9 @@ const WhoWeAre = () => {
 
                 {/* Our Commitment Section */}
                 <div className="mt-12">
-                    <h1 className='text-2xl md:text-5xl lg:text-6xl font-semibold text-center tracking-wider mb-4'>
-                        <span className='font-bold heading-font tracking-wider'>Our</span>
-                        <span className='font-light heading-font text-[rgb(255,102,0)]'> Commitment</span>
+                    <h1 className='text-2xl md:text-5xl lg:text-6xl font-thin text-center tracking-wider mb-4 heading-font'>
+                        <span >Our</span>
+                        <span className=' text-[rgb(255,102,0)]'> Commitment</span>
                     </h1>
                     <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
                         With a commitment to trust, integrity, and exceptional service, 
