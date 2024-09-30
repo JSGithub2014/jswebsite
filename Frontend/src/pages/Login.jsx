@@ -23,7 +23,7 @@ const Login = () => {
 
                 {/* Login Form Section */}
                 <div className="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md">
-                    <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+                    <h2 className="text-3xl font-bold mb-6 text-center heading-font tracking-wider">Login</h2>
 
                     {/* Email Field */}
                     <div className="mb-4">
