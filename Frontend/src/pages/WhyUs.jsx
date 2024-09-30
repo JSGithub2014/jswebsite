@@ -6,13 +6,25 @@ import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 function WhyUs() {
   return (
     <main className='flex flex-col md:flex-row items-center min-h-[50vh] px-4 md:px-24 w-full'>
+  <style>
+                {`
+                  @font-face {
+                    font-family: 'Gendy';
+                    src: url('../assets/TTF/Gendy.ttf') format('truetype');
+                  }
+                  .heading-font {
+                    font-family: 'Gendy', sans-serif;
+                  }
+                `}
+            </style>
+
       <div className='flex flex-col md:flex-row w-full justify-between items-center md:gap-32'> {/* Use gap only for medium screens and larger */}
         <div className='whyus-img md:w-1/2 mb-4 md:mb-0 md:scale-110'> {/* Scale image on larger screens */}
           <img src={whyUsImage} alt="Why choose us for your needs" className='object-cover w-full h-auto rounded-md' />
         </div>
         <div className='whyus-text w-full md:w-1/2 mt-4 md:mt-0'>
           <div className='flex flex-col space-y-4 p-4'>
-            <h1 className='text-3xl md:text-5xl font-semibold'>  <span className='font-bold )]'>W</span>hy  <span className='font-bold text-[rgb(255,102,0)]'>Us</span>?</h1> {/* Larger text for larger screens */}
+            <h1 className='text-3xl md:text-5xl font-semibold heading-font tracking-wider '>  <span className='font-bold )] tracking-wider'>W</span>hy  <span className='font-bold text-[rgb(255,102,0)]'>Us</span>?</h1> {/* Larger text for larger screens */}
             <div className='flex items-center'>
               <MdDone className='text-[#F3BA73]' />
               <p className='ml-2 text-base md:text-lg'>Proven Track Record of Success</p>

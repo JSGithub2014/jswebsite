@@ -55,8 +55,21 @@ const PartnerSection = () => {
 
   return (
     <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
-      <h2 className="text-4xl font-bold text-center px-10 py-3 text-gray-700 w-full bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
-        Our Partners
+
+<style>
+                {`
+                  @font-face {
+                    font-family: 'Gendy';
+                    src: url('../assets/TTF/Gendy.ttf') format('truetype');
+                  }
+                  .heading-font {
+                    font-family: 'Gendy', sans-serif;
+                  }
+                `}
+            </style>
+
+      <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
+        <span>Our</span>  <span className='font-thin tracking-wider'>Partners</span>
       </h2>
 
       {/* First Marquee Line */}

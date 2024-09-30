@@ -9,6 +9,8 @@ import fourthPoint from '../assets/fourth-point-1.png';
 const StrengthSection = () => {
   return (
     <section className="bg-white py-12">
+  
+
       <div className="container mx-auto relative">
         {/* Horizontal Line */}
         <div className="absolute top-1/2 w-full h-1 bg-primary"></div>

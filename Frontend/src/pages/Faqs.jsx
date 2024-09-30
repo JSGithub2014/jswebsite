@@ -37,7 +37,19 @@ const Faqs = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-8 bg-gray-50">
-      <h2 className="text-4xl font-bold text-center mb-12 text-orange-600">Frequently Asked Questions</h2>
+        <style>
+                {`
+                  @font-face {
+                    font-family: 'Gendy';
+                    src: url('../assets/TTF/Gendy.ttf') format('truetype');
+                  }
+                  .heading-font {
+                    font-family: 'Gendy', sans-serif;
+                  }
+                `}
+            </style>
+
+      <h2 className="text-4xl font-bold text-center mb-12 text-orange-600 heading-font tracking-wider"> <span className='text-black tracking-wider'>Frequently</span> Asked Questions</h2>
 
       {Object.keys(faqData).map((category) => (
         <div key={category} className="mb-12">
