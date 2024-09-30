@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faEye, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BrandLogo from '../assets/brand-logo-transperent.png';
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -72,7 +73,7 @@ const Login = () => {
 
                 {/* Logo Section for larger screens */}
                 <div className="hidden md:flex w-1/2 items-center justify-center">
-                    <img src="../src/assets/brand-logo-transperent.png" alt="Brand Logo" />
+                    <img src={BrandLogo} alt="Brand Logo" />
                 </div>
             </div>
 
