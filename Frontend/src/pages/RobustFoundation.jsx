@@ -35,7 +35,7 @@ const OurStrengths = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
+    <section className="bg-gradient-to-b  py-12 px-4 md:px-16">
       <style>
         {`
           @font-face {

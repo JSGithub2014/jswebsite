@@ -4,7 +4,7 @@ const WhoWeAre = () => {
     return (
         <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16">
             <div className="container mx-auto text-center">
-                <h1 className='text-4xl md:text-5xl lg:text-6xl font-thin text-center tracking-wider mb-4 heading-font'>
+                <h1 className='text-4xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'>
                     <span >Who</span>
                     <span className=' text-[rgb(255,102,0)]'> We Are</span>
                 </h1>
@@ -40,7 +40,7 @@ const WhoWeAre = () => {
 
                 {/* Our Commitment Section */}
                 <div className="mt-12">
-                    <h1 className='text-2xl md:text-5xl lg:text-6xl font-thin text-center tracking-wider mb-4 heading-font'>
+                    <h1 className='text-2xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'>
                         <span >Our</span>
                         <span className=' text-[rgb(255,102,0)]'> Commitment</span>
                     </h1>
