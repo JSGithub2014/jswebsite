@@ -46,12 +46,7 @@ const PartnerSection = () => {
     ICICI_Finance,
     ICICI,
     IDBI,
-    IDFC1st,
-    KNS,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
+    
   ];
 
   const duplicateLogos = (logos) => {

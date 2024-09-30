@@ -52,19 +52,7 @@ const ClientalsSection = () => {
     Akshar,
     TheWadhvaGroup,
     Rajesh,
-    Regency,
-    Arihant,
-    Marathon,
-    Lodha,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    TheWadhvaGroup,
-    Rajesh,
+    
   ];
 
   return (

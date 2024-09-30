@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@gsap/react": "^2.1.1",
+    "font-awesome": "^4.7.0",
     "gsap": "^3.12.5",
     "lenis": "^1.1.13",
     "react": "^18.3.1",

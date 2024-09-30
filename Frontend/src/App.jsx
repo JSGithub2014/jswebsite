@@ -1,7 +1,9 @@
 import Lenis from 'lenis';
-import React, { useEffect, useState } from 'react'; // Add useState
-import { BrowserRouter as Router } from 'react-router-dom';
-import Landing from "./pages/Landing";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Landing from './pages/Landing';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import Testimonial from './pages/Testimonial';
@@ -15,10 +17,10 @@ import RobustFoundation from './pages/RobustFoundation';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Ourstrengths from './pages/Ourstrength';
-import Loading from './components/Loading'; // Adjust the path as needed
+import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
 
-function App() {
+const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +38,7 @@ function App() {
     requestAnimationFrame(raf);
 
     const timer = setTimeout(() => {
-      setLoading(false); // Set loading to false after 3 seconds
+      setLoading(false);
     }, 3000); // Adjust duration as needed
 
     return () => {
@@ -46,46 +48,42 @@ function App() {
   }, []);
 
   if (loading) {
-    return  <Loading />; // Show loading screen while loading
+    return <Loading />; // Show loading screen while loading
   }
 
   return (
-    <Router>
-      <React.Fragment>
-        <div className='overflow-x-hidden'>
-          <Navbar />
+    <div className='overflow-x-hidden'>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/" element={
           <div>
-            <section id="Home">
-              <Landing />
-            </section>
-            <section id="About">
-              <AboutUs />
-            </section>
-            <section id="Services">
-              <Services />
-            </section>
+            <section id="Home"><Landing /></section>
+            <section id="About"><AboutUs /></section>
+            <section id="Services"><Services /></section>
             <Partners />
             <Clientals />
             <Testimonial />
-            <section id="Achievement">
-              <Achievement />
-            </section>
-            <section id="Whyus">
-              <WhyUs />
-            </section>
-            <section id="FAQs">
-              <Faqs />
-            </section>
+            <section id="Achievement"><Achievement /></section>
+            <section id="Whyus"><WhyUs /></section>
+            <section id="FAQs"><Faqs /></section>
             <Ourstrengths />
             <RobustFoundation />
             <ContactUs />
             <Footer />
             <ScrollToTop />
           </div>
-        </div>
-      </React.Fragment>
-    </Router>
+        } />
+      </Routes>
+    </div>
   );
 }
 
-export default App;
+const WrappedApp = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default WrappedApp;
