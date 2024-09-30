@@ -52,28 +52,17 @@ const ClientalsSection = () => {
     Akshar,
     TheWadhvaGroup,
     Rajesh,
-    
   ];
 
   return (
     <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
 
-<style>
-                {`
-                  @font-face {
-                    font-family: 'Gendy';
-                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
-                  }
-                  .heading-font {
-                    font-family: 'Gendy', sans-serif;
-                  }
-                `}
-            </style>
-
-      <h2 className="text-4xl font-bold text-center px-10 py-2 text-gray-700  w-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105 heading-font tracking-wider">Clientele</h2>
+      <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
+        Clientele
+      </h2>
 
       {/* First Marquee */}
-      <div className="relative ">
+      <div className="relative">
         <div className="flex animate-marquee whitespace-nowrap">
           {clientalsLine1.concat(clientalsLine2).concat(clientalsLine1).concat(clientalsLine2).map((logo, index) => (
             <img

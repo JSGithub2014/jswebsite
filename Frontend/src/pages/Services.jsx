@@ -24,50 +24,32 @@ const services = [
 
 function Services() {
     return (
-        <React.Fragment>
-            <style>
-                {`
-                  @font-face {
-                    font-family: 'Gendy';
-                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
-                  }
-                  .heading-font {
-                    font-family: 'Gendy', sans-serif;
-                  }
-                `}
-            </style>
-
-            <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
-                <div>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-center tracking-wider'>
-                        <span className='font-bold heading-font tracking-wider'>Our </span>
-                        <span className='font-light heading-font text-[rgb(255,102,0)]'>Service</span>
-                    </h1>
-                </div>
-                <div>
-                    <p className='text-sm md:text-base lg:text-lg text-center'>
-                        We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
-                    </p>
-                </div>
-                <div className="flex justify-center flex-wrap">
-                    {services.map((service, index) => (
-                        <div 
-                            key={index} 
-                            className="w-full sm:w-1/2 lg:w-1/3 p-4"
-                        >
-                            <ServicesCard
-                                logo={service.logo}
-                                title={service.title}
-                                description={service.description}
-                            />
-                        </div>
-                    ))}
-                </div>
-                <div className='absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
+        <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
+            <div>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-center tracking-wider'>
+                    <span className='font-bold heading-font tracking-wider'>Our </span>
+                    <span className='font-light heading-font text-[rgb(255,102,0)]'>Service</span>
+                </h1>
             </div>
-        </React.Fragment>
+            <div>
+                <p className='text-sm md:text-base lg:text-lg text-center'>
+                    We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
+                </p>
+            </div>
+            <div className="flex justify-center flex-wrap">
+                {services.map((service, index) => (
+                    <div key={index} className="w-full sm:w-1/2 lg:w-1/3 p-4">
+                        <ServicesCard
+                            logo={service.logo}
+                            title={service.title}
+                            description={service.description}
+                        />
+                    </div>
+                ))}
+            </div>
+            <div className='absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
+        </div>
     );
 }
 
 export default Services;
-

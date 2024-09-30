@@ -1,24 +1,13 @@
-// src/pages/ContactUs.js
-
 import React from 'react';
 import contactShowcase from '../assets/contact-us.gif'; 
 
 const ContactUs = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-<style>
-                {`
-                  @font-face {
-                    font-family: 'Gendy';
-                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
-                  }
-                  .heading-font {
-                    font-family: 'Gendy', sans-serif;
-                  }
-                `}
-            </style>
-
-      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider"> <span font-bold >Contact</span> <span className='font-bold text-black tracking-wider'>Us</span> </h1>
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider">
+        <span className='font-bold'>Contact</span> 
+        <span className='font-bold text-black heading-font tracking-wider'> Us</span>
+      </h1>
 
       <div className="flex flex-col md:flex-row w-full max-w-6xl">
         <img src={contactShowcase} alt="Contact Us" className="mb-8 md:mb-0 w-full md:w-1/2 rounded-lg shadow-lg" />
@@ -75,8 +64,6 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
-
-    
     </div>
   );
 };

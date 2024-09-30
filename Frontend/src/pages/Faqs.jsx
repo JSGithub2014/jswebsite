@@ -37,19 +37,10 @@ const Faqs = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-8 bg-gray-50">
-        <style>
-                {`
-                  @font-face {
-                    font-family: 'Gendy';
-                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
-                  }
-                  .heading-font {
-                    font-family: 'Gendy', sans-serif;
-                  }
-                `}
-            </style>
-
-      <h2 className="text-4xl font-bold text-center mb-12 text-[rgb(255,102,0)] heading-font tracking-wider"> <span className='text-black tracking-wider'>Frequently</span> Asked Questions</h2>
+      <h1 className='text-4xl md:text-5xl lg:text-5xl mb-5 font-semibold text-center tracking-wider'>
+        <span className='font-bold heading-font tracking-wider'>Frequently </span>
+        <span className='font-light heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
+      </h1>
 
       {Object.keys(faqData).map((category) => (
         <div key={category} className="mb-12">
@@ -67,7 +58,7 @@ const Faqs = () => {
           <div
             className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
               openCategory === category ? 'max-h-screen' : 'max-h-0'
-            } mt-4`} 
+            } mt-4`}
           >
             {faqData[category].map((item, index) => (
               <div key={index} className="mb-6">

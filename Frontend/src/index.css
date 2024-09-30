@@ -15,13 +15,13 @@ html {
 }
 
 @font-face {
-  /* font-family: 'Swiss721 cn bt'; */
   font-family: 'Gendy';
-  src: url('./assets/Swiss721CondensedBT.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+  src: url('/assets/TTF/Gendy.ttf') format('truetype');
 }
 
+.heading-font {
+  font-family: 'Gendy', sans-serif;
+}
 
 ::-webkit-scrollbar{
   background-color: rgb(58,59,59);
