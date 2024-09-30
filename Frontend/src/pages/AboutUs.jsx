@@ -15,7 +15,7 @@ const WhoWeAre = () => {
       <div className="container mx-auto text-center">
         
         <h1 className="text-4xl md:text-5xl text-[rgb(255,102,0)] mb-6 heading-font tracking-wider">
-           <span className=" text-black tracking-wider ">Who </span>We Are
+           <span className=" text-black tracking-wider heading-font ">Who </span>We Are
         </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">

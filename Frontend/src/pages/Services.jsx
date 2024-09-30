@@ -29,7 +29,7 @@ function Services() {
                 {`
                   @font-face {
                     font-family: 'Gendy';
-                    src: url('../assets/TTF/Gendy.ttf') format('truetype');
+                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
                   }
                   .heading-font {
                     font-family: 'Gendy', sans-serif;
