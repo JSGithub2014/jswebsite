@@ -34,7 +34,7 @@ function OurStrength() {
 
   return (
     <React.Fragment>
-      <div className='w-full h-[94vh] relative overflow-hidden'> 
+      <div className='w-full h-[94vh] relative overflow-hidden'>
         <video  
           ref={videoRef}
           src={ourStrengthVideo}

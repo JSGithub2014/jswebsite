@@ -93,7 +93,7 @@ function Footer() {
         {[
           { icon: FaFacebookF, link: "https://facebook.com", color: "hover:text-blue-600", label: "Facebook" },
           { icon: FaTwitter, link: "https://twitter.com", color: "hover:text-blue-400", label: "Twitter" },
-          { icon: FaLinkedinIn, link: "https://linkedin.com", color: "hover:text-blue-700", label: "LinkedIn" },
+          { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/jsasia/posts/?feedView=all", color: "hover:text-blue-700", label: "LinkedIn" },
           { icon: FaInstagram, link: "https://www.instagram.com", color: "hover:text-pink-500", label: "Instagram" },
         ].map(({ icon: Icon, link, color, label }, index) => (
           <a
