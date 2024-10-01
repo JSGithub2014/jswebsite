@@ -68,7 +68,7 @@ const App = () => {
             <Testimonial />
             <section id="Achievement"><Achievement /></section>
             <section id="Whyus"><WhyUs /></section>
-            <section id="FAQs"><Faqs /></section>
+            <section id="faqs"><Faqs /></section>
             <OurStrength/>
 
             <RobustFoundation />
