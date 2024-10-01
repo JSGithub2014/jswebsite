@@ -4,14 +4,13 @@ import Hero from '../components/Hero';
 
 function Landing() {
   return (
-    <React.Fragment>
-      <div className='bg-[rgb(255,102,0)]'>
-        <Navbar />
-        <div className="pt-10"> 
-          <Hero />
-        </div>
-      </div>
-    </React.Fragment>
+    <div className='bg-[rgb(255,102,0)]'>
+      <Navbar />
+      <main className="pt-10">
+        <Hero />
+      </main>
+    </div>
   );
 }
+
 export default Landing;

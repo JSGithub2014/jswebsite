@@ -26,16 +26,6 @@ const ClientalsSection = () => {
     Akshar,
     TheWadhvaGroup,
     Rajesh,
-    Tricity,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    TheWadhvaGroup,
-    Rajesh,
   ];
 
   const clientalsLine2 = [
@@ -56,7 +46,6 @@ const ClientalsSection = () => {
 
   return (
     <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
-
       <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider font-thin bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
         Clientele
       </h2>
@@ -64,12 +53,13 @@ const ClientalsSection = () => {
       {/* First Marquee */}
       <div className="relative">
         <div className="flex animate-marquee whitespace-nowrap">
-          {clientalsLine1.concat(clientalsLine2).concat(clientalsLine1).concat(clientalsLine2).map((logo, index) => (
+          {clientalsLine1.concat(clientalsLine2).map((logo, index) => (
             <img
               key={index}
               src={logo}
-              alt={`Client ${index + 1}`}
+              alt={`Client logo ${index + 1}`}
               className="inline-block mx-4 h-16"
+              loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
         </div>
@@ -82,8 +72,9 @@ const ClientalsSection = () => {
             <img
               key={index}
               src={logo}
-              alt={`Client ${index + 11}`}
+              alt={`Client logo ${index + 11}`}
               className="inline-block mx-4 h-16"
+              loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
         </div>

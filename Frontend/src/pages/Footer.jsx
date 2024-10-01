@@ -1,20 +1,20 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import brandLogo from '../assets/brand-logo-transperent.png'; // Import the brand logo
+import brandLogo from '../assets/reloader-logo.png'; // Import the brand logo
 
 function Footer() {
   return (
-    <footer className="w-full text-white pt-4 pb-2 relative bg-[rgb(255,102,0)]">
+    <footer className="w-full text-white pt-6 pb-4 relative bg-[rgb(255,102,0)]">
       {/* Decorative Pattern on Top */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-700 to-transparent opacity-10 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-start gap-6 relative z-10">
 
         {/* Brand Logo */}
-        <div className="brand-logo mb-4 md:mb-0 flex-shrink-0">
+        <div className="brand-logo mb-4 md:mb-0 flex-shrink-0 w-full md:w-1/4 flex justify-center md:justify-start">
           <a href="#landing" aria-label="Brand Logo">
             <img
-              className="w-28 hover:scale-110 transition-transform duration-300"
+              className="w-24 md:w-32 hover:scale-110 transition-transform duration-300"
               src={brandLogo}
               alt="Brand Logo"
               loading="lazy"
@@ -23,10 +23,10 @@ function Footer() {
         </div>
 
         {/* Footer Sections */}
-        <div className="flex flex-col md:flex-row w-full justify-between">
+        <div className="flex flex-col w-full justify-between gap-6 md:flex-row">
 
           {/* Support Section */}
-          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
+          <div className="footer-section mb-4 md:mb-0 w-full text-center md:text-left">
             <h3 className="text-lg md:text-xl font-bold mb-2">Support</h3>
             <ul className="space-y-1">
               {["FAQs", "Help Center", "Contact Support"].map((item) => (
@@ -43,10 +43,10 @@ function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="footer-section mb-4 md:mb-0 w-full md:w-1/4 text-right">
+          <div className="footer-section mb-4 md:mb-0 w-full text-center md:text-left">
             <h3 className="text-lg md:text-xl font-bold mb-2">Links</h3>
             <ul className="space-y-1">
-              {["Privacy Policy", "Terms & Conditions", "Sitemap"].map((item) => (
+              {["Privacy Policy", "Terms & Conditions"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(/\s/g, '')}`}
@@ -60,26 +60,26 @@ function Footer() {
           </div>
 
           {/* Contact Us Section */}
-          <div className="footer-section w-full md:w-1/4 text-right flex flex-col ">
+          <div className="footer-section w-full text-center md:text-left">
             <h3 className="text-lg md:text-xl font-bold mb-2">Contact Us</h3>
-            <ul className="space-y-1 text-sm md:text-base">
-              <li className="flex items-center justify-end space-x-2">
-                <FaPhoneAlt />
+            <ul className="space-y-4">
+              <li className="flex items-start justify-center md:justify-start">
+                <FaPhoneAlt className="mr-2" />
                 <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300">
                   +91 2245120755
                 </a>
               </li>
-              <li className="flex items-center justify-end space-x-2">
-                <FaEnvelope />
+              <li className="flex items-start justify-center md:justify-start">
+                <FaEnvelope className="mr-2" />
                 <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300">
                   info@jsasia.net
                 </a>
               </li>
-              <li className="flex items-center justify-end  text-right">
-                <FaMapMarkerAlt />
-                <span className="ml-2 text-left text-xs">
-                  1202 Lodha Supremus<br />
-                  Saki Vihar Road,Powai<br />
+              <li className="flex items-start justify-center md:justify-start">
+                <FaMapMarkerAlt className="mr-2" />
+                <span className="text-xs">
+                  1202 Lodha Supremus,<br />
+                  Saki Vihar Road, Powai,<br />
                   Mumbai 400072
                 </span>
               </li>
@@ -89,43 +89,24 @@ function Footer() {
       </div>
 
       {/* Social Media Icons */}
-      <div className="container mx-auto mt-8 flex justify-center gap-6 text-2xl">
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          className="hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
-        >
-          <FaFacebookF />
-        </a>
-        <a
-          href="https://twitter.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          className="hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
-        >
-          <FaTwitter />
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="hover:text-blue-700 transition-colors duration-300 transform hover:scale-110"
-        >
-          <FaLinkedinIn />
-        </a>
-        <a
-          href="https://www.instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="hover:text-pink-500 transition-colors duration-300 transform hover:scale-110"
-        >
-          <FaInstagram />
-        </a>
+      <div className="container mx-auto mt-6 flex justify-center gap-6 text-2xl">
+        {[
+          { icon: FaFacebookF, link: "https://facebook.com", color: "hover:text-blue-600", label: "Facebook" },
+          { icon: FaTwitter, link: "https://twitter.com", color: "hover:text-blue-400", label: "Twitter" },
+          { icon: FaLinkedinIn, link: "https://linkedin.com", color: "hover:text-blue-700", label: "LinkedIn" },
+          { icon: FaInstagram, link: "https://www.instagram.com", color: "hover:text-pink-500", label: "Instagram" },
+        ].map(({ icon: Icon, link, color, label }, index) => (
+          <a
+            key={index}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label} // Improved accessibility
+            className={`${color} transition-colors duration-300 transform hover:scale-110`}
+          >
+            <Icon />
+          </a>
+        ))}
       </div>
 
       {/* Divider */}

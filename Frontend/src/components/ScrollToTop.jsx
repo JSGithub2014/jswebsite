@@ -8,9 +8,9 @@ const ScrollToTop = () => {
     return (
         <button 
             onClick={handleScrollToTop} 
-            className="fixed flex items-center justify-center text-2xl font-semibold bottom-4 right-4 bg-gradient-to-r from-[rgb(255,102,0)] to-[rgb(255,160,0)] text-white p-3 rounded-full w-12 h-12 shadow-lg hover:scale-110 transition-transform duration-300 
-                        hover:shadow-xl active:scale-95"
-            aria-label="Scroll to top"
+            className="fixed flex items-center justify-center text-2xl font-semibold bottom-4 right-4 bg-gradient-to-r from-[rgb(255,102,0)] to-[rgb(255,160,0)] text-white p-3 rounded-full w-12 h-12 shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-xl active:scale-95"
+            aria-label="Scroll to top" // Accessibility enhancement
+            title="Scroll to top" // Tooltip on hover
         >
             {/* Bolder Upward Arrow SVG */}
             <svg 
@@ -20,6 +20,7 @@ const ScrollToTop = () => {
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
                 strokeWidth={2.5} // Make the stroke bolder
+                aria-hidden="true" // Hides the SVG from screen readers
             >
                 <path 
                     strokeLinecap="round" 

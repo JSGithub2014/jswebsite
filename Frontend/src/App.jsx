@@ -16,7 +16,7 @@ import Clientals from './pages/Clientals';
 import RobustFoundation from './pages/RobustFoundation';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
-import Ourstrengths from './pages/Ourstrength';
+import OurStrengths from './pages/Ourstrength';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
 
@@ -30,10 +30,10 @@ const App = () => {
       smooth: true,
     });
 
-    function raf(time) {
+    const raf = (time) => {
       lenis.raf(time);
       requestAnimationFrame(raf);
-    }
+    };
 
     requestAnimationFrame(raf);
 
@@ -58,7 +58,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/" element={
-          <div>
+          <>
             <section id="Home"><Landing /></section>
             <section id="About"><AboutUs /></section>
             <section id="Services"><Services /></section>
@@ -68,17 +68,17 @@ const App = () => {
             <section id="Achievement"><Achievement /></section>
             <section id="Whyus"><WhyUs /></section>
             <section id="FAQs"><Faqs /></section>
-            <Ourstrengths />
+            <OurStrengths />
             <RobustFoundation />
             <ContactUs />
             <Footer />
             <ScrollToTop />
-          </div>
+          </>
         } />
       </Routes>
     </div>
   );
-}
+};
 
 const WrappedApp = () => (
   <Router>

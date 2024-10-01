@@ -25,7 +25,7 @@ const Register = () => {
             <div className="flex w-full max-w-4xl flex-col md:flex-row">
                 {/* Logo Section for small screens */}
                 <div className="flex md:hidden w-full items-center justify-center mb-4">
-                    <img src="../src/assets/brand-logo-transperent.png" alt="Brand Logo" className="w-1/2" />
+                    <img src={BrandLogo} alt="Brand Logo" className="w-1/2" />
                 </div>
 
                 {/* Registration Form Section */}

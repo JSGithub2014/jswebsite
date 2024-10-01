@@ -35,7 +35,7 @@ const OurStrengths = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b  py-12 px-4 md:px-16">
+    <section className="bg-gradient-to-b py-12 px-4 md:px-16">
       <style>
         {`
           @font-face {
@@ -50,20 +50,23 @@ const OurStrengths = () => {
 
       <div className="container mx-auto text-center max-w-7xl">
         <h1 className="text-3xl md:text-4xl font-thin text-gray-900 mb-8 heading-font tracking-wider">
-          The <span className=" text-[rgb(255,102,0)] heading-font tracking-wider">Pillars</span> of <span className="font-semibold text-[rgb(255,102,0)]">Success</span>
+          The <span className="text-[rgb(255,102,0)] heading-font tracking-wider">Pillars</span> of <span className="font-semibold text-[rgb(255,102,0)]">Success</span>
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {strengths.map((strength, index) => (
             <div
               key={index}
-              className="bg-white shadow-lg p-4 rounded-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-white shadow-lg p-6 rounded-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
+              role="article" // Added role for accessibility
+              aria-labelledby={`strength-title-${index}`} // For screen readers
+              aria-describedby={`strength-desc-${index}`} // For screen readers
             >
               <div className="text-4xl mb-4" aria-label={strength.title}>
-                {strength.icon} {/* Icon */}
+                {strength.icon}
               </div>
-              <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{strength.title}</h2>
-              <p className="text-sm md:text-base text-gray-600">{strength.description}</p>
+              <h2 id={`strength-title-${index}`} className="text-lg md:text-xl font-bold text-gray-800 mb-2">{strength.title}</h2>
+              <p id={`strength-desc-${index}`} className="text-sm md:text-base text-gray-600">{strength.description}</p>
             </div>
           ))}
         </div>

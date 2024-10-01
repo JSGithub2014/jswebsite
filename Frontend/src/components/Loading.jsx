@@ -20,9 +20,14 @@ const Loading = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(255,102,0)] z-50 p-4">
-      <img src={logo} alt="Company Logo" className="w-32 h-auto mb-4 md:w-48" /> {/* Adjust logo size */}
-      <div className="text-sm md:text-lg font-bold flex justify-center space-x-1"> {/* Flex container for horizontal layout */}
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(255,102,0)] z-50 p-4" role="alert">
+      <img 
+        src={logo} 
+        alt="Company Logo - Bouldless" // Improved alt text for SEO
+        className="w-32 h-auto mb-4 md:w-48" 
+        loading="lazy" // Optional: Lazy load for performance
+      />
+      <div className="text-sm md:text-lg font-bold flex justify-center space-x-1" aria-live="polite"> {/* Aria live region for assistive technologies */}
         {['Bouldless', 'Committed', 'Pragmatic'].map((word, index) => (
           <span 
             key={index} 

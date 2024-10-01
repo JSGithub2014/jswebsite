@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faEye, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../assets/brand-logo-transperent.png';
@@ -10,15 +10,16 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const togglePassword = () => {
-        setPasswordVisible(!passwordVisible);
+        setPasswordVisible(prevState => !prevState);
     };
 
     return (
         <div className="flex h-screen justify-center items-center bg-gray-100 overflow-hidden relative p-4">
             <div className="flex w-full max-w-4xl flex-col md:flex-row">
+
                 {/* Logo Section for small screens */}
                 <div className="flex md:hidden w-full items-center justify-center mb-4">
-                    <img src="../src/assets/brand-logo-transperent.png" alt="Brand Logo" className="w-1/2" />
+                    <img src={BrandLogo} alt="Brand Logo" className="w-1/2" />
                 </div>
 
                 {/* Login Form Section */}
@@ -60,15 +61,21 @@ const Login = () => {
                                 icon={faEye}
                                 className={`absolute right-3 top-3 cursor-pointer ${passwordVisible ? 'text-[rgb(255,121,44)]' : 'text-gray-400'}`}
                                 onClick={togglePassword}
+                                aria-label={passwordVisible ? "Hide password" : "Show password"}
                             />
                         </div>
                     </div>
 
                     {/* Login Button */}
-                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)]">Login Now</button>
+                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)]">
+                        Login Now
+                    </button>
 
                     {/* Link to Signup */}
-                    <p className="mt-4 text-center text-sm">Don't have an account? <Link to="/signup" className="text-[rgb(255,102,0)] font-medium hover:underline">Sign Up</Link></p>
+                    <p className="mt-4 text-center text-sm">
+                        Don't have an account? 
+                        <Link to="/signup" className="text-[rgb(255,102,0)] font-medium hover:underline"> Sign Up</Link>
+                    </p>
                 </div>
 
                 {/* Logo Section for larger screens */}
@@ -77,6 +84,7 @@ const Login = () => {
                 </div>
             </div>
 
+            {/* Decorative Background */}
             <div className='hidden md:block absolute w-[40vw] h-[40vw] bg-[rgb(255,102,0)] rounded-full -right-[15%] -top-[30%]'></div>
         </div>
     );

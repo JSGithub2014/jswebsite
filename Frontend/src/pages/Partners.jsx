@@ -43,10 +43,6 @@ const PartnerSection = () => {
     LIC_HFL,
     PNB,
     RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    
   ];
 
   const duplicateLogos = (logos) => {
@@ -55,21 +51,8 @@ const PartnerSection = () => {
 
   return (
     <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
-
-<style>
-                {`
-                  @font-face {
-                    font-family: 'Gendy';
-                    src: url('/assets/TTF/Gendy.ttf') format('truetype');
-                  }
-                  .heading-font {
-                    font-family: 'Gendy', sans-serif;
-                  }
-                `}
-            </style>
-
       <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider font-thin bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
-        <span>Our</span>  <span className=' tracking-wider'>Partners</span>
+        <span>Our</span> <span className='tracking-wider'>Partners</span>
       </h2>
 
       {/* First Marquee Line */}
@@ -80,13 +63,14 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block mx-4 h-16" 
+              className="inline-block mx-4 h-16"
+              loading="lazy" // Added lazy loading
             />
           ))}
         </div>
       </div>
 
-     
+      {/* Second Marquee Line */}
       <div className="relative overflow-hidden w-full">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
           {duplicateLogos(partnersLine2).map((logo, index) => (
@@ -94,11 +78,14 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + partnersLine1.length + 1}`}
-              className="inline-block mx-4 h-16 " 
+              className="inline-block mx-4 h-16"
+              loading="lazy" // Added lazy loading
             />
           ))}
         </div>
       </div>
+
+      {/* Styles for animation */}
       <style>
         {`
           .animate-marquee {
@@ -131,4 +118,5 @@ const PartnerSection = () => {
     </div>
   );
 };
+
 export default PartnerSection;

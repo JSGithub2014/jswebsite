@@ -24,18 +24,14 @@ const services = [
 
 function Services() {
     return (
-        <div className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7'>
-            <div>
-                <h1 className='text-4xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider'>
-                    <span className=' heading-font tracking-wider'>Our </span>
-                    <span className=' heading-font text-[rgb(255,102,0)]'>Service</span>
-                </h1>
-            </div>
-            <div>
-                <p className='text-sm md:text-base lg:text-lg text-center'>
-                    We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
-                </p>
-            </div>
+        <section className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-7 py-12'>
+            <h1 className='text-4xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider'>
+                <span className='heading-font tracking-wider'>Our </span>
+                <span className='heading-font text-[rgb(255,102,0)]'>Service</span>
+            </h1>
+            <p className='text-sm md:text-base lg:text-lg text-center'>
+                We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
+            </p>
             <div className="flex justify-center flex-wrap">
                 {services.map((service, index) => (
                     <div key={index} className="w-full sm:w-1/2 lg:w-1/3 p-4">
@@ -48,7 +44,7 @@ function Services() {
                 ))}
             </div>
             <div className='absolute right-[-30%] top-[-45%] z-[-1] w-[50vw] h-[50vw] rounded-full bg-[#F6EDE1]'></div>
-        </div>
+        </section>
     );
 }
 
