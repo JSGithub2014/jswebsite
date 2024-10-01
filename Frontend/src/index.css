@@ -22,6 +22,9 @@ html {
 .heading-font {
   font-family: 'Gendy', sans-serif;
 }
+.landing-font {
+  font-family: 'Wondra', sans-serif;
+}
 
 ::-webkit-scrollbar{
   background-color: rgb(58,59,59);
