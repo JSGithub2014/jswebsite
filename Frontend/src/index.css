@@ -18,6 +18,10 @@ html {
   font-family: 'Gendy';
   src: url('/assets/TTF/Gendy.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Wondra';
+  src: url('/assets/Wondra.ttf') format('truetype');
+}
 
 .heading-font {
   font-family: 'Gendy', sans-serif;
