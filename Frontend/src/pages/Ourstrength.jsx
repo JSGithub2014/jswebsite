@@ -1,10 +1,10 @@
 import React from 'react';
 
 // Import images directly
-import firstPoint from '../assets/first-point-1.png';
-import secondPoint from '../assets/second-point-1.png'; // Corrected case
-import thirdPoint from '../assets/third-point-1.png'; // Corrected case
-import fourthPoint from '../assets/fourth-point-1.png'; // Corrected case
+import firstPoint from '../assets/first-point-1.png'; // Ensure this path is correct
+import secondPoint from '../assets/partners/Second-point-1.png'; // Case-sensitive
+import thirdPoint from '../assets/third-point-1.png'; // Ensure this path is correct
+import fourthPoint from '../assets/fourth-point-1.png'; // Ensure this path is correct
 
 const StrengthSection = () => {
   return (
@@ -38,7 +38,13 @@ const StrengthSection = () => {
             }
           ].map((point, index) => (
             <div key={index} className="flex flex-col items-center space-y-4">
-              {point.img && <img src={point.img} alt={point.imgAlt} className="w-16 h-16" />}
+              {point.img && (
+                <img
+                  src={point.img}
+                  alt={point.imgAlt}
+                  className="w-16 h-16"
+                />
+              )}
               <p className="text-center">{point.text}</p>
             </div>
           ))}
