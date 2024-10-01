@@ -78,9 +78,9 @@ function Footer() {
               <li className="flex items-start justify-center md:justify-start">
                 <FaMapMarkerAlt className="mr-2" />
                 <span className="text-xs">
-                  1202 Lodha Supremus,<br />
-                  Saki Vihar Road, Powai,<br />
-                  Mumbai 400072
+                  1202, 12th Floor, Lodha Supremus<br />
+                  Saki Vihar Road, Andheri (E),<br />
+                  Mumbai 400072 MH
                 </span>
               </li>
             </ul>

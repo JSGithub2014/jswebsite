@@ -5,7 +5,7 @@ const OurStrengths = () => {
     {
       title: 'Governance',
       description: 'We ensure transparency, accountability, and strong leadership to guide you through every decision.',
-      icon: '🛡️', // Optionally replace with actual images/icons
+      icon: '🛡️',
     },
     {
       title: 'Knowledge',
@@ -35,32 +35,21 @@ const OurStrengths = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b py-12 px-4 md:px-16">
-      <style>
-        {`
-          @font-face {
-            font-family: 'Gendy';
-            src: url('/assets/TTF/Gendy.ttf') format('truetype');
-          }
-          .heading-font {
-            font-family: 'Gendy', sans-serif;
-          }
-        `}
-      </style>
-
-      <div className="container mx-auto text-center max-w-7xl">
-        <h1 className="text-3xl md:text-4xl font-thin text-gray-900 mb-8 heading-font tracking-wider">
+    <section className="bg-gradient-to-b py-12 px-4 md:px-16 w-full">
+      <div className="-mx-4 md:-mx-16">
+        <h1 className="text-3xl md:text-4xl font-thin text-gray-900 mb-8 text-center heading-font tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg py-4">
           The <span className="text-[rgb(255,102,0)] heading-font tracking-wider">Pillars</span> of <span className="font-semibold text-[rgb(255,102,0)]">Success</span>
         </h1>
-
+      </div>
+      <div className="container mx-auto text-center ">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {strengths.map((strength, index) => (
             <div
               key={index}
               className="bg-white shadow-lg p-6 rounded-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
-              role="article" // Added role for accessibility
-              aria-labelledby={`strength-title-${index}`} // For screen readers
-              aria-describedby={`strength-desc-${index}`} // For screen readers
+              role="article"
+              aria-labelledby={`strength-title-${index}`}
+              aria-describedby={`strength-desc-${index}`}
             >
               <div className="text-4xl mb-4" aria-label={strength.title}>
                 {strength.icon}

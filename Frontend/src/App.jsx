@@ -18,6 +18,8 @@ import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
+import OurStrength from './components/OurStrength';
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -67,6 +69,8 @@ const App = () => {
             <section id="Achievement"><Achievement /></section>
             <section id="Whyus"><WhyUs /></section>
             <section id="FAQs"><Faqs /></section>
+            <OurStrength/>
+
             <RobustFoundation />
             <ContactUs />
             <Footer />

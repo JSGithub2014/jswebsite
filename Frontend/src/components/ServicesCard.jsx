@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function ServicesCard({ logo, title, description }) {
+function ServicesCard({ logo, title, description, additionalInfo, generalInfo }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <article 
-      className="bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 ease-in-out transform hover:scale-105 h-80 w-80 flex flex-col justify-between" 
-      aria-labelledby={`service-${title.toLowerCase()}`} // Adding an ID for better accessibility
+      className="bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 ease-in-out transform hover:scale-105 flex flex-col justify-between" 
+      aria-labelledby={`service-${title.toLowerCase()}`}
     >
       <img 
         src={logo} 
         alt={`${title} service logo`} 
         className="w-20 h-20 mx-auto mb-4" 
-        loading="lazy" // Lazy loading for better performance
+        loading="lazy"
       />
       <h2 
-        id={`service-${title.toLowerCase()}`} // Associating the heading with the article
+        id={`service-${title.toLowerCase()}`} 
         className="text-lg sm:text-xl font-semibold text-center mb-2" 
         aria-label={title}
       >
@@ -21,14 +27,21 @@ function ServicesCard({ logo, title, description }) {
       </h2>
       <p className="text-sm sm:text-gray-600 text-justify flex-grow">
         {description}
-        <a 
-          href={`/services/${title.toLowerCase()}`} 
-          className="text-[rgb(255,102,0)] font-semibold cursor-pointer hover:underline"
-          aria-label={`Read more about ${title}`}
-        >
-          read more...
-        </a>
       </p>
+      <div 
+        className={`mt-2 transition-all duration-300 ease-in-out overflow-hidden ${isExpanded ? 'max-h-screen' : 'max-h-0'}`} 
+        style={{ height: isExpanded ? 'auto' : '0' }} // Inline style for height transition
+      >
+        <p className="text-sm sm:text-gray-600">{additionalInfo}</p>
+        <p className="mt-2 text-sm sm:text-gray-600">{generalInfo}</p>
+      </div>
+      <button 
+        onClick={toggleExpand} 
+        className="text-[rgb(255,102,0)] font-semibold cursor-pointer hover:underline mt-2"
+        aria-label={`Toggle more information about ${title}`}
+      >
+        {isExpanded ? 'Read Less' : 'Read More...'}
+      </button>
     </article>
   );
 }
