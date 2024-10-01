@@ -3,7 +3,7 @@ import React from 'react';
 // Import images directly
 import firstPoint from '../assets/first-point-1.png'; // Ensure this path is correct
 import secondPoint from '../assets/Second-point-1.png'; // Case-sensitive
-import thirdPoint from '../assets/third-point-1.png'; // Ensure this path is correct
+import thirdPoint from '../assets/Third-point-1.png'; // Ensure this path is correct
 import fourthPoint from '../assets/fourth-point-1.png'; // Ensure this path is correct
 
 const StrengthSection = () => {
