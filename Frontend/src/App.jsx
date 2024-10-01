@@ -16,7 +16,6 @@ import Clientals from './pages/Clientals';
 import RobustFoundation from './pages/RobustFoundation';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
-import OurStrengths from './pages/Ourstrength';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
 
@@ -39,7 +38,7 @@ const App = () => {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Adjust duration as needed
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
@@ -68,7 +67,6 @@ const App = () => {
             <section id="Achievement"><Achievement /></section>
             <section id="Whyus"><WhyUs /></section>
             <section id="FAQs"><Faqs /></section>
-            <OurStrengths />
             <RobustFoundation />
             <ContactUs />
             <Footer />
