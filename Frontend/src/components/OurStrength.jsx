@@ -39,7 +39,7 @@ function OurStrength() {
           ref={videoRef}
           src={ourStrengthVideo}
           muted 
-          className='absolute inset-0 w-full h-full object-cover' 
+          className='absolute inset-0 w-full h-full object-cover px-10' 
           playsInline
         />
       </div>
