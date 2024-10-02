@@ -3,20 +3,26 @@ import logo from '../assets/reloader-logo.png'; // Adjust the path to your logo
 
 const Loading = () => {
   const [visibleWords, setVisibleWords] = useState([]);
-  
+
   useEffect(() => {
     const words = ['Bouldless', 'Committed', 'Pragmatic'];
 
-    const timeouts = words.map((word, index) =>
-      setTimeout(() => {
-        setVisibleWords((prev) => [...prev, word]);
-      }, index * 400) // Delay of 0.4 seconds for each word
-    );
+    // Initial delay before starting to display words
+    const initialDelay = setTimeout(() => {
+      const timeouts = words.map((word, index) =>
+        setTimeout(() => {
+          setVisibleWords((prev) => [...prev, word]);
+        }, index * 400) // Delay of 0.4 seconds for each word after the initial delay
+      );
 
-    // Cleanup timeouts on component unmount
-    return () => {
-      timeouts.forEach((timeout) => clearTimeout(timeout));
-    };
+      // Cleanup timeouts on component unmount
+      return () => {
+        timeouts.forEach((timeout) => clearTimeout(timeout));
+      };
+    }, 1000); // 1.5 seconds delay before starting
+
+    // Cleanup the initial delay
+    return () => clearTimeout(initialDelay);
   }, []);
 
   return (
@@ -34,7 +40,7 @@ const Loading = () => {
             className={`inline-block transition-opacity duration-500 ease-in-out`} // Smooth transition
             style={{ 
               opacity: visibleWords.includes(word) ? 1 : 0, // Fade in effect
-              transitionDelay: `${visibleWords.includes(word) ? '0ms' : `${index * 500}ms`}`, // Delay for each word
+              transitionDelay: `${visibleWords.includes(word) ? '0ms' : `${index * 400}ms`}`, // Delay for each word
             }}
           >
             {word}
