@@ -3,20 +3,20 @@ import React from 'react';
 const WhoWeAre = () => {
     return (
         <section 
-            className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16" 
+            className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16 lg:px-24 xl:px-32" 
             aria-labelledby="who-we-are-heading" // Added aria-labelledby for accessibility
         >
             <div className="container mx-auto text-center">
                 <h1 
                     id="who-we-are-heading" // Unique ID for accessibility
-                    className='text-4xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
+                    className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
                 >
                     <span>Who</span>
                     <span className='text-[rgb(255,102,0)]'> We Are</span>
                 </h1>
 
                 <p 
-                    className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
+                    className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
                     aria-describedby="who-we-are-description" // Added aria-describedby for context
                 >
                     We specialize in expert financial services, insurance solutions, and real estate advisory, 
@@ -25,34 +25,34 @@ const WhoWeAre = () => {
                 </p>
 
                 {/* Services section */}
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                     <article 
-                        className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105" 
+                        className="bg-white shadow-lg p-6 lg:p-8 rounded-lg transition-transform transform hover:scale-105" 
                         aria-labelledby="financial-solutions-heading"
                     >
                         <h2 
                             id="financial-solutions-heading" 
-                            className="text-xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
+                            className="text-lg md:text-xl lg:text-2xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
                         >
                             Comprehensive Financial Solutions
                         </h2>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-sm md:text-base lg:text-lg">
                             From investment management and business funding to customized insurance plans, we guide 
                             you every step of the way with our expert solutions.
                         </p>
                     </article>
 
                     <article 
-                        className="bg-white shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105" 
+                        className="bg-white shadow-lg p-6 lg:p-8 rounded-lg transition-transform transform hover:scale-105" 
                         aria-labelledby="real-estate-advisory-heading"
                     >
                         <h2 
                             id="real-estate-advisory-heading" 
-                            className="text-xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
+                            className="text-lg md:text-xl lg:text-2xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
                         >
                             Strategic Real Estate Advisory
                         </h2>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-sm md:text-base lg:text-lg">
                             As trusted real estate advisors, we help you navigate market complexities, providing the 
                             strategic insights you need to make informed decisions.
                         </p>
@@ -62,13 +62,13 @@ const WhoWeAre = () => {
                 {/* Our Commitment Section */}
                 <div className="mt-12">
                     <h1 
-                        className='text-2xl md:text-5xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
+                        className='text-2xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
                     >
                         <span>Our</span>
                         <span className='text-[rgb(255,102,0)]'> Commitment</span>
                     </h1>
                     <p 
-                        className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed" 
+                        className="text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" 
                         aria-describedby="commitment-description" // Added aria-describedby for context
                     >
                         With a commitment to trust, integrity, and exceptional service, 

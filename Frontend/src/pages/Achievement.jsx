@@ -35,15 +35,9 @@ function Achievement() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 md:px-24 py-8">
-      {/* Page Heading */}
-      <h2 className="text-3xl md:text-4xl font-thin mb-6 text-center heading-font tracking-wider">
-        <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Our Achievements: </span>
-        <span className='black heading-font'>Journey of Trust and Success</span>
-      </h2>
-
-      <div className="flex flex-col md:flex-row w-full">
-        <div className="md:w-1/2 flex flex-col justify-center p-4">
+    <div className="h-auto flex flex-col items-center px-4 md:px-24 py-4"> {/* Changed min-h-screen to h-auto and reduced padding */}
+      <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto">
+        <div className="md:w-1/2 flex flex-col justify-start p-2"> {/* Changed justify-center to justify-start */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {achievements.map((achievement, index) => (
               <AchievementCard
@@ -57,6 +51,10 @@ function Achievement() {
           </div>
         </div>
         <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
+          <h2 className="text-4xl font-thin mb-4 text-center heading-font tracking-wider">
+            <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Journey</span>
+            <span className='black heading-font'> of Trust and Success</span>
+          </h2>
           <img
             src={achievementImage}
             alt="Illustration of achievements"

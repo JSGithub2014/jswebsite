@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Import the map icon
 import brandLogo from '../assets/reloader-logo.png'; // Import the brand logo
 
 function Footer() {
@@ -63,25 +63,40 @@ function Footer() {
           <div className="footer-section w-full text-center md:text-left">
             <h3 className="text-lg md:text-xl font-bold mb-2">Contact Us</h3>
             <ul className="space-y-4">
-              <li className="flex items-start justify-center md:justify-start">
-                <FaPhoneAlt className="mr-2" />
-                <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300">
-                  +91 2245120755
-                </a>
+              {/* Mobile Number */}
+              <li className="flex items-center justify-center md:justify-start">
+                <div className="flex-shrink-0 mr-3">
+                  <FaPhoneAlt className="text-lg" />
+                </div>
+                <div className="flex flex-col justify-center text-left">
+                  <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300">
+                    +91 2245120755
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start justify-center md:justify-start">
-                <FaEnvelope className="mr-2" />
-                <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300">
-                  info@jsasia.net
-                </a>
+
+              {/* Email */}
+              <li className="flex items-center justify-center md:justify-start">
+                <div className="flex-shrink-0 mr-3">
+                  <FaEnvelope className="text-lg" />
+                </div>
+                <div className="flex flex-col justify-center text-left">
+                  <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300">
+                    info@jsasia.net
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start justify-center md:justify-start">
-                <FaMapMarkerAlt className="mr-2" />
-                <span className="text-xs">
-                  1202, 12th Floor, Lodha Supremus<br />
-                  Saki Vihar Road, Andheri (E),<br />
-                  Mumbai 400072 MH
-                </span>
+
+              {/* Address */}
+              <li className="flex items-center justify-center md:justify-start">
+                <div className="flex-shrink-0 mr-3">
+                  <FaMapMarkerAlt className="text-2xl" />
+                </div>
+                <div className="flex flex-col justify-center text-left">
+                  <span className="text-base">1202, 12th Floor, Lodha Supremus</span>
+                  <span className="text-base">Saki Vihar Road, Andheri East,</span>
+                  <span className="text-base">Mumbai 400072 Maharashtra</span>
+                </div>
               </li>
             </ul>
           </div>
@@ -101,7 +116,7 @@ function Footer() {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={label} // Improved accessibility
+            aria-label={label}
             className={`${color} transition-colors duration-300 transform hover:scale-110`}
           >
             <Icon />

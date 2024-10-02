@@ -35,8 +35,8 @@ const OurStrengths = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b py-12 px-4 md:px-16 w-full">
-      <div className="-mx-4 md:-mx-16">
+    <section className="bg-gradient-to-b py-12 px-4 md:px-8 lg:px-16 w-full">
+      <div className="-mx-4 md:-mx-8 lg:-mx-16">
         <h1 className="text-3xl md:text-4xl font-thin text-gray-900 mb-8 text-center heading-font tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg py-4">
           The <span className="text-[rgb(255,102,0)] heading-font tracking-wider">Pillars</span> of <span className="font-semibold text-[rgb(255,102,0)]">Success</span>
         </h1>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import TestimonialCard from '../components/TestimonialCards';
 import { RiDoubleQuotesL } from "react-icons/ri";
-import img1 from '../assets/testimonial-male.jpeg'; 
-import img2 from '../assets/testimonial-male-2.jpeg'; 
-import img3 from '../assets/testimonial-male-3.jpeg'; 
+import { FiArrowUp, FiArrowDown } from "react-icons/fi";
+import img1 from '../assets/testimonial-male.jpeg';
+import img2 from '../assets/testimonial-male-2.jpeg';
+import img3 from '../assets/testimonial-male-3.jpeg';
 
 const testimonials = [
   {
@@ -15,7 +16,7 @@ const testimonials = [
   {
     name: 'Dinesh Suthar',
     position: 'Old Member',
-    quote: '“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.',
+    quote: '“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”',
     photo: img2,
   },
   {
@@ -27,6 +28,22 @@ const testimonials = [
 ];
 
 function Testimonial() {
+  const scrollRef = useRef(null);
+
+  // Function to scroll up
+  const scrollUp = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ top: -100, behavior: 'smooth' });
+    }
+  };
+
+  // Function to scroll down
+  const scrollDown = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ top: 100, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="flex flex-col md:flex-row justify-between px-4 md:px-[5vw] items-center py-10 bg-[#fc7b0386]">
       <style>
@@ -38,6 +55,13 @@ function Testimonial() {
           .heading-font {
             font-family: 'Gendy', sans-serif;
           }
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgb(255, 102, 0);
+            border-radius: 10px;
+          }
         `}
       </style>
 
@@ -48,18 +72,36 @@ function Testimonial() {
         </h1>
       </div>
 
-      <div className="md:w-1/2 h-96 overflow-y-auto custom-scrollbar">
-        <div className="flex flex-col space-y-6 p-4">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              name={testimonial.name}
-              position={testimonial.position}
-              quote={testimonial.quote}
-              photo={testimonial.photo}
-            />
-          ))}
+      <div className="md:w-1/2 h-96 relative">
+        {/* Top scroll arrow */}
+        <button 
+          onClick={scrollUp} 
+          className="absolute top-2 left-full transform -translate-x-[130%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
+        >
+          <FiArrowUp className="text-[rgb(255,102,0)]" size={24} />
+        </button>
+
+        <div ref={scrollRef} className="overflow-y-auto h-full w-full custom-scrollbar p-4 relative">
+          <div className="flex flex-col space-y-6">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                name={testimonial.name}
+                position={testimonial.position}
+                quote={testimonial.quote}
+                photo={testimonial.photo}
+              />
+            ))}
+          </div>
         </div>
+
+        {/* Bottom scroll arrow */}
+        <button 
+          onClick={scrollDown} 
+          className="absolute bottom-0 left-full transform -translate-x-[140%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
+        >
+          <FiArrowDown className="text-[rgb(255,102,0)]" size={24} />
+        </button>
       </div>
     </section>
   );

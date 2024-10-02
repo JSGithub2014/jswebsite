@@ -45,10 +45,6 @@ const PartnerSection = () => {
     RBL,
   ];
 
-  const duplicateLogos = (logos) => {
-    return [...logos, ...logos, ...logos];
-  };
-
   return (
     <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
       <h2 className="text-4xl heading-font text-center px-10 py-3 text-gray-700 w-full tracking-wider font-thin bg-gradient-to-r from-orange-400 to-yellow-400 shadow-lg mb-6 transform transition-transform duration-300 hover:scale-105">
@@ -56,15 +52,15 @@ const PartnerSection = () => {
       </h2>
 
       {/* First Marquee Line */}
-      <div className="relative overflow-hidden mb-6">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {duplicateLogos(partnersLine1).map((logo, index) => (
+      <div className="relative overflow-hidden mb-6 w-full">
+        <div className="flex animate-marquee">
+          {partnersLine1.concat(partnersLine1).map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block mx-4 h-16"
-              loading="lazy" // Added lazy loading
+              className="inline-block h-16"
+              loading="lazy"
             />
           ))}
         </div>
@@ -72,14 +68,14 @@ const PartnerSection = () => {
 
       {/* Second Marquee Line */}
       <div className="relative overflow-hidden w-full">
-        <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {duplicateLogos(partnersLine2).map((logo, index) => (
+        <div className="flex animate-marquee-reverse">
+          {partnersLine2.concat(partnersLine2).map((logo, index) => (
             <img
               key={index}
               src={logo}
-              alt={`Partner ${index + partnersLine1.length + 1}`}
-              className="inline-block mx-4 h-16"
-              loading="lazy" // Added lazy loading
+              alt={`Partner ${index + 1}`}
+              className="inline-block h-16"
+              loading="lazy"
             />
           ))}
         </div>
@@ -89,11 +85,11 @@ const PartnerSection = () => {
       <style>
         {`
           .animate-marquee {
-            animation: marquee 50s linear infinite;
+            animation: marquee 30s linear infinite;
           }
 
           .animate-marquee-reverse {
-            animation: marquee-reverse 50s linear infinite;
+            animation: marquee-reverse 30s linear infinite;
           }
 
           @keyframes marquee {
@@ -101,17 +97,22 @@ const PartnerSection = () => {
               transform: translateX(0);
             }
             100% {
-              transform: translateX(-33.33%); /* Adjust this based on the number of duplicates */
+              transform: translateX(-100%);
             }
           }
 
           @keyframes marquee-reverse {
             0% {
-              transform: translateX(33.33%);
+              transform: translateX(100%);
             }
             100% {
               transform: translateX(0);
             }
+          }
+
+          /* Remove default margins between images */
+          img {
+            margin: 0; /* Ensure no extra margins are applied */
           }
         `}
       </style>
