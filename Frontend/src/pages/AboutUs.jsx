@@ -8,7 +8,7 @@ const WhoWeAre = () => {
         >
             <div className="container mx-auto text-center">
                 <h1 
-                    id="who-we-are-heading" // Unique ID for accessibility
+                    id="who-we-are-heading"
                     className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
                 >
                     <span>Who</span>
