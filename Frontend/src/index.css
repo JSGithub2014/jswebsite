@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  font-family: "Nailhead", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 
 
 html {
@@ -24,10 +17,6 @@ html {
 @font-face {
   font-family: 'Gendy';
   src: url('/assets/TTF/Gendy.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Nailhead';
-  src: url('/assets/Nailhead.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Wondra';
