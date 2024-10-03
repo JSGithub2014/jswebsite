@@ -50,10 +50,10 @@ function Achievement() {
             ))}
           </div>
         </div>
-        <div className="md:w-1/2 flex flex-col justify-center items-center p-4">
-          <h2 className="text-4xl font-thin mb-4 text-center heading-font tracking-wider">
+        <div className="md:w-1/2 flex flex-col justify-between items-center p-4">
+          <h2 className="text-6xl font-thin mb-4 text-center heading-font tracking-wider">
             <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Journey</span>
-            <span className='black heading-font'> of Trust and Success</span>
+            <span className='black heading-font'> of Trust and <span className='text-[rgb(255,102,0)]'>Success</span> </span>
           </h2>
           <img
             src={achievementImage}

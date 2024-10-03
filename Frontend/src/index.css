@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Nailhead", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 
 html {
@@ -19,6 +26,10 @@ html {
   src: url('/assets/TTF/Gendy.ttf') format('truetype');
 }
 @font-face {
+  font-family: 'Gendy';
+  src: url('/assets/Nailhead.ttf') format('truetype');
+}
+@font-face {
   font-family: 'Wondra';
   src: url('/assets/Wondra.ttf') format('truetype');
 }
@@ -29,6 +40,8 @@ html {
 .landing-font {
   font-family: 'Wondra', sans-serif;
 }
+
+
 
 ::-webkit-scrollbar{
   background-color: rgb(58,59,59);

@@ -10,7 +10,6 @@ function OurStrength() {
     const handleIntersection = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Play the video only if it has been started by touch event
           if (video.paused) {
             video.play();
           }
@@ -43,20 +42,18 @@ function OurStrength() {
   };
 
   return (
-    <React.Fragment>
-      <div
-        className='w-full h-[78vh] relative overflow-hidden'
-        onTouchStart={handleTouchStart} // Start video on touch
-      >
-        <video  
-          ref={videoRef}
-          src={ourStrengthVideo}
-          muted 
-          className='absolute inset-0 w-full h-full object-cover ' 
-          playsInline
-        />
-      </div>
-    </React.Fragment>
+    <div
+      className='w-full flex justify-center items-center h-[80vh] overflow-hidden'
+      onTouchStart={handleTouchStart}
+    >
+      <video  
+        ref={videoRef}
+        src={ourStrengthVideo}
+        muted
+        className='w-full max-h-full object-cover'
+        playsInline
+      />
+    </div>
   );
 }
 
