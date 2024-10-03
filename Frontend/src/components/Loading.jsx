@@ -5,7 +5,7 @@ const Loading = () => {
   const [visibleWords, setVisibleWords] = useState([]);
 
   useEffect(() => {
-    const words = ['Bouldless', 'Committed', 'Pragmatic'];
+    const words = ['Boundless', 'Committed', 'Pragmatic'];
 
     // Initial delay before starting to display words
     const initialDelay = setTimeout(() => {
@@ -29,7 +29,7 @@ const Loading = () => {
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(255,102,0)] z-50 p-4" role="alert">
       <img 
         src={logo} 
-        alt="Company Logo - Bouldless" // Improved alt text for SEO
+        alt="Company Logo - Boundless" // Improved alt text for SEO
         className="w-32 h-auto mb-4 md:w-48" 
         loading="lazy" // Optional: Lazy load for performance
       />
