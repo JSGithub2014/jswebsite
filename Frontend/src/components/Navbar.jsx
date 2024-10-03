@@ -40,7 +40,7 @@ function Navbar() {
 
   return (
     <>
-      <header 
+      <header
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
         aria-label="Main Navigation"
       >
@@ -58,18 +58,18 @@ function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link to="/login" className="bg-white text-[rgb(255,102,0)] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white" aria-label="Login">Login</Link>
             <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-black" aria-label="Sign Up">Signup</Link>
-            <a 
-              href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&_gl=1*1jktei7*_gcl_aw*R0NMLjE3Mjc4NTk4NTUuQ2owS0NRanczdk8zQmhDcUFSSXNBRVdibGNDcmo4WGR4aEtod0Vzd3Nsa0NGX1hCN29IcVN6am5YcjlYQXk2NDhXZGlqMWtna0FLc1BRQWFBdVR0RUFMd193Y0I.*_gcl_au*MTc1OTg4NzQ4OC4xNzI1ODg0MjY1*_ga*ODE1MDQwMTQxLjE2NjY4NzMxMTM.*_ga_WVCRSGNX36*MTcyNzk1NzE1MC4xMC4xLjE3Mjc5NTcxNTUuMC4wLjA.*_ga_GGL6JJ79K2*MTcyNzk1NzE1MS43NC4xLjE3Mjc5NTcxNTUuNTYuMC4w&_ga=2.240802886.459507043.1727957151-815040141.1666873113&_gac=1.128965118.1727859855.Cj0KCQjw3vO3BhCqARIsAEWblcCrj8XdxhKhwEswslkCF_XB7oHqSzjnXr9XAy648Wdij1kgkAKsPQAaAuTtEALw_wcB&atvy=%7B%22231005%22%3A%22Experience+B%22%7D" 
-              className="bg-white text-[rgb(255,102,0)] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&_gl=1*1jktei7*_gcl_aw*R0NMLjE3Mjc4NTk4NTUuQ2owS0NRanczdk8zQmhDcUFSSXNBRVdibGNDcmo4WGR4aEtod0Vzd3Nsa0NGX1hCN29IcVN6am5YcjlYQXk2NDhXZGlqMWtna0FLc1BRQWFBdVR0RUFMd193Y0I.*_gcl_au*MTc1OTg4NzQ4OC4xNzI1ODg0MjY1*_ga*ODE1MDQwMTQxLjE2NjY4NzMxMTM.*_ga_WVCRSGNX36*MTcyNzk1NzE1MC4xMC4xLjE3Mjc5NTcxNTUuMC4wLjA.*_ga_GGL6JJ79K2*MTcyNzk1NzE1MS43NC4xLjE3Mjc5NTcxNTUuNTYuMC4w&_ga=2.240802886.459507043.1727957151-815040141.1666873113&_gac=1.128965118.1727859855.Cj0KCQjw3vO3BhCqARIsAEWblcCrj8XdxhKhwEswslkCF_XB7oHqSzjnXr9XAy648Wdij1kgkAKsPQAaAuTtEALw_wcB&atvy=%7B%22231005%22%3A%22Experience+B%22%7D"
+              className="bg-white text-[rgb(255,102,0)] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Check Your CIBIL"
             >
               Check Your CIBIL
             </a>
           </div>
-          <button 
-            className={`md:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} 
+          <button
+            className={`md:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle Menu"
           >
@@ -84,15 +84,16 @@ function Navbar() {
             <div className="flex gap-2 mt-4">
               <Link to="/login" className="bg-white text-[rgb(255,102,0)] px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[rgb(255,102,0)] hover:text-white" aria-label="Login">Login</Link>
               <Link to="/signup" className="bg-black text-white px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[rgb(255,102,0)] hover:text-black" aria-label="Sign Up">Signup</Link>
-              <a 
-                href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&_gl=1*1jktei7*_gcl_aw*R0NMLjE3Mjc4NTk4NTUuQ2owS0NRanczdk8zQmhDcUFSSXNBRVdibGNDcmo4WGR4aEtod0Vzd3Nsa0NGX1hCN29IcVN6am5YcjlYQXk2NDhXZGlqMWtna0FLc1BRQWFBdVR0RUFMd193Y0I.*_gcl_au*MTc1OTg4NzQ4OC4xNzI1ODg0MjY1*_ga*ODE1MDQwMTQxLjE2NjY4NzMxMTM.*_ga_WVCRSGNX36*MTcyNzk1NzE1MC4xMC4xLjE3Mjc5NTcxNTUuMC4wLjA.*_ga_GGL6JJ79K2*MTcyNzk1NzE1MS43NC4xLjE3Mjc5NTcxNTUuNTYuMC4w&_ga=2.240802886.459507043.1727957151-815040141.1666873113&_gac=1.128965118.1727859855.Cj0KCQjw3vO3BhCqARIsAEWblcCrj8XdxhKhwEswslkCF_XB7oHqSzjnXr9XAy648Wdij1kgkAKsPQAaAuTtEALw_wcB&atvy=%7B%22231005%22%3A%22Experience+B%22%7D" 
-                className="bg-white text-[rgb(255,102,0)] px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-[rgb(255,102,0)] hover:text-white" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="Check Your CIBIL"
-              >
-                View CIBIL Score
-              </a>
+              <a
+  href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&_gl=1*1jktei7*_gcl_aw*R0NMLjE3Mjc4NTk4NTUuQ2owS0NRanczdk8zQmhDcUFSSXNBRVdibGNDcmo4WGR4aEtod0Vzd3Nsa0NGX1hCN29IcVN6am5YcjlYQXk2NDhXZGlqMWtna0FLc1BRQWFBdVR0RUFMd193Y0I.*_gcl_au*MTc1OTg4NzQ4OC4xNzI1ODg0MjY1*_ga*ODE1MDQwMTQxLjE2NjY4NzMxMTM.*_ga_WVCRSGNX36*MTcyNzk1NzE1MC4xMC4xLjE3Mjc5NTcxNTUuMC4wLjA.*_ga_GGL6JJ79K2*MTcyNzk1NzE1MS43NC4xLjE3Mjc5NTcxNTUuNTYuMC4w&_ga=2.240802886.459507043.1727957151-815040141.1666873113&_gac=1.128965118.1727859855.Cj0KCQjw3vO3BhCqARIsAEWblcCrj8XdxhKhwEswslkCF_XB7oHqSzjnXr9XAy648Wdij1kgkAKsPQAaAuTtEALw_wcB&atvy=%7B%22231005%22%3A%22Experience+B%22%7D"
+  className="bg-white text-blue-500 px-3 py-1 rounded-full text-sm transition duration-300 hover:bg-blue-500 hover:text-white"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="CIBIL"
+>
+  CIBIL
+</a>
+
             </div>
           </div>
         </div>
