@@ -5,26 +5,53 @@ import { FiArrowUp, FiArrowDown } from "react-icons/fi";
 import img1 from '../assets/testimonial-male.jpeg';
 import img2 from '../assets/testimonial-male-2.jpeg';
 import img3 from '../assets/testimonial-male-3.jpeg';
+// Import more images as needed for the testimonials
 
 const testimonials = [
   {
-    name: 'Sharad Dedhia',
-    position: 'Client',
-    quote: "“Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
+    name: 'Nandkumar Pawar',
+    position: 'Diamond Merchant',
+    quote: "“PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.”",
     photo: img1,
   },
   {
-    name: 'Dinesh Suthar',
-    position: 'Old Member',
-    quote: '“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”',
+    name: 'Sharad Dedhia',
+    position: 'Entrepreneur',
+    quote: "“Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won’t have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
     photo: img2,
   },
   {
-    name: 'Navnath Ghadge',
-    position: 'Client',
-    quote: '“Good with the services, will rate 5 of 5 but, there is a compulsion of taking the insurance and they say “it is mandatory”. Impress with the work and please make some changes in your policies as very few are only interested in insurance.”',
+    name: 'Hirji Jatrara',
+    position: 'Entrepreneur',
+    quote: "“I have seen the efforts and quickness at the same time. PASPL never like to stop for any reason and it is seen in their hard work. The loan amount provided was much higher than any other firm in the market.”",
     photo: img3,
   },
+  // Add additional testimonials following the same structure
+  {
+    name: 'Sirtaj Shaikh',
+    position: 'Chairman NGO',
+    quote: "“Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.”",
+    photo: img1, // Use different images as necessary
+  },
+  {
+    name: 'Poonam Raut',
+    position: 'Manager MNC',
+    quote: "“The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.”",
+    photo: img2,
+  },
+  {
+    name: 'Dinesh Suthar',
+    position: 'Entrepreneur',
+    quote: "“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”",
+    photo: img3,
+  },
+  {
+    name: 'Suresh Lohar',
+    position: 'Interior Decorator',
+    quote: "“Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.”",
+    photo: img1,
+  },
+  // Continue adding all other testimonials...
 ];
 
 function Testimonial() {

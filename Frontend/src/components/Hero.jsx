@@ -16,15 +16,15 @@ function Hero() {
   };
 
   return (
-    <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center px-4 md:px-10 pt-16 md:pt-0' role="banner">
+    <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center px-4 md:px-10 pt-16 md:pt-0 mt-10' role="banner">
       <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
-          <h1 className='text-2xl md:text-4xl lg:text-7xl font-semibold mb-4 landing-font text-white'>
+          <h1 className='text-2xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
               <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}> Expert Guidance in Finance <br /> </span>
             </div>
-            <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
+            <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl  overflow-hidden'> 
               <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}> Insurance, and Real Estate</span>
             </div>
             <br />
