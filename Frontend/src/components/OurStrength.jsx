@@ -45,14 +45,14 @@ function OurStrength() {
   return (
     <React.Fragment>
       <div
-        className='w-full h-[94vh] relative overflow-hidden'
+        className='w-full h-[78vh] relative overflow-hidden'
         onTouchStart={handleTouchStart} // Start video on touch
       >
         <video  
           ref={videoRef}
           src={ourStrengthVideo}
           muted 
-          className='absolute inset-0 w-full h-full object-cover pb-5' // Removed padding for full coverage
+          className='absolute inset-0 w-full h-full object-cover ' 
           playsInline
         />
       </div>

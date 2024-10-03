@@ -92,7 +92,7 @@ function Footer() {
                 <div className="flex-shrink-0 mr-3">
                   <FaMapMarkerAlt className="text-2xl" />
                 </div>
-                <div className="flex flex-col justify-center text-left">
+                <div className="flex flex-col justify-center text-left ">
                   <span className="text-base">1202, 12th Floor, Lodha Supremus</span>
                   <span className="text-base">Saki Vihar Road, Andheri East,</span>
                   <span className="text-base">Mumbai 400072 Maharashtra</span>

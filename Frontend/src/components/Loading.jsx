@@ -34,7 +34,7 @@ const Loading = () => {
         loading="lazy" // Optional: Lazy load for performance
       />
       <div className="text-sm md:text-lg font-bold flex justify-center space-x-1" aria-live="polite"> {/* Aria live region for assistive technologies */}
-        {['Bouldless', 'Committed', 'Pragmatic'].map((word, index) => (
+        {['Boundless', 'Committed', 'Pragmatic'].map((word, index) => (
           <span 
             key={index} 
             className={`inline-block transition-opacity duration-500 ease-in-out`} // Smooth transition

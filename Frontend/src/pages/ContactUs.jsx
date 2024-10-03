@@ -3,8 +3,8 @@ import contactShowcase from '../assets/contact-us.gif';
 
 const ContactUs = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 py-3 w-full">
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 py-2 w-full">
         <span>Contact</span>
         <span className='text-black heading-font tracking-wider'> Us</span>
       </h1>
