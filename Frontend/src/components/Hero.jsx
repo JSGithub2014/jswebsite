@@ -22,25 +22,26 @@ function Hero() {
           <h1 className='text-2xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
-              <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}> Expert Guidance in Finance <br /> </span>
+              <span className='services-name font-thin text-black whitespace-nowrap' style={{ opacity: 0, transform: 'translateX(300px)' }}>
+                Expert Guidance in Finance
+              </span>
             </div>
-            <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl  overflow-hidden'> 
-              <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}> Insurance, and Real Estate</span>
+            <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl overflow-hidden'> 
+              <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}>
+                Insurance, and Real Estate
+              </span>
             </div>
             <br />
           </h1>
-          <p className='text-xs md:text-base lg:text-lg mb-4'>
-            We provide expert guidance and tailored solutions to help you navigate the complex world of finance and real estate.
-          </p>
           <div className="flex justify-center md:justify-start">
             <button 
-              className='flex items-center text-[rgb(255,102,0)] focus:scale-110 px-2 py-1 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
+              className='flex items-center focus:scale-110 px-2 py-1 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
               onClick={handleCall}
               aria-label="Call Us"
             >
               <img 
                 src={callBtn} 
-                className='w-36 md:w-32 lg:w-44 '
+                className='w-36 md:w-44 lg:w-56 -ml-7'
                 alt="Call Us" 
                 loading="lazy" 
               />
