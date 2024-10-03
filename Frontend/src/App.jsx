@@ -18,7 +18,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
-import OurStrength from './components/OurStrength';
 
 
 const App = () => {
@@ -56,7 +55,7 @@ const App = () => {
     <div className='overflow-x-hidden'>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Register />} />
         <Route path="/" element={
           <>
@@ -69,11 +68,10 @@ const App = () => {
             <section id="Achievement"><Achievement /></section>
             <section id="Whyus"><WhyUs /></section>
             <section id="faqs"><Faqs /></section>
-            <OurStrength/>
 
             <RobustFoundation />
             <ContactUs />
-            <Footer />
+            <Footer/>
             <ScrollToTop />
           </>
         } />

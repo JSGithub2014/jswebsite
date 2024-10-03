@@ -30,10 +30,11 @@ const services = [
 
 function Services() {
     return (
-        <section className='relative w-full h-auto lg:h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-6 py-10 lg:py-16'>
+        <section className='relative w-full h-auto bg-transparent overflow-hidden flex flex-col justify-center items-center gap-6 py-10 lg:py-10'>
             <h1 className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider'>
-                <span className='heading-font tracking-wider'>Our </span>
-                <span className='heading-font text-[rgb(255,102,0)]'>Service</span>
+                <span className='heading-font tracking-wider'>What </span>
+                <span className='heading-font tracking-wider'>We </span>
+                <span className='heading-font text-[rgb(255,102,0)]'>Offer</span>
             </h1>
             <p className='text-sm md:text-base lg:text-lg text-center max-w-2xl px-4'>
                 We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.

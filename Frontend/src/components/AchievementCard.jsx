@@ -2,7 +2,7 @@ import React from 'react';
 
 function AchievementCard({ imgSrc, title, description, achievementNumber }) {
   return (
-    <article className="bg-white shadow-lg rounded-lg p-4 m-2 flex flex-col" role="article" aria-labelledby={`achievement-${achievementNumber}`}>
+    <article className="bg-white shadow-lg rounded-lg p-8 m-2 flex flex-col " role="article" aria-labelledby={`achievement-${achievementNumber}`}>
       {/* Image with alt text for SEO */}
       <img 
         src={imgSrc} 
@@ -12,7 +12,7 @@ function AchievementCard({ imgSrc, title, description, achievementNumber }) {
       />
 
       {/* Achievement number */}
-      <p className="text-base md:text-lg font-extrabold text-left mt-2" id={`achievement-number-${achievementNumber}`}>{achievementNumber}</p>
+      <p className="text-base md:text-2xl font-extrabold text-left mt-2" id={`achievement-number-${achievementNumber}`}>{achievementNumber}</p>
 
       {/* Title */}
       <h2 className="text-sm md:text-md font-medium text-left mt-1" id={`achievement-title-${achievementNumber}`}>

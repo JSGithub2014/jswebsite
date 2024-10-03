@@ -1,4 +1,6 @@
 import React from 'react';
+import OurStrength from '../components/OurStrength';
+
 
 const OurStrengths = () => {
   const strengths = [
@@ -35,13 +37,18 @@ const OurStrengths = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b py-12 px-4 md:px-8 lg:px-16 w-full">
+    <section className="bg-gradient-to-b px-4 md:px-8 lg:px-16 w-full mb-10">
       <div className="-mx-4 md:-mx-8 lg:-mx-16">
         <h1 className="text-3xl md:text-4xl font-thin text-gray-900 mb-8 text-center heading-font tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg py-4">
           The <span className="text-[rgb(255,102,0)] heading-font tracking-wider">Pillars</span> of <span className="font-semibold text-[rgb(255,102,0)]">Success</span>
         </h1>
       </div>
-      <div className="container mx-auto text-center ">
+      <OurStrength/>
+      <div className="container mx-auto my-4">
+        <hr className="border-t border-zinc-300 opacity-70 h-10" />
+      </div>
+
+      <div className="container mx-auto text-center mt-5 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {strengths.map((strength, index) => (
             <div
@@ -51,10 +58,10 @@ const OurStrengths = () => {
               aria-labelledby={`strength-title-${index}`}
               aria-describedby={`strength-desc-${index}`}
             >
-              <div className="text-4xl mb-4" aria-label={strength.title}>
+              <div className="text-4xl" aria-label={strength.title}>
                 {strength.icon}
               </div>
-              <h2 id={`strength-title-${index}`} className="text-lg md:text-xl font-bold text-gray-800 mb-2">{strength.title}</h2>
+              <h2 id={`strength-title-${index}`} className="text-lg md:text-xl font-bold text-gray-800 mb-5">{strength.title}</h2>
               <p id={`strength-desc-${index}`} className="text-sm md:text-base text-gray-600">{strength.description}</p>
             </div>
           ))}

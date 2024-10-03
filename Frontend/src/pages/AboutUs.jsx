@@ -4,7 +4,7 @@ const WhoWeAre = () => {
     return (
         <section 
             className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16 lg:px-24 xl:px-32" 
-            aria-labelledby="who-we-are-heading" // Added aria-labelledby for accessibility
+            aria-labelledby="who-we-are-heading" 
         >
             <div className="container mx-auto text-center">
                 <h1 
@@ -17,7 +17,7 @@ const WhoWeAre = () => {
 
                 <p 
                     className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
-                    aria-describedby="who-we-are-description" // Added aria-describedby for context
+                    aria-describedby="who-we-are-description" 
                 >
                     We specialize in expert financial services, insurance solutions, and real estate advisory, 
                     empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique 

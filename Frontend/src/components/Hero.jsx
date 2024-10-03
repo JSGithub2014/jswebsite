@@ -12,14 +12,14 @@ function Hero() {
   }, []);
 
   const handleCall = () => {
-    window.location.href = 'tel:+912245120755'; // Replace with the actual phone number
+    window.location.href = 'tel:+912245120755'; 
   };
 
   return (
     <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center px-4 md:px-10 pt-16 md:pt-0' role="banner">
       <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
-          <h1 className='text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 landing-font text-white'>
+          <h1 className='text-2xl md:text-4xl lg:text-7xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
               <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}> Expert Guidance in Finance <br /> </span>
@@ -40,9 +40,9 @@ function Hero() {
             >
               <img 
                 src={callBtn} 
-                className='w-24 md:w-32 lg:w-56' // Use responsive width for button image
+                className='w-36 md:w-32 lg:w-44 '
                 alt="Call Us" 
-                loading="lazy" // Optional: Lazy load images for performance
+                loading="lazy" 
               />
             </button>
           </div>
