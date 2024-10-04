@@ -41,23 +41,23 @@ function Navbar() {
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
         aria-label="Main Navigation"
       >
-        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-gray-800">
+        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[rgb(58,59,59)]">
           <div className="brand-logo">
             <a href="#Home" aria-label="Go to Home">
               <img className="w-14 pt-2 py-2" src={brandLogo} alt="Brand Logo" />
             </a>
           </div>
           <div className="hidden md:flex flex-1 justify-center space-x-8 uppercase font-bold text-orange-500">
-            <a href="#Home" className="px-4 py-2 rounded-full focus:text-white transition duration-300">Home</a>
-            <a href="#About" className="px-4 py-2 rounded-full focus:text-white transition duration-300">About</a>
-            <a href="#Services" className="px-4 py-2 rounded-full focus:text-white transition duration-300">Services</a>
+            <a href="#Home" className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</a>
+            <a href="#About" className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">About</a>
+            <a href="#Services" className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Services</a>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full focus:text-white transition duration-300">Login</Link>
-            <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full focus:text-white transition duration-300">Signup</Link>
+            <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Login</Link>
+            <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Signup</Link>
             <a
               href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL"
-              className="bg-blue-500 text-white px-4 py-2 rounded-full focus:text-white transition duration-300"
+              className="bg-blue-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-blue-600"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Check Your CIBIL"
@@ -75,16 +75,16 @@ function Navbar() {
         </nav>
         {isMenuOpen && (
           <div className="md:hidden flex flex-col items-center bg-gray-800 p-4">
-            <a href="#Home" className="text-orange-500 py-2 rounded-full focus:text-white">Home</a>
-            <a href="#About" className="text-orange-500 py-2 rounded-full focus:text-white">About</a>
-            <a href="#Services" className="text-orange-500 py-2 rounded-full focus:text-white">Services</a>
+            <a href="#Home" className="text-orange-500 py-2 rounded-full">Home</a>
+            <a href="#About" className="text-orange-500 py-2 rounded-full">About</a>
+            <a href="#Services" className="text-orange-500 py-2 rounded-full">Services</a>
             <div className="flex space-x-2 mt-2">
-              <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full focus:text-white">Login</Link>
-              <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full focus:text-white">Signup</Link>
+              <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full">Login</Link>
+              <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full">Signup</Link>
             </div>
             <a
               href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL"
-              className="bg-blue-500 text-white px-4 py-2 rounded-full focus:text-white mt-2"
+              className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Check Your CIBIL"
