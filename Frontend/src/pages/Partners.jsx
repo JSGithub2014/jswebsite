@@ -31,9 +31,104 @@ const PartnerSection = () => {
     HDFC_Ltd,
     HDFC,
     HSBC,
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    BOI,
+    BOM,
+    DBS,
+    DCB,
+    DNS,
+    GP_Parsik,
+    GS_Maha,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
   ];
 
   const partnersLine2 = [
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    KNS,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
     ICICI_Finance,
     ICICI,
     IDBI,
@@ -59,7 +154,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-16"
+              className="inline-block h-18 mx-5 "
               loading="lazy"
             />
           ))}
@@ -74,7 +169,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-16"
+              className="inline-block h-18 mx-5 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}
@@ -85,7 +180,7 @@ const PartnerSection = () => {
       <style>
         {`
           .animate-marquee {
-            animation: marquee 30s linear infinite;
+            animation: marquee 20s linear infinite;
           }
 
           .animate-marquee-reverse {

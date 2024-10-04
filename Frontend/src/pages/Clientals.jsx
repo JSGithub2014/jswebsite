@@ -26,9 +26,78 @@ const ClientalsSection = () => {
     Akshar,
     TheWadhvaGroup,
     Rajesh,
+    Tricity,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
+    Tricity,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
+    Tricity,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
   ];
 
   const clientalsLine2 = [
+    Regency,
+    Arihant,
+    Marathon,
+    Lodha,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
+    Regency,
+    Arihant,
+    Marathon,
+    Lodha,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
+    Regency,
+    Arihant,
+    Marathon,
+    Lodha,
+    Raheja,
+    Rustomjee,
+    Oberoy,
+    Hiranandani,
+    Dosti,
+    Godrej,
+    Akshar,
+    TheWadhvaGroup,
+    Rajesh,
     Regency,
     Arihant,
     Marathon,
@@ -58,7 +127,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block mx-4 h-16"
+              className="inline-block mx-4 h-18 mx-5"
               loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
@@ -73,7 +142,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 11}`}
-              className="inline-block mx-4 h-16"
+              className="inline-block mx-5 h-18 -translate-x-[7000%]"
               loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
@@ -88,7 +157,7 @@ const ClientalsSection = () => {
           }
 
           .animate-marquee-reverse {
-            animation: marquee-reverse 40s linear infinite;
+            animation: marquee-reverse 30s linear infinite;
           }
 
           @keyframes marquee {
