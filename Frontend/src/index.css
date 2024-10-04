@@ -41,12 +41,4 @@ html {
   border-radius: 2px;
 }
 
-.video {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  object-fit: cover;
-}
-
 

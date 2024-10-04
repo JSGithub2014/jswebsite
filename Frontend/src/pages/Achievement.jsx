@@ -46,7 +46,7 @@ function Achievement() {
           <img
             src={achievementImage}
             alt="Illustration of achievements"
-            className="w-full h-auto rounded-md"
+            className="w-full h-auto rounded-md mb-2"
             loading="lazy"
             aria-describedby="achievement-image-description"
           />
