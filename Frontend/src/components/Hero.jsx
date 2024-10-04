@@ -16,8 +16,8 @@ function Hero() {
   };
 
   return (
-    <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center px-4 md:px-10 pt-16 md:pt-0 mt-10' role="banner">
-      <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full'>
+    <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center md:px-10 pt-16 md:pt-0 mt-10' role="banner">
+      <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full gap-20'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
           <h1 className='text-2xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
