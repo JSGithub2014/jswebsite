@@ -74,7 +74,7 @@ function Navbar() {
           </button>
         </nav>
         {isMenuOpen && (
-          <div className="md:hidden flex flex-col items-center bg-gray-800 p-4">
+          <div className="md:hidden flex flex-col items-center bg-[rgb(58,59,59)] p-4">
             <a href="#Home" className="text-orange-500 py-2 rounded-full">Home</a>
             <a href="#About" className="text-orange-500 py-2 rounded-full">About</a>
             <a href="#Services" className="text-orange-500 py-2 rounded-full">Services</a>

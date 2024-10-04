@@ -12,7 +12,7 @@ function Hero() {
   }, []);
 
   const handleCall = () => {
-    window.location.href = 'tel:+912245120755'; 
+    window.location.href = 'tel:+912245120755';
   };
 
   return (
@@ -22,12 +22,12 @@ function Hero() {
           <h1 className='text-2xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
-              <span className='services-name font-thin text-black whitespace-nowrap' style={{ opacity: 0, transform: 'translateX(300px)' }}>
+              <span className='services-name font-thin text-black whitespace-nowrap' style={{ opacity: 0, }}>
                 Expert Guidance in Finance
               </span>
             </div>
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl overflow-hidden'> 
-              <span className='services-name font-thin text-black' style={{ opacity: 0, transform: 'translateX(300px)' }}>
+              <span className='services-name font-thin text-black' style={{ opacity: 0, }}>
                 Insurance, and Real Estate
               </span>
             </div>
