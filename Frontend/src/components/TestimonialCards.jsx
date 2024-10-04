@@ -22,7 +22,7 @@ function TestimonialCard({ name, position, quote, photo }) {
         </h3>
         <p className="text-gray-500 text-xs md:text-sm">{position}</p>
         <div className="mt-2">
-          <p className="text-gray-600 italic text-sm md:text-base">"{quote}"</p>
+          <p className="text-gray-600 italic text-sm md:text-base">{quote}</p>
         </div>
       </div>
     </div>

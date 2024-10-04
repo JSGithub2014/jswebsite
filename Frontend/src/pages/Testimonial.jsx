@@ -11,13 +11,13 @@ const testimonials = [
   {
     name: 'Nandkumar Pawar',
     position: 'Diamond Merchant',
-    quote: "“PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.”",
+    quote: "PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.",
     photo: img1,
   },
   {
     name: 'Sharad Dedhia',
     position: 'Entrepreneur',
-    quote: "“Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won’t have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
+    quote: "Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
     photo: img2,
   },
   {

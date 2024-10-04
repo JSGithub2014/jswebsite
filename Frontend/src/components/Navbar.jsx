@@ -9,7 +9,6 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Hide navbar on login and signup pages
   useEffect(() => {
     const path = location.pathname;
     setShowNavbar(path !== '/login' && path !== '/signup');
@@ -17,8 +16,6 @@ function Navbar() {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
-    // Smoothly hide/show navbar
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       setShowNavbar(false);
     } else {
@@ -44,28 +41,28 @@ function Navbar() {
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
         aria-label="Main Navigation"
       >
-        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-[rgb(58,59,59)]">
+        <nav className="flex justify-between items-center px-4 md:px-20 w-full shadow-md bg-gray-800">
           <div className="brand-logo">
             <a href="#Home" aria-label="Go to Home">
               <img className="w-14 pt-2 py-2" src={brandLogo} alt="Brand Logo" />
             </a>
           </div>
-          <div className="flex-1 hidden md:flex justify-center brand-options gap-8 uppercase font-bold">
-            <a href="#Home" className="px-4 py-2 text-[rgb(255,102,0)] rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]" aria-label="Home">Home</a>
-            <a href="#About" className="px-4 py-2 text-[rgb(255,102,0)] rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]" aria-label="About Us">About</a>
-            <a href="#Services" className="px-4 py-2 text-[rgb(255,102,0)] rounded-full transition-all duration-300 ease-in-out hover:bg-white hover:text-[rgb(255,102,0)]" aria-label="Services">Services</a>
+          <div className="hidden md:flex flex-1 justify-center space-x-8 uppercase font-bold text-orange-500">
+            <a href="#Home" className="px-4 py-2 rounded-full focus:text-white transition duration-300">Home</a>
+            <a href="#About" className="px-4 py-2 rounded-full focus:text-white transition duration-300">About</a>
+            <a href="#Services" className="px-4 py-2 rounded-full focus:text-white transition duration-300">Services</a>
           </div>
-          <div className="hidden md:flex items-center gap-4">
-            <Link to="/login" className="bg-white text-[rgb(255,102,0)] px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-white" aria-label="Login">Login</Link>
-            <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:bg-[#ff7c02] hover:text-black" aria-label="Sign Up">Signup</Link>
+          <div className="hidden md:flex items-center space-x-4">
+            <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full focus:text-white transition duration-300">Login</Link>
+            <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full focus:text-white transition duration-300">Signup</Link>
             <a
-              href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&_gl=1*1jktei7*_gcl_aw*R0NMLjE3Mjc4NTk4NTUuQ2owS0NRanczdk8zQmhDcUFSSXNBRVdibGNDcmo4WGR4aEtod0Vzd3Nsa0NGX1hCN29IcVN6am5YcjlYQXk2NDhXZGlqMWtna0FLc1BRQWFBdVR0RUFMd193Y0I.*_gcl_au*MTc1OTg4NzQ4OC4xNzI1ODg0MjY1*_ga*ODE1MDQwMTQxLjE2NjY4NzMxMTM.*_ga_WVCRSGNX36*MTcyNzk1NzE1MC4xMC4xLjE3Mjc5NTcxNTUuMC4wLjA.*_ga_GGL6JJ79K2*MTcyNzk1NzE1MS43NC4xLjE3Mjc5NTcxNTUuNTYuMC4w&_ga=2.240802886.459507043.1727957151-815040141.1666873113&_gac=1.128965118.1727859855.Cj0KCQjw3vO3BhCqARIsAEWblcCrj8XdxhKhwEswslkCF_XB7oHqSzjnXr9XAy648Wdij1kgkAKsPQAaAuTtEALw_wcB&atvy=%7B%22231005%22%3A%22Experience+B%22%7D"
-              className="bg-blue-500 text-white px-4 py-2 rounded-full transition duration-300 hover:bg-white hover:text-blue-500"
+              href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL"
+              className="bg-blue-500 text-white px-4 py-2 rounded-full focus:text-white transition duration-300"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Check Your CIBIL"
             >
-              Check Your CIBIL
+              CIBIL Score
             </a>
           </div>
           <button
@@ -76,6 +73,26 @@ function Navbar() {
             {isMenuOpen ? <HiX className="w-8 h-8 text-white" /> : <HiMenu className="w-8 h-8 text-white" />}
           </button>
         </nav>
+        {isMenuOpen && (
+          <div className="md:hidden flex flex-col items-center bg-gray-800 p-4">
+            <a href="#Home" className="text-orange-500 py-2 rounded-full focus:text-white">Home</a>
+            <a href="#About" className="text-orange-500 py-2 rounded-full focus:text-white">About</a>
+            <a href="#Services" className="text-orange-500 py-2 rounded-full focus:text-white">Services</a>
+            <div className="flex space-x-2 mt-2">
+              <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full focus:text-white">Login</Link>
+              <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full focus:text-white">Signup</Link>
+            </div>
+            <a
+              href="https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL"
+              className="bg-blue-500 text-white px-4 py-2 rounded-full focus:text-white mt-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Check Your CIBIL"
+            >
+              CIBIL Score
+            </a>
+          </div>
+        )}
       </header>
     </>
   );
