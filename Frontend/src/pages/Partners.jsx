@@ -142,8 +142,8 @@ const PartnerSection = () => {
 
   return (
     <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
-      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 py-3 text-black w-full tracking-wider font-thin mb-6 transform transition-transform duration-300 hover:scale-105">
-        <span>Our</span> <span className='tracking-wider text-[rgb(255,102,0)] '>Partners</span>
+      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center  px-10 py-3 text-black w-full tracking-wider font-thin mb-6 transform transition-transform duration-300 hover:scale-105">
+        <span className='heading-font'>Our</span> <span className='tracking-wider text-[rgb(255,102,0)] heading-font '>Partners</span>
       </h2>
 
       {/* First Marquee Line */}

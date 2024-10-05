@@ -11,8 +11,8 @@ const WhoWeAre = () => {
                     id="who-we-are-heading"
                     className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
                 >
-                    <span>Who</span>
-                    <span className='text-[rgb(255,102,0)]'> We Are</span>
+                    <span className='heading-font'>Who</span>
+                    <span className='text-[rgb(255,102,0)] heading-font'> We Are</span>
                 </h1>
 
                 <p 
@@ -64,8 +64,8 @@ const WhoWeAre = () => {
                     <h1 
                         className='text-2xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
                     >
-                        <span>Our</span>
-                        <span className='text-[rgb(255,102,0)]'> Commitment</span>
+                        <span className='heading-font'>Our</span>
+                        <span className='text-[rgb(255,102,0)] heading-font'> Commitment</span>
                     </h1>
                     <p 
                         className="text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" 

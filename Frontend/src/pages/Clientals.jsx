@@ -116,7 +116,7 @@ const ClientalsSection = () => {
   return (
     <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
       <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 py-3 text-black w-full tracking-wider font-thin mb-6 transform transition-transform duration-300 hover:scale-105">
-        Our <span className='text-[rgb(255,102,0)]'>Corporate</span>  Clients
+        Our <span className='text-[rgb(255,102,0)] heading-font'>Corporate</span>  Clients
       </h2>
 
       {/* First Marquee */}

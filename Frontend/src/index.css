@@ -22,6 +22,14 @@ html {
   font-family: 'Wondra';
   src: url('/assets/Wondra.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/universal.ttf') format('truetype');
+}
+
+*{
+  font-family:'Poppins' ;
+}
 
 .heading-font {
   font-family: 'Gendy', sans-serif;

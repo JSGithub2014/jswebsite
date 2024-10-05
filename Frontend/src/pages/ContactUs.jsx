@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import contactShowcase from '../assets/contact-us.gif';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/contact', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('Email sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      } else {
+        setStatus('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('Failed to send email.');
+    }
+  };
+
   return (
-    <div className=" flex flex-col items-center justify-center my-10">
-      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider  py-2 w-full">
-        <span>Contact</span>
+    <div className="flex flex-col items-center justify-center my-10">
+      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider py-2 w-full">
+        <span className='heading-font'>Contact</span>
         <span className='text-black heading-font tracking-wider'> Us</span>
       </h1>
 
@@ -18,7 +54,7 @@ const ContactUs = () => {
         />
 
         <div className="rounded-lg p-8 w-full md:w-1/2 bg-white shadow-md">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                 Name
@@ -26,7 +62,10 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
                 aria-required="true"
@@ -40,7 +79,10 @@ const ContactUs = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
                 aria-required="true"
@@ -53,8 +95,11 @@ const ContactUs = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows="4"
                 placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
                 aria-required="true"
@@ -69,6 +114,8 @@ const ContactUs = () => {
                 Send Message
               </button>
             </div>
+
+            {status && <p className="mt-4 text-green-500">{status}</p>} {/* Display status message */}
           </form>
         </div>
       </div>
