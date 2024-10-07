@@ -8,7 +8,8 @@ const { contactRoute } = require("./routes/contactRoute");
 
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8000;
+// Use the PORT from the environment variables set by Vercel
+const PORT = process.env.PORT || 3000; // Default to 3000 for local development
 
 // CORS setup
 app.use(cors({
@@ -17,35 +18,38 @@ app.use(cors({
     credentials: true,
 }));
 
+// Middleware for debugging
 app.use((req, res, next) => {
     dbgr("Middleware working");
     next();
 });
 
+// Cookie parser and body parsing middleware
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-try {
-    app.use("/api/contact", contactRoute);
-    app.use("/api/user", loginRoute);
-} catch (err) {
-    dbgr(err.message);
-}
+// Route handlers
+app.use("/api/contact", contactRoute);
+app.use("/api/user", loginRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).send("Internal Server Error");
-    next();
 });
 
-// Health check
+// Health check route
 app.get("/", (req, res) => {
     res.status(200).send("Hello from server");
 });
 
-// Server listening
-app.listen(PORT, () => {
-    dbgr(`Server is running on port ${PORT}`);
-});
+// Export the app for Vercel
+module.exports = app;
+
+// Start the server for local development
+if (require.main === module) {
+    app.listen(PORT, () => {
+        dbgr(`Server is running on port ${PORT}`);
+    });
+}
