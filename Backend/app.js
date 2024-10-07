@@ -10,11 +10,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
 // CORS setup with specific origin
-app.use(cors({
-    origin: "https://www.jsasia.net", // Specify your frontend URL
-    methods: ["GET", "POST", "OPTIONS"],
-    credentials: true, // Allow credentials (cookies, etc.)
-}));
+app.use(cors());
 
 // Middleware for logging requests
 app.use((req, res, next) => {
