@@ -18,7 +18,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/contact', { 
+      const response = await fetch('https://jswebsite-y15h.vercel.app/api/contact', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,10 +30,12 @@ const ContactUs = () => {
         setStatus('Email sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Clear form
       } else {
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
         setStatus('Failed to send email.');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Fetch error:', error);
       setStatus('Failed to send email.');
     }
   };
