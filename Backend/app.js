@@ -8,15 +8,17 @@ const { contactRoute } = require("./routes/contactRoute");
 
 require("dotenv").config();
 
-// Use the PORT from the environment variables set by Vercel
 const PORT = process.env.PORT || 8000;
 
-// CORS setup to accept specific origin
+// CORS setup to accept all origins
 app.use(cors({
-    origin: 'https://www.jsasia.net', // Specify your frontend URL here
-    methods: ["GET", "POST", "OPTIONS"],
-    credentials: true, // If you need to send cookies or authorization headers
+    origin: '*', // Accept all origins
+    methods: ["GET", "POST", "OPTIONS"], // Include OPTIONS for preflight requests
+    credentials: true,
 }));
+
+// Allow preflight requests for all routes
+app.options("*", cors()); 
 
 // Middleware for logging requests
 app.use((req, res, next) => {
@@ -41,7 +43,7 @@ app.get("/", (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err);
+    console.error(err); // Log the error for debugging
     res.status(500).send("Internal Server Error");
 });
 
