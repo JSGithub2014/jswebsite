@@ -9,8 +9,15 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 8000;
 
-// CORS setup with specific origin
-app.use(cors());
+// CORS setup
+app.use(cors({
+    origin: '*', // Allow all origins
+    methods: ["GET", "POST", "OPTIONS"], // Allow specific methods
+    credentials: false, // Set to true if you need to send credentials
+}));
+
+// Allow preflight requests for all routes
+app.options('*', cors()); 
 
 // Middleware for logging requests
 app.use((req, res, next) => {
