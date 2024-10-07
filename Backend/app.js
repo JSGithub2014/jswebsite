@@ -11,9 +11,9 @@ require("dotenv").config();
 // Use the PORT from the environment variables set by Vercel
 const PORT = process.env.PORT || 8000;
 
-// CORS setup
+// CORS setup to accept all origins
 app.use(cors({
-    origin: "www.jsasia.net", // No trailing slash
+    origin: '*', // Accept all origins
     methods: ["GET", "POST"],
     credentials: true,
 }));
