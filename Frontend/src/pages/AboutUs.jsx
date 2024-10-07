@@ -16,7 +16,7 @@ const WhoWeAre = () => {
                 </h1>
 
                 <p 
-                    className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
+                    className="text-base md:text-lg lg:text-sm text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
                     aria-describedby="who-we-are-description" 
                 >
                     We specialize in expert financial services, insurance solutions, and real estate advisory, 
@@ -36,7 +36,7 @@ const WhoWeAre = () => {
                         >
                             Comprehensive Financial Solutions
                         </h2>
-                        <p className="text-gray-600 text-sm md:text-base lg:text-lg">
+                        <p className="text-gray-600 text-sm md:text-base lg:text-sm">
                             From investment management and business funding to customized insurance plans, we guide 
                             you every step of the way with our expert solutions.
                         </p>
@@ -52,7 +52,7 @@ const WhoWeAre = () => {
                         >
                             Strategic Real Estate Advisory
                         </h2>
-                        <p className="text-gray-600 text-sm md:text-base lg:text-lg">
+                        <p className="text-gray-600 text-sm md:text-base lg:text-sm">
                             As trusted real estate advisors, we help you navigate market complexities, providing the 
                             strategic insights you need to make informed decisions.
                         </p>
@@ -68,7 +68,7 @@ const WhoWeAre = () => {
                         <span className='text-[rgb(255,102,0)] heading-font'> Commitment</span>
                     </h1>
                     <p 
-                        className="text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" 
+                        className="text-base md:text-lg lg:text-sm text-gray-700 max-w-2xl mx-auto leading-relaxed" 
                         aria-describedby="commitment-description" // Added aria-describedby for context
                     >
                         With a commitment to trust, integrity, and exceptional service, 
