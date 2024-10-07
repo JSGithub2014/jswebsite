@@ -9,16 +9,15 @@ require("dotenv").config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://www.jsasia.net/',
+    origin: 'https://www.jsasia.net',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
     credentials: true,
 }));
 
-const PORT = process.env.PORT || 8000;
+app.options('*', cors());
 
-// Allow preflight requests for all routes
-app.options('*', cors()); 
+const PORT = process.env.PORT || 8000;
 
 // Middleware for logging requests
 app.use((req, res, next) => {
@@ -27,7 +26,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Cookie parser and body parsing middleware
+// Middleware
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,16 +42,15 @@ app.get("/", (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    dbgr(err); // Log the error for debugging
+    dbgr(err);
     res.status(500).send("Internal Server Error");
 });
 
-// Export the app for Vercel
-module.exports = app;
-
-// Start the server for local development
+// Start the server
 if (require.main === module) {
     app.listen(PORT, () => {
         dbgr(`Server is running on port ${PORT}`);
     });
 }
+
+module.exports = app;
