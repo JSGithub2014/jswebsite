@@ -22,6 +22,7 @@ const ContactUs = () => {
       const response = await fetch('https://jswebsite-y15h.vercel.app/api/contact', { 
         method: 'POST',
         headers: {
+           "access-control-allow-origin" : "*",
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
