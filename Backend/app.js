@@ -8,7 +8,7 @@ const { contactRoute } = require("./routes/contactRoute");
 require("dotenv").config();
 
 app.use(cors({
-    origin: 'https://www.jsasia.net',
+    origin: 'https://jswebsite-jsgroups-projects.vercel.app',
     credentials: true, 
 }));
 
