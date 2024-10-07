@@ -9,18 +9,19 @@ const { contactRoute } = require("./routes/contactRoute");
 require("dotenv").config();
 
 // Use the PORT from the environment variables set by Vercel
-const PORT = process.env.PORT || 3000; // Default to 3000 for local development
+const PORT = process.env.PORT || 8000;
 
 // CORS setup
 app.use(cors({
-    origin: "https://www.jsasia.net",
+    origin: "https://www.jsasia.net", // No trailing slash
     methods: ["GET", "POST"],
     credentials: true,
 }));
 
-// Middleware for debugging
+// Middleware for logging requests
 app.use((req, res, next) => {
-    dbgr("Middleware working");
+    console.log(`Received ${req.method} request for ${req.url}`);
+    console.log(`Origin: ${req.headers.origin}`);
     next();
 });
 
@@ -33,15 +34,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/contact", contactRoute);
 app.use("/api/user", loginRoute);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-});
-
 // Health check route
 app.get("/", (req, res) => {
     res.status(200).send("Hello from server");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err); // Log the error for debugging
+    res.status(500).send("Internal Server Error");
 });
 
 // Export the app for Vercel
