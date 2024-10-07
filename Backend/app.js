@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 // CORS setup to accept all origins
 app.use(cors({
     origin: '*', // Accept all origins
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "OPTIONS"], // Include OPTIONS for preflight requests
     credentials: true,
 }));
 
