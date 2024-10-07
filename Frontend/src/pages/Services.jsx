@@ -36,7 +36,7 @@ function Services() {
                 <span className='heading-font tracking-wider'>We </span>
                 <span className='heading-font text-[rgb(255,102,0)]'>Offer</span>
             </h1>
-            <p className='text-sm md:text-base lg:text-lg text-center max-w-2xl px-4'>
+            <p className='text-sm md:text-base lg:text-sm text-center max-w-2xl px-4'>
                 We offer a comprehensive range of advisory services designed to meet the diverse needs of our clients in finance, insurance, and real estate.
             </p>
             <div className="flex justify-center flex-wrap max-w-7xl px-4 lg:px-0">

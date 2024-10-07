@@ -32,7 +32,7 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
         className={`mt-2 transition-all duration-300 ease-in-out overflow-hidden ${isExpanded ? 'max-h-screen' : 'max-h-0'}`} 
         style={{ height: isExpanded ? 'auto' : '0' }} // Inline style for height transition
       >
-        <p className="text-sm sm:text-gray-600">{additionalInfo}</p>
+        <p className="text-sm sm:text-gray-600 text-justify">{additionalInfo}</p>
         <p className="mt-2 text-sm sm:text-gray-600">{generalInfo}</p>
       </div>
       <button 
