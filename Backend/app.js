@@ -7,22 +7,20 @@ const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8000;
-
-// CORS setup
 app.use(cors({
-    origin: '*', // Allow all origins
-    methods: ["GET", "POST", "OPTIONS"], // Allow specific methods
-    credentials: false, // Set to true if you need to send credentials
+    origin: 'https://www.jsasia.net',
+    credentials: true, 
 }));
+
+const PORT = process.env.PORT || 8000;
 
 // Allow preflight requests for all routes
 app.options('*', cors()); 
 
 // Middleware for logging requests
 app.use((req, res, next) => {
-    console.log(`Received ${req.method} request for ${req.url}`);
-    console.log(`Origin: ${req.headers.origin}`);
+    dbgr(`Received ${req.method} request for ${req.url}`);
+    dbgr(`Origin: ${req.headers.origin}`);
     next();
 });
 
