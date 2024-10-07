@@ -7,8 +7,8 @@ const ContactUs = () => {
     email: '',
     message: ''
   });
-
   const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,6 +17,7 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch('https://jswebsite-y15h.vercel.app/api/contact', { 
         method: 'POST',
@@ -28,7 +29,7 @@ const ContactUs = () => {
 
       if (response.ok) {
         setStatus('Email sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Clear form
+        setFormData({ name: '', email: '', message: '' });
       } else {
         const errorData = await response.json();
         console.error('Error response:', errorData);
@@ -37,6 +38,8 @@ const ContactUs = () => {
     } catch (error) {
       console.error('Fetch error:', error);
       setStatus('Failed to send email.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,7 +55,7 @@ const ContactUs = () => {
           src={contactShowcase}
           alt="Illustration of contacting us"
           className="mb-8 md:mb-0 w-full md:w-1/2 rounded-lg"
-          loading="lazy" // Improve SEO by lazy loading the image
+          loading="lazy"
         />
 
         <div className="rounded-lg p-8 w-full md:w-1/2 bg-white shadow-md">
@@ -111,13 +114,14 @@ const ContactUs = () => {
             <div className="flex items-center justify-between">
               <button
                 type="submit"
-                className="bg-[rgb(255,102,0)] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-[rgb(255,102,0)] ${loading ? 'opacity-50' : 'hover:bg-orange-600'} text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                disabled={loading}
               >
-                Send Message
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </div>
 
-            {status && <p className="mt-4 text-green-500">{status}</p>} {/* Display status message */}
+            {status && <p className="mt-4 text-green-500">{status}</p>}
           </form>
         </div>
       </div>
