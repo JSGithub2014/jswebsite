@@ -19,30 +19,29 @@ const ContactUs = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('https://jswebsite-y15h.vercel.app/api/contact', { 
-        method: 'POST',
-        headers: {
-           "access-control-allow-origin" : "*",
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+        const response = await fetch('https://jswebsite-ocj7.vercel.app/api/contact', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
 
-      if (response.ok) {
-        setStatus('Email sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        const errorData = await response.json();
-        console.error('Error response:', errorData);
-        setStatus('Failed to send email.');
-      }
+        if (response.ok) {
+            setStatus('Email sent successfully!');
+            setFormData({ name: '', email: '', message: '' });
+        } else {
+            const errorData = await response.json();
+            console.error('Error response:', errorData);
+            setStatus('Failed to send email.');
+        }
     } catch (error) {
-      console.error('Fetch error:', error);
-      setStatus('Failed to send email.');
+        console.error('Fetch error:', error);
+        setStatus('Failed to send email.');
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   return (
     <div className="flex flex-col items-center justify-center my-10">

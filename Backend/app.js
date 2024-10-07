@@ -1,5 +1,4 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dbgr = require("debug")("development:app.js");
@@ -7,9 +6,13 @@ const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
 require("dotenv").config();
 
+const app = express();
+
 app.use(cors({
-    origin: 'https://jswebsite-jsgroups-projects.vercel.app',
-    credentials: true, 
+    origin: 'https://www.jsasia.net/',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
+    credentials: true,
 }));
 
 const PORT = process.env.PORT || 8000;
@@ -20,7 +23,7 @@ app.options('*', cors());
 // Middleware for logging requests
 app.use((req, res, next) => {
     dbgr(`Received ${req.method} request for ${req.url}`);
-    dbgr(`Origin: ${req.headers.origin}`);
+    dbgr(`Headers: ${JSON.stringify(req.headers)}`);
     next();
 });
 
@@ -40,7 +43,7 @@ app.get("/", (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err); // Log the error for debugging
+    dbgr(err); // Log the error for debugging
     res.status(500).send("Internal Server Error");
 });
 
