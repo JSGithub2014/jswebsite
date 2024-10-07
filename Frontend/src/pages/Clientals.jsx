@@ -127,7 +127,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block mx-4 h-18 mx-5"
+              className="inline-block h-18 mx-5"
               loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
