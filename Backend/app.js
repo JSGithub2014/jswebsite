@@ -14,11 +14,8 @@ const PORT = process.env.PORT || 8000;
 app.use(cors({
     origin: '*', // Accept all origins
     methods: ["GET", "POST", "OPTIONS"], // Include OPTIONS for preflight requests
-    credentials: true,
+    credentials: false, // Do not include credentials (cookies, authorization headers, etc.)
 }));
-
-// Allow preflight requests for all routes
-app.options("*", cors()); 
 
 // Middleware for logging requests
 app.use((req, res, next) => {

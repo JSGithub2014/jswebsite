@@ -5,10 +5,6 @@ const dbgr = require("debug")("development:contactRoute.js");
 
 // POST route to send email
 router.post("/", async (req, res) => {
-    // Set CORS headers
-    res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
     const { name, email, message } = req.body;
 
     const transporter = nodemailer.createTransport({
