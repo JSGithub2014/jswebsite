@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8000;
 
 // CORS setup
 app.use(cors({
-    origin: "https://www.jsasia.net", // No trailing slash
+    origin: "https://jswebsite-jsgroups-projects.vercel.app", // No trailing slash
     methods: ["GET", "POST"],
     credentials: true,
 }));
