@@ -1,11 +1,7 @@
 import React from 'react';
 import BOI from '../assets/partners/BOI.jpg';
 import BOM from '../assets/partners/BOM.jpg';
-import DBS from '../assets/partners/DBS.jpg';
 import DCB from '../assets/partners/DCB.jpg';
-import DNS from '../assets/partners/DNS.jpg';
-import GP_Parsik from '../assets/partners/GP-parsik.jpg';
-import GS_Maha from '../assets/partners/GS-maha.jpg';
 import HDFC_Ltd from '../assets/partners/HDFC-Ltd.jpg';
 import HDFC from '../assets/partners/HDFC.jpg';
 import HSBC from '../assets/partners/HSBC.jpg';
@@ -13,7 +9,6 @@ import ICICI_Finance from '../assets/partners/ICICI-finance.jpg';
 import ICICI from '../assets/partners/ICICI.jpg';
 import IDBI from '../assets/partners/IDBI.jpg';
 import IDFC1st from '../assets/partners/IDFC1st.jpg';
-import KNS from '../assets/partners/KNS.jpg';
 import LT_Fin_1 from '../assets/partners/L&T-Fin-1.jpg';
 import LIC_HFL from '../assets/partners/LIC-HFL.jpg';
 import PNB from '../assets/partners/PNB-1.jpg';
@@ -23,61 +18,37 @@ const PartnerSection = () => {
   const partnersLine1 = [
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
     BOI,
     BOM,
-    DBS,
     DCB,
-    DNS,
-    GP_Parsik,
-    GS_Maha,
     HDFC_Ltd,
     HDFC,
     HSBC,
@@ -88,7 +59,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -97,7 +67,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -106,7 +75,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -115,7 +83,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -124,7 +91,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -133,7 +99,6 @@ const PartnerSection = () => {
     ICICI,
     IDBI,
     IDFC1st,
-    KNS,
     LT_Fin_1,
     LIC_HFL,
     PNB,
@@ -141,9 +106,9 @@ const PartnerSection = () => {
   ];
 
   return (
-    <div className="bg-white py-8 overflow-hidden flex flex-col justify-center items-center">
-      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center  px-10 py-3 text-black w-full tracking-wider font-thin mb-6 transform transition-transform duration-300 hover:scale-105">
-        <span className='heading-font'>Our</span> <span className='tracking-wider text-[rgb(255,102,0)] heading-font '>Partners</span>
+    <div className="py-8 overflow-hidden flex flex-col justify-center items-center bg-orange-100">
+      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 text-black rounded-full tracking-wider font-thin mb-10 transform transition-transform duration-300 hover:scale-105 text-shadow ">
+        <span className='heading-font'>Our</span> <span className='tracking-wider text-[rgb(255,102,0)] heading-font'>Partners</span>
       </h2>
 
       {/* First Marquee Line */}
@@ -154,7 +119,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-18 mx-5 "
+              className="inline-block h-20 w-20 mx-5"
               loading="lazy"
             />
           ))}
@@ -169,14 +134,14 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-18 mx-5 -translate-x-[8000%]"
+              className="inline-block h-20 w-20 mx-5 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}
         </div>
       </div>
 
-      {/* Styles for animation */}
+      {/* Styles for animation and text shadow */}
       <style>
         {`
           .animate-marquee {
@@ -208,6 +173,11 @@ const PartnerSection = () => {
           /* Remove default margins between images */
           img {
             margin: 0; /* Ensure no extra margins are applied */
+          }
+
+          /* Custom text shadow */
+          .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
           }
         `}
       </style>

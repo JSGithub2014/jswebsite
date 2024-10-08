@@ -1,5 +1,4 @@
 import React from 'react';
-import Tricity from '../assets/clientals/tricity.jpg';
 import Raheja from '../assets/clientals/raheja.jpg';
 import Rustomjee from '../assets/clientals/rustomjee.jpg';
 import Oberoy from '../assets/clientals/oberoy.jpg';
@@ -7,16 +6,19 @@ import Hiranandani from '../assets/clientals/hiranandani.jpg';
 import Dosti from '../assets/clientals/dosti.jpg';
 import Godrej from '../assets/clientals/godrej.jpg';
 import Akshar from '../assets/clientals/akshar.jpg';
-import TheWadhvaGroup from '../assets/clientals/The-Wadhva-Group.jpg';
 import Rajesh from '../assets/clientals/Rajesh.jpg';
 import Regency from '../assets/clientals/Regency.jpg';
 import Arihant from '../assets/clientals/arihant.jpg';
 import Marathon from '../assets/clientals/marathon.jpg';
 import Lodha from '../assets/clientals/lodha.jpg';
+import Bhagwati from '../assets/clientals/bhagwati.png';
+import Gami from '../assets/clientals/Gami.png';
+import L_T_Reality from '../assets/clientals/L&T-Reality.png';
+import Metro from '../assets/clientals/Metro.png';
+import Haware from '../assets/clientals/Haware.png';
 
 const ClientalsSection = () => {
   const clientalsLine1 = [
-    Tricity,
     Raheja,
     Rustomjee,
     Oberoy,
@@ -24,9 +26,7 @@ const ClientalsSection = () => {
     Dosti,
     Godrej,
     Akshar,
-    TheWadhvaGroup,
     Rajesh,
-    Tricity,
     Raheja,
     Rustomjee,
     Oberoy,
@@ -34,9 +34,7 @@ const ClientalsSection = () => {
     Dosti,
     Godrej,
     Akshar,
-    TheWadhvaGroup,
     Rajesh,
-    Tricity,
     Raheja,
     Rustomjee,
     Oberoy,
@@ -44,18 +42,12 @@ const ClientalsSection = () => {
     Dosti,
     Godrej,
     Akshar,
-    TheWadhvaGroup,
     Rajesh,
-    Tricity,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    TheWadhvaGroup,
-    Rajesh,
+    Bhagwati, // Added image
+    Gami, // Added image
+    L_T_Reality, // Added image
+    Metro, // Added image
+    Haware, // Added image
   ];
 
   const clientalsLine2 = [
@@ -70,7 +62,6 @@ const ClientalsSection = () => {
     Dosti,
     Godrej,
     Akshar,
-    TheWadhvaGroup,
     Rajesh,
     Regency,
     Arihant,
@@ -83,40 +74,18 @@ const ClientalsSection = () => {
     Dosti,
     Godrej,
     Akshar,
-    TheWadhvaGroup,
     Rajesh,
-    Regency,
-    Arihant,
-    Marathon,
-    Lodha,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    TheWadhvaGroup,
-    Rajesh,
-    Regency,
-    Arihant,
-    Marathon,
-    Lodha,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    TheWadhvaGroup,
-    Rajesh,
+    Bhagwati, // Added image
+    Gami, // Added image
+    L_T_Reality, // Added image
+    Metro, // Added image
+    Haware, // Added image
   ];
 
   return (
-    <div className="bg-white py-8 flex justify-center items-center flex-col overflow-x-hidden">
-      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 py-3 text-black w-full tracking-wider font-thin mb-6 transform transition-transform duration-300 hover:scale-105">
-        Our <span className='text-[rgb(255,102,0)] heading-font'>Corporate</span>  Clients
+    <div className="py-8 flex justify-center items-center flex-col overflow-x-hidden bg-orange-100">
+      <h2 className="text-4xl md:text-4xl lg:text-5xl  heading-font text-center px-10 py-3 text-black rounded-full tracking-wider font-thin mb-10 transform transition-transform duration-300 hover:scale-105 text-shadow">
+        Our <span className='text-[rgb(255,102,0)] heading-font'>Corporate</span> Clients
       </h2>
 
       {/* First Marquee */}
@@ -127,7 +96,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block h-18 mx-5"
+              className="inline-block h-20 w-20 mx-3"
               loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
@@ -135,14 +104,14 @@ const ClientalsSection = () => {
       </div>
 
       {/* Second Marquee */}
-      <div className="relative overflow-hidden mt-6 w-full">
+      <div className="relative overflow-hidden mt-6 w-full bg-orange-100">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
           {clientalsLine2.concat(clientalsLine2).map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Client logo ${index + 11}`}
-              className="inline-block mx-5 h-18 -translate-x-[7000%]"
+              className="inline-block mx-5 w-20 h-20 -translate-x-[7000%]"
               loading="lazy" // Improve SEO by lazy loading the images
             />
           ))}
