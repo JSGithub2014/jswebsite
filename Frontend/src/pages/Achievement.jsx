@@ -30,18 +30,17 @@ function Achievement() {
       imgSrc: RupeesIcon,
       achievementNumber: "1250Cr.+",
       title: 'Loan Disbursed',
-      description: 'We are proud to have disbursed over ₹1,250 crore in loans, empowering businesses and individuals to achieve their financial goals.'
+      description: 'We are proud to have disbursed more than ₹1,250 crore in loans, empowering businesses and individuals to achieve their financial goals.'
     },
   ];
 
   return (
     <div className="h-auto flex flex-col items-center px-4 md:px-24 py-4">
       <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto">
-        {/* For small screens: Move heading and image to the top */}
-        <div className="flex flex-col items-center justify-between mt-16 md:w-1/2 md:order-1">
+        <div className="flex flex-col items-center justify-between mt-8 md:w-1/2 md:order-1">
           <h2 className="text-6xl font-thin mb-4 text-center heading-font tracking-wider">
             <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Journey</span>
-            <span className='black heading-font'> of Trust and <span className='text-[rgb(255,102,0)]'>Success</span> </span>
+            <span className='black heading-font'> of Trust and <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Success</span> </span>
           </h2>
           <img
             src={achievementImage}
@@ -56,7 +55,7 @@ function Achievement() {
         </div>
 
         <div className="md:w-1/2 flex flex-col justify-start p-2">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col gap-4">
             {achievements.map((achievement, index) => (
               <AchievementCard
                 key={index}
@@ -64,6 +63,7 @@ function Achievement() {
                 title={achievement.title}
                 description={achievement.description}
                 achievementNumber={achievement.achievementNumber}
+                className="w-full h-40" // Set a specific height
               />
             ))}
           </div>

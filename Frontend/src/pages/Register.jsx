@@ -11,6 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [name, setName] = useState('');
+    const [gender, setGender] = useState('');
 
     const togglePassword = () => {
         setPasswordVisible(!passwordVisible);
@@ -63,6 +64,45 @@ const Register = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                        </div>
+                    </div>
+
+                    {/* Gender Field */}
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700">Gender</label>
+                        <div className="mt-1">
+                            <label className="inline-flex items-center mr-4">
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="male"
+                                    checked={gender === 'male'}
+                                    onChange={(e) => setGender(e.target.value)}
+                                />
+                                <span className="ml-2">Male</span>
+                            </label>
+                            <label className="inline-flex items-center mr-4">
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="female"
+                                    checked={gender === 'female'}
+                                    onChange={(e) => setGender(e.target.value)}
+                                    className="form-radio text-[rgb(255,102,0)] focus:ring-[rgb(255,102,0)]"
+                                />
+                                <span className="ml-2">Female</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="other"
+                                    checked={gender === 'other'}
+                                    onChange={(e) => setGender(e.target.value)}
+                                    className="form-radio text-[rgb(255,102,0)] focus:ring-[rgb(255,102,0)]"
+                                />
+                                <span className="ml-2">Other</span>
+                            </label>
                         </div>
                     </div>
 

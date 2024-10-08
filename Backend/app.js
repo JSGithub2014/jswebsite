@@ -2,14 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dbgr = require("debug")("development:app.js");
+const db = require("./db/mongoConnection");
 const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
 require("dotenv").config();
 
 const app = express();
+db()
 
 app.use(cors({
-    origin: 'https://www.jsasia.net',
+    origin: process.env.CORS_ORIGIN || 'https://www.jsasia.net',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
     credentials: true,
