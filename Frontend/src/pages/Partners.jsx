@@ -133,7 +133,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-20 w-20 mx-5"
+              className="inline-block h-28 w-28 mx-5"
               loading="lazy"
             />
           ))}
@@ -148,7 +148,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-20 w-20 mx-5 -translate-x-[8000%]"
+              className="inline-block h-28 w-28 mx-5 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}
