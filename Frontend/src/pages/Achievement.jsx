@@ -38,14 +38,14 @@ function Achievement() {
     <div className="h-auto flex flex-col items-center px-4 md:px-24 py-4">
       <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-between mt-8 md:w-1/2 md:order-1">
-          <h2 className="text-6xl font-thin mb-4 text-center heading-font tracking-wider">
+          <h2 className="text-5xl font-thin mb-4 text-center heading-font tracking-wider text-shadow">
             <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Journey</span>
-            <span className='black heading-font'> of Trust and <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Success</span> </span>
+            <span className='black heading-font'> of Trust <br /> and <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Success</span> </span>
           </h2>
           <img
             src={achievementImage}
             alt="Illustration of achievements"
-            className="w-full h-auto rounded-md mb-2"
+            className="w-full h-auto rounded-md mb-8"
             loading="lazy"
             aria-describedby="achievement-image-description"
           />

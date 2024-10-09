@@ -46,7 +46,7 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col items-center justify-center my-10">
-      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider py-2 w-full">
+      <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider py-2 w-full text-shadow">
         <span className='heading-font'>Contact</span>
         <span className='text-black heading-font tracking-wider'> Us</span>
       </h1>

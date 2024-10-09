@@ -9,7 +9,7 @@ const WhoWeAre = () => {
             <div className="container mx-auto text-center">
                 <h1 
                     id="who-we-are-heading"
-                    className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
+                    className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font text-shadow'
                 >
                     <span className='heading-font'>Who</span>
                     <span className='text-[rgb(255,102,0)] heading-font'> We Are</span>
@@ -62,7 +62,7 @@ const WhoWeAre = () => {
                 {/* Our Commitment Section */}
                 <div className="mt-12">
                     <h1 
-                        className='text-2xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font'
+                        className='text-2xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font text-shadow'
                     >
                         <span className='heading-font'>Our</span>
                         <span className='text-[rgb(255,102,0)] heading-font'> Commitment</span>

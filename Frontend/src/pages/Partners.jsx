@@ -52,9 +52,23 @@ const PartnerSection = () => {
     HDFC_Ltd,
     HDFC,
     HSBC,
+    BOI,
+    BOM,
+    DCB,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
   ];
 
   const partnersLine2 = [
+    ICICI_Finance,
+    ICICI,
+    IDBI,
+    IDFC1st,
+    LT_Fin_1,
+    LIC_HFL,
+    PNB,
+    RBL,
     ICICI_Finance,
     ICICI,
     IDBI,

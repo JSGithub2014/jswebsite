@@ -29,7 +29,7 @@ function WhyUs() {
 
         <div className='whyus-text w-full md:w-1/2 mt-4 md:mt-0 flex justify-center items-center'> {/* Added items-center */}
           <div className='flex flex-col space-y-4 p-4'>
-            <h1 className='text-3xl md:text-5xl font-thin heading-font tracking-wider text-center'>
+            <h1 className='text-3xl md:text-5xl font-thin heading-font tracking-wider text-center text-shadow'>
               <span className='tracking-wider heading-font'>W</span>hy <span className='text-[rgb(255,102,0)]'>Us</span>?
             </h1>
             {[ 
