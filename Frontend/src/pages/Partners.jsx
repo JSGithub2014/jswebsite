@@ -130,12 +130,12 @@ const PartnerSection = () => {
         <div className="flex animate-marquee">
           {partnersLine1.concat(partnersLine1).map((logo, index) => (
             <img
-              key={index}
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              className="inline-block h-28 w-28 mx-5"
-              loading="lazy"
-            />
+            key={index}
+            src={logo}
+            alt={`Partner ${index + 1}`}
+            className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16" 
+            loading="lazy"
+          />
           ))}
         </div>
       </div>
@@ -148,7 +148,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-28 w-28 mx-5 -translate-x-[8000%]"
+              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}

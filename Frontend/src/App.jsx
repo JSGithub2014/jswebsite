@@ -18,6 +18,8 @@ import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
+import OurTeam from './pages/OurTeam';
+import Goal from './pages/Goal';
 
 
 const App = () => {
@@ -48,30 +50,31 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <Loading />; // Show loading screen while loading
+    return <Loading />;
   }
 
   return (
     <div className='overflow-x-hidden'>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="/our-team" element={<OurTeam />} />
+        <Route path="/goal" element={<Goal />} />
         <Route path="/" element={
           <>
-            <section id="Home"><Landing /></section>
-            <section id="About"><AboutUs /></section>
-            <section id="Services"><Services /></section>
+            <Landing />
+            <AboutUs />
+            <Services />
             <Partners />
             <Clientals />
             <Testimonial />
-            <section id="Achievement"><Achievement /></section>
-            <section id="Whyus"><WhyUs /></section>
-            <section id="faqs"><Faqs /></section>
-
+            <Achievement />
+            <WhyUs />
+            <Faqs />
             <RobustFoundation />
             <ContactUs />
-            <Footer/>
+            <Footer />
             <ScrollToTop />
           </>
         } />

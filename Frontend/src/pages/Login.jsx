@@ -24,6 +24,14 @@ const Login = () => {
 
                 {/* Login Form Section */}
                 <div className="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md">
+                    {/* Home Button */}
+                    <Link 
+                        to="/" 
+                        className="inline-block mb-4 text-sm text-center text-[rgb(255,102,0)] font-medium hover:underline transition-transform duration-300 transform hover:scale-105"
+                    >
+                        &larr; Back to Home
+                    </Link>
+
                     <h2 className="text-3xl font-bold mb-6 text-center heading-font tracking-wider">Login</h2>
 
                     {/* Email Field */}
@@ -67,7 +75,7 @@ const Login = () => {
                     </div>
 
                     {/* Login Button */}
-                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)]">
+                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300 transform hover:scale-105">
                         Login Now
                     </button>
 

@@ -165,8 +165,8 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block h-28 w-28 mx-3"
-              loading="lazy" // Improve SEO by lazy loading the images
+              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
+              loading="lazy" 
             />
           ))}
         </div>
@@ -180,8 +180,8 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 11}`}
-              className="inline-block mx-5 w-28 h-28 -translate-x-[7000%]"
-              loading="lazy" // Improve SEO by lazy loading the images
+              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[7000%]"
+              loading="lazy" 
             />
           ))}
         </div>

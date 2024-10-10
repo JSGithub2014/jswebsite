@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faEye, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faEye, faUser, faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../assets/brand-logo-transperent.png';
@@ -31,6 +31,14 @@ const Register = () => {
 
                 {/* Registration Form Section */}
                 <div className="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md">
+                    {/* Home Button */}
+                    <Link 
+                        to="/" 
+                        className="inline-block mb-4 text-sm text-center text-[rgb(255,102,0)] font-medium hover:underline transition-transform duration-300 transform hover:scale-105"
+                    >
+                        &larr; Back to Home
+                    </Link>
+
                     <h2 className="text-3xl font-bold mb-6 text-center heading-font tracking-wider">Register</h2>
 
                     {/* Name Field */}
@@ -70,8 +78,8 @@ const Register = () => {
                     {/* Gender Field */}
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700">Gender</label>
-                        <div className="mt-1">
-                            <label className="inline-flex items-center mr-4">
+                        <div className="mt-1 flex items-center">
+                            <label className="inline-flex items-center mr-6">
                                 <input
                                     type="radio"
                                     name="gender"
@@ -79,29 +87,23 @@ const Register = () => {
                                     checked={gender === 'male'}
                                     onChange={(e) => setGender(e.target.value)}
                                 />
-                                <span className="ml-2">Male</span>
+                                <span className="ml-2 flex items-center">
+                                    <FontAwesomeIcon icon={faMars} className="text-[rgb(255,102,0)] mr-1" />
+                                    Male
+                                </span>
                             </label>
-                            <label className="inline-flex items-center mr-4">
+                            <label className="inline-flex items-center">
                                 <input
                                     type="radio"
                                     name="gender"
                                     value="female"
                                     checked={gender === 'female'}
                                     onChange={(e) => setGender(e.target.value)}
-                                    className="form-radio text-[rgb(255,102,0)] focus:ring-[rgb(255,102,0)]"
                                 />
-                                <span className="ml-2">Female</span>
-                            </label>
-                            <label className="inline-flex items-center">
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="other"
-                                    checked={gender === 'other'}
-                                    onChange={(e) => setGender(e.target.value)}
-                                    className="form-radio text-[rgb(255,102,0)] focus:ring-[rgb(255,102,0)]"
-                                />
-                                <span className="ml-2">Other</span>
+                                <span className="ml-2 flex items-center">
+                                    <FontAwesomeIcon icon={faVenus} className="text-[rgb(255,102,0)] mr-1" />
+                                    Female
+                                </span>
                             </label>
                         </div>
                     </div>
@@ -151,7 +153,7 @@ const Register = () => {
                     </div>
 
                     {/* Register Button */}
-                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)]">
+                    <button className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300 transform hover:scale-105">
                         Register
                     </button>
 
