@@ -17,7 +17,7 @@ function Hero() {
 
   return (
     <main className='w-full h-auto md:h-screen flex items-center justify-center px-4 md:px-10 lg:px-24 pt-0 lg:mt-5 mt-14 z-0' role="banner">
-      <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between text-center md:text-left w-full gap-10'>
+      <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between text-center md:text-left w-full -gap-5'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0 md:w-[50%]'>
           <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />

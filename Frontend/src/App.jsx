@@ -20,6 +20,7 @@ import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
 import OurTeam from './pages/OurTeam';
 import Goal from './pages/Goal';
+import NotFound from './components/NotFound'
 
 
 const App = () => {
@@ -78,6 +79,7 @@ const App = () => {
             <ScrollToTop />
           </>
         } />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

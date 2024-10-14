@@ -2,11 +2,11 @@ import React from 'react';
 
 const ManagementTeam = ({ teamMembers, onClick }) => {
     return (
-        <div className='flex flex-wrap justify-center gap-6 p-4'>
+        <div className='flex flex-wrap justify-center gap-12 p-4'>
             {teamMembers.map((member, index) => (
                 <div key={index} className='flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-auto'>
                     <div 
-                        className='w-[300px] h-[320px] bg-white rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105'
+                        className='w-[350px] h-[400px] bg-white rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105'
                         onClick={() => onClick(member)} 
                     >
                         <img 
