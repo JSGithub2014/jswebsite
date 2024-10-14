@@ -12,7 +12,7 @@ const ManagementTeam = ({ teamMembers, onClick }) => {
                         <img 
                             src={member.image} 
                             alt={member.name} 
-                            className='w-full h-full rounded-lg object-cover'
+                            className='w-full h-full rounded-lg object-fit'
                         />
                     </div>
                     <h3 className='text-xl mt-2 text-[rgb(255,102,0)] font-semibold tracking-wide text-center'>{member.name}</h3>

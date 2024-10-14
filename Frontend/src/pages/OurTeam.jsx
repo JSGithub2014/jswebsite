@@ -2,25 +2,28 @@ import React, { useState } from 'react';
 import ManagementTeam from '../components/ManagementTeam';
 import TeamMemberCard from '../components/TeamMemberCard';
 import Footer from './Footer';
+import j_m_Img from '../assets/j.mittal.jpeg'
+import s_p_Img from '../assets/s.p.jpeg'
+import s_chaurasia from '../assets/s.chaurasia.jpeg'
 
 const managementTeamMembers = [
   {
     name: 'Jayant Mittal',
     role: 'Founder',
-    image: 'https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png',
-    description: 'Leader and visionary behind the company.',
+    image: j_m_Img,
+    description: 'A visionary leader with a passion for innovation, Jayant Mittal drives the strategic direction of the company, fostering a culture of excellence and growth.',
   },
   {
     name: 'Sanil Pandit',
     role: 'Founder',
-    image: 'https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png',
-    description: 'Expert in strategic planning and execution.',
+    image: s_p_Img,
+    description: 'An expert in strategic planning and execution, Sanil Pandit leverages his extensive experience to shape effective strategies that propel the company forward.',
   },
   {
     name: 'Sayali K. Chaurasia',
     role: 'Chief Marketing Officer',
-    image: 'https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png',
-    description: 'Responsible for marketing strategy and branding.',
+    image: s_chaurasia,
+    description: 'With a keen eye for branding and market trends, Sayali K. Chaurasia spearheads innovative marketing strategies that enhance the company’s visibility and engagement.',
   },
 ];
 
@@ -99,9 +102,9 @@ function OurTeam() {
 
         {selectedMember && (
   <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 mt-10'>
-    <div className='bg-white rounded-lg p-6 max-w-md w-full relative shadow-lg transform transition-transform duration-300 scale-100 hover:scale-95'>
+    <div className='bg-white rounded-lg p-4 max-w-xs w-full relative shadow-lg transform transition-transform duration-300 scale-100 hover:scale-95'>
       <button
-        className='absolute top-2 right-2 text-gray-500 hover:text-gray-800'
+        className='absolute top-2 right-2 text-gray-500 text-2xl hover:text-gray-800'
         onClick={closeModal}
       >
         &times;
@@ -109,10 +112,10 @@ function OurTeam() {
       <img
         src={selectedMember.image}
         alt={selectedMember.name}
-        className='w-full h-full object-cover rounded-lg mb-4'
+        className='w-full h-auto object-fit rounded-lg mb-4'
         style={{ aspectRatio: '1 / 1' }} // Ensures a square shape
       />
-      <h2 className='text-2xl mb-2 font-semibold'>{selectedMember.name}</h2>
+      <h2 className='text-xl mb-2 font-semibold'>{selectedMember.name}</h2>
       <p className='text-md mb-4 font-medium text-gray-600'>{selectedMember.role}</p>
       <p className='text-gray-800'>{selectedMember.description || 'No description available.'}</p>
     </div>
