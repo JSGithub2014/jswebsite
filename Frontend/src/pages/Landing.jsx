@@ -6,7 +6,7 @@ function Landing() {
   return (
     <div className='bg-[rgb(255,102,0)]'>
       <Navbar />
-      <main className='pt-16 lg:py-0'>
+      <main className='pt-16 lg:py-8'>
         <Hero />
       </main>
     </div>
