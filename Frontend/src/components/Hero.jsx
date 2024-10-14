@@ -17,7 +17,7 @@ function Hero() {
 
   return (
     <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center md:px-10 pt-0 md:pt-0 mt-12 md:mt-10 z-0' role="banner">
-      <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between text-center md:text-left px-4 md:px-16 w-full lg:gap-36 md:gap-20'>
+      <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full gap-10 md:gap-20'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
           <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
@@ -50,7 +50,7 @@ function Hero() {
         </aside>
         <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[50vw]'>
           <img 
-            className='w-full h-auto max-h-80 md:max-h-[calc(100vh-5rem)] object-cover opacity-0 mb-0 sm:mb-0' 
+            className='w-full h-auto max-h-56 md:max-h-full object-contain opacity-0 mb-0 sm:mb-0' 
             src={heroImage} 
             alt="Illustration representing Finance, Insurance, and Real Estate" 
             loading="lazy"
