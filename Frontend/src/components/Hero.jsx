@@ -49,12 +49,12 @@ function Hero() {
           </div>
         </aside>
         <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[50vw]'>
-          <img 
-            className='w-full h-auto max-h-56 md:max-h-full object-contain opacity-0 mb-0 sm:mb-0' 
-            src={heroImage} 
-            alt="Illustration representing Finance, Insurance, and Real Estate" 
-            loading="lazy"
-          /> 
+        <img 
+  className='w-full h-auto max-h-40 md:max-h-56 lg:max-h-96 object-contain opacity-0 mb-0 sm:mb-0 lg:-mt-20' 
+  src={heroImage} 
+  alt="Illustration representing Finance, Insurance, and Real Estate" 
+  loading="lazy"
+/>
         </aside>
       </div>
     </main>
