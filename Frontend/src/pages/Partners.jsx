@@ -58,6 +58,21 @@ const PartnerSection = () => {
     HDFC_Ltd,
     HDFC,
     HSBC,
+    DCB,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    BOI,
+    BOM,
+    DCB,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    HDFC_Ltd,
+    HDFC,
+    HSBC,
+    DCB,
+    HDFC_Ltd,
   ];
 
   const partnersLine2 = [
@@ -126,16 +141,16 @@ const PartnerSection = () => {
       </h2>
 
       {/* First Marquee Line */}
-      <div className="relative overflow-hidden mb-6 w-full">
-        <div className="flex animate-marquee">
+      <div className="relative">
+        <div className="flex animate-marquee whitespace-nowrap mb-5">
           {partnersLine1.concat(partnersLine1).map((logo, index) => (
             <img
-            key={index}
-            src={logo}
-            alt={`Partner ${index + 1}`}
-            className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16" 
-            loading="lazy"
-          />
+              key={index}
+              src={logo}
+              alt={`Client logo ${index + 1}`}
+              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
+              loading="lazy" 
+            />
           ))}
         </div>
       </div>
@@ -148,7 +163,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[8000%]"
+              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}
@@ -159,7 +174,7 @@ const PartnerSection = () => {
       <style>
         {`
           .animate-marquee {
-            animation: marquee 20s linear infinite;
+            animation: marquee 40s linear infinite;
           }
 
           .animate-marquee-reverse {
@@ -168,7 +183,7 @@ const PartnerSection = () => {
 
           @keyframes marquee {
             0% {
-              transform: translateX(0);
+              transform: translateX(10%);
             }
             100% {
               transform: translateX(-100%);

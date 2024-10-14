@@ -37,56 +37,58 @@ const Faqs = () => {
 
   return (
     <React.Fragment>
-      <h1 className='text-4xl md:text-5xl lg:text-5xl w-full mb-5 font-thin text-center tracking-wider mt-10 py-4 text-shadow'>
-        <span className='heading-font tracking-wider'>Frequently </span>
-        <span className='heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
-      </h1>
-      <div className="max-w-5xl mx-auto p-8 w-full">
-        {Object.keys(faqData).map((category) => (
-          <div key={category} className="mb-12">
-            <button
-              className="w-full flex justify-between items-center text-left text-3xl font-semibold text-gray-700 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
-              onClick={() => toggleCategory(category)}
-              aria-expanded={openCategory === category} // Accessibility improvement
-              aria-controls={`category-${category}`}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-              <FaChevronDown
-                className={`ml-2 transform transition-transform duration-300 ${openCategory === category ? 'rotate-180 text-orange-600' : ''}`}
-                aria-hidden="true"
-              />
-            </button>
-            <div
-              id={`category-${category}`}
-              className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openCategory === category ? 'max-h-screen' : 'max-h-0'} mt-4`}
-            >
-              {faqData[category].map((item, index) => (
-                <div key={index} className="mb-6">
-                  <button
-                    className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
-                    onClick={() => toggleQuestion(index)}
-                    aria-expanded={openQuestion === index} // Accessibility improvement
-                    aria-controls={`question-${index}`}
-                  >
-                    {item.question}
-                    <FaChevronDown
-                      className={`ml-2 transform transition-transform duration-300 ${openQuestion === index ? 'rotate-180 text-orange-600' : ''}`}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  <div
-                    id={`question-${index}`}
-                    className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openQuestion === index ? 'max-h-screen' : 'max-h-0'}`}
-                  >
-                    <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
-                      {item.answer}
-                    </p>
+      <div className="bg-zinc-100">
+        <h1 className='text-4xl md:text-5xl lg:text-5xl w-full mb-5 font-thin text-center tracking-wider mt-10 py-4 text-shadow '>
+          <span className='heading-font tracking-wider'>Frequently </span>
+          <span className='heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
+        </h1>
+        <div className="max-w-5xl mx-auto p-8 w-full">
+          {Object.keys(faqData).map((category) => (
+            <div key={category} className="mb-12">
+              <button
+                className="w-full flex justify-between items-center text-left text-3xl font-semibold text-gray-700 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
+                onClick={() => toggleCategory(category)}
+                aria-expanded={openCategory === category}
+                aria-controls={`category-${category}`}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+                <FaChevronDown
+                  className={`ml-2 transform transition-transform duration-300 ${openCategory === category ? 'rotate-180 text-orange-600' : ''}`}
+                  aria-hidden="true"
+                />
+              </button>
+              <div
+                id={`category-${category}`}
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openCategory === category ? 'max-h-screen' : 'max-h-0'} mt-4`}
+              >
+                {faqData[category].map((item, index) => (
+                  <div key={index} className="mb-6">
+                    <button
+                      className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
+                      onClick={() => toggleQuestion(index)}
+                      aria-expanded={openQuestion === index}
+                      aria-controls={`question-${index}`}
+                    >
+                      {item.question}
+                      <FaChevronDown
+                        className={`ml-2 transform transition-transform duration-300 ${openQuestion === index ? 'rotate-180 text-orange-600' : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <div
+                      id={`question-${index}`}
+                      className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openQuestion === index ? 'max-h-screen' : 'max-h-0'}`}
+                    >
+                      <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </React.Fragment>
   );

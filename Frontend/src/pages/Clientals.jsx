@@ -136,19 +136,6 @@ const ClientalsSection = () => {
     Gami,
     L_T_Reality, 
     Metro, 
-    Haware,
-    Regency,
-    Arihant,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Regency,
-    Gami,
-    L_T_Reality, 
-    Metro, 
-    Haware,
-    Regency,
-    Arihant,
   ];
 
   return (
@@ -165,7 +152,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
+              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
               loading="lazy" 
             />
           ))}
@@ -180,7 +167,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 11}`}
-              className="inline-block h-28 w-28 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[7000%]"
+              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[7000%]"
               loading="lazy" 
             />
           ))}
@@ -195,7 +182,7 @@ const ClientalsSection = () => {
           }
 
           .animate-marquee-reverse {
-            animation: marquee-reverse 30s linear infinite;
+            animation: marquee-reverse 15s linear infinite;
           }
 
           @keyframes marquee {

@@ -71,7 +71,7 @@ const App = () => {
             <Testimonial />
             <Achievement />
             <WhyUs />
-            <Faqs />
+            <Faqs  />
             <RobustFoundation />
             <ContactUs />
             <Footer />
