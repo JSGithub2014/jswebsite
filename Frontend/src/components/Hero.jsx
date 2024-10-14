@@ -50,7 +50,7 @@ function Hero() {
         </aside>
         <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[50vw]'>
           <img 
-            className='w-full h-auto max-h-56 md:max-h-full object-contain opacity-0 mb-0 sm:mb-0' 
+            className='w-full h-auto max-h-56 lg:h-[35vw] md:max-h-full object-contain opacity-0 mb-0 sm:mb-0' 
             src={heroImage} 
             alt="Illustration representing Finance, Insurance, and Real Estate" 
             loading="lazy"
