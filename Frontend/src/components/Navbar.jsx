@@ -66,7 +66,7 @@ function Navbar() {
           <div className="hidden md:flex flex-1 justify-center space-x-8 uppercase font-bold text-orange-500">
             <Link to="/" className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</Link>
             <div className="relative group">
-              <button className="flex items-center px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">
+              <button className="flex items-center px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
                 About
                 <HiChevronDown className="transition-transform duration-300 group-hover:rotate-0 rotate-180 text-2xl" />
               </button>
@@ -100,7 +100,7 @@ function Navbar() {
           <div className="md:hidden flex flex-col items-center bg-[rgb(58,59,59)] p-4">
             <Link to="/" className="text-orange-500 py-2 rounded-full">Home</Link>
             <div className="relative group">
-              <button className="text-orange-500 py-2 rounded-full flex items-center">
+              <button className="text-orange-500 py-2 rounded-full uppercase flex items-center">
                 About
                 <HiChevronDown className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
               </button>

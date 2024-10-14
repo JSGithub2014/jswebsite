@@ -16,9 +16,9 @@ function Hero() {
   };
 
   return (
-    <main className='w-full h-[90vh] md:h-screen lg:h-[95vh] flex items-center justify-center md:px-10 pt-0 md:pt-0 md:mt-10 z-0' role="banner">
-      <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full md:gap-20'>
-        <aside className='hero-section-left mb-4 md:mb-0 opacity-0'>
+    <main className='w-full h-auto md:h-screen sm:pt-10 flex items-center justify-center md:px-10 pt-0 md:pt-0 mt-12 md:mt-10 z-0' role="banner">
+      <div className='hero-wrapper flex flex-col md:flex-row items-center text-center md:text-left px-4 md:px-16 w-full gap-10 md:gap-20'>
+        <aside className='hero-section-left mb-8 md:mb-0 opacity-0'>
           <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white'>
             Securing Your <br /> Success <span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-2xl lg:text-4xl inline overflow-hidden'> 
@@ -33,7 +33,7 @@ function Hero() {
             </div>
             <br />
           </h1>
-          <div className="flex justify-center md:justify-start sm:mt-0">
+          <div className="flex justify-center md:justify-start mt-2 sm:mt-0">
             <button 
               className='flex items-center focus:scale-110 px-2 py-1 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
               onClick={handleCall}
@@ -48,9 +48,9 @@ function Hero() {
             </button>
           </div>
         </aside>
-        <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-1/2'>
+        <aside className='hero-section-right flex justify-center md:justify-end w-full md:w-[50vw]'>
           <img 
-            className='w-full h-auto max-h-40 md:max-h-56 lg:max-h-[90vh] object-contain opacity-0 mb-0 sm:mb-0 lg:-mr-10' 
+            className='w-full h-auto max-h-56 md:max-h-full object-contain opacity-0 mb-0 sm:mb-0' 
             src={heroImage} 
             alt="Illustration representing Finance, Insurance, and Real Estate" 
             loading="lazy"
