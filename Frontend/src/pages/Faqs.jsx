@@ -37,7 +37,7 @@ const Faqs = () => {
 
   return (
     <React.Fragment>
-      <div className="bg-zinc-100">
+      <div className="bg-zinc-200">
         <h1 className='text-4xl md:text-5xl lg:text-5xl w-full mb-5 font-thin text-center tracking-wider mt-10 py-4 text-shadow '>
           <span className='heading-font tracking-wider'>Frequently </span>
           <span className='heading-font text-[rgb(255,102,0)]'>Asked Questions</span>
