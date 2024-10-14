@@ -15,7 +15,7 @@ const managementTeamMembers = [
   },
   {
     name: 'Sanil Pandit',
-    role: 'Founder',
+    role: 'Co-Founder',
     image: s_p_Img,
     description: 'An expert in strategic planning and execution, Sanil Pandit leverages his extensive experience to shape effective strategies that propel the company forward.',
   },
@@ -113,7 +113,7 @@ function OurTeam() {
         src={selectedMember.image}
         alt={selectedMember.name}
         className='w-full h-auto object-fit rounded-lg mb-4'
-        style={{ aspectRatio: '1 / 1' }} // Ensures a square shape
+        style={{ aspectRatio: '1 / 1' }} 
       />
       <h2 className='text-xl mb-2 font-semibold'>{selectedMember.name}</h2>
       <p className='text-md mb-4 font-medium text-gray-600'>{selectedMember.role}</p>
