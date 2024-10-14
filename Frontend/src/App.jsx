@@ -89,6 +89,8 @@ const WrappedApp = () => (
   <Router>
     <App />
   </Router>
+
+  
 );
 
 export default WrappedApp;

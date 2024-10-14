@@ -64,18 +64,18 @@ function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex flex-1 justify-center space-x-8 uppercase font-bold text-orange-500">
-            <Link to="/" className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</Link>
+            <Link to="/" className="text-lg px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</Link>
             <div className="relative group">
-              <button className="flex items-center px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
+              <button className="flex items-center text-lg px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
                 About
                 <HiChevronDown className="transition-transform duration-300 group-hover:rotate-0 rotate-180 text-2xl" />
               </button>
-              <div className="absolute left-0 bg-[rgb(255,255,255)]  text-orange-500 shadow-xl rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-                <Link to="/our-team" className="block px-4 py-2  hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
-                <Link to="/goal" className="block px-4 py-2  hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Goal</Link>
+              <div className="absolute left-0 bg-[rgb(255,255,255)] text-orange-500 shadow-xl rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
+                <Link to="/our-team" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
+                <Link to="/goal" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Goal</Link>
               </div>
             </div>
-            <a className="px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Services</a>
+            <a className="text-lg px-4 py-2 rounded-full transition duration-300 uppercase hover:text-white md:hover:bg-orange-500">Services</a>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Login</Link>
@@ -98,9 +98,9 @@ function Navbar() {
         </nav>
         {isMenuOpen && (
           <div className="md:hidden flex flex-col items-center bg-[rgb(58,59,59)] p-4">
-            <Link to="/" className="text-orange-500 py-2 rounded-full">Home</Link>
+            <Link to="/" className="text-orange-500 py-2 text-lg uppercase rounded-full">Home</Link>
             <div className="relative group">
-              <button className="text-orange-500 py-2 rounded-full uppercase flex items-center">
+              <button className="text-orange-500 py-2 text-lg rounded-full uppercase flex items-center">
                 About
                 <HiChevronDown className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
               </button>
@@ -109,7 +109,7 @@ function Navbar() {
                 <Link to="/goal" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Goal</Link>
               </div>
             </div>
-            <a  className="text-orange-500 py-2 rounded-full">Services</a>
+            <a className="text-orange-500 py-2 uppercase text-lg rounded-full">Services</a>
             <div className="flex space-x-2 mt-2">
               <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full">Login</Link>
               <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full">Signup</Link>
@@ -127,65 +127,59 @@ function Navbar() {
 
       {/* Modal for CIBIL Score */}
       {showModal && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50" onClick={closeModal}>
-    <div className="bg-white rounded-lg p-4 sm:p-6 max-w-xs sm:max-w-lg w-full relative z-60 shadow-lg transition-transform transform-gpu" onClick={(e) => e.stopPropagation()}>
-      <button className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl sm:text-3xl" onClick={closeModal} aria-label="Close Modal">
-        &times;
-      </button>
-      <h2 className="text-lg sm:text-xl font-semibold mb-2">CREDIT SCORE</h2>
-      <hr className="border-gray-300 mb-4" />
-      <p className="mb-4 text-gray-700 text-sm sm:text-base">
-        You will be redirected to the TransUnion CIBIL official website to view your CIBIL report.
-      </p>
-      <div className="flex items-center text-gray-600 mb-2">
-        <AiFillBulb className="w-5 h-5 mr-2 text-yellow-500" />
-        <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
-      </div>
-      <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
-        This is to inform you that by clicking on the CONFIRM button, you will be leaving the PASPL portal and entering a website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained within each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
-      </p>
-      <div className="flex items-center mb-4">
-        <input
-          type="checkbox"
-          checked={confirmChecked}
-          onChange={(e) => setConfirmChecked(e.target.checked)}
-          className="mr-2"
-        />
-        <label className="text-gray-700 text-xs sm:text-sm">I confirm that I have read the above disclaimer</label>
-      </div>
-      <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 mt-4">
-        <a
-          href="https://www.cibil.com/cibilrank"
-          className={`bg-gray-300 text-black px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''} mb-2 sm:mb-0`}
-          onClick={(e) => {
-            if (!confirmChecked) e.preventDefault(); // Prevent navigation if not checked
-          }}
-          aria-label="View CIBIL Rank & CCR"
-          disabled={!confirmChecked}
-        >
-          CIBIL RANK & CCR
-        </a>
-        <a
-          href="https://www.cibil.com/choose-subscription" 
-          className={`bg-blue-500 text-zinc-100 px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''}`}
-          onClick={(e) => {
-            if (!confirmChecked) e.preventDefault(); // Prevent navigation if not checked
-          }}
-          aria-label="Individual CIBIL Button"
-          disabled={!confirmChecked}
-        >
-          INDIVIDUAL CIBIL
-        </a>
-      </div>
-    </div>
-  </div>
-)}
-
-
-
-
-
-
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50" onClick={closeModal}>
+          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-xs sm:max-w-lg w-full relative z-60 shadow-lg transition-transform transform-gpu" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl sm:text-3xl" onClick={closeModal} aria-label="Close Modal">
+              &times;
+            </button>
+            <h2 className="text-lg sm:text-xl font-semibold mb-2">CREDIT SCORE</h2>
+            <hr className="border-gray-300 mb-4" />
+            <p className="mb-4 text-gray-700 text-sm sm:text-base">
+              You will be redirected to the TransUnion CIBIL official website to view your CIBIL report.
+            </p>
+            <div className="flex items-center text-gray-600 mb-2">
+              <AiFillBulb className="w-5 h-5 mr-2 text-yellow-500" />
+              <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
+            </div>
+            <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
+              This is to inform you that by clicking on the CONFIRM button, you will be leaving the PASPL portal and entering a website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained within each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
+            </p>
+            <div className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                checked={confirmChecked}
+                onChange={(e) => setConfirmChecked(e.target.checked)}
+                className="mr-2"
+              />
+              <label className="text-gray-700 text-xs sm:text-sm">I confirm that I have read the above disclaimer</label>
+            </div>
+            <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 mt-4">
+              <a
+                href="https://www.cibil.com/cibilrank"
+                className={`bg-gray-300 text-black px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''} mb-2 sm:mb-0`}
+                onClick={(e) => {
+                  if (!confirmChecked) e.preventDefault(); // Prevent navigation if not checked
+                }}
+                aria-label="View CIBIL Rank & CCR"
+                disabled={!confirmChecked}
+              >
+                CIBIL RANK & CCR
+              </a>
+              <a
+                href="https://www.cibil.com/choose-subscription" 
+                className={`bg-blue-500 text-zinc-100 px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={(e) => {
+                  if (!confirmChecked) e.preventDefault(); // Prevent navigation if not checked
+                }}
+                aria-label="Individual CIBIL Button"
+                disabled={!confirmChecked}
+              >
+                INDIVIDUAL CIBIL
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

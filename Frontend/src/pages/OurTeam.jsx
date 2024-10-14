@@ -20,7 +20,7 @@ const managementTeamMembers = [
     description: 'An expert in strategic planning and execution, Sanil Pandit leverages his extensive experience to shape effective strategies that propel the company forward.',
   },
   {
-    name: 'Sayali K. Chaurasia',
+    name: 'Sayali KC',
     role: 'Chief Marketing Officer',
     image: s_chaurasia,
     description: "With a keen eye for branding and market trends, Sayali K. Chaurasia spearheads innovative marketing strategies that enhance the company's visibility and engagement.",
