@@ -25,11 +25,11 @@ const TeamMemberCard = ({ teamMembers, onClick }) => {
               <img 
                 src={member.image} 
                 alt={member.name} 
-                className='rounded-lg object-fit'
+                className='rounded-lg object-fit mb-4' // Use consistent margin (mb-4)
               />
             </div>
             <h3 className='text-xl mt-2 text-[rgb(255,102,0)] font-semibold tracking-wide text-center'>{member.name}</h3>
-            <p className='text-md text-gray-700 text-center'>{member.role}</p>
+            <p className='text-md text-gray-700 text-center mt-1'>{member.role}</p>
           </div>
         ))}
       </div>
