@@ -14,7 +14,7 @@ function Footer() {
         <div className="brand-logo mb-2 md:mb-0 flex-shrink-0 w-full md:w-1/4 flex justify-center md:justify-start">
           <a href="#landing" aria-label="Brand Logo">
             <img
-              className="w-20 md:w-24 hover:scale-110 transition-transform duration-300"
+              className="w-20 md:w-24 hover:scale-110 transition-transform duration-300 lg:mt-8"
               src={brandLogo}
               alt="Brand Logo"
               loading="lazy"
@@ -65,7 +65,7 @@ function Footer() {
             <ul className="space-y-1">
               {/* Mobile Number */}
               <li className="flex items-center justify-center md:justify-start">
-                <FaPhoneAlt className="text-lg mr-1" />
+                <FaPhoneAlt className="text-lg mr-2" />
                 <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300 text-xs md:text-sm">
                   +91 2245120755
                 </a>
@@ -73,7 +73,7 @@ function Footer() {
 
               {/* Email */}
               <li className="flex items-center justify-center md:justify-start">
-                <FaEnvelope className="text-lg mr-1" />
+                <FaEnvelope className="text-lg mr-2" />
                 <a href="mailto:info@jsasia.net" className="hover:text-black transition-colors duration-300 text-xs md:text-sm">
                   info@jsasia.net
                 </a>
@@ -81,8 +81,8 @@ function Footer() {
 
               {/* Address */}
               <li className="flex items-center justify-center md:justify-start">
-                <FaMapMarkerAlt className="text-2xl mr-1" />
-                <div className="flex flex-col text-left text-xs md:text-sm">
+                <FaMapMarkerAlt className="text-2xl mr-2" />
+                <div className="flex flex-col text-left text-xs md:text-sm -ml-1">
                   <span>1202 Lodha Supremus</span>
                   <span>Saki Vihar Road, Andheri East,</span>
                   <span>Mumbai 400072 Maharashtra</span>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import ManagementTeam from '../components/ManagementTeam';
-import TeamMemberCard from '../components/TeamMemberCard';
+import TeamMemberCard from '../components/TeamMemberCard'; // Import the new component
 import Footer from './Footer';
 import j_m_Img from '../assets/j.mittal.jpeg';
 import s_p_Img from '../assets/s.p.jpeg';
 import s_chaurasia from '../assets/s.chaurasia.jpeg';
 
+// Management team members data
 const managementTeamMembers = [
   {
     name: 'Jayant Mittal',
@@ -30,11 +31,29 @@ const managementTeamMembers = [
 const teamMembers = [
   {
     name: 'Random',
-    role: 'Random',
-    image: 'https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png',
-    description: 'Specializes in front-end development.',
+    role: ' Random',
+    image: 'https://via.placeholder.com/150',
+    description: 'A skilled developer specializing in front-end technologies, Alice is passionate about creating intuitive user experiences.',
   },
-  // Other members...
+  {
+    name: 'Random ',
+    role: 'Random',
+    image: 'https://via.placeholder.com/150',
+    description: 'With a background in UX design, Michael ensures that products meet user needs and align with business goals.',
+  },
+  {
+    name: ' Random',
+    role: 'Random ',
+    image: 'https://via.placeholder.com/150',
+    description: 'Emma designs engaging interfaces and ensures a seamless user experience across all platforms.',
+  },
+  {
+    name: ' Random',
+    role: 'Random ',
+    image: 'https://via.placeholder.com/150',
+    description: 'With a background in UX design, Michael ensures that products meet user needs and align with business goals.',
+  },
+
 ];
 
 function OurTeam() {
@@ -50,35 +69,19 @@ function OurTeam() {
 
   return (
     <React.Fragment>
-      <div className='w-full bg-gradient-to-b from-orange-100 to-orange-200 flex flex-col items-center text-black '>
-        {/* Add margin-top to create space between navbar and heading */}
-        <h1 className='text-4xl md:text-5xl heading-font text-center px-10 rounded-full tracking-wider font-thin mb-5 mt-20'>
-          <span className='text-[rgb(255,102,0)] heading-font'>Meet</span> Our Team
-        </h1>
-        <p className='text-lg mb-8 text-center w-full md:w-2/3 lg:w-1/2 px-4'>
-          Meet our dedicated team of professionals who work tirelessly to provide the best services for our clients.
-        </p>
-
+      <div className='w-full bg-gradient-to-b from-orange-100 to-orange-200 flex flex-col items-center text-black'>
         <ManagementTeam teamMembers={managementTeamMembers} onClick={openModal} />
 
-        <div className='flex flex-wrap justify-center gap-6 p-4 px-20'>
-          {teamMembers.map((member, index) => (
-            <TeamMemberCard
-              key={index}
-              member={member}
-              onClick={() => openModal(member)}
-              className="transition-transform transform hover:scale-105 hover:shadow-lg" 
-            />
-          ))}
-        </div>
+        {/* Use the new TeamMemberCard component for additional team members */}
+        <TeamMemberCard teamMembers={teamMembers} onClick={openModal} />
 
         {selectedMember && (
           <>
-            <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm'></div>
-            <div className='fixed inset-0 flex items-center justify-center'>
-              <div className='bg-white rounded-lg p-6 max-w-md w-full relative shadow-lg'>
+            <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50'></div>
+            <div className='fixed inset-0 flex items-center justify-center z-50'>
+              <div className='bg-zinc-100 rounded-lg p-6 max-w-md w-full relative shadow-lg z-50'>
                 <button
-                  className='absolute top-2 right-2 text-gray-500 text-2xl hover:text-gray-800'
+                  className='absolute top-2 right-2 text-gray-600 text-2xl hover:text-gray-900'
                   onClick={closeModal}
                 >
                   &times;
@@ -87,15 +90,16 @@ function OurTeam() {
                   src={selectedMember.image}
                   alt={selectedMember.name}
                   className='w-full h-auto object-fit rounded-lg mb-4'
-                  style={{ aspectRatio: '1 / 1' }} 
+                  style={{ aspectRatio: '1 / 1' }}
                 />
-                <h2 className='text-xl mb-2 font-semibold'>{selectedMember.name}</h2>
-                <p className='text-md mb-4 font-medium text-gray-600'>{selectedMember.role}</p>
-                <p className='text-gray-800'>{selectedMember.description || 'No description available.'}</p>
+                <h2 className='text-xl mb-2 font-semibold text-[rgb(255,102,0)]'>{selectedMember.name}</h2>
+                <p className='text-md mb-4 font-medium text-gray-600 '>{selectedMember.role}</p>
+                <p className='text-gray-800 text-justify'>{selectedMember.description || 'No description available.'}</p>
               </div>
             </div>
           </>
         )}
+
       </div>
       <Footer />
     </React.Fragment>

@@ -23,7 +23,7 @@ function WhyUs() {
         <img
     src={whyUsImage}
     alt="Why choose us for your needs"
-    className='object-cover w-full h-full rounded-md' 
+    className='object-fit w-full h-full rounded-md' 
 />
         </div>
 

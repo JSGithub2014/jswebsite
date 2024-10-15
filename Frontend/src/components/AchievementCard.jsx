@@ -3,7 +3,7 @@ import React from 'react';
 function AchievementCard({ imgSrc, title, description, achievementNumber }) {
   return (
     <article
-      className="bg-white shadow-lg rounded-lg p-5 m-2 flex items-center h-32 overflow-hidden" // Added overflow-hidden
+      className="bg-white shadow-lg rounded-lg p-4 m-2 flex items-center h-32 overflow-hidden" // Adjusted padding
       role="article"
       aria-labelledby={`achievement-${achievementNumber}`}
     >
@@ -20,14 +20,14 @@ function AchievementCard({ imgSrc, title, description, achievementNumber }) {
         <div className="flex items-center">
           {/* Achievement number */}
           <p
-            className="text-base md:text-2xl font-extrabold text-left mt-2 overflow-hidden text-ellipsis"
+            className="text-base md:text-2xl font-extrabold text-left mt-1 overflow-hidden text-ellipsis"
             id={`achievement-number-${achievementNumber}`}
           >
             {achievementNumber}
           </p>
           {/* Title */}
           <h2
-            className="text-sm md:text-md font-medium text-left mt-2 ml-2 overflow-hidden text-ellipsis"
+            className="text-sm md:text-md font-medium text-left mt-1 ml-2 overflow-hidden text-ellipsis"
             id={`achievement-title-${achievementNumber}`}
           >
             {title}
