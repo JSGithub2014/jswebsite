@@ -2,10 +2,14 @@ import React, { useRef } from 'react';
 import TestimonialCard from '../components/TestimonialCards';
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FiArrowUp, FiArrowDown } from "react-icons/fi";
-import img1 from '../assets/testimonial-male.jpeg';
-import img2 from '../assets/testimonial-male-2.jpeg';
-import img3 from '../assets/testimonial-male-3.jpeg';
-// Import more images as needed for the testimonials
+import img1 from '../assets/testimonial/testimonial-male.jpeg';
+import img2 from '../assets/testimonial/testimonial-male-2.jpeg';
+import img3 from '../assets/testimonial/testimonial-male-3.jpeg';
+import img4 from '../assets/testimonial/testimonial-male-4.jpeg';
+import img5 from '../assets/testimonial/testimonial-male-5.jpeg';
+import img6 from '../assets/testimonial/testimonial-female-6.jpeg';
+import img7 from '../assets/testimonial/testimonial-male-7.jpeg';
+
 
 const testimonials = [
   {
@@ -31,25 +35,25 @@ const testimonials = [
     name: 'Sirtaj Shaikh',
     position: 'Chairman NGO',
     quote: "“Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.”",
-    photo: img1, // Use different images as necessary
+    photo: img4, // Use different images as necessary
   },
   {
     name: 'Poonam Raut',
     position: 'Manager MNC',
     quote: "“The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.”",
-    photo: img2,
+    photo: img6,
   },
   {
     name: 'Dinesh Suthar',
     position: 'Entrepreneur',
     quote: "“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”",
-    photo: img3,
+    photo: img5,
   },
   {
     name: 'Suresh Lohar',
     position: 'Interior Decorator',
     quote: "“Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.”",
-    photo: img1,
+    photo: img7,
   },
   // Continue adding all other testimonials...
 ];

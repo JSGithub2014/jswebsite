@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import ManagementTeam from '../components/ManagementTeam';
-import TeamMemberCard from '../components/TeamMemberCard'; // Import the new component
+import TeamMemberCard from '../components/TeamMemberCard'; 
 import Footer from './Footer';
-import j_m_Img from '../assets/j.mittal.jpeg';
-import s_p_Img from '../assets/s.p.jpeg';
-import s_chaurasia from '../assets/s.chaurasia.jpeg';
+import j_m_Img from '../assets/ourTeam/j.mittal.jpeg';
+import s_p_Img from '../assets/ourTeam/s.p.jpeg';
+import s_chaurasiya from '../assets/ourTeam/s.chaurasia.jpeg';
 
-// Management team members data
+
 const managementTeamMembers = [
   {
     name: 'Jayant Mittal',
@@ -23,7 +23,7 @@ const managementTeamMembers = [
   {
     name: 'Sayali KC',
     role: 'Chief Marketing Officer',
-    image: s_chaurasia,
+    image: s_chaurasiya,
     description: "With a keen eye for branding and market trends, Sayali K. Chaurasia spearheads innovative marketing strategies that enhance the company's visibility and engagement.",
   },
 ];
@@ -71,8 +71,6 @@ function OurTeam() {
     <React.Fragment>
       <div className='w-full bg-gradient-to-b from-orange-100 to-orange-200 flex flex-col items-center text-black'>
         <ManagementTeam teamMembers={managementTeamMembers} onClick={openModal} />
-
-        {/* Use the new TeamMemberCard component for additional team members */}
         <TeamMemberCard teamMembers={teamMembers} onClick={openModal} />
 
         {selectedMember && (
@@ -99,7 +97,6 @@ function OurTeam() {
             </div>
           </>
         )}
-
       </div>
       <Footer />
     </React.Fragment>
