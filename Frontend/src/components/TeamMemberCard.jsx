@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamMemberCard = ({ teamMembers, onClick }) => {
   return (
-    <div className='flex flex-col md:flex-row justify-center p-4 mt-20'>
+    <div className='flex flex-col md:flex-row p-4 mt-20'>
       {/* Introductory text for small screens */}
       <div className="block md:hidden w-full mb-6">
         <p className="text-4xl lg:text-5xl font-bold mb-4 heading-font tracking-wider">
