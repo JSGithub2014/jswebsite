@@ -20,7 +20,7 @@ function Hero() {
       <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-12'>
         <aside className='hero-section-left mb-8 md:mb-0 opacity-0 md:w-1/2'>
           <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white whitespace-nowrap'>
-            Securing Your <br /> Success <span className='text-5xl lg:text-6xl font-serif'>!</span> <br />
+            Securing Your <br /> Success<span className='text-5xl lg:text-6xl font-serif'>!</span> <br />
             <div className='landing-text-animation text-lg md:text-xl lg:text-2xl inline overflow-hidden'> 
               <span className='services-name font-thin landing-font text-black whitespace-nowrap' style={{ opacity: 0 }}>
                 Expert Guidance in Finance

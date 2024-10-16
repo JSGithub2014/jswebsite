@@ -28,7 +28,7 @@ function Achievement() {
     },
     {
       imgSrc: RupeesIcon,
-      achievementNumber: "1250Cr.+",
+      achievementNumber: "1250Cr+",
       title: 'Loan Disbursed',
       description: 'We are proud to have disbursed more than ₹1,250 crore in loans, empowering businesses and individuals to achieve their financial goals.'
     },
