@@ -79,7 +79,7 @@ function OurTeam() {
         {selectedMember && (
           <>
             <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50'></div>
-            <div className='fixed inset-0 flex items-center justify-center z-50'>
+            <div className='fixed inset-0 flex items-center justify-center z-50 w-[70vw]'>
               <div className='bg-zinc-100 rounded-lg p-6 max-w-xs w-full relative shadow-lg z-50'>
                 <button
                   className='absolute top-2 right-2 text-gray-600 text-2xl hover:text-gray-900'
