@@ -26,7 +26,7 @@ const ManagementTeam = ({ teamMembers, onClick }) => {
                   onClick={() => onClick(member)}
                 >
                   <img
-                    className="w-full h-80 object-fit mb-4 rounded-lg"
+                    className="w-full h-96 object-fit mb-4 rounded-lg"
                     src={member.image}
                     alt={member.name}
                   />
