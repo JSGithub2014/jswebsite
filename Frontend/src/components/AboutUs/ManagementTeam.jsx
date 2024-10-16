@@ -2,7 +2,7 @@ import React from 'react';
 
 const ManagementTeam = ({ teamMembers, onClick }) => {
   return (
-    <div className="w-[80vw] mt-28 p-6">
+    <div className="w-[80vw] mt-8 p-6">
       <div className="p-4 gap-10">
         <div className="w-full mb-6">
           <p className="text-4xl w-full md:text-4xl lg:text-5xl font-bold mb-4 heading-font tracking-wider text-shadow">
