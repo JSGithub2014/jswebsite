@@ -148,7 +148,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
+              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16"
               loading="lazy" 
             />
           ))}
@@ -163,7 +163,7 @@ const PartnerSection = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[8000%]"
+              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16 -translate-x-[8000%]"
               loading="lazy"
             />
           ))}

@@ -152,7 +152,7 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16"
+              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16"
               loading="lazy" 
             />
           ))}
@@ -167,8 +167,8 @@ const ClientalsSection = () => {
               key={index}
               src={logo}
               alt={`Client logo ${index + 11}`}
-              className="inline-block h-16 w-16 mx-5 md:h-20 md:w-20 sm:h-16 sm:w-16 -translate-x-[7000%]"
-              loading="lazy" 
+              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16 -translate-x-[7000%]"
+              loading="lazy"
             />
           ))}
         </div>

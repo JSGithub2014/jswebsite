@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ManagementTeam from '../components/ManagementTeam';
-import TeamMemberCard from '../components/TeamMemberCard'; 
+import ManagementTeam from '../components/AboutUs/ManagementTeam';
+import TeamMemberCard from '../components/AboutUs/TeamMemberCard'; 
 import Footer from './Footer';
 import j_m_Img from '../assets/ourTeam/j.mittal.jpeg';
 import s_p_Img from '../assets/ourTeam/s.p.jpeg';
 import s_chaurasiya from '../assets/ourTeam/s.chaurasia.jpeg';
-
+import AboutMain from '../components/AboutUs/AboutMain';
 
 const managementTeamMembers = [
   {
@@ -16,9 +16,9 @@ const managementTeamMembers = [
   },
   {
     name: 'Sanil Pandit',
-    role: 'Co-Founder',
+    role: 'Director',
     image: s_p_Img,
-    description: 'An expert in strategic planning and execution, Sanil Pandit leverages his extensive experience to shape effective strategies that propel the company forward.',
+    description: 'An expert in strategic planning and execution, Sanil Pandit utilizes his extensive experience to craft effective strategies that advance the company’s goals.',
   },
   {
     name: 'Sayali KC',
@@ -31,29 +31,28 @@ const managementTeamMembers = [
 const teamMembers = [
   {
     name: 'Random',
-    role: ' Random',
+    role: 'Random',
     image: 'https://via.placeholder.com/150',
     description: 'A skilled developer specializing in front-end technologies, Alice is passionate about creating intuitive user experiences.',
   },
   {
-    name: 'Random ',
+    name: 'Random',
     role: 'Random',
     image: 'https://via.placeholder.com/150',
     description: 'With a background in UX design, Michael ensures that products meet user needs and align with business goals.',
   },
   {
-    name: ' Random',
-    role: 'Random ',
+    name: 'Random',
+    role: 'Random',
     image: 'https://via.placeholder.com/150',
     description: 'Emma designs engaging interfaces and ensures a seamless user experience across all platforms.',
   },
   {
-    name: ' Random',
-    role: 'Random ',
+    name: 'Random',
+    role: 'Random',
     image: 'https://via.placeholder.com/150',
     description: 'With a background in UX design, Michael ensures that products meet user needs and align with business goals.',
   },
-
 ];
 
 function OurTeam() {
@@ -69,7 +68,11 @@ function OurTeam() {
 
   return (
     <React.Fragment>
-      <div className='w-full bg-gradient-to-b from-orange-100 to-orange-200 flex flex-col items-center text-black'>
+      <div className='relative w-full bg-[rgb(231,231,231)] flex flex-col items-center text-black overflow-hidden'>
+        
+        {/* Full-height Banner with Image */}
+        
+<AboutMain/>
         <ManagementTeam teamMembers={managementTeamMembers} onClick={openModal} />
         <TeamMemberCard teamMembers={teamMembers} onClick={openModal} />
 
@@ -77,7 +80,7 @@ function OurTeam() {
           <>
             <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50'></div>
             <div className='fixed inset-0 flex items-center justify-center z-50'>
-              <div className='bg-zinc-100 rounded-lg p-6 max-w-md w-full relative shadow-lg z-50'>
+              <div className='bg-zinc-100 rounded-lg p-6 max-w-xs w-full relative shadow-lg z-50'>
                 <button
                   className='absolute top-2 right-2 text-gray-600 text-2xl hover:text-gray-900'
                   onClick={closeModal}
@@ -91,7 +94,7 @@ function OurTeam() {
                   style={{ aspectRatio: '1 / 1' }}
                 />
                 <h2 className='text-xl mb-2 font-semibold text-[rgb(255,102,0)]'>{selectedMember.name}</h2>
-                <p className='text-md mb-4 font-medium text-gray-600 '>{selectedMember.role}</p>
+                <p className='text-md mb-4 font-medium text-gray-600'>{selectedMember.role}</p>
                 <p className='text-gray-800 text-justify'>{selectedMember.description || 'No description available.'}</p>
               </div>
             </div>

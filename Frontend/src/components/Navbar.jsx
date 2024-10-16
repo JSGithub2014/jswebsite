@@ -68,7 +68,7 @@ function Navbar() {
             <div className="relative group">
               <button className="flex items-center text-lg px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
                 About
-                <HiChevronDown className="transition-transform duration-300 group-hover:rotate-0 rotate-180 text-2xl" />
+                <HiChevronDown className="transition-transform duration-300 text-2xl" />
               </button>
               <div className="absolute left-0 bg-[rgb(255,255,255)] text-orange-500 shadow-xl rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
                 <Link to="/our-team" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
