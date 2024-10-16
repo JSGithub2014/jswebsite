@@ -71,8 +71,7 @@ function OurTeam() {
       <div className='relative w-full bg-[rgb(231,231,231)] flex flex-col items-center text-black overflow-hidden'>
         
         {/* Full-height Banner with Image */}
-        
-<AboutMain/>
+        <AboutMain />
         <ManagementTeam teamMembers={managementTeamMembers} onClick={openModal} />
         <TeamMemberCard teamMembers={teamMembers} onClick={openModal} />
 
@@ -80,7 +79,7 @@ function OurTeam() {
           <>
             <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50'></div>
             <div className='fixed inset-0 flex items-center justify-center z-50'>
-              <div className='bg-zinc-100 rounded-lg p-6 max-w-[70vw] max-h-[60vh] w-full relative shadow-lg z-50'>
+              <div className='bg-zinc-100 rounded-lg p-6 max-w-md w-full mx-4 relative shadow-lg z-50'>
                 <button
                   className='absolute top-2 right-2 text-gray-600 text-2xl hover:text-gray-900'
                   onClick={closeModal}
@@ -90,7 +89,7 @@ function OurTeam() {
                 <img
                   src={selectedMember.image}
                   alt={selectedMember.name}
-                  className='w-full h-auto object-fit rounded-lg mb-4'
+                  className='w-full h-auto object-cover rounded-lg mb-4'
                   style={{ aspectRatio: '1 / 1' }}
                 />
                 <h2 className='text-xl mb-2 font-semibold text-[rgb(255,102,0)]'>{selectedMember.name}</h2>
