@@ -27,13 +27,11 @@ function OurStory() {
       title: "Our Values",
       description: (
         <>
-          Integrity: Upholding the highest standards of honesty and ethics.<br />
-          Innovation: Embracing creativity and new ideas to drive progress.<br />
-          Collaboration: Working together to achieve common goals.<br />
-          Excellence: Striving for the highest quality in everything we do.
+          Our values are founded on integrity, upholding the highest standards of honesty and ethics in all our dealings. We believe that trust is the cornerstone of lasting relationships, and we strive to earn it through our actions. Innovation is at the heart of our approach; we embrace creativity and new ideas to drive progress, ensuring that we remain adaptable in an ever-changing landscape. Collaboration is key to our success; we work together across teams and disciplines, leveraging diverse perspectives to achieve common goals. We recognize that each team member's contribution is vital and fosters an environment where everyone feels valued and heard. Finally, we strive for excellence, aiming for the highest quality in everything we do, from the services we provide to the relationships we cultivate. Our commitment to these values guides our decisions and inspires us to continuously improve and deliver exceptional results.
         </>
       )
     }
+    
   ];
 
   return (
