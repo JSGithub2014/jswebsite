@@ -29,6 +29,7 @@ html {
 
 *{
   font-family:'Poppins' ;
+  
 }
 
 .heading-font {
@@ -47,6 +48,17 @@ html {
 ::-webkit-scrollbar-thumb{
   background-color: rgb(255,102,0);
   border-radius: 2px;
+}
+
+::selection {
+  background-color: rgb(255, 102, 0);
+  color: rgb(34, 34, 34);
+}
+
+/* For Firefox */
+::-moz-selection {
+  background-color: rgb(255, 102, 0);
+  color: rgb(34, 34, 34);
 }
 
 

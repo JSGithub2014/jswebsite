@@ -1,6 +1,7 @@
 import Lenis from 'lenis';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Landing from './pages/Landing';
@@ -19,9 +20,9 @@ import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import ContactUs from './pages/ContactUs';
 import OurTeam from './pages/OurTeam';
-import Goal from './pages/Goal';
-import NotFound from './components/NotFound'
-
+import OurStory from './pages/OurStory';
+import NotFound from './components/NotFound';
+import MotionWrapper from './components/MotionWrapper';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -58,12 +59,12 @@ const App = () => {
     <div className='overflow-x-hidden'>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/our-team" element={<OurTeam />} />
-        <Route path="/goal" element={<Goal />} />
+        <Route path="/login" element={<MotionWrapper><Login /></MotionWrapper>} />
+        <Route path="/signup" element={<MotionWrapper><Register /></MotionWrapper>} />
+        <Route path="/about-us/our-team" element={<MotionWrapper><OurTeam /></MotionWrapper>} />
+        <Route path="/about-us/our-story" element={<MotionWrapper><OurStory /></MotionWrapper>} />
         <Route path="/" element={
-          <>
+          <MotionWrapper>
             <Landing />
             <AboutUs />
             <Services />
@@ -72,15 +73,15 @@ const App = () => {
             <Testimonial />
             <Achievement />
             <WhyUs />
-            <Faqs  />
+            <Faqs />
             <RobustFoundation />
             <ContactUs />
             <Footer />
-            <ScrollToTop />
-          </>
+          </MotionWrapper>
         } />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
       </Routes>
+      <ScrollToTop />
     </div>
   );
 };
@@ -89,8 +90,6 @@ const WrappedApp = () => (
   <Router>
     <App />
   </Router>
-
-  
 );
 
 export default WrappedApp;

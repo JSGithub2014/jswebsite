@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import AchievementCard from '../components/AchievementCard';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import achievementImage from '../assets/achievement-page-img.png'; 
 import GrowthIcon from '../assets/achivement-growth-icon.jpg'; 
 import BuildingIcon from '../assets/achivement-building-icon.png'; 
@@ -38,16 +39,25 @@ function Achievement() {
     <div className="h-auto flex flex-col items-center px-4 md:px-24 py-4 bg-slate-200">
       <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-between lg:mt-8 my-3 md:w-1/2 md:order-1">
-          <h2 className="lg:text-5xl text-3xl font-thin mb-4 text-center heading-font tracking-wider text-shadow">
+          <motion.h2
+            className="lg:text-5xl text-3xl font-thin mb-4 text-center heading-font tracking-wider text-shadow"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Journey</span>
             <span className='black heading-font'> of Trust <br /> and <span className='text-[rgb(255,102,0)] tracking-wider heading-font'>Success</span> </span>
-          </h2>
-          <img
+          </motion.h2>
+
+          <motion.img
             src={achievementImage}
             alt="Illustration of achievements"
             className="w-full h-auto rounded-md mb-8"
             loading="lazy"
             aria-describedby="achievement-image-description"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
           />
           <p id="achievement-image-description" className="sr-only">
             An illustration depicting the achievements of our company, highlighting our commitment and success in various domains.
@@ -57,14 +67,20 @@ function Achievement() {
         <div className="md:w-1/2 flex flex-col justify-start p-2">
           <div className="flex flex-col gap-4">
             {achievements.map((achievement, index) => (
-              <AchievementCard
-                key={index}
-                imgSrc={achievement.imgSrc}
-                title={achievement.title}
-                description={achievement.description}
-                achievementNumber={achievement.achievementNumber}
-                className="w-full h-40" // Set a specific height
-              />
+              <div key={index} className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} // Initial state
+                  whileInView={{ opacity: 1, y: 0 }} // Final state
+                  transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered effect
+                >
+                  <AchievementCard
+                    imgSrc={achievement.imgSrc}
+                    title={achievement.title}
+                    description={achievement.description}
+                    achievementNumber={achievement.achievementNumber}
+                  />
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 
 function WhyUs() {
@@ -18,16 +19,26 @@ function WhyUs() {
         `}
       </style>
 
-      <div className='flex flex-col md:flex-row w-full max-w-7xl mx-auto justify-center items-stretch md:gap-32'> {/* Changed items-center to items-stretch */}
-        <div className='whyus-img md:w-1/2 mb-4 md:mb-0 flex justify-center'> 
-        <img
-    src={whyUsImage}
-    alt="Why choose us for your needs"
-    className='object-fit w-full h-full rounded-md' 
-/>
-        </div>
+      <div className='flex flex-col md:flex-row w-full max-w-7xl mx-auto justify-center items-stretch md:gap-32'> 
+        <motion.div 
+          className='whyus-img md:w-1/2 mb-4 md:mb-0 flex justify-center'
+          initial={{ opacity: 0, scale: 0.8 }} // Initial state
+          whileInView={{ opacity: 1, scale: 1 }} // Final state when in view
+          transition={{ duration: 0.5 }} // Transition effect
+        >
+          <img
+            src={whyUsImage}
+            alt="Why choose us for your needs"
+            className='object-fit w-full h-full rounded-md' 
+          />
+        </motion.div>
 
-        <div className='whyus-text w-full md:w-1/2 mt-4 md:mt-0 flex justify-center items-center'> {/* Added items-center */}
+        <motion.div 
+          className='whyus-text w-full md:w-1/2 mt-4 md:mt-0 flex justify-center items-center'
+          initial={{ opacity: 0, x: -50 }} // Initial state
+          whileInView={{ opacity: 1, x: 0 }} // Final state when in view
+          transition={{ duration: 0.5 }} // Transition effect
+        >
           <div className='flex flex-col space-y-4 p-4'>
             <h1 className='text-3xl md:text-5xl font-thin heading-font tracking-wider text-center text-shadow'>
               <span className='tracking-wider heading-font'>W</span>hy <span className='text-[rgb(255,102,0)]'>Us</span>?
@@ -38,10 +49,16 @@ function WhyUs() {
               'Client-Centered Approach',
               'Long-Term Relationships',
             ].map((item, index) => (
-              <div key={index} className='flex items-center'>
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 10 }} // Initial state for list items
+                whileInView={{ opacity: 1, y: 0 }} // Animate into view
+                transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for each item
+                className='flex items-center'
+              >
                 <MdDone className='text-[#F3BA73]' />
                 <p className='ml-2 text-base md:text-lg'>{item}</p>
-              </div>
+              </motion.div>
             ))}
             <div className='flex justify-center'>
               <a
@@ -55,7 +72,7 @@ function WhyUs() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

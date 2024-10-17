@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function ServicesCard({ logo, title, description, additionalInfo, generalInfo }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+      });
+    }, { threshold: 0.5 }); // Adjust threshold to your needs
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <article 
-      className="bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 ease-in-out transform hover:scale-105 flex flex-col justify-between" 
+      ref={cardRef} 
+      className={`bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col justify-between`} 
       aria-labelledby={`service-${title.toLowerCase()}`}
     >
       <img 

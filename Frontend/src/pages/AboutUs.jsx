@@ -1,79 +1,120 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const WhoWeAre = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect(); // Stop observing after it becomes visible
+                }
+            },
+            {
+                threshold: 0.5 // Trigger when 50% of the component is in view
+            }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, []);
+
     return (
         <section 
+            ref={ref}
             className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16 lg:px-24 xl:px-32" 
-            aria-labelledby="who-we-are-heading" 
+            aria-labelledby="who-we-are-heading"
         >
             <div className="container mx-auto text-center">
-                <h1 
+                <motion.h1 
                     id="who-we-are-heading"
                     className='text-3xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font text-shadow'
+                    initial={{ opacity: 0, y: -20 }} // Initial state
+                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} // Animate into view
+                    transition={{ duration: 0.5 }} // Animation duration
                 >
                     <span className='heading-font'>Who</span>
                     <span className='text-[rgb(255,102,0)] heading-font'> We Are</span>
-                </h1>
+                </motion.h1>
 
-                <p 
+                <motion.p 
                     className="text-base md:text-lg lg:text-sm text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10" 
-                    aria-describedby="who-we-are-description" 
+                    aria-describedby="who-we-are-description"
+                    initial={{ opacity: 0, y: 20 }} // Initial state
+                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate into view
+                    transition={{ duration: 0.5 }} // Animation duration
                 >
                     We specialize in expert financial services, insurance solutions, and real estate advisory, 
                     empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique 
                     needs, ensuring optimized financial health and comprehensive protection.
-                </p>
+                </motion.p>
 
                 {/* Services section */}
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-                    <article 
-                        className="bg-white shadow-lg p-6 lg:p-8 rounded-lg transition-transform transform hover:scale-105" 
-                        aria-labelledby="financial-solutions-heading"
-                    >
-                        <h2 
-                            id="financial-solutions-heading" 
-                            className="text-lg md:text-xl lg:text-2xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
+                    {[ 
+                        { 
+                            id: "financial-solutions-heading", 
+                            title: "Comprehensive Financial Solutions", 
+                            description: "From investment management and business funding to customized insurance plans, we guide you every step of the way with our expert solutions." 
+                        }, 
+                        { 
+                            id: "real-estate-advisory-heading", 
+                            title: "Strategic Real Estate Advisory", 
+                            description: "As trusted real estate advisors, we help you navigate market complexities, providing the strategic insights you need to make informed decisions." 
+                        } 
+                    ].map(({ id, title, description }) => (
+                        <motion.article 
+                            key={id}
+                            className="bg-white shadow-lg p-6 lg:p-8 rounded-lg transition-transform transform hover:scale-105" 
+                            aria-labelledby={id}
+                            initial={{ opacity: 0, scale: 0.8 }} // Initial state
+                            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} // Animate into view
+                            transition={{ duration: 0.5 }} // Animation duration
                         >
-                            Comprehensive Financial Solutions
-                        </h2>
-                        <p className="text-gray-600 text-sm md:text-base lg:text-sm">
-                            From investment management and business funding to customized insurance plans, we guide 
-                            you every step of the way with our expert solutions.
-                        </p>
-                    </article>
-
-                    <article 
-                        className="bg-white shadow-lg p-6 lg:p-8 rounded-lg transition-transform transform hover:scale-105" 
-                        aria-labelledby="real-estate-advisory-heading"
-                    >
-                        <h2 
-                            id="real-estate-advisory-heading" 
-                            className="text-lg md:text-xl lg:text-2xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
-                        >
-                            Strategic Real Estate Advisory
-                        </h2>
-                        <p className="text-gray-600 text-sm md:text-base lg:text-sm">
-                            As trusted real estate advisors, we help you navigate market complexities, providing the 
-                            strategic insights you need to make informed decisions.
-                        </p>
-                    </article>
+                            <h2 
+                                id={id} 
+                                className="text-lg md:text-xl lg:text-2xl text-[rgb(58,59,59)] mb-4 heading-font tracking-wider"
+                            >
+                                {title}
+                            </h2>
+                            <p className="text-gray-600 text-sm md:text-base lg:text-sm">
+                                {description}
+                            </p>
+                        </motion.article>
+                    ))}
                 </div>
 
                 {/* Our Commitment Section */}
                 <div className="mt-12">
-                    <h1 
+                    <motion.h1 
                         className='text-2xl md:text-4xl lg:text-5xl font-thin text-center tracking-wider mb-4 heading-font text-shadow'
+                        initial={{ opacity: 0, y: -20 }} // Initial state
+                        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} // Animate into view
+                        transition={{ duration: 0.5 }} // Animation duration
                     >
                         <span className='heading-font'>Our</span>
                         <span className='text-[rgb(255,102,0)] heading-font'> Commitment</span>
-                    </h1>
-                    <p 
+                    </motion.h1>
+                    <motion.p 
                         className="text-base md:text-lg lg:text-sm text-gray-700 max-w-2xl mx-auto leading-relaxed" 
-                        aria-describedby="commitment-description" // Added aria-describedby for context
+                        aria-describedby="commitment-description"
+                        initial={{ opacity: 0, y: 20 }} // Initial state
+                        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate into view
+                        transition={{ duration: 0.5 }} // Animation duration
                     >
                         With a commitment to trust, integrity, and exceptional service, 
                         we strive to exceed your expectations, helping you secure your future and grow your investments.
-                    </p>
+                    </motion.p>
                 </div>
             </div>
         </section>

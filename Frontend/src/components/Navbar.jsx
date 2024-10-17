@@ -71,8 +71,8 @@ function Navbar() {
                 <HiChevronDown className="transition-transform duration-300 text-2xl" />
               </button>
               <div className="absolute left-0 bg-[rgb(255,255,255)] text-orange-500 shadow-xl rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-                <Link to="/our-team" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
-                <Link to="/goal" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Goal</Link>
+                <Link to="/about-us/our-team" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
+                <Link to="/about-us/our-story" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
               </div>
             </div>
             <a className="text-lg px-4 py-2 rounded-full transition duration-300 uppercase hover:text-white md:hover:bg-orange-500">Services</a>
@@ -106,7 +106,7 @@ function Navbar() {
               </button>
               <div className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
                 <Link to="/our-team" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
-                <Link to="/goal" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Goal</Link>
+                <Link to="/our-story" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
               </div>
             </div>
             <a className="text-orange-500 py-2 uppercase text-lg rounded-full">Services</a>

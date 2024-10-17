@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // Import motion
 import meetOurTeam from '../../assets/ourTeam/meet-our-team.png';
 
 function AboutMain() {
@@ -11,12 +12,25 @@ function AboutMain() {
 
   return (
     <div className='flex flex-col md:flex-row w-full h-[calc(100vh-60px)]'>
-      <div className='relative w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-cover bg-center'>
-        <img src={meetOurTeam} alt="Meet Our Team" className='max-w-full max-h-full object-contain mt-28' />
-      </div>
-      <div className='flex flex-col justify-center items-center w-full md:w-1/2 p-6 md:p-10 font-semibold text-center'>
-        <h1 className='text-3xl md:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-8'>Welcome to Our Team</h1>
-        <p className='text-md md:text-lg text-gray-600 mb-8'>
+      <motion.div 
+        className='relative w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-cover bg-center'
+        initial={{ opacity: 0, x: -100 }} // Start from left
+        animate={{ opacity: 1, x: 0 }} // Animate to original position
+        transition={{ duration: 0.5 }} // Animation duration
+      >
+        <img src={meetOurTeam} alt="Meet Our Team" className='max-w-full max-h-full object-contain mt-24' />
+      </motion.div>
+      
+      <motion.div 
+        className='flex flex-col justify-center items-center w-full md:w-1/2 p-6 md:p-10 mt-12 font-semibold text-center'
+        initial={{ opacity: 0, x: 100 }} // Start from right
+        animate={{ opacity: 1, x: 0 }} // Animate to original position
+        transition={{ duration: 0.5 }} // Animation duration
+      >
+        <h1 className='text-3xl md:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-8 heading-font tracking-wider'>
+          Welcome to Our Team
+        </h1>
+        <p className='text-md md:text-lg text-gray-600 my-8'>
           Meet the talented <br />
           individuals driving innovation <br />
           and excellence at our <br />
@@ -33,7 +47,7 @@ function AboutMain() {
             </svg>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="h-screen bg-gray-200">
         {/* Additional content can go here */}
