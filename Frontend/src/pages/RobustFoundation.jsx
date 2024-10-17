@@ -57,10 +57,10 @@ const OurStrengths = () => {
               role="article"
               aria-labelledby={`strength-title-${index}`}
               aria-describedby={`strength-desc-${index}`}
-              initial={{ opacity: 0, y: 10 }} // Reduced y offset for smoother entry
-              whileInView={{ opacity: 1, y: 0 }} // Animate into view
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered transition
-              viewport={{ once: true }} // Change to once to animate only on first view
+              initial={{ opacity: 0, y: 20 }} // Start from below
+              whileInView={{ opacity: 1, y: 0 }} // Animate to full opacity and position
+              transition={{ duration: 0.5, delay: index * 0.1 }} // Smooth transition
+              viewport={{ once: true }} // Animate only once
             >
               <div className="text-4xl" aria-label={strength.title}>
                 {strength.icon}

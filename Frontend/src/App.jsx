@@ -1,6 +1,6 @@
 import Lenis from 'lenis';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -26,6 +26,7 @@ import MotionWrapper from './components/MotionWrapper';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const location = useLocation(); 
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -50,6 +51,10 @@ const App = () => {
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, [location.pathname]);
 
   if (loading) {
     return <Loading />;

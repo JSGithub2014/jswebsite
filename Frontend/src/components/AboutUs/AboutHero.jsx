@@ -11,7 +11,7 @@ function AboutMain() {
   };
 
   return (
-    <div className='flex flex-col md:flex-row w-full h-[calc(100vh-60px)]'>
+    <div className='flex flex-col px-12 md:flex-row w-full h-[calc(100vh-60px)]'>
       <motion.div 
         className='relative w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-cover bg-center'
         initial={{ opacity: 0, x: -100 }} // Start from left
