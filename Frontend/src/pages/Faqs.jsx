@@ -67,7 +67,7 @@ const Faqs = () => {
                       className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-800 p-4 bg-white hover:bg-orange-100 rounded-lg shadow-md focus:outline-none transition-all duration-300 ease-in-out"
                       onClick={() => toggleQuestion(index)}
                       aria-expanded={openQuestion === index}
-                      aria-controls={`question-${index}`}
+                      aria-controls={`question-${category}-${index}`} // Unique ID
                     >
                       {item.question}
                       <FaChevronDown
@@ -76,7 +76,7 @@ const Faqs = () => {
                       />
                     </button>
                     <div
-                      id={`question-${index}`}
+                      id={`question-${category}-${index}`} // Unique ID
                       className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openQuestion === index ? 'max-h-screen' : 'max-h-0'}`}
                     >
                       <p className="mt-4 text-gray-600 text-base bg-white p-4 rounded-lg shadow-inner">

@@ -61,14 +61,12 @@ const testimonials = [
 function Testimonial() {
   const scrollRef = useRef(null);
 
-  // Function to scroll up
   const scrollUp = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ top: -100, behavior: 'smooth' });
     }
   };
 
-  // Function to scroll down
   const scrollDown = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ top: 100, behavior: 'smooth' });
@@ -77,25 +75,6 @@ function Testimonial() {
 
   return (
     <section className="flex flex-col md:flex-row justify-between px-4 md:px-[5vw] items-center py-10 bg-[#fc7b0386]">
-      <style>
-        {`
-          @font-face {
-            font-family: 'Gendy';
-            src: url('/assets/TTF/Gendy.ttf') format('truetype');
-          }
-          .heading-font {
-            font-family: 'Gendy', sans-serif;
-          }
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgb(255, 102, 0);
-            border-radius: 10px;
-          }
-        `}
-      </style>
-
       <div className="md:w-1/2 px-6 mb-8 md:mb-0 flex flex-col justify-center">
         <RiDoubleQuotesL className='text-8xl text-zinc-500 mb-[2vw]' aria-hidden="true" />
         <h1 className="text-4xl md:text-6xl font-thin mb-4 text-black heading-font tracking-wider text-shadow" aria-label="What Our Clients Say">
@@ -104,10 +83,10 @@ function Testimonial() {
       </div>
 
       <div className="md:w-1/2 h-96 relative">
-        {/* Top scroll arrow */}
         <button 
           onClick={scrollUp} 
           className="absolute top-2 left-full transform -translate-x-[130%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
+          aria-label="Scroll up"
         >
           <FiArrowUp className="text-[rgb(255,102,0)]" size={24} />
         </button>
@@ -126,10 +105,10 @@ function Testimonial() {
           </div>
         </div>
 
-        {/* Bottom scroll arrow */}
         <button 
           onClick={scrollDown} 
           className="absolute bottom-0 left-full transform -translate-x-[140%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
+          aria-label="Scroll down"
         >
           <FiArrowDown className="text-[rgb(255,102,0)]" size={24} />
         </button>
