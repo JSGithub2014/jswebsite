@@ -10,11 +10,12 @@ const WhoWeAre = () => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect(); // Stop observing after it becomes visible
+                } else {
+                    setIsVisible(false); // Reset visibility when out of view
                 }
             },
             {
-                threshold: 0.5 // Trigger when 50% of the component is in view
+                threshold: 0.3 
             }
         );
 
@@ -52,7 +53,7 @@ const WhoWeAre = () => {
                     aria-describedby="who-we-are-description"
                     initial={{ opacity: 0, y: 20 }} // Initial state
                     animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate into view
-                    transition={{ duration: 0.5 }} // Animation duration
+                    transition={{ duration: 0.3 }} // Animation duration
                 >
                     We specialize in expert financial services, insurance solutions, and real estate advisory, 
                     empowering individuals, families, and businesses to achieve their goals. Our tailored solutions address unique 

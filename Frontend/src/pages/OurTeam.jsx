@@ -96,7 +96,7 @@ function OurTeam() {
               transition={{ duration: 0.3 }}
             />
             <motion.div
-              className=' fixed inset-0 flex items-center justify-center z-50 p-4 '
+              className='fixed inset-0 flex items-center justify-center z-50 p-4'
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}

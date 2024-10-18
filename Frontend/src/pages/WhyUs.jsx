@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
 import { motion } from 'framer-motion'; // Import motion from framer-motion
 import whyUsImage from '../assets/why us.jpeg'; // Adjust the path as necessary
 
 function WhyUs() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false); // Reset visibility when it goes out of view
+        }
+      },
+      { threshold: 0.3 } // Trigger when 10% of the component is in view
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
-    <main className='flex flex-col md:flex-row items-center justify-center min-h-[50vh] px-4 md:px-24 w-full'>
+    <main ref={ref} className='flex flex-col md:flex-row items-center justify-center min-h-[50vh] px-4 md:px-24 w-full'>
       <style>
         {`
           @font-face {
@@ -23,7 +49,7 @@ function WhyUs() {
         <motion.div 
           className='whyus-img md:w-1/2 mb-4 md:mb-0 flex justify-center'
           initial={{ opacity: 0, scale: 0.8 }} // Initial state
-          whileInView={{ opacity: 1, scale: 1 }} // Final state when in view
+          animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} // Animate into view
           transition={{ duration: 0.5 }} // Transition effect
         >
           <img
@@ -36,7 +62,7 @@ function WhyUs() {
         <motion.div 
           className='whyus-text w-full md:w-1/2 mt-4 md:mt-0 flex justify-center items-center'
           initial={{ opacity: 0, x: -50 }} // Initial state
-          whileInView={{ opacity: 1, x: 0 }} // Final state when in view
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }} // Animate into view
           transition={{ duration: 0.5 }} // Transition effect
         >
           <div className='flex flex-col space-y-4 p-4'>
@@ -52,7 +78,7 @@ function WhyUs() {
               <motion.div 
                 key={index} 
                 initial={{ opacity: 0, y: 10 }} // Initial state for list items
-                whileInView={{ opacity: 1, y: 0 }} // Animate into view
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }} // Animate into view
                 transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for each item
                 className='flex items-center'
               >

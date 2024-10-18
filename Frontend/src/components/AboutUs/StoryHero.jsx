@@ -1,52 +1,54 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import ourStory from '../../assets/ourStory/story-hero.png';
 
 function StoryHero() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false }); // Change `once` to false to trigger animation every time
+
   return (
-    <section className='flex flex-col px-4 md:px-10 md:flex-row w-full h-[calc(100vh-60px)] pt-10' aria-labelledby="about-heading">
+    <section className='flex flex-col px-4 md:px-20 md:flex-row w-full h-[calc(100vh-60px)] pt-10' aria-labelledby="about-heading">
       <motion.div 
+        ref={ref}
         className='flex flex-col justify-center gap-2 items-center w-full md:w-1/2 p-4 md:p-10 font-semibold text-center'
         initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Animate every time in view
         transition={{ duration: 0.5 }}
       >
-        <h1 id="about-heading" className='text-3xl md:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wide'>
+        <h1 id="about-heading" className='text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wide'>
           The Story Behind <br /> <span className='text-black heading-font'>J&S Group</span>
         </h1>
-        <p className='text-sm md:text-md text-gray-600 text-justify mb-2'>
+        <p className='text-sm md:text-base lg:text-lg text-gray-600 text-justify mb-2'>
           At J&S Group, we believe navigating real estate finance and insurance should be simple and accessible.
         </p>
-        <p className='text-sm md:text-md text-gray-600 text-justify mb-2'>
+        <p className='text-sm md:text-base lg:text-lg text-gray-600 text-justify mb-2'>
           With a focus on transparency and integrity, we’re here to help you build a secure financial future.
         </p>
-        <p className='text-sm md:text-md text-gray-600 text-justify mb-4'>
+        <p className='text-sm md:text-base lg:text-lg text-gray-600 text-justify mb-4'>
           Join us as we transform your real estate dreams into reality!
         </p>
-        <ul className='list-disc text-left text-gray-600 mt-2 mx-6 hidden  md:block'>
-          <li className='text-sm'>Expert Guidance in Real Estate</li>
-          <li className='text-sm'>Customizable Insurance Solutions</li>
-          <li className='text-sm'>Transparent and Ethical Practices</li>
-          <li className='text-sm'>Building Long-term Relationships</li>
+        <ul className='list-disc text-left text-gray-600 mt-2 mx-6 hidden md:block'>
+          <li className='text-sm md:text-base'>Expert Guidance in Real Estate</li>
+          <li className='text-sm md:text-base'>Customizable Insurance Solutions</li>
+          <li className='text-sm md:text-base'>Transparent and Ethical Practices</li>
+          <li className='text-sm md:text-base'>Building Long-term Relationships</li>
         </ul>
-       
       </motion.div>
       
       <motion.div 
+        ref={ref}
         className='relative w-full md:w-1/2 flex items-center justify-center bg-cover bg-center'
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} // Animate every time in view
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        
         <img 
           src={ourStory} 
           alt="Meet Our Team at J&S Group" 
-          className='max-w-full max-h-full object-contain ' 
+          className='max-w-full max-h-full object-contain' 
           loading="lazy"
           style={{ width: '95%', height: '95%' }}
         />
-        
       </motion.div>
     </section>
   );

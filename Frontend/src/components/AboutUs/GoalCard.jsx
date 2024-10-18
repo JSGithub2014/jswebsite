@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const GoalCard = ({ title, description, direction }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: false }); // Allow repeated triggers
+
   const initialPosition = direction === 'left' ? { x: -100 } : { x: 100 };
-  
+
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
     <motion.article
+      ref={ref} // Reference for useInView
       className="bg-[rgba(255,102,0,0.86)] text-white shadow-lg rounded-2xl p-4 m-2 flex flex-col h-auto w-[70vw] max-w-5xl overflow-hidden"
       role="article"
       aria-labelledby={title}
       initial={{ ...initialPosition, opacity: 0 }} // Initial position and opacity
-      whileInView={{ x: 0, opacity: 1 }} // Animate to position and opacity when in view
+      animate={isInView ? { x: 0, opacity: 1 } : initialPosition} // Animate to position and opacity when in view
       transition={{ duration: 0.5 }} // Transition duration
-      viewport={{ once: true }} // Animation triggers only once
     >
       {/* Title */}
       <h2

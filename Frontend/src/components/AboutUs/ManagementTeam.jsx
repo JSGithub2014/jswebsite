@@ -10,11 +10,11 @@ const ManagementTeam = ({ teamMembers, onClick }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing after it becomes visible
+          observer.disconnect(); 
         }
       },
       {
-        threshold: 0.25 // Trigger when 25% of the component is in view
+        threshold: 0.25 
       }
     );
 
@@ -33,8 +33,8 @@ const ManagementTeam = ({ teamMembers, onClick }) => {
     <div ref={ref} className="w-full md:w-[80vw] mt-8 p-6">
       <div className="p-4 gap-10">
         <motion.div
-          initial={{ opacity: 0, y: -20 }} // Start slightly above
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} // Animate into view
+          initial={{ opacity: 0, y: -20 }} 
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} 
           transition={{ duration: 0.5 }}
           className="w-full mb-6"
         >

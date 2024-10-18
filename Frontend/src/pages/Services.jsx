@@ -38,11 +38,12 @@ function Services() {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect(); // Stop observing after it becomes visible
+                } else {
+                    setIsVisible(false); // Reset visibility when out of view
                 }
             },
             {
-                threshold: 0.1 // Trigger when 10% of the component is in view
+                threshold: 0.3 // Trigger when 10% of the component is in view
             }
         );
 
@@ -89,7 +90,7 @@ function Services() {
                         className="w-full sm:w-1/2 lg:w-1/3 p-4"
                         initial={{ opacity: 0, scale: 0.8 }} // Initial state
                         animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} // Animate into view
-                        transition={{ duration: 0.5, delay: index * 0.1 }} // Delay for each card based on index
+                        transition={{ duration: 0.5, delay: index * 0.2 }} // Delay for each card based on index
                     >
                         <ServicesCard
                             logo={service.logo}

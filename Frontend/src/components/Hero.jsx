@@ -1,38 +1,44 @@
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
+import { motion } from 'framer-motion';
 import heroImage from '../assets/hero.png';
 import callBtn from '../assets/call-us-img.png';
 
 function Hero() {
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.hero-section-left', { opacity: 1, y: 0, duration: 1 })
-      .to('.hero-section-right', { opacity: 1, duration: 1 }, "-=0.5")
-      .to('.services-name', { opacity: 1, x: 0, duration: 1, stagger: 0.5, ease: 'power2.out' }, "<");
-  }, []);
-
   const handleCall = () => {
     window.location.href = 'tel:+912245120755';
   };
 
+  // Animation variants
+  const leftVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
+  const rightVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
   return (
-    <main className='w-full h-screen md:h-screen flex items-center justify-center px-4 md:px-10 lg:px-24 pt-0 lg:mt-5 pt-14 z-0'>
+    <main className='w-full h-screen md:h-screen flex items-center justify-center px-4 md:px-24 text-center md:text-left lg:mt-5 pt-14 z-0'>
       <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-12'>
-        <header className='hero-section-left mb-8 md:mb-0 opacity-0 md:w-1/2'>
+        <motion.header
+          className='hero-section-left mb-8 md:mb-0 md:w-1/2'
+          initial="hidden"
+          animate="visible"
+          variants={leftVariants}
+        >
           <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white whitespace-nowrap'>
             Securing Your <br /> Success<span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
-            <div className='landing-text-animation text-lg md:text-xl lg:text-2xl inline overflow-hidden'>
-              <span className='services-name font-thin landing-font text-black whitespace-nowrap' style={{ opacity: 0 }}>
-                Expert Guidance in Finance
+          </h1>
+            <div className='landing-text-animation text-lg md:text-xl lg:text-2xl overflow-hidden my-10'>
+              <span className='services-name font-thin landing-font text-black whitespace-nowrap'>
+                Expert Guidance in Finance <br />
               </span>
-            </div>
-            <div className='landing-text-animation text-lg md:text-xl lg:text-2xl overflow-hidden'>
-              <span className='services-name font-thin landing-font text-black' style={{ opacity: 0 }}>
+              <span className='services-name font-thin landing-font text-black'>
                 Insurance, and Real Estate
               </span>
             </div>
-            <br />
-          </h1>
           <div className="flex justify-center md:justify-start mt-4">
             <button
               className='flex items-center focus:scale-110 px-2 py-1 rounded-md hover:bg-[rgb(255,102,0)] transition duration-300'
@@ -47,16 +53,21 @@ function Hero() {
               />
             </button>
           </div>
-        </header>
-        <aside className='hero-section-right flex justify-center md:justify-end opacity-0 md:w-1/2'>
+        </motion.header>
+        <motion.aside
+          className='hero-section-right flex justify-center md:justify-end md:w-1/2 opacity-100'
+          initial="hidden"
+          animate="visible"
+          variants={rightVariants}
+        >
           <img
             className='w-full h-auto max-h-52 md:max-h-[35vw] object-contain'
             src={heroImage}
             alt="Illustration representing Finance, Insurance, and Real Estate"
             loading="lazy"
-            style={{ opacity: 1 }}
+            style={{ opacity: 1 }} // Ensure opacity is set
           />
-        </aside>
+        </motion.aside>
       </div>
     </main>
   );
