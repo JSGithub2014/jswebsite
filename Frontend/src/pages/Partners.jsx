@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import styled, { keyframes, css } from "styled-components";
 import BOI from '../assets/partners/BOI.jpg';
 import BOM from '../assets/partners/BOM.jpg';
 import DCB from '../assets/partners/DCB.jpg';
@@ -16,202 +17,124 @@ import RBL from '../assets/partners/RBL.jpg';
 
 const PartnerSection = () => {
   const partnersLine1 = [
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    BOI,
-    BOM,
-    DCB,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    HDFC_Ltd,
-    HDFC,
-    HSBC,
-    DCB,
-    HDFC_Ltd,
+    BOI, BOM, DCB, HDFC_Ltd, HDFC, HSBC, RBL,
   ];
 
   const partnersLine2 = [
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
-    ICICI_Finance,
-    ICICI,
-    IDBI,
-    IDFC1st,
-    LT_Fin_1,
-    LIC_HFL,
-    PNB,
-    RBL,
+    ICICI_Finance, ICICI, IDBI, IDFC1st, LT_Fin_1, LIC_HFL, PNB,
   ];
 
   return (
     <div className="py-8 overflow-hidden flex flex-col justify-center items-center bg-orange-100">
-      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 text-black rounded-full tracking-wider font-thin mb-10 transform transition-transform duration-300 hover:scale-105 text-shadow ">
+      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 text-black rounded-full tracking-wider font-thin mb-10 transform transition-transform duration-300 hover:scale-105 text-shadow">
         <span className='heading-font'>Our</span> <span className='tracking-wider text-[rgb(255,102,0)] heading-font'>Partners</span>
       </h2>
-
-      {/* First Marquee Line */}
-      <div className="relative">
-        <div className="flex animate-marquee whitespace-nowrap mb-5">
-          {partnersLine1.concat(partnersLine1).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client logo ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16"
-              loading="lazy" 
-            />
+      <Marquee>
+        <MarqueeGroup>
+          {partnersLine1.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
           ))}
-        </div>
-      </div>
-
-      {/* Second Marquee Line */}
-      <div className="relative overflow-hidden w-full">
-        <div className="flex animate-marquee-reverse">
-          {partnersLine2.concat(partnersLine2).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16 -translate-x-[8000%]"
-              loading="lazy"
-            />
+        </MarqueeGroup>
+        <MarqueeGroup>
+          {partnersLine1.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
           ))}
-        </div>
-      </div>
-
-      {/* Styles for animation and text shadow */}
-      <style>
-        {`
-          .animate-marquee {
-            animation: marquee 40s linear infinite;
-          }
-
-          .animate-marquee-reverse {
-            animation: marquee-reverse 30s linear infinite;
-          }
-
-          @keyframes marquee {
-            0% {
-              transform: translateX(10%);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
-
-          @keyframes marquee-reverse {
-            0% {
-              transform: translateX(100%);
-            }
-            100% {
-              transform: translateX(0);
-            }
-          }
-
-          /* Remove default margins between images */
-          img {
-            margin: 0; /* Ensure no extra margins are applied */
-          }
-
-          /* Custom text shadow */
-          .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-          }
-        `}
-      </style>
+        </MarqueeGroup>
+      </Marquee>
+      <Gap />
+      <Marquee>
+        <MarqueeGroup2>
+          {partnersLine2.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
+          ))}
+        </MarqueeGroup2>
+        <MarqueeGroup2>
+          {partnersLine2.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
+          ))}
+        </MarqueeGroup2>
+      </Marquee>
     </div>
   );
 };
 
 export default PartnerSection;
+
+// Styled components below...
+
+const scrollX = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
+const common = css`
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  white-space: nowrap;
+  width: 100%;
+  animation: ${scrollX} 15s linear infinite;
+`;
+
+const Marquee = styled.div`
+  display: flex;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Set a max width */
+  user-select: none;
+  height: auto; /* Allow height to adjust automatically */
+`;
+
+const MarqueeGroup = styled.div`
+  ${common}
+`;
+
+const MarqueeGroup2 = styled.div`
+  ${common}
+  animation-direction: reverse;
+  animation-delay: -3s;
+`;
+
+const ImageGroup = styled.div`
+  display: grid;
+  place-items: center;
+  width: 120px; /* Adjust width for larger screens */
+  height: auto; /* Allow height to adjust based on image */
+  padding: 0; /* Remove padding */
+  margin-right: 50px; /* Set consistent margin for both lines */
+
+  @media (max-width: 640px) {
+    width: 100px; /* Adjust width for mobile */
+    margin-right: 20px; /* Decrease margin on mobile */
+  }
+
+  @media (max-width: 480px) {
+    width: 80px; /* Further adjust for smaller screens */
+    margin-right: 10px; /* Further decrease margin on smaller screens */
+  }
+`;
+
+const Image = styled.img`
+  object-fit: contain; /* Maintain aspect ratio without cropping */
+  width: 100%;
+  height: auto; /* Allow height to adjust based on image */
+  max-height: 100px; /* Set a maximum height to prevent overflow */
+  border-radius: 0.25rem; /* Slightly reduced border radius */
+  background: transparent; 
+`;
+
+const Gap = styled.div`
+  height: 20px; /* Adjust this value to increase or decrease the gap between the lines */
+`;

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import styled, { keyframes, css } from "styled-components";
 import Raheja from '../assets/clientals/raheja.jpg';
 import Rustomjee from '../assets/clientals/rustomjee.jpg';
 import Oberoy from '../assets/clientals/oberoy.jpg';
@@ -19,193 +20,128 @@ import Haware from '../assets/clientals/Haware.png';
 
 const ClientalsSection = () => {
   const clientalsLine1 = [
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    Raheja,
-    Rustomjee,
-    Oberoy,
-    Hiranandani,
-    Dosti,
-    Godrej,
-    Akshar,
-    Rajesh,
-    
+    Raheja, Rustomjee, Oberoy, Hiranandani, Dosti,
+    Godrej, Akshar, Rajesh,
   ];
 
   const clientalsLine2 = [
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    L_T_Reality, 
-    Metro, 
-    Haware,
-    Regency,
-    Arihant,
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    L_T_Reality, 
-    Regency,
-    Metro, 
-    Haware,
-    Arihant,
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    Regency,
-    L_T_Reality, 
-    Metro, 
-    Haware,
-    Arihant,
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    L_T_Reality, 
-    Metro, 
-    Haware,
-    Regency,
-    Arihant,
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    Regency,
-    L_T_Reality, 
-    Metro, 
-    Haware,
-    Arihant,
-    Regency,
-    Marathon,
-    Lodha,
-    Bhagwati,
-    Gami,
-    L_T_Reality, 
-    Metro, 
+    Regency, Marathon, Lodha, Bhagwati, Gami, Arihant,
+    L_T_Reality, Metro, Haware,
   ];
 
   return (
-    <div className="py-8 flex justify-center items-center flex-col overflow-x-hidden bg-orange-100">
-      <h2 className="text-4xl md:text-4xl lg:text-5xl  heading-font text-center px-10 py-3 text-black rounded-full tracking-wider font-thin mb-10 transform transition-transform duration-300 hover:scale-105 text-shadow">
-        Our <span className='text-[rgb(255,102,0)] heading-font'>Corporate</span> Clients
+    <div className=" overflow-hidden flex flex-col justify-center items-center bg-orange-100 pb-10">
+      <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 text-black rounded-full tracking-wider font-thin mb-16 transform transition-transform duration-300 hover:scale-105 text-shadow">
+        Our <span className='text-[rgb(255,102,0)] heading-font '>Corporate</span> Clients
       </h2>
-
-      {/* First Marquee */}
-      <div className="relative">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {clientalsLine1.concat(clientalsLine2).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client logo ${index + 1}`}
-              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16"
-              loading="lazy" 
-            />
+      <Marquee>
+        <MarqueeGroup>
+          {clientalsLine1.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
           ))}
-        </div>
-      </div>
-
-      {/* Second Marquee */}
-      <div className="relative overflow-hidden mt-6 w-full bg-orange-100">
-        <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {clientalsLine2.concat(clientalsLine2).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client logo ${index + 11}`}
-              className="inline-block h-16 w-16 mx-5 md:h-24 md:w-24 sm:h-16 sm:w-16 -translate-x-[7000%]"
-              loading="lazy"
-            />
+        </MarqueeGroup>
+        <MarqueeGroup>
+          {clientalsLine1.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
           ))}
-        </div>
-      </div>
-
-      {/* Tailwind CSS for Animations */}
-      <style>
-        {`
-          .animate-marquee {
-            animation: marquee 40s linear infinite;
-          }
-
-          .animate-marquee-reverse {
-            animation: marquee-reverse 15s linear infinite;
-          }
-
-          @keyframes marquee {
-            0% {
-              transform: translateX(10%);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
-
-          @keyframes marquee-reverse {
-            0% {
-              transform: translateX(-10%);
-            }
-            100% {
-              transform: translateX(100%);
-            }
-          }
-        `}
-      </style>
+        </MarqueeGroup>
+      </Marquee>
+      <Gap /> {/* Add a gap between the two lines */}
+      <Marquee>
+        <MarqueeGroup2>
+          {clientalsLine2.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
+          ))}
+        </MarqueeGroup2>
+        <MarqueeGroup2>
+          {clientalsLine2.map((el, index) => (
+            <ImageGroup key={index}>
+              <Image src={el} />
+            </ImageGroup>
+          ))}
+        </MarqueeGroup2>
+      </Marquee>
     </div>
   );
 };
 
 export default ClientalsSection;
+
+const scrollX = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
+const common = css`
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  white-space: nowrap;
+  width: 100%;
+  animation: ${scrollX} 15s linear infinite;
+
+  @media (max-width: 640px) {
+    animation-duration: 10s; /* Faster speed for mobile */
+  }
+`;
+
+const Marquee = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  user-select: none;
+  height: auto;
+`;
+
+const MarqueeGroup = styled.div`
+  ${common}
+`;
+
+const MarqueeGroup2 = styled.div`
+  ${common}
+  animation-direction: reverse;
+  animation-delay: -3s;
+`;
+
+const ImageGroup = styled.div`
+  display: grid;
+  place-items: center;
+  width: 120px; /* Adjust width for larger screens */
+  height: auto;
+  padding: 0;
+  margin-right: 10px;
+
+   @media (max-width: 640px) {
+    width: 100px; /* Adjust width for mobile */
+    margin-right: 20px; /* Decrease margin on mobile */
+  }
+
+  @media (max-width: 480px) {
+    width: 80px; /* Further adjust for smaller screens */
+    margin-right: 10px; /* Further decrease margin on smaller screens */
+  }
+`;
+
+const Image = styled.img`
+  object-fit: contain; /* Maintain aspect ratio without cropping */
+  width: 100%;
+  height: auto; /* Allow height to adjust based on image */
+  max-height: 100px; /* Set a maximum height to prevent overflow */
+  border-radius: 0.25rem; /* Slightly reduced border radius */
+  background: transparent; 
+`;
+
+const Gap = styled.div`
+  height: 20px; /* Adjust this value to increase or decrease the gap between the lines */
+`;

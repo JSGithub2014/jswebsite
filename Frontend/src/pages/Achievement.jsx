@@ -64,7 +64,7 @@ function Achievement() {
           </p>
         </div>
 
-        <div className="md:w-1/2 flex flex-col justify-start p-2">
+        <div className="md:w-1/2 flex flex-col justify-start">
           <div className="flex flex-col gap-4">
             {achievements.map((achievement, index) => (
               <div key={index} className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
