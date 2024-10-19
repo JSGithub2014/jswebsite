@@ -6,7 +6,7 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
   const cardRef = useRef(null);
 
   const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded(prevState => !prevState);
   };
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
           observer.unobserve(entry.target); // Stop observing once it's visible
         }
       });
-    }, { threshold: 0.5 }); // Adjust threshold to your needs
+    }, { threshold: 0.5 });
 
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -33,7 +33,8 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
   return (
     <article 
       ref={cardRef} 
-      className={`bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col justify-between h-64`} 
+      className={`bg-white shadow-lg rounded-lg p-6 transition-all duration-300 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col justify-between`} 
+      style={{ height: isExpanded ? 'auto' : '300px' }} // Auto height when expanded
       aria-labelledby={`service-${title.toLowerCase()}`}
     >
       <img 
@@ -53,8 +54,7 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
         {description}
       </p>
       <div 
-        className={`mt-2 transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-40 overflow-auto' : 'max-h-0 overflow-hidden'}`} 
-        style={{ height: isExpanded ? 'auto' : '0' }} // Inline style for height transition
+        className={`mt-2 transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-40' : 'max-h-0 overflow-hidden'}`} 
       >
         <p className="text-sm sm:text-gray-600 text-justify">{additionalInfo}</p>
         <p className="mt-2 text-sm sm:text-gray-600">{generalInfo}</p>

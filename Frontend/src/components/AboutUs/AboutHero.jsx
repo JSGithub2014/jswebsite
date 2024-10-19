@@ -1,11 +1,11 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion'; // Import motion and useInView
+import { motion, useInView } from 'framer-motion';
 import meetOurTeam from '../../assets/ourTeam/meet-our-team.png';
 
 function AboutMain() {
   const handleScroll = () => {
     window.scrollTo({
-      top: window.innerHeight, // Adjust this value based on where you want to scroll
+      top: window.innerHeight, // scrolling height
       behavior: 'smooth'
     });
   };
@@ -19,7 +19,7 @@ function AboutMain() {
     <div className='flex flex-col md:flex-row w-full h-[calc(100vh-60px)] pt-24 lg:pt-0 md:pt-0 md:px-12'>
       {/* Mobile Layout */}
       <div className="flex flex-col justify-center items-center md:hidden w-full h-full p-6 text-center" ref={refMobile}>
-        <h1 className='text-3xl font-bold mb-4 text-[rgb(255,102,0)] mt-8 heading-font tracking-wider'>
+        <h1 className='text-3xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wider'>
           Welcome to Our Team
         </h1>
         <p className='text-md text-gray-600 mb-8'>
