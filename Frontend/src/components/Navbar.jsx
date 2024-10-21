@@ -76,9 +76,9 @@ function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex flex-1 justify-center space-x-8 uppercase font-bold text-orange-500">
-            <Link to="/" className="text-lg px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</Link>
+            <Link to="/" className="text-sm px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500">Home</Link>
             <div className="relative group">
-              <button className="flex items-center text-lg px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
+              <button className="flex items-center text-sm px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
                 About
                 <HiChevronDown className="transition-transform duration-300 text-2xl" />
               </button>
@@ -87,7 +87,17 @@ function Navbar() {
                 <Link to="/about-us/our-story" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
               </div>
             </div>
-            <a className="text-lg px-4 py-2 rounded-full transition duration-300 uppercase hover:text-white md:hover:bg-orange-500">Services</a>
+            <div className="relative group">
+              <button className="flex items-center text-sm px-4 py-2 rounded-full transition uppercase duration-300 hover:text-white md:hover:bg-orange-500">
+                Services
+                <HiChevronDown className="transition-transform duration-300 text-2xl" />
+              </button>
+              <div className="absolute left-0 bg-[rgb(255,255,255)] text-orange-500 shadow-xl rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
+                <Link to="/services/finance" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Finance</Link>
+                <Link to="/services/insurance" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Insurance</Link>
+                <Link to="/services/real-estate" className="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded-lg" onClick={() => setIsMenuOpen(false)}>Real Estate</Link>
+              </div>
+            </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
@@ -121,7 +131,17 @@ function Navbar() {
                 <Link to="/about-us/our-story" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
               </div>
             </div>
-            <a className="text-orange-500 py-2 uppercase text-lg rounded-full">Services</a>
+            <div className="relative group">
+              <button className="text-orange-500 py-2 text-lg rounded-full uppercase flex items-center">
+                Services
+                <HiChevronDown className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
+                <Link to="/services/finance" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Finance</Link>
+                <Link to="/services/insurance" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Insurance</Link>
+                <Link to="/services/real-estate" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Real Estate</Link>
+              </div>
+            </div>
             <div className="flex space-x-2 mt-2">
               <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Login</Link>
               <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Signup</Link>

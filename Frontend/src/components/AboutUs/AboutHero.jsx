@@ -20,7 +20,7 @@ function AboutMain() {
       {/* Mobile Layout */}
       <div className="flex flex-col justify-center items-center md:hidden w-full h-full p-6 text-center" ref={refMobile}>
         <h1 className='text-3xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wider'>
-          Welcome to Our Team
+          Welcome to Our  <span className='text-black heading-font'>Team</span>
         </h1>
         <p className='text-md text-gray-600 mb-8'>
           Meet the talented <br />
@@ -67,7 +67,7 @@ function AboutMain() {
         transition={{ duration: 0.5 }} // Animation duration
       >
         <h1 className='text-5xl font-bold mb-4 text-[rgb(255,102,0)] heading-font tracking-wider hidden md:block'>
-          Welcome to Our Team
+          Welcome to Our <span className='text-black heading-font'>Team</span>
         </h1>
         <p className='text-lg text-gray-600 my-8 hidden md:block'>
           Meet the talented <br />

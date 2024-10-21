@@ -23,6 +23,9 @@ import OurTeam from './pages/OurTeam';
 import OurStory from './pages/OurStory';
 import NotFound from './components/NotFound';
 import MotionWrapper from './components/MotionWrapper';
+import Finance from './pages/Finance';
+import Insurance from './pages/Insurance';
+import RealEstate from './pages/RealEstate';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -60,6 +63,8 @@ const App = () => {
     return <Loading />;
   }
 
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
+
   return (
     <div className='overflow-x-hidden'>
       <Navbar />
@@ -68,6 +73,9 @@ const App = () => {
         <Route path="/signup" element={<MotionWrapper><Register /></MotionWrapper>} />
         <Route path="/about-us/our-team" element={<MotionWrapper><OurTeam /></MotionWrapper>} />
         <Route path="/about-us/our-story" element={<MotionWrapper><OurStory /></MotionWrapper>} />
+        <Route path="/services/finance" element={<MotionWrapper><Finance /></MotionWrapper>} />
+        <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
+        <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
         <Route path="/" element={
           <MotionWrapper>
             <Landing />
@@ -81,11 +89,11 @@ const App = () => {
             <Faqs />
             <RobustFoundation />
             <ContactUs />
-            <Footer />
           </MotionWrapper>
         } />
         <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
       </Routes>
+      {!isAuthPage && <Footer />} {/* Conditionally render the Footer */}
       <ScrollToTop />
     </div>
   );
