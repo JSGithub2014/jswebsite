@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaHeart, FaShieldAlt, FaUserNurse, FaHospital, FaStethoscope } from 'react-icons/fa';
+import { FaHeart, FaShieldAlt, FaUserNurse, FaHospital, FaCarCrash  } from 'react-icons/fa';
 
 const HealthInsurance = () => {
   const fadeInVariants = {
@@ -32,8 +32,8 @@ const HealthInsurance = () => {
         <div className="w-full flex justify-center">
           <div className="grid grid-cols-2 gap-6 mb-6 max-w-4xl">
             {[
-              { icon: <FaHeart />, title: "Individual Health Insurance" },
-              { icon: <FaShieldAlt />, title: "Family Floater Plans" },
+              { icon: <FaHeart />, title: <>Individual Health Insurance <br /> Family Floater Plans</> },
+              { icon: <FaCarCrash  />, title: "Personal Accident" },
               { icon: <FaUserNurse />, title: "Critical Illness Insurance" },
               { icon: <FaHospital />, title: "Top-up Plans" },
             ].map((item, index) => (
@@ -53,18 +53,21 @@ const HealthInsurance = () => {
         <h3 className="text-2xl font-semibold text-[rgb(255,102,0)] mb-4">Why Choose Our Health Insurance?</h3>
         
         <ul className="list-disc list-inside mb-6">
-          {[
-            "Comprehensive coverage for medical expenses",
-            "Cashless treatment at network hospitals",
-            "Additional benefits like wellness programs",
-            "Expert guidance to help you choose the right plan",
-            "Hassle-free claims process"
-          ].map((benefit, index) => (
-            <motion.li key={index} variants={fadeInVariants} whileHover={{ scale: 1.05 }}>
-              {benefit}
-            </motion.li>
-          ))}
-        </ul>
+  {[
+    "Access to advanced medical care",
+    "Bonus benefits every year",
+    "Maternity coverage included",
+    "Free health check-ups",
+    "Waiting time for existing conditions (30 days to 3 years)",
+    "Unlimited SI options Available",
+    "Cashless treatment at partner hospitals",
+    "Easy claims process"
+  ].map((benefit, index) => (
+    <motion.li key={index} variants={fadeInVariants} whileHover={{ scale: 1.05 }}>
+      {benefit}
+    </motion.li>
+  ))}
+</ul>
 
         <p className="text-lg mb-4">
           Our dedicated team of health insurance specialists is here to help you find the right plan tailored to your needs and budget.

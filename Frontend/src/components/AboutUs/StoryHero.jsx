@@ -4,7 +4,7 @@ import ourStory from '../../assets/ourStory/story-hero.png';
 
 function StoryHero() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false }); // Change `once` to false to trigger animation every time
+  const isInView = useInView(ref, { once: false }); 
 
   return (
     <section className='flex flex-col px-4 md:px-20 md:flex-row w-full h-[calc(100vh-60px)] pt-10' aria-labelledby="about-heading">
@@ -12,7 +12,7 @@ function StoryHero() {
         ref={ref}
         className='flex flex-col justify-center gap-2 items-center w-full md:w-1/2 p-4 md:p-10 font-semibold text-center'
         initial={{ opacity: 0, x: -100 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Animate every time in view
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} 
         transition={{ duration: 0.5 }}
       >
         <h1 id="about-heading" className='text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wide'>
@@ -39,7 +39,7 @@ function StoryHero() {
         ref={ref}
         className='relative w-full md:w-1/2 flex items-center justify-center bg-cover bg-center'
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} // Animate every time in view
+        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} 
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <img 
