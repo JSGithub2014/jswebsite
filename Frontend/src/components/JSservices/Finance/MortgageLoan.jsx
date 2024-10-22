@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaFileDownload } from 'react-icons/fa';
+import RequiredDocument from '../../../assets/Services/LOD.pdf'
+
 
 function MortgageLoan() {
   return (
@@ -92,7 +94,7 @@ function MortgageLoan() {
       <section className="mt-10 flex items-center justify-center text-center">
         <h2 className="text-2xl font-semibold mb-2 text-gray-800">📄 Required Documents</h2>
         <a
-          href="/path-to-your-mortgage-doc.pdf" // Replace with the actual document path
+          href={RequiredDocument}
           download
           className="flex items-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 ml-3"
         >
