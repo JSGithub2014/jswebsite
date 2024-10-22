@@ -7,7 +7,10 @@ function StoryHero() {
   const isInView = useInView(ref, { once: false }); 
 
   return (
-    <section className='flex flex-col px-4 md:px-20 md:flex-row w-full h-[calc(100vh-60px)] pt-10' aria-labelledby="about-heading">
+    <section 
+      className='flex flex-col px-4 md:px-20 md:flex-row w-full h-[calc(100vh-60px)] pt-10' 
+      aria-labelledby="about-heading"
+    >
       <motion.div 
         ref={ref}
         className='flex flex-col justify-center gap-2 items-center w-full md:w-1/2 p-4 md:p-10 font-semibold text-center'
@@ -27,12 +30,7 @@ function StoryHero() {
         <p className='text-sm md:text-base lg:text-lg text-gray-600 text-justify mb-4'>
           Join us as we transform your real estate dreams into reality!
         </p>
-        <ul className='list-disc text-left text-gray-600 mt-2 mx-6 hidden md:block'>
-          <li className='text-sm md:text-base'>Expert Guidance in Real Estate</li>
-          <li className='text-sm md:text-base'>Customizable Insurance Solutions</li>
-          <li className='text-sm md:text-base'>Transparent and Ethical Practices</li>
-          <li className='text-sm md:text-base'>Building Long-term Relationships</li>
-        </ul>
+       
       </motion.div>
       
       <motion.div 
@@ -44,7 +42,7 @@ function StoryHero() {
       >
         <img 
           src={ourStory} 
-          alt="Meet Our Team at J&S Group" 
+          alt="A representation of the J&S Group's story, featuring team members and real estate activities" // More descriptive alt text
           className='max-w-full max-h-full object-contain' 
           loading="lazy"
           style={{ width: '95%', height: '95%' }}

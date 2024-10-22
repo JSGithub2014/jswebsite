@@ -1,55 +1,50 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { FaLinkedin } from 'react-icons/fa';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
+import ShowCase from '../../assets/ourStory/our-story-showcase.png';
 
-const MemberDetail = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const member = location.state?.member;
+function StoryShowCase() {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  if (!member) {
-    return <div>No member data available.</div>; // Fallback
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once it becomes visible
+        }
+      },
+      {
+        threshold: 0.1 // Trigger when 10% of the image is in view
+      }
+    );
 
-  const handleBackClick = () => {
-    navigate('/about-us/our-team'); 
-  };
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center pt-24 bg-gray-500">
-      <button
-        className="mb-4 text-[rgb(255,102,0)] hover:underline hover:scale-125 transition-transform duration-200"
-        onClick={handleBackClick}
-      >
-        &larr; Back
-      </button>
-      <div className="bg-white rounded-lg p-6 shadow-lg w-full max-w-3xl mx-auto"> {/* Increased max-w to 3xl */}
-        <img
-          src={member.image}
-          alt={member.name}
-          className="w-full h-48 object-contain rounded-lg mb-4"
-        />
-        <h2 className="text-xl sm:text-2xl font-semibold text-[rgb(255,102,0)]">{member.name}</h2>
-        <p className="text-base sm:text-lg font-medium text-gray-600">{member.role}</p>
-        <p className="text-gray-800 text-sm sm:text-md mt-4 text-justify">{member.description || 'No description available.'}</p>
-        <div className="mt-4">
-          <h3 className="font-semibold text-gray-700">Connect with {member.name}:</h3>
-          <div className="flex space-x-4 mt-2">
-            {member.social.linkedin && (
-              <a
-                href={member.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-blue-600 hover:underline"
-              >
-                <FaLinkedin className="mr-1" /> LinkedIn
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
+    <div className="flex justify-center py-8" role="img" aria-labelledby="showcase-heading">
+      <h2 id="showcase-heading" className="sr-only">Our Story Showcase</h2>
+      <motion.img
+        ref={ref}
+        src={ShowCase}
+        className="object-cover"
+        alt="A visual representation of our story and achievements at J&S Group" // More descriptive alt text
+        initial={{ opacity: 0, scale: 0.9 }} // Start slightly transparent and scaled down
+        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }} // Animate based on visibility
+        transition={{ duration: 1, ease: "easeInOut" }} // Animation settings
+        onError={(e) => { e.target.onerror = null; e.target.src = 'path/to/placeholder/image.png'; }} // Fallback image on error
+      />
     </div>
   );
-};
+}
 
-export default MemberDetail;
+export default StoryShowCase;

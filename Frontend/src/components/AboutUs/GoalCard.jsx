@@ -19,6 +19,7 @@ const GoalCard = ({ title, description, direction }) => {
       className="bg-[rgba(255,102,0,0.94)] text-white md:w-[70vw] shadow-lg rounded-2xl p-4 m-2 flex flex-col w-auto overflow-hidden"
       role="article"
       aria-labelledby={title}
+      aria-expanded={isExpanded} // Indicate the expanded state
       initial={{ ...initialPosition, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : initialPosition}
       transition={{ duration: 0.5 }}
@@ -26,20 +27,20 @@ const GoalCard = ({ title, description, direction }) => {
       <div className="flex items-center justify-between mb-2">
         {/* Left Icon for Vision */}
         {title === "Our Vision" && (
-          <div className="hidden md:flex md:w-1/4 justify-start">
-            <FaEye className="text-4xl" /> {/* Increased size */}
+          <div className="hidden md:flex md:w-1/4 justify-start" aria-hidden="true">
+            <FaEye className="text-4xl" />
           </div>
         )}
         {/* Left Icon for Mission */}
         {title === "Our Mission" && (
-          <div className="hidden md:flex md:w-1/4 justify-start">
-            <FaLightbulb className="text-4xl" /> {/* Increased size */}
+          <div className="hidden md:flex md:w-1/4 justify-start" aria-hidden="true">
+            <FaLightbulb className="text-4xl" />
           </div>
         )}
         {/* Left Icon for Values */}
         {title === "Our Values" && (
-          <div className="hidden md:flex md:w-1/4 justify-start">
-            <FaHandsHelping className="text-4xl" /> {/* Increased size */}
+          <div className="hidden md:flex md:w-1/4 justify-start" aria-hidden="true">
+            <FaHandsHelping className="text-4xl" />
           </div>
         )}
 
@@ -48,8 +49,8 @@ const GoalCard = ({ title, description, direction }) => {
         </h2>
 
         {/* Right Icon */}
-        <div className="hidden md:flex md:w-1/4 justify-end">
-          <FaStar className="text-4xl" /> {/* Increased size */}
+        <div className="hidden md:flex md:w-1/4 justify-end" aria-hidden="true">
+          <FaStar className="text-4xl" />
         </div>
       </div>
 
@@ -68,15 +69,16 @@ const GoalCard = ({ title, description, direction }) => {
       <button 
         className="flex items-center justify-center text-[rgb(58,59,59)] font-semibold hover:text-black mt-2 text-center"
         onClick={toggleExpand}
+        aria-label={isExpanded ? 'Collapse description' : 'Expand description'} // Clear button action
       >
         {isExpanded ? (
           <>
-            <FaChevronUp className="mr-1" /> {/* Chevron Up for Read Less */}
+            <FaChevronUp className="mr-1" />
             Collapse
           </>
         ) : (
           <>
-            <FaChevronDown className="mr-1" /> {/* Chevron Down for Read More */}
+            <FaChevronDown className="mr-1" />
             Expand
           </>
         )}

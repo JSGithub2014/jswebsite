@@ -12,8 +12,20 @@ const ManagementTeam = ({ teamMembers }) => {
     setIsVisible(true);
   }, []);
 
+  // Function to style the first word of the member's name
+  const styledName = (name) => {
+    if (!name) return '';
+    const words = name.split(' ');
+    return (
+      <span>
+        <span style={{ color: 'rgb(255,102,0)' }}>{words[0]} </span>
+        {words.slice(1).join(' ')}
+      </span>
+    );
+  };
+
   return (
-    <div className="w-full md:w-[80vw] mt-8 p-6">
+    <section className="w-full md:w-[80vw] mt-8 p-6">
       <div className="p-4 gap-10">
         
         <motion.div
@@ -22,13 +34,13 @@ const ManagementTeam = ({ teamMembers }) => {
           transition={{ duration: 0.5 }}
           className="w-full mb-6"
         >
-          <p className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font tracking-wider text-shadow">
+          <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font tracking-wider text-shadow">
             Meet our  
             <span className='text-[rgb(255,102,0)] heading-font tracking-wider'> Management</span>
-          </p>
-          <p className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font text-gray-500 tracking-wider text-shadow">
+          </h1>
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font text-gray-500 tracking-wider text-shadow">
             Passionate. Proactive. Expert.
-          </p>
+          </h2>
           <p className="text-md text-gray-700 font-semibold text-justify pr-8 mt-5">
             We prioritize empathy in our leadership fostering connections <br /> that unite the world.
           </p>
@@ -43,23 +55,25 @@ const ManagementTeam = ({ teamMembers }) => {
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5, delay: index * 0.1 }} 
             >
-              <div
+              <article
                 className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105"
                 onClick={() => navigate(`/member/${index}`, { state: { member } })} // Pass the member data
+                role="button"
+                aria-label={`View details for ${member.name}`} // Provide descriptive label for screen readers
               >
                 <img
                   className="w-full h-80 md:h-96 object-cover mb-4 rounded-lg"
                   src={member.image}
-                  alt={member.name}
+                  alt={`Image of ${member.name}, ${member.role}`} // Descriptive alt text
                 />
-                <p className="font-semibold text-lg text-center mt-2">{member.name}</p>
+                <p className="font-semibold text-lg text-center mt-2">{styledName(member.name)}</p> {/* Apply styled name function */}
                 <p className="text-gray-700 text-center mt-1">{member.role}</p>
-              </div>
+              </article>
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

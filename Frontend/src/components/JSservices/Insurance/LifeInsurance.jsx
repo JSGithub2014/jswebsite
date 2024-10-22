@@ -9,14 +9,15 @@ const LifeInsurance = () => {
   };
 
   return (
-    <motion.div 
+    <section 
       className="w-full flex flex-col items-center my-10 bg-gray-50 p-6 rounded-lg shadow-lg"
       initial="hidden"
       whileInView="visible"
       variants={fadeInVariants}
       viewport={{ once: false, amount: 0.2 }} 
+      aria-labelledby="life-insurance-title"
     >
-      <h2 className="text-4xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-6">
+      <h2 id="life-insurance-title" className="text-4xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-6">
         Comprehensive Life <span className='heading-font font-semibold tracking-wider text-black'>Insurance Solutions</span>
       </h2>
       
@@ -32,20 +33,21 @@ const LifeInsurance = () => {
         <div className="w-full flex justify-center">
           <div className="grid grid-cols-2 gap-6 mb-6 max-w-4xl">
             {[
-              { icon: <FaHeartbeat />, title: "Term Life Insurance" },
-              { icon: <FaShieldAlt />, title: "Whole Life Insurance" },
-              { icon: <FaMoneyBillWave />, title: "Universal Life Insurance" },
-              { icon: <FaHandHoldingHeart />, title: "Endowment Plans" },
+              { icon: <FaHeartbeat aria-hidden="true" />, title: "Term Life Insurance" },
+              { icon: <FaShieldAlt aria-hidden="true" />, title: "Whole Life Insurance" },
+              { icon: <FaMoneyBillWave aria-hidden="true" />, title: "Universal Life Insurance" },
+              { icon: <FaHandHoldingHeart aria-hidden="true" />, title: "Endowment Plans" },
             ].map((item, index) => (
-              <motion.div
+              <motion.article
                 key={index}
                 variants={fadeInVariants}
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                aria-labelledby={`coverage-${index}`}
               >
                 <div className="text-4xl mb-2 text-[rgb(255,102,0)]">{item.icon}</div>
-                <h4 className="text-lg font-semibold">{item.title}</h4>
-              </motion.div>
+                <h4 id={`coverage-${index}`} className="text-lg font-semibold">{item.title}</h4>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -80,7 +82,7 @@ const LifeInsurance = () => {
           </a>
         </p>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

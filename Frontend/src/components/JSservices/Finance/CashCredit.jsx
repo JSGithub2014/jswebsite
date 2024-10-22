@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaFileDownload } from 'react-icons/fa';
-import RequiredDocument from '../../../assets/Services/LOD.pdf'
-
+import RequiredDocument from '../../../assets/Services/LOD.pdf';
 
 function CashCredit() {
   return (
@@ -42,7 +41,11 @@ function CashCredit() {
         </div>
         <div className="w-full md:w-1/3 text-center">
           <h3 className="text-lg font-semibold mb-2">Need Assistance? 📞</h3>
-          <a href="tel:+912245120755" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
+          <a
+            href="tel:+912245120755"
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap"
+            aria-label="Call customer service at +91 2245-120-755"
+          >
             📞 +91 2245-120-755
           </a>
         </div>
@@ -50,22 +53,17 @@ function CashCredit() {
 
       <section className="mt-10 bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">Eligibility</h2>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Age</h3>
-          <p className="text-gray-600">Min. 21 yrs. Max. 65 yrs. or retirement age whichever is earlier at the time of application.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Eligible Profiles</h3>
-          <p className="text-gray-600">Businesses with at least 2 years of operational history.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Credit Limit</h3>
-          <p className="text-gray-600">Up to 100% of your working capital requirement.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Rate of Interest</h3>
-          <p className="text-gray-600">As per applicable guidelines.</p>
-        </div>
+        {[
+          { title: "Age", description: "Min. 21 yrs. Max. 65 yrs. or retirement age whichever is earlier at the time of application." },
+          { title: "Eligible Profiles", description: "Businesses with at least 2 years of operational history." },
+          { title: "Credit Limit", description: "Up to 100% of your working capital requirement." },
+          { title: "Rate of Interest", description: "As per applicable guidelines." }
+        ].map((item, index) => (
+          <div key={index} className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-700">{item.title}</h3>
+            <p className="text-gray-600">{item.description}</p>
+          </div>
+        ))}
       </section>
 
       <section className="mt-10 flex items-center justify-center text-center">
@@ -74,6 +72,7 @@ function CashCredit() {
           href={RequiredDocument}
           download
           className="flex items-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 ml-3"
+          aria-label="Download required documents"
         >
           <FaFileDownload className="mr-2" />
           Download Document

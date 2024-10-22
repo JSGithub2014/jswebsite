@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Helmet } from 'react-helmet'; // Importing Helmet for SEO
 import InsuranceHero from '../components/JSservices/Insurance/InsuranceHero';
 import GeneralInsurance from '../components/JSservices/Insurance/GeneralInsurance';
 import LifeInsurance from '../components/JSservices/Insurance/LifeInsurance';
@@ -6,8 +7,8 @@ import HealthInsurance from '../components/JSservices/Insurance/HealthInsurance'
 
 const Insurance = () => {
   const generalInsuranceRef = useRef(null);
-  const lifeInsuranceRef = useRef(null); // Ref for another section if needed
-  const HealthInsuranceRef = useRef(null); // Ref for another section if needed
+  const lifeInsuranceRef = useRef(null);
+  const healthInsuranceRef = useRef(null); // Fixed capitalization for consistency
 
   const scrollToSection = (section) => {
     let ref;
@@ -19,7 +20,7 @@ const Insurance = () => {
         ref = lifeInsuranceRef;
         break;
       case 'Health Insurance':
-        ref = HealthInsuranceRef;
+        ref = healthInsuranceRef;
         break;
       default:
         return;
@@ -31,6 +32,12 @@ const Insurance = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Insurance Services | Comprehensive Coverage Solutions</title>
+        <meta name="description" content="Explore our insurance services, including general, life, and health insurance. Get the best coverage tailored for your needs." />
+        <meta name="keywords" content="Insurance, General Insurance, Life Insurance, Health Insurance, Coverage Solutions" />
+      </Helmet>
+
       <InsuranceHero scrollToSection={scrollToSection} />
 
       <div className="my-10">
@@ -52,7 +59,7 @@ const Insurance = () => {
       </div>
 
       <div className="my-10">
-        <div ref={HealthInsuranceRef}>
+        <div ref={healthInsuranceRef}>
           <HealthInsurance />
         </div>
         <div className="flex justify-center">

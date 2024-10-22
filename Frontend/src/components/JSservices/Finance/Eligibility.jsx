@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Eligibility({ age, eligibleProfiles, tenure, income, roi }) {
   return (
     <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h2 className="text-3xl font-semibold text-gray-800 mb-6">Eligibility</h2>
-      
+
       <div className="mb-4">
         <h3 className="text-xl font-semibold text-gray-700">Age</h3>
         <p className="text-gray-600">{age}</p>
@@ -51,5 +52,19 @@ function Eligibility({ age, eligibleProfiles, tenure, income, roi }) {
     </div>
   );
 }
+
+Eligibility.propTypes = {
+  age: PropTypes.string.isRequired,
+  eligibleProfiles: PropTypes.string.isRequired,
+  tenure: PropTypes.string.isRequired,
+  income: PropTypes.arrayOf(
+    PropTypes.shape({
+      country: PropTypes.string.isRequired,
+      merchantNavy: PropTypes.string.isRequired,
+      otherThanMerchantNavy: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  roi: PropTypes.string.isRequired,
+};
 
 export default Eligibility;

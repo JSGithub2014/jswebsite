@@ -28,13 +28,14 @@ const cardVariants = {
 
 const Leasing = () => {
   return (
-    <motion.div 
+    <section 
       className='w-full flex flex-col items-center px-4 my-10'
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      aria-labelledby="leasing-title"
     >
-      <h2 className='text-4xl heading-font font-semibold text-[rgb(255,102,0)] mb-6'>
+      <h2 id="leasing-title" className='text-4xl heading-font font-semibold text-[rgb(255,102,0)] mb-6'>
         Ready to Lease <span className='heading-font font-semibold text-black'>Your Property?</span>
       </h2>
       <p className='text-lg mb-4 text-center'>
@@ -44,23 +45,24 @@ const Leasing = () => {
 
       <div className='flex flex-wrap justify-center my-6'>
         {[
-          { title: 'Tenant Screening', description: 'Thorough background checks to find reliable tenants.', icon: <FaUsers className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Property Management', description: 'We manage your property for a hassle-free experience.', icon: <FaKey className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Competitive Pricing', description: 'We help set the right price to maximize your income.', icon: <FaDollarSign className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Legal Support', description: 'Comprehensive lease agreements and legal advice.', icon: <FaClipboardCheck className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Tenant Screening', description: 'Thorough background checks to find reliable tenants.', icon: <FaUsers aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Property Management', description: 'We manage your property for a hassle-free experience.', icon: <FaKey aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Competitive Pricing', description: 'We help set the right price to maximize your income.', icon: <FaDollarSign aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Legal Support', description: 'Comprehensive lease agreements and legal advice.', icon: <FaClipboardCheck aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
         ].map((item, index) => (
-          <motion.div 
+          <motion.article 
             key={index}
             className='bg-white p-4 rounded-lg shadow-md m-2 w-full md:w-1/3 transform transition-transform duration-300 hover:scale-105'
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
+            aria-labelledby={`service-${index}`}
           >
             <div className='flex items-center justify-center'>{item.icon}</div>
-            <h3 className='text-xl font-semibold text-[rgb(255,102,0)] text-center'>{item.title}</h3>
+            <h3 id={`service-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)] text-center'>{item.title}</h3>
             <p className='text-center'>{item.description}</p>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
 
@@ -72,7 +74,7 @@ const Leasing = () => {
           Contact Us to Get Started!
         </a>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

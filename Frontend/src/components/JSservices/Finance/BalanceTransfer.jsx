@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFileDownload } from 'react-icons/fa';
-import RequiredDocument from '../../../assets/Services/LOD.pdf'
+import RequiredDocument from '../../../assets/Services/LOD.pdf';
 
 function BalanceTransfer() {
   return (
@@ -41,7 +41,11 @@ function BalanceTransfer() {
         </div>
         <div className="w-full md:w-1/3 text-center">
           <h3 className="text-lg font-semibold mb-2">Need Help? 📞</h3>
-          <a href="tel:+912245120755" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
+          <a
+            href="tel:+912245120755"
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap"
+            aria-label="Call customer service at +91 2245-120-755"
+          >
             📞 +91 2245-120-755
           </a>
         </div>
@@ -49,41 +53,40 @@ function BalanceTransfer() {
 
       <section className="mt-10 bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">Eligibility</h2>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Age</h3>
-          <p className="text-gray-600">Min. 21 yrs. Max. 65 yrs. or retirement age whichever is earlier at the time of application.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Eligible Profiles</h3>
-          <p className="text-gray-600">Salaried: 1 year of employment. Self-Employed: 2 years in business.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Tenure</h3>
-          <p className="text-gray-600">Balance Transfer: Up to 5 Years.</p>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-gray-700">Income</h3>
-          <div className="overflow-x-auto">
-            <table className="min-w-full mt-2 border-collapse border border-gray-200">
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="border border-gray-300 px-4 py-2 text-left">Country/Employment Type</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Monthly Income</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">GCC</td>
-                  <td className="border border-gray-300 px-4 py-2">25,000.00 USD</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">Other Countries</td>
-                  <td className="border border-gray-300 px-4 py-2">35,000.00 AED</td>
-                </tr>
-              </tbody>
-            </table>
+        {[
+          { title: "Age", description: "Min. 21 yrs. Max. 65 yrs. or retirement age whichever is earlier at the time of application." },
+          { title: "Eligible Profiles", description: "Salaried: 1 year of employment. Self-Employed: 2 years in business." },
+          { title: "Tenure", description: "Balance Transfer: Up to 5 Years." },
+          { title: "Income", description: "See below for income requirements." }
+        ].map((item, index) => (
+          <div key={index} className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-700">{item.title}</h3>
+            <p className="text-gray-600">{item.description}</p>
           </div>
+        ))}
+        
+        <div className="mb-4 overflow-x-auto">
+          <h3 className="text-xl font-semibold text-gray-700">Income Requirements</h3>
+          <table className="min-w-full mt-2 border-collapse border border-gray-200">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border border-gray-300 px-4 py-2 text-left">Country/Employment Type</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Monthly Income</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2">GCC</td>
+                <td className="border border-gray-300 px-4 py-2">25,000.00 USD</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2">Other Countries</td>
+                <td className="border border-gray-300 px-4 py-2">35,000.00 AED</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
         <div className="mb-4">
           <h3 className="text-xl font-semibold text-gray-700">Rate of Interest</h3>
           <p className="text-gray-600">As per applicable guidelines.</p>
@@ -96,6 +99,7 @@ function BalanceTransfer() {
           href={RequiredDocument}
           download
           className="flex items-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 ml-3"
+          aria-label="Download required documents"
         >
           <FaFileDownload className="mr-2" />
           Download Document

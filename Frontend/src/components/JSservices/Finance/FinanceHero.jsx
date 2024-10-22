@@ -29,17 +29,21 @@ const containerVariants = {
   },
 };
 
-function ServiceHero({ scrollToSection }) {
+function FinanceHero({ scrollToSection }) {
   return (
-    <motion.div 
+    <motion.header 
       className='w-full flex flex-col justify-center items-center px-4'
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <h1 className='pt-20 text-5xl heading-font text-[rgb(255,102,0)] text-center'>Finance</h1>
+      <h1 className='pt-20 text-5xl heading-font text-[rgb(255,102,0)] text-center' role="heading" aria-level="1">Finance</h1>
       <div className='w-full h-auto'>
-        <img src={ServiceHeroImg} alt="Finance Services" className='w-full object-cover rounded-lg  mb-4' />
+        <img 
+          src={ServiceHeroImg} 
+          alt="A visual representation of finance services including loans and credit" 
+          className='w-full object-cover rounded-lg mb-4' 
+        />
         <div className='flex flex-wrap justify-center my-4'>
           {['homeLoan', 'mortgageLoan', 'balanceTransfer', 'overDraft', 'cashCredit', 'cgtmse', 'msmeLoans'].map((section, index) => (
             <motion.a 
@@ -49,15 +53,15 @@ function ServiceHero({ scrollToSection }) {
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
-              aria-label={section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}
+              aria-label={`Navigate to ${section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}`}
             >
-              {section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}
+              {section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' ')}
             </motion.a>
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.header>
   );
 }
 
-export default ServiceHero;
+export default FinanceHero;

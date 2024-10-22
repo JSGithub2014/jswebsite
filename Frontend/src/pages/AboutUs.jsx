@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet'; // Import Helmet for SEO
 
 const WhoWeAre = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -36,6 +37,11 @@ const WhoWeAre = () => {
             className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 md:px-16 lg:px-24 xl:px-32" 
             aria-labelledby="who-we-are-heading"
         >
+            <Helmet>
+                <title>Who We Are | Financial Services & Real Estate Advisory</title>
+                <meta name="description" content="Learn about our expert financial services, insurance solutions, and real estate advisory to achieve your goals." />
+            </Helmet>
+
             <div className="container mx-auto text-center">
                 <motion.h1 
                     id="who-we-are-heading"

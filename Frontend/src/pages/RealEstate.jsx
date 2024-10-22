@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Helmet } from 'react-helmet'; // Importing Helmet for SEO
 import RealEstateHero from '../components/JSservices/RealEstate/RealEstateHero';
 import Selling from '../components/JSservices/RealEstate/Selling';
 import Leasing from '../components/JSservices/RealEstate/Leasing';
@@ -26,8 +27,14 @@ const RealEstate = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Real Estate Services | Buy, Sell, and Lease Properties</title>
+        <meta name="description" content="Explore our real estate services, including buying, selling, and leasing properties. Get expert guidance from our team." />
+        <meta name="keywords" content="Real Estate, Selling, Leasing, Property Management, Buy Property" />
+      </Helmet>
+
       <RealEstateHero scrollToSection={scrollToSection} />
-      
+
       <div ref={sellingRef} className="my-10">
         <Selling />
       </div>

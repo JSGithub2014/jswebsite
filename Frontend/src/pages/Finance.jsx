@@ -8,6 +8,7 @@ import OverDraft from '../components/JSservices/Finance/OverDraft';
 import CashCredit from '../components/JSservices/Finance/CashCredit';
 import CGTMSE from '../components/JSservices/Finance/CGTMSE';
 import MSMELoans from '../components/JSservices/Finance/MSMELoans';
+import { Helmet } from 'react-helmet';
 
 const Finance = () => {
     const homeLoanRef = useRef(null);
@@ -52,57 +53,67 @@ const Finance = () => {
 
     return (
         <>
-            <ServiceHero scrollToSection={scrollToSection} />
-            <Overview />
+            <Helmet>
+                <title>Finance Services | Expert Loan Solutions</title>
+                <meta name="description" content="Explore our comprehensive finance services, including home loans, mortgage loans, and more. Get expert guidance for all your financial needs." />
+                <meta name="keywords" content="Finance, Loans, Home Loans, Mortgage Loans, Financial Services" />
+            </Helmet>
 
-            <div className="my-10">
-                <div ref={homeLoanRef}><HomeLoan /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+            <header>
+                <ServiceHero scrollToSection={scrollToSection} />
+                <Overview />
+            </header>
 
-            <div className="my-10">
-                <div ref={mortgageLoanRef}><MortgageLoan /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+            <main>
+                <section ref={homeLoanRef} className="my-10">
+                    <HomeLoan />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
 
-            <div className="my-10">
-                <div ref={balanceTransferRef}><BalanceTransfer /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+                <section ref={mortgageLoanRef} className="my-10">
+                    <MortgageLoan />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
 
-            <div className="my-10">
-                <div ref={overDraftRef}><OverDraft /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+                <section ref={balanceTransferRef} className="my-10">
+                    <BalanceTransfer />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
 
-            <div className="my-10">
-                <div ref={cashCreditRef}><CashCredit /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+                <section ref={overDraftRef} className="my-10">
+                    <OverDraft />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
 
-            <div className="my-10">
-                <div ref={cgtmseRef}><CGTMSE /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+                <section ref={cashCreditRef} className="my-10">
+                    <CashCredit />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
 
-            <div className="my-10">
-                <div ref={msmeLoansRef}><MSMELoans /></div>
-                <div className="flex justify-center">
-                    <hr className="w-1/2 border-gray-300 my-6" />
-                </div>
-            </div>
+                <section ref={cgtmseRef} className="my-10">
+                    <CGTMSE />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
+
+                <section ref={msmeLoansRef} className="my-10">
+                    <MSMELoans />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 my-6" />
+                    </div>
+                </section>
+            </main>
         </>
     );
 };
