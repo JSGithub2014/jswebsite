@@ -54,7 +54,7 @@ const HealthInsurance = () => {
         
         <ul className="list-disc list-inside mb-6">
   {[
-    "Access to advanced medical care",
+    "Modern treatment",
     "Bonus benefits every year",
     "Maternity coverage included",
     "Free health check-ups",
