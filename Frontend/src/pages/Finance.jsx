@@ -1,7 +1,13 @@
 import React, { useRef } from 'react';
-import ServiceHero from '../components/JSservices/ServiceHero';
-import Overview from '../components/JSservices/Overview';
-import HomeLoan from '../components/JSservices/HomeLoan';
+import ServiceHero from '../components/JSservices/Finance/FinanceHero';
+import Overview from '../components/JSservices/Finance/Overview';
+import HomeLoan from '../components/JSservices/Finance/HomeLoan';
+import MortgageLoan from '../components/JSservices/Finance/MortgageLoan';
+import BalanceTransfer from '../components/JSservices/Finance/BalanceTransfer';
+import OverDraft from '../components/JSservices/Finance/OverDraft';
+import CashCredit from '../components/JSservices/Finance/CashCredit';
+import CGTMSE from '../components/JSservices/Finance/CGTMSE';
+import MSMELoans from '../components/JSservices/Finance/MSMELoans';
 
 const Finance = () => {
     const homeLoanRef = useRef(null);
@@ -48,7 +54,55 @@ const Finance = () => {
         <>
             <ServiceHero scrollToSection={scrollToSection} />
             <Overview />
-            <div ref={homeLoanRef}><HomeLoan /></div>
+
+            <div className="my-10">
+                <div ref={homeLoanRef}><HomeLoan /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={mortgageLoanRef}><MortgageLoan /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={balanceTransferRef}><BalanceTransfer /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={overDraftRef}><OverDraft /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={cashCreditRef}><CashCredit /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={cgtmseRef}><CGTMSE /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div ref={msmeLoansRef}><MSMELoans /></div>
+                <div className="flex justify-center">
+                    <hr className="w-1/2 border-gray-300 my-6" />
+                </div>
+            </div>
         </>
     );
 };

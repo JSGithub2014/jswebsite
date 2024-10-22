@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import RealEstateHero from '../components/JSservices/RealEstate/RealEstateHero';
+import Selling from '../components/JSservices/RealEstate/Selling';
+import Leasing from '../components/JSservices/RealEstate/Leasing';
 
 const RealEstate = () => {
+  const sellingRef = useRef(null);
+  const leasingRef = useRef(null);
+
+  const scrollToSection = (section) => {
+    let ref;
+    switch (section) {
+      case 'Selling':
+        ref = sellingRef;
+        break;
+      case 'Leasing':
+        ref = leasingRef;
+        break;
+      default:
+        return;
+    }
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center text-center">
-      <h1 className="text-4xl font-bold">Real Estate Services</h1>
-      <p className="mt-4 text-lg">Find your perfect property with our real estate services.</p>
-    </div>
+    <>
+      <RealEstateHero scrollToSection={scrollToSection} />
+      
+      <div ref={sellingRef} className="my-10">
+        <Selling />
+      </div>
+
+      <div ref={leasingRef} className="my-10">
+        <Leasing />
+      </div>
+    </>
   );
 };
 

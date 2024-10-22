@@ -22,24 +22,26 @@ function Eligibility({ age, eligibleProfiles, tenure, income, roi }) {
 
       <div className="mb-4">
         <h3 className="text-xl font-semibold text-gray-700">Income</h3>
-        <table className="min-w-full mt-2">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="py-2 px-4 text-left">Country/Employment Type</th>
-              <th className="py-2 px-4 text-left">Merchant Navy</th>
-              <th className="py-2 px-4 text-left">Other Than Merchant Navy</th>
-            </tr>
-          </thead>
-          <tbody>
-            {income.map((item, index) => (
-              <tr key={index}>
-                <td className="border-t py-2 px-4">{item.country}</td>
-                <td className="border-t py-2 px-4">{item.merchantNavy}</td>
-                <td className="border-t py-2 px-4">{item.otherThanMerchantNavy}</td>
+        <div className="overflow-x-auto">
+          <table className="min-w-full mt-2 border-collapse border border-gray-200">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="py-2 px-4 text-left border border-gray-300">Country/Employment Type</th>
+                <th className="py-2 px-4 text-left border border-gray-300">Merchant Navy</th>
+                <th className="py-2 px-4 text-left border border-gray-300">Other Than Merchant Navy</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {income.map((item, index) => (
+                <tr key={index} className="border-t border-gray-300">
+                  <td className="py-2 px-4">{item.country}</td>
+                  <td className="py-2 px-4">{item.merchantNavy}</td>
+                  <td className="py-2 px-4">{item.otherThanMerchantNavy}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="mb-4">
