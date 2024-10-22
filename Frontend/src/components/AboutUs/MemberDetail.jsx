@@ -16,7 +16,7 @@ const MemberDetail = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-24 p-4 bg-gray-100">
+    <div className="flex flex-col items-center justify-center pt-20 p-4 h-screen bg-gray-100">
       <button
         className="mb-4 text-[rgb(255,102,0)] hover:underline hover:scale-125 transition-transform duration-200"
         onClick={handleBackClick}
