@@ -38,7 +38,7 @@ const WhoWeAre = () => {
             aria-labelledby="who-we-are-heading"
         >
             <Helmet>
-                <title>Who We Are | Financial Services & Real Estate Advisory</title>
+                <title>J&S Group | Real Estate Finance and Insurance Experts</title>
                 <meta name="description" content="Learn about our expert financial services, insurance solutions, and real estate advisory to achieve your goals." />
             </Helmet>
 
