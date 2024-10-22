@@ -1,48 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
-import ShowCase from '../../assets/ourStory/our-story-showcase.png';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { FaLinkedin } from 'react-icons/fa';
 
-function StoryShowCase() {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+const MemberDetail = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const member = location.state?.member;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing once it becomes visible
-        }
-      },
-      {
-        threshold: 0.1 // Trigger when 10% of the image is in view
-      }
-    );
+  if (!member) {
+    return <div>No member data available.</div>; // Fallback
+  }
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
+  const handleBackClick = () => {
+    navigate('/about-us/our-team'); 
+  };
 
   return (
-    <div className="flex justify-center py-8">
-      <motion.img
-        ref={ref}
-        src={ShowCase}
-        className="object-cover"
-        alt="Our Story Showcase"
-        initial={{ opacity: 0, scale: 0.9 }} // Start slightly transparent and scaled down
-        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }} // Animate based on visibility
-        transition={{ duration: 1, ease: "easeInOut" }} // Animation settings
-      />
+    <div className="flex flex-col items-center justify-center pt-24 bg-gray-500">
+      <button
+        className="mb-4 text-[rgb(255,102,0)] hover:underline hover:scale-125 transition-transform duration-200"
+        onClick={handleBackClick}
+      >
+        &larr; Back
+      </button>
+      <div className="bg-white rounded-lg p-6 shadow-lg w-full max-w-3xl mx-auto"> {/* Increased max-w to 3xl */}
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-48 object-contain rounded-lg mb-4"
+        />
+        <h2 className="text-xl sm:text-2xl font-semibold text-[rgb(255,102,0)]">{member.name}</h2>
+        <p className="text-base sm:text-lg font-medium text-gray-600">{member.role}</p>
+        <p className="text-gray-800 text-sm sm:text-md mt-4 text-justify">{member.description || 'No description available.'}</p>
+        <div className="mt-4">
+          <h3 className="font-semibold text-gray-700">Connect with {member.name}:</h3>
+          <div className="flex space-x-4 mt-2">
+            {member.social.linkedin && (
+              <a
+                href={member.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-blue-600 hover:underline"
+              >
+                <FaLinkedin className="mr-1" /> LinkedIn
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default StoryShowCase;
+export default MemberDetail;

@@ -4,7 +4,7 @@ import brandLogo from '../assets/reloader-logo.png';
 
 function Footer() {
   return (
-    <footer className="w-full text-white pt-2 pb-2 relative bg-[rgb(255,102,0)]">
+    <footer className="w-full text-white pt-2 pb-2 relative bg-[rgb(255,102,0)] z-0">
       {/* Decorative Pattern on Top */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-700 to-transparent opacity-10 pointer-events-none"></div>
 
