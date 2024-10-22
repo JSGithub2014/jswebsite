@@ -126,7 +126,6 @@ const App = () => {
             <Faqs />
             <RobustFoundation />
             <ContactUs />
-            <ManagementTeam teamMembers={teamMembers} />
           </MotionWrapper>
         } />
         <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
