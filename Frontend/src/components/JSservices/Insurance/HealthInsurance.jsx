@@ -46,6 +46,7 @@ const HealthInsurance = () => {
                 className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center"
                 aria-labelledby={`coverage-${index}`}
               >
+
                 <div className="text-4xl mb-2 text-[rgb(255,102,0)]">{item.icon}</div>
                 <h4 id={`coverage-${index}`} className="text-lg font-semibold">{item.title}</h4>
               </motion.div>
