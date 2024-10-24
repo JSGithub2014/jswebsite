@@ -60,7 +60,7 @@ const Selling = () => {
         ].map((item, index) => (
           <motion.article 
             key={index}
-            className='bg-white p-4 rounded-lg shadow-md m-2 w-full md:w-1/3 transform transition-transform duration-300 hover:scale-105'
+            className='bg-white p-4 rounded-lg shadow-md m-2 w-full sm:w-1/2 md:w-1/3 transform transition-transform duration-300 hover:scale-105'
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"

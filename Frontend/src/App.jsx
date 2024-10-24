@@ -26,10 +26,6 @@ import MotionWrapper from './components/MotionWrapper';
 import Finance from './pages/Finance';
 import Insurance from './pages/Insurance';
 import RealEstate from './pages/RealEstate';
-import ManagementTeam from './components/AboutUs/ManagementTeam';
-import j_m_Img from './assets/ourTeam/j.mittal.jpeg';
-import s_p_Img from './assets/ourTeam/s.p.jpeg';
-import s_chaurasiya from './assets/ourTeam/s.chaurasia.jpeg';
 import MemberDetail from './components/AboutUs/MemberDetail';
 
 const App = () => {
@@ -61,7 +57,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   if (loading) {
@@ -71,35 +67,7 @@ const App = () => {
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
   const isMemberDetailPage = location.pathname.startsWith('/member/');
 
-  const teamMembers = [
-    {
-      name: 'Jayant Mittal',
-      role: 'Founder',
-      image: j_m_Img,
-      description: 'Jayant Mittal is a visionary leader with a passion for innovation and technology...',
-      social: {
-        linkedin: 'https://www.linkedin.com/in/jayant-mittal-3297b3147/',
-      },
-    },
-    {
-      name: 'Sanil Pandit',
-      role: 'Director',
-      image: s_p_Img,
-      description: 'Sanil Pandit is an accomplished Director with a robust background in strategic planning...',
-      social: {
-        linkedin: 'https://www.linkedin.com/in/sanil-pandit-474a52161/',
-      },
-    },
-    {
-      name: 'Sayali KC',
-      role: 'Chief Marketing Officer',
-      image: s_chaurasiya,
-      description: 'Sayali KC is a dynamic Chief Marketing Officer with a keen eye for branding...',
-      social: {
-        linkedin: 'https://www.linkedin.com/in/sayali-chaurasiya-0a31a4162/',
-      },
-    },
-  ];
+  
 
   return (
     <div className='overflow-x-hidden'>
@@ -112,7 +80,7 @@ const App = () => {
         <Route path="/services/finance" element={<MotionWrapper><Finance /></MotionWrapper>} />
         <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
         <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
-        <Route path="/member/:id" element={<MemberDetail />} />
+        <Route path="/member/:name" element={<MemberDetail />} />
         <Route path="/" element={
           <MotionWrapper>
             <Landing />
@@ -130,7 +98,7 @@ const App = () => {
         } />
         <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
       </Routes>
-      {/* Conditionally render the Footer based on the current path */}
+      
       {!isAuthPage && !isMemberDetailPage && <Footer />}
       <ScrollToTop />
     </div>

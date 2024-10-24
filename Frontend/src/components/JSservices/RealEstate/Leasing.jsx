@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaKey, FaUsers, FaDollarSign, FaClipboardCheck } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaKey, FaUsers, FaDollarSign, FaClipboardCheck } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -30,18 +30,26 @@ const Leasing = () => {
   return (
     <section 
       className='w-full flex flex-col items-center px-4 my-10'
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
       aria-labelledby="leasing-title"
     >
-      <h2 id="leasing-title" className='text-4xl heading-font font-semibold text-[rgb(255,102,0)] mb-6'>
+      <motion.h2 
+        id="leasing-title" 
+        className='text-4xl heading-font font-semibold text-[rgb(255,102,0)] mb-6'
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
         Ready to Lease <span className='heading-font font-semibold text-black'>Your Property?</span>
-      </h2>
-      <p className='text-lg mb-4 text-center'>
+      </motion.h2>
+      <motion.p 
+        className='text-lg mb-4 text-center'
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
         Our dedicated team is here to assist you in finding the perfect tenants for your property. 
         We offer comprehensive leasing services to ensure a smooth experience.
-      </p>
+      </motion.p>
 
       <div className='flex flex-wrap justify-center my-6'>
         {[
@@ -52,7 +60,7 @@ const Leasing = () => {
         ].map((item, index) => (
           <motion.article 
             key={index}
-            className='bg-white p-4 rounded-lg shadow-md m-2 w-full md:w-1/3 transform transition-transform duration-300 hover:scale-105'
+            className='bg-white p-4 rounded-lg shadow-md m-2 w-full sm:w-1/2 md:w-1/3 transform transition-transform duration-300 hover:scale-105'
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"

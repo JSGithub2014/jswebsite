@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaLinkedin } from 'react-icons/fa';
 
 const ManagementTeam = ({ teamMembers }) => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger visibility for animations
     setIsVisible(true);
   }, []);
 
-  // Function to style the first word of the member's name
   const styledName = (name) => {
     if (!name) return '';
     const words = name.split(' ');
@@ -27,7 +24,6 @@ const ManagementTeam = ({ teamMembers }) => {
   return (
     <section className="w-full md:w-[80vw] mt-8 p-6">
       <div className="p-4 gap-10">
-        
         <motion.div
           initial={{ opacity: 0, y: -20 }} 
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} 
@@ -57,16 +53,18 @@ const ManagementTeam = ({ teamMembers }) => {
             >
               <article
                 className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => navigate(`/member/${index}`, { state: { member } })} // Pass the member data
+                onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
                 role="button"
-                aria-label={`View details for ${member.name}`} // Provide descriptive label for screen readers
+                aria-label={`View details for ${member.name}`}
               >
-                <img
-                  className="w-full h-80 md:h-96 object-cover mb-4 rounded-lg"
-                  src={member.image}
-                  alt={`Image of ${member.name}, ${member.role}`} // Descriptive alt text
-                />
-                <p className="font-semibold text-lg text-center mt-2">{styledName(member.name)}</p> {/* Apply styled name function */}
+                <div className="w-full h-80 md:h-96 relative overflow-hidden rounded-lg">
+                  <img
+                    className="w-full h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    src={member.image}
+                    alt={`Image of ${member.name}, ${member.role}`}
+                  />
+                </div>
+                <p className="font-semibold text-lg text-center mt-2">{styledName(member.name)}</p>
                 <p className="text-gray-700 text-center mt-1">{member.role}</p>
               </article>
             </motion.div>

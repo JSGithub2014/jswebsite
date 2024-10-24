@@ -44,10 +44,13 @@ const Finance = () => {
                 ref = msmeLoansRef;
                 break;
             default:
+                console.error('Invalid section:', section);
                 return;
         }
         if (ref.current) {
-            ref.current.scrollIntoView({ behavior: 'smooth' });
+            ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            console.warn('Reference not found for section:', section);
         }
     };
 
@@ -68,49 +71,49 @@ const Finance = () => {
                 <section ref={homeLoanRef} className="my-10">
                     <HomeLoan />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={mortgageLoanRef} className="my-10">
                     <MortgageLoan />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={balanceTransferRef} className="my-10">
                     <BalanceTransfer />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={overDraftRef} className="my-10">
                     <OverDraft />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={cashCreditRef} className="my-10">
                     <CashCredit />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={cgtmseRef} className="my-10">
                     <CGTMSE />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
 
                 <section ref={msmeLoansRef} className="my-10">
                     <MSMELoans />
                     <div className="flex justify-center">
-                        <hr className="w-1/2 border-gray-300 my-6" />
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>
                 </section>
             </main>

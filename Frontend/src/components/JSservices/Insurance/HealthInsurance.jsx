@@ -32,7 +32,7 @@ const HealthInsurance = () => {
         </h3>
         
         <div className="w-full flex justify-center">
-          <div className="grid grid-cols-2 gap-6 mb-6 max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 max-w-4xl">
             {[
               { icon: <FaHeart aria-label="Individual Health Insurance" />, title: <>Individual Health Insurance <br /> Family Floater Plans</> },
               { icon: <FaCarCrash aria-label="Personal Accident" />, title: "Personal Accident" },
@@ -43,7 +43,7 @@ const HealthInsurance = () => {
                 key={index}
                 variants={fadeInVariants}
                 whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center"
                 aria-labelledby={`coverage-${index}`}
               >
                 <div className="text-4xl mb-2 text-[rgb(255,102,0)]">{item.icon}</div>
@@ -66,7 +66,7 @@ const HealthInsurance = () => {
             "Cashless treatment at partner hospitals",
             "Easy claims process"
           ].map((benefit, index) => (
-            <motion.li key={index} variants={fadeInVariants} whileHover={{ scale: 1.05 }}>
+            <motion.li key={index} variants={fadeInVariants} whileHover={{ scale: 1.05 }} className="text-base md:text-lg">
               {benefit}
             </motion.li>
           ))}
@@ -81,12 +81,8 @@ const HealthInsurance = () => {
         </p>
 
         <p className="mt-4">
-          <a 
-            href="tel:+912245120755" 
-            className="px-6 py-2 bg-[rgb(255,102,0)] text-white rounded-full hover:bg-orange-600 transition duration-300"
-            title="Call Now: +91 2245120755"
-          >
-            Call Now: +91 2245120755
+        <a href="tel:+912245120755" className="px-6 py-2 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition duration-300">
+            Contact Us
           </a>
         </p>
       </article>

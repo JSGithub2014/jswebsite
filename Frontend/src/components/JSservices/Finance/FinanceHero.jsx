@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons
 import ServiceHeroImg from '../../../assets/Services/ServiceHero.png';
 
 const buttonVariants = {
@@ -29,7 +30,28 @@ const containerVariants = {
   },
 };
 
+const iconVariants = {
+  open: { rotate: 180 },
+  closed: { rotate: 0 },
+};
+
 function FinanceHero({ scrollToSection }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const sections = [
+    'homeLoan', 
+    'mortgageLoan', 
+    'balanceTransfer', 
+    'overDraft', 
+    'cashCredit', 
+    'cgtmse', 
+    'msmeLoans'
+  ];
+
+  const formatSectionName = (section) => {
+    return section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1');
+  };
+
   return (
     <motion.header 
       className='w-full flex flex-col justify-center items-center px-4'
@@ -37,25 +59,71 @@ function FinanceHero({ scrollToSection }) {
       animate="visible"
       variants={containerVariants}
     >
-      <h1 className='pt-20 text-5xl heading-font text-[rgb(255,102,0)] text-center' role="heading" aria-level="1">Finance</h1>
+      <h1 className='pt-20 text-5xl heading-font text-[rgb(255,102,0)] text-center'>Finance</h1>
       <div className='w-full h-auto'>
         <img 
           src={ServiceHeroImg} 
           alt="A visual representation of finance services including loans and credit" 
           className='w-full object-cover rounded-lg mb-4' 
         />
-        <div className='flex flex-wrap justify-center my-4'>
-          {['homeLoan', 'mortgageLoan', 'balanceTransfer', 'overDraft', 'cashCredit', 'cgtmse', 'msmeLoans'].map((section, index) => (
+
+        {/* Centered Hamburger Menu Button */}
+        <motion.button 
+          className="flex items-center justify-center bg-orange-400 p-2 rounded-full mx-auto my-4 md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
+          whileHover={{ scale: 1.1 }} // Optional hover effect
+        >
+          <motion.div 
+            variants={iconVariants}
+            animate={isMenuOpen ? "open" : "closed"}
+            transition={{ duration: 0.3 }}
+          >
+            {isMenuOpen ? <FaTimes className="text-white" /> : <FaBars className="text-white" />}
+          </motion.div>
+        </motion.button>
+
+        {/* Hamburger Menu */}
+        {isMenuOpen && (
+          <motion.div 
+            className='flex flex-col items-center bg-gray-100 rounded-lg shadow-md w-full my-4 md:hidden'
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {sections.map((section, index) => (
+              <motion.a 
+                key={index}
+                onClick={() => {
+                  scrollToSection(section);
+                  setIsMenuOpen(false); // Close the menu after selection
+                }} 
+                className='flex items-center justify-center px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-1 rounded-full cursor-pointer w-full'
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                aria-label={`Navigate to ${formatSectionName(section)}`}
+              >
+                {formatSectionName(section)}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Buttons for larger screens */}
+        <div className='hidden md:flex flex-wrap justify-center my-4'>
+          {sections.map((section, index) => (
             <motion.a 
               key={index}
               onClick={() => scrollToSection(section)} 
-              className='px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-2 rounded-full cursor-pointer w-1/2 md:w-auto'
+              className='flex items-center justify-center px-6 py-3 bg-orange-400 text-black text-base mx-2 my-2 rounded-full cursor-pointer'
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
-              aria-label={`Navigate to ${section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}`}
+              aria-label={`Navigate to ${formatSectionName(section)}`}
             >
-              {section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' ')}
+              {formatSectionName(section)}
             </motion.a>
           ))}
         </div>

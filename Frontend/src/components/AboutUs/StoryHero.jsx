@@ -18,7 +18,7 @@ function StoryHero() {
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} 
         transition={{ duration: 0.5 }}
       >
-        <h1 id="about-heading" className='text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-[rgb(255,102,0)] mt-4 heading-font tracking-wide'>
+        <h1 id="about-heading" className='text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-20 text-[rgb(255,102,0)] mt-4 heading-font tracking-wide'>
           The Story Behind <br /> <span className='text-black heading-font'>J&S Group</span>
         </h1>
         <p className='text-sm md:text-base lg:text-lg text-gray-600 text-justify mb-2'>

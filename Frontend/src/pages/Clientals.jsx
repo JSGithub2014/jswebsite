@@ -30,9 +30,9 @@ const ClientalsSection = () => {
   ];
 
   return (
-    <div className=" overflow-hidden flex flex-col justify-center items-center bg-orange-100 pb-10">
+    <div className="overflow-hidden flex flex-col justify-center items-center bg-orange-100 pb-10">
       <h2 className="text-4xl md:text-4xl lg:text-5xl heading-font text-center px-10 text-black rounded-full tracking-wider font-thin mb-16 transform transition-transform duration-300 hover:scale-105 text-shadow">
-        Our <span className='text-[rgb(255,102,0)] heading-font '>Corporate</span> Clients
+        Our <span className='text-[rgb(255,102,0)] heading-font'>Corporate</span> Clients
       </h2>
       <Marquee>
         <MarqueeGroup>
@@ -50,7 +50,7 @@ const ClientalsSection = () => {
           ))}
         </MarqueeGroup>
       </Marquee>
-      <Gap /> {/* Add a gap between the two lines */}
+      <Gap />
       <Marquee>
         <MarqueeGroup2>
           {clientalsLine2.map((el, index) => (
@@ -120,16 +120,16 @@ const ImageGroup = styled.div`
   width: 120px; /* Adjust width for larger screens */
   height: auto;
   padding: 0;
-  margin-right: 10px;
+  margin: 0 10px; /* Add horizontal margin for spacing */
 
-   @media (max-width: 640px) {
-    width: 100px; /* Adjust width for mobile */
-    margin-right: 20px; /* Decrease margin on mobile */
+  @media (max-width: 640px) {
+    width: 120px; /* Keep width the same for mobile */
+    margin: 0 8px; /* Adjust margin for mobile */
   }
 
   @media (max-width: 480px) {
-    width: 80px; /* Further adjust for smaller screens */
-    margin-right: 10px; /* Further decrease margin on smaller screens */
+    width: 100px; /* Adjust for smaller screens */
+    margin: 0 5px; /* Further decrease margin */
   }
 `;
 
@@ -137,7 +137,7 @@ const Image = styled.img`
   object-fit: contain; /* Maintain aspect ratio without cropping */
   width: 100%;
   height: auto; /* Allow height to adjust based on image */
-  max-height: 100px; /* Set a maximum height to prevent overflow */
+  max-height: 120px; /* Increase maximum height for better visibility */
   border-radius: 0.25rem; /* Slightly reduced border radius */
   background: transparent; 
 `;
