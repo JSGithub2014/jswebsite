@@ -20,7 +20,7 @@ function Hero() {
   };
 
   return (
-    <section className='w-full h-screen md:h-screen flex items-center justify-center px-4 md:px-36  text-center md:text-left lg:mt-5 pt-14 z-0'>
+    <section className='w-full h-screen md:h-screen flex items-center justify-center px-4 md:px-36  text-center md:text-left lg:mt-5 pt-12 z-0'>
       <div className='hero-wrapper flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-12'>
         <motion.header
           className='hero-section-left mb-8 md:mb-0 md:w-1/2'
