@@ -77,7 +77,7 @@ function HomeLoan() {
         <div className="w-full md:w-1/3 text-center">
           <h3 className="text-lg font-semibold mb-2" role="heading" aria-level="3">Need Expert Guidance? </h3>
           <a 
-            href="tel:+912245120755" 
+            href="tel:+918012091209" 
             className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap"
           >
             <FaPhoneAlt className="mr-2" /> Connect Now!!

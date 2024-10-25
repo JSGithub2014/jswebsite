@@ -101,7 +101,7 @@ function CGTMSE() {
 
         <div className="w-full md:w-1/3 text-center">
           <h3 className="text-sm md:text-lg font-semibold mb-2">Need Assistance? 📞</h3>
-          <a href="tel:+912245120755" className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
+          <a href="tel:+918012091209" className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
             <FaPhoneAlt className="mr-2" /> Connect Now!!
           </a>
         </div>

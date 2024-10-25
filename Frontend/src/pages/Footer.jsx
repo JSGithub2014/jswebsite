@@ -66,8 +66,8 @@ function Footer() {
               {/* Mobile Number */}
               <li className="flex items-center justify-center md:justify-start">
                 <FaPhoneAlt className="text-lg mr-2" />
-                <a href="tel:+912245120755" className="hover:text-black transition-colors duration-300 text-xs md:text-sm">
-                  +91 2245120755
+                <a href="tel:+918012091209" className="hover:text-black transition-colors duration-300 text-xs md:text-sm">
+                  +91 8012091209
                 </a>
               </li>
 

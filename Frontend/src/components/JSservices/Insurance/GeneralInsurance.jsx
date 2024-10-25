@@ -157,7 +157,7 @@ const GeneralInsurance = () => {
         </motion.p>
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center">
-          <a href="tel:+912245120755" className="px-6 py-2 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition duration-300">
+          <a href="tel:+918012091209" className="px-6 py-2 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition duration-300">
             Contact Us
           </a>
         </div>
