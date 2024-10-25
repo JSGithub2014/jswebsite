@@ -53,7 +53,7 @@ const MouseFollower = () => {
 
     return (
         <div
-            className="circle"
+            className="circle hidden md:block"
             style={{
                 left: `${adjustedPosition.x}px`,
                 top: `${adjustedPosition.y}px`,
