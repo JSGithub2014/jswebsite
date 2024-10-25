@@ -9,21 +9,21 @@ const services = [
     {
         logo: financeLogo,
         title: 'FINANCE',
-        description: 'We specialize in providing expert lending consultancy services tailored to meet the unique needs of small and mid-sized businesses.',
+        description: 'We specialize in providing expert lending consultancy services, tailored to meet the unique needs of small and mid-sized businesses.',
         additionalInfo: 'Our team offers personalized strategies and solutions, ensuring you understand every step of the financing process, from application to funding.',
         generalInfo: 'We believe in transparency and working closely with our clients to achieve their financial goals.'
     },
     {
         logo: insuranceLogo,
         title: 'INSURANCE',
-        description: 'We are dedicated to providing exceptional insurance consultancy services tailored to meet the unique needs of individuals and businesses.',
+        description: 'We are dedicated to provide exceptional insurance consultancy services tailored to meet the unique needs of individuals and businesses.',
         additionalInfo: 'Our approach focuses on assessing risks and finding the best policies to ensure comprehensive coverage for all our clients.',
         generalInfo: 'We provide regular reviews of policies to ensure you always have the best coverage possible.'
     },
     {
         logo: realEstateLogo,
         title: 'REAL ESTATE',
-        description: 'We are committed to providing expert real estate consultancy services that empower clients to make informed decisions.',
+        description: 'We are committed to providing expert real estate consultancy services that empowers clients to make informed decisions.',
         additionalInfo: 'We assist with property evaluation, market analysis, and negotiations to ensure you get the best value in any transaction.',
         generalInfo: 'Our goal is to make the buying and selling process as smooth as possible for our clients.'
     },

@@ -19,7 +19,7 @@ function Achievement() {
       imgSrc: BuildingIcon,
       achievementNumber: "350+",
       title: 'Real Estate Deals',
-      description: 'With over 350 real estate deals successfully closed, our expertise and dedication have made us a trusted partner in the real estate industry.'
+      description: 'With more than 350 real estate deals successfully closed, our expertise and dedication have made us a trusted partner in the real estate industry.'
     },
     {
       imgSrc: InsuranceIcon,

@@ -5,7 +5,7 @@ import callBtn from '../assets/call-us-img.png';
 
 function Hero() {
   const handleCall = () => {
-    window.location.href = 'tel:+912245120755';
+    window.location.href = 'tel:+918012091209';
   };
 
   // Animation variants
