@@ -1,0 +1,29 @@
+.circle {
+    position: fixed;
+    width: 50px; /* Set size */
+    height: 50px; /* Set size */
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent background for a soft look */
+    border-radius: 50%;
+    z-index: 1000;
+    pointer-events: none; /* Prevent interaction blocking */
+    animation: blink 1s infinite; /* Optional blinking effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), /* Bottom shadow for depth */
+                0 1px 5px rgba(255, 255, 255, 0.5); /* Light top shadow */
+    transition: transform 0.2s; /* Smooth transform on hover */
+}
+
+.circle:hover {
+    transform: scale(1.1); /* Slightly increase size on hover for interaction feedback */
+}
+
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Dark shadow */
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Darker shadow */
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Return to dark shadow */
+    }
+}

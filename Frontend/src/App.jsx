@@ -27,6 +27,7 @@ import Finance from './pages/Finance';
 import Insurance from './pages/Insurance';
 import RealEstate from './pages/RealEstate';
 import MemberDetail from './components/AboutUs/MemberDetail';
+import MouseFollower from './components/MouseFollower';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -72,6 +73,7 @@ const App = () => {
   return (
     <div className='overflow-x-hidden'>
       <Navbar />
+      <MouseFollower /> {/* Add the Circle component here */}
       <Routes>
         <Route path="/login" element={<MotionWrapper><Login /></MotionWrapper>} />
         <Route path="/signup" element={<MotionWrapper><Register /></MotionWrapper>} />
