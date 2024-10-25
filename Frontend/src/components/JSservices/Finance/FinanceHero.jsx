@@ -49,6 +49,11 @@ function FinanceHero({ scrollToSection }) {
   ];
 
   const formatSectionName = (section) => {
+    if (section === 'cgtmse') {
+      return section.toUpperCase();
+    } else if (section === 'msmeLoans') {
+      return 'MSME Loans';
+    }
     return section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1');
   };
 
@@ -67,6 +72,7 @@ function FinanceHero({ scrollToSection }) {
           className='w-full object-cover rounded-lg mb-4' 
         />
 
+        {/* Hamburger Menu Button */}
         <motion.button 
           className="flex items-center justify-center bg-orange-400 p-2 rounded-full mx-auto my-4 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -82,36 +88,35 @@ function FinanceHero({ scrollToSection }) {
           </motion.div>
         </motion.button>
 
+        {/* Hamburger Menu */}
         {isMenuOpen && (
-          <>
-            <div className="fixed inset-0 bg-black opacity-50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
-            <motion.div 
-              className='flex flex-col items-center bg-gray-100 rounded-lg shadow-md w-full my-4 md:hidden'
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              {sections.map((section, index) => (
-                <motion.a 
-                  key={index}
-                  onClick={() => {
-                    scrollToSection(section);
-                    setIsMenuOpen(false);
-                  }} 
-                  className='flex items-center justify-center px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-1 rounded-full cursor-pointer w-full'
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  aria-label={`Navigate to ${formatSectionName(section)}`}
-                >
-                  {formatSectionName(section)}
-                </motion.a>
-              ))}
-            </motion.div>
-          </>
+          <motion.div 
+            className='flex flex-col items-center bg-gray-100 rounded-lg shadow-md w-full my-4 md:hidden'
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {sections.map((section, index) => (
+              <motion.a 
+                key={index}
+                onClick={() => {
+                  scrollToSection(section);
+                  setIsMenuOpen(false); // Close the menu when a section is clicked
+                }} 
+                className='flex items-center justify-center px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-1 rounded-full cursor-pointer w-full'
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                aria-label={`Navigate to ${formatSectionName(section)}`}
+              >
+                {formatSectionName(section)}
+              </motion.a>
+            ))}
+          </motion.div>
         )}
 
+        {/* Buttons for larger screens */}
         <div className='hidden md:flex flex-wrap justify-center my-4'>
           {sections.map((section, index) => (
             <motion.a 
