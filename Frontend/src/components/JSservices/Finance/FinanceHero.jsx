@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons
+import { FaBars, FaTimes } from 'react-icons/fa'; 
 import ServiceHeroImg from '../../../assets/Services/ServiceHero.png';
 
 const buttonVariants = {
@@ -67,12 +67,11 @@ function FinanceHero({ scrollToSection }) {
           className='w-full object-cover rounded-lg mb-4' 
         />
 
-        {/* Centered Hamburger Menu Button */}
         <motion.button 
           className="flex items-center justify-center bg-orange-400 p-2 rounded-full mx-auto my-4 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
-          whileHover={{ scale: 1.1 }} // Optional hover effect
+          whileHover={{ scale: 1.1 }} 
         >
           <motion.div 
             variants={iconVariants}
@@ -83,35 +82,36 @@ function FinanceHero({ scrollToSection }) {
           </motion.div>
         </motion.button>
 
-        {/* Hamburger Menu */}
         {isMenuOpen && (
-          <motion.div 
-            className='flex flex-col items-center bg-gray-100 rounded-lg shadow-md w-full my-4 md:hidden'
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {sections.map((section, index) => (
-              <motion.a 
-                key={index}
-                onClick={() => {
-                  scrollToSection(section);
-                  setIsMenuOpen(false); // Close the menu after selection
-                }} 
-                className='flex items-center justify-center px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-1 rounded-full cursor-pointer w-full'
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                aria-label={`Navigate to ${formatSectionName(section)}`}
-              >
-                {formatSectionName(section)}
-              </motion.a>
-            ))}
-          </motion.div>
+          <>
+            <div className="fixed inset-0 bg-black opacity-50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
+            <motion.div 
+              className='flex flex-col items-center bg-gray-100 rounded-lg shadow-md w-full my-4 md:hidden'
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {sections.map((section, index) => (
+                <motion.a 
+                  key={index}
+                  onClick={() => {
+                    scrollToSection(section);
+                    setIsMenuOpen(false);
+                  }} 
+                  className='flex items-center justify-center px-4 py-2 bg-orange-400 text-black text-sm mx-2 my-1 rounded-full cursor-pointer w-full'
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  aria-label={`Navigate to ${formatSectionName(section)}`}
+                >
+                  {formatSectionName(section)}
+                </motion.a>
+              ))}
+            </motion.div>
+          </>
         )}
 
-        {/* Buttons for larger screens */}
         <div className='hidden md:flex flex-wrap justify-center my-4'>
           {sections.map((section, index) => (
             <motion.a 

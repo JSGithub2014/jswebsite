@@ -174,8 +174,9 @@ function Navbar() {
               <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
             </div>
             <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
-              This is to inform you that by clicking on the CONFIRM button, you will be leaving the PASPL portal and entering a website operated by other parties...
-            </p>
+            This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained with in each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
+</p>
+
             <div className="flex items-center mb-4">
               <input
                 type="checkbox"

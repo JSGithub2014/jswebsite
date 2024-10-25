@@ -16,11 +16,11 @@ const GoalCard = ({ title, description, direction }) => {
   const renderIcon = (title) => {
     switch (title) {
       case "Our Vision":
-        return <FaEye className="text-4xl" />;
+        return <FaEye className="text-5xl text-indigo-600" />;
       case "Our Mission":
-        return <FaLightbulb className="text-4xl" />;
+        return <FaLightbulb className="text-5xl text-yellow-500" />;
       case "Our Values":
-        return <FaHandsHelping className="text-4xl" />;
+        return <FaHandsHelping className="text-5xl text-green-500" />;
       default:
         return null;
     }
@@ -29,7 +29,7 @@ const GoalCard = ({ title, description, direction }) => {
   return (
     <motion.article
       ref={ref}
-      className="bg-gradient-to-r from-orange-500 to-orange-400 text-white md:w-[70vw] shadow-lg rounded-2xl p-6 m-2 flex flex-col w-auto overflow-hidden transition-transform transform hover:scale-105"
+      className="bg-gradient-to-r from-zinc-300 to-zinc-400  rounded-xl p-6 m-2 flex flex-col max-w-5xl shadow-lg transition-transform transform hover:scale-105"
       role="article"
       aria-labelledby={title}
       aria-expanded={isExpanded}
@@ -38,15 +38,11 @@ const GoalCard = ({ title, description, direction }) => {
       transition={{ duration: 0.5 }}
     >
       <div className="flex items-center justify-between mb-4">
-        <div className="hidden md:flex md:w-1/4 justify-start" aria-hidden="true">
-          {renderIcon(title)}
-        </div>
-        <h2 className="text-xl font-bold text-center flex-grow text-shadow-lg" id={title}>
+        <div className="flex w-1/4 justify-center">{renderIcon(title)}</div>
+        <h2 className="text-xl font-bold flex-grow text-center text-[rgb(255,102,0)] drop-shadow-lg" id={title}>
           {title}
         </h2>
-        <div className="hidden md:flex md:w-1/4 justify-end" aria-hidden="true">
-          {renderIcon(title)}
-        </div>
+        <div className="flex w-1/4 justify-center">{renderIcon(title)}</div>
       </div>
 
       <motion.div
@@ -56,13 +52,13 @@ const GoalCard = ({ title, description, direction }) => {
         transition={{ duration: 0.3 }}
         style={{ overflow: 'hidden' }}
       >
-        <p className={`text-gray-200 text-sm text-center ${isExpanded ? '' : 'overflow-hidden max-h-10'}`}>
+        <p className={`text-black text-sm text-center ${isExpanded ? '' : 'overflow-hidden max-h-10'}`}>
           {description}
         </p>
       </motion.div>
 
       <button 
-        className="flex items-center justify-center text-gray-900 font-semibold hover:text-black mt-4 text-center"
+        className="flex items-center justify-center text-zinc-700 font-semibold hover:text-zinc-900 mt-4 transition duration-300"
         onClick={toggleExpand}
         aria-label={isExpanded ? 'Collapse description' : 'Expand description'}
       >

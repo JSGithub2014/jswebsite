@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaHome, FaChartLine, FaHandshake, FaFileContract } from 'react-icons/fa';
 
@@ -14,37 +14,64 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
-};
-
 const Selling = () => {
+  const [visibleElements, setVisibleElements] = useState(Array(6).fill(false)); // Adjust size based on number of animated elements
+  const sectionRef = useRef(null);
+
+  const observeElement = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Number(entry.target.dataset.index);
+        setVisibleElements(prev => {
+          const newVisibleElements = [...prev];
+          newVisibleElements[index] = true;
+          return newVisibleElements;
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(observeElement, {
+      threshold: 0.2 // Trigger when 20% of the element is in view
+    });
+
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((element, index) => {
+      element.dataset.index = index; // Store index to identify which element is being observed
+      observer.observe(element);
+    });
+
+    return () => {
+      elements.forEach(element => observer.unobserve(element));
+    };
+  }, []);
+
+  useEffect(() => {
+    // Reset visibility state when the component mounts
+    setVisibleElements(Array(6).fill(false));
+  }, []);
+
   return (
     <section 
       className='w-full flex flex-col items-center px-4 my-10'
+      ref={sectionRef}
       aria-labelledby="selling-section-title"
     >
       <motion.h2 
         id="selling-section-title" 
-        className='text-4xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-6'
+        className='text-4xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-6 fade-in'
         initial="hidden"
-        animate="visible"
+        animate={visibleElements[0] ? "visible" : "hidden"}
         variants={containerVariants}
       >
         Ready to Sell <span className='heading-font font-semibold tracking-wider text-black'>Your Property?</span>
       </motion.h2>
+
       <motion.p 
-        className='text-lg mb-4 text-center'
+        className='text-lg mb-4 text-center fade-in'
         initial="hidden"
-        animate="visible"
+        animate={visibleElements[1] ? "visible" : "hidden"}
         variants={containerVariants}
       >
         Our expert team is here to help you get the best value for your property. 
@@ -60,12 +87,11 @@ const Selling = () => {
         ].map((item, index) => (
           <motion.article 
             key={index}
-            className='bg-white p-4 rounded-lg shadow-md m-2 w-full sm:w-1/2 md:w-1/3 transform transition-transform duration-300 hover:scale-105'
-            variants={cardVariants}
+            className='fade-in bg-white p-4 rounded-lg shadow-md m-2 w-full sm:w-1/2 md:w-1/3 transform transition-transform duration-300 hover:scale-105'
+            data-index={index + 2} // Set index for visibility tracking
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            aria-labelledby={`selling-card-${index}`}
+            animate={visibleElements[index + 2] ? "visible" : "hidden"}
+            variants={containerVariants}
           >
             <div className='flex items-center justify-center'>{item.icon}</div>
             <h3 id={`selling-card-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)] text-center'>{item.title}</h3>
