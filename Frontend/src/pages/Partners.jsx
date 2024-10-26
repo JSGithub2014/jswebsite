@@ -17,11 +17,11 @@ import RBL from '../assets/partners/RBL.jpg';
 
 const PartnerSection = () => {
   const partnersLine1 = [
-    BOI, BOM, DCB, HDFC_Ltd, HDFC, HSBC, RBL,
+    BOI, BOM, DCB, HDFC_Ltd, HDFC, HSBC, RBL, BOI, BOM,
   ];
 
   const partnersLine2 = [
-    ICICI_Finance, ICICI, IDBI, IDFC1st, LT_Fin_1, LIC_HFL, PNB,
+    ICICI_Finance, ICICI, IDBI, IDFC1st, LT_Fin_1, LIC_HFL, PNB, ICICI_Finance, ICICI,
   ];
 
   return (
@@ -110,18 +110,18 @@ const MarqueeGroup2 = styled.div`
 const ImageGroup = styled.div`
   display: grid;
   place-items: center;
-  width: 120px; /* Adjust width for larger screens */
+  width: 100px; /* Increased width for larger screens */
   height: auto; /* Allow height to adjust based on image */
   padding: 0; /* Remove padding */
   margin-right: 50px; /* Set consistent margin for both lines */
 
   @media (max-width: 640px) {
-    width: 100px; /* Adjust width for mobile */
+    width: 120px; /* Adjust width for mobile */
     margin-right: 20px; /* Decrease margin on mobile */
   }
 
   @media (max-width: 480px) {
-    width: 80px; /* Further adjust for smaller screens */
+    width: 100px; /* Further adjust for smaller screens */
     margin-right: 10px; /* Further decrease margin on smaller screens */
   }
 `;
@@ -130,7 +130,7 @@ const Image = styled.img`
   object-fit: contain; /* Maintain aspect ratio without cropping */
   width: 100%;
   height: auto; /* Allow height to adjust based on image */
-  max-height: 100px; /* Set a maximum height to prevent overflow */
+  max-height: 120px; /* Increased maximum height */
   border-radius: 0.25rem; /* Slightly reduced border radius */
   background: transparent; 
 `;
@@ -138,3 +138,4 @@ const Image = styled.img`
 const Gap = styled.div`
   height: 20px; /* Adjust this value to increase or decrease the gap between the lines */
 `;
+

@@ -1,15 +1,17 @@
-// components/Circle.js
 import React, { useEffect, useState } from 'react';
-import '../MouseFollower.css';
 
 const MouseFollower = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [borderColor, setBorderColor] = useState('white'); // Default border color
-    const circleSize = 50; // Circle size
+    const [borderColor, setBorderColor] = useState('white'); 
+    const [visible, setVisible] = useState(false); 
+    const circleSize = 50; // Increased size for text
+    const [delayPosition, setDelayPosition] = useState({ x: 0, y: 0 }); 
 
     useEffect(() => {
         const handleMouseMove = (event) => {
-            // Smoothly update position using requestAnimationFrame
+            if (!visible) {
+                setVisible(true); 
+            }
             setPosition({
                 x: event.clientX,
                 y: event.clientY,
@@ -21,7 +23,7 @@ const MouseFollower = () => {
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, []);
+    }, [visible]);
 
     useEffect(() => {
         const checkBackgroundColor = () => {
@@ -33,7 +35,7 @@ const MouseFollower = () => {
                 const b = parseInt(rgb[2]);
 
                 const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-                setBorderColor(brightness < 128 ? 'white' : 'gray'); // Choose border color based on brightness
+                setBorderColor(brightness < 128 ? 'white' : 'gray');
             }
         };
 
@@ -45,15 +47,27 @@ const MouseFollower = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const updateDelayPosition = () => {
+            const animationFrameId = requestAnimationFrame(() => {
+                setDelayPosition(position);
+            });
+
+            return () => cancelAnimationFrame(animationFrameId);
+        };
+
+        updateDelayPosition();
+    }, [position]);
+
     // Ensure the position is within screen bounds
     const adjustedPosition = {
-        x: Math.max(circleSize / 2, Math.min(position.x, window.innerWidth - circleSize / 2)),
-        y: Math.max(circleSize / 2, Math.min(position.y, window.innerHeight - circleSize / 2)),
+        x: Math.max(circleSize / 2, Math.min(delayPosition.x, window.innerWidth - circleSize / 2)),
+        y: Math.max(circleSize / 2, Math.min(delayPosition.y, window.innerHeight - circleSize / 2)),
     };
 
     return (
         <div
-            className="circle hidden md:block"
+            className="circle"
             style={{
                 left: `${adjustedPosition.x}px`,
                 top: `${adjustedPosition.y}px`,
@@ -61,9 +75,27 @@ const MouseFollower = () => {
                 border: `1px solid ${borderColor}`,
                 width: `${circleSize}px`,
                 height: `${circleSize}px`,
-                pointerEvents: 'none', // Prevent interaction blocking
+                pointerEvents: 'none',
+                opacity: visible ? 1 : 0, // Control visibility with opacity
+                transition: 'opacity 0.3s', // Smooth transition for visibility
+                position: 'absolute', // Ensure position is absolute
+                display: 'flex', // Center text
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: '50%', // Make it circular
+                overflow: 'hidden', // To clip text overflow
             }}
-        ></div>
+        >
+            <span
+                style={{
+                    color: borderColor,
+                    transition: 'transform 0.3s',
+                }}
+                className="text-zoom"
+            >
+                Hover
+            </span>
+        </div>
     );
 };
 

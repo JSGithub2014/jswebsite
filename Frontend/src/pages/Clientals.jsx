@@ -117,7 +117,7 @@ const MarqueeGroup2 = styled.div`
 const ImageGroup = styled.div`
   display: grid;
   place-items: center;
-  width: 120px; /* Adjust width for larger screens */
+  width: 100px; /* Adjust width for larger screens */
   height: auto;
   padding: 0;
   margin: 0 10px; /* Add horizontal margin for spacing */

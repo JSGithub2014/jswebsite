@@ -26,13 +26,13 @@ function Overview() {
       </div>
 
       <p className="text-base md:text-lg text-gray-800 mb-6 leading-relaxed text-justify">
-        With our expert guidance, you can make informed decisions that align with your financial goals. Let’s make your money work for you! 🚀
+      Our expert guidance will help you make informed decisions to align with your financial goals. We will help you make your money work for you.
       </p>
       <p className="text-base md:text-lg text-gray-800 mb-6 leading-relaxed text-justify">
-        Don’t hesitate to reach out for a consultation—together, we can unlock the potential of your financial future! 🔑✨
+      Investing in the future has never been so easier. Call us to talk about how you can make the most of your hard-earned money. 🔑✨
       </p>
       <p className="text-base md:text-lg text-gray-800 mb-6 leading-relaxed text-justify">
-        Investing in your future has never been easier. Let's talk about how you can make the most of your hard-earned ₹! 💸
+      Reach out to our experts for a consultation. Together, we can unlock the potential of your financial future₹! 💸
       </p>
     </div>
   );

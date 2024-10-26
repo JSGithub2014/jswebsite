@@ -53,7 +53,7 @@ function OverDraft() {
           className="text-lg md:text-2xl font-semibold mb-4 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[2] ? 1 : 0, y: visibleSections[2] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           ref={el => sectionsRef.current[2] = el}
         >
           ✨ Why Choose Our Overdraft Services?
@@ -85,7 +85,7 @@ function OverDraft() {
           className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[7] ? 1 : 0, y: visibleSections[7] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           ref={el => sectionsRef.current[7] = el}
         >
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
@@ -112,14 +112,15 @@ function OverDraft() {
           className="text-lg md:text-3xl font-semibold text-gray-800 mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[12] ? 1 : 0, y: visibleSections[12] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 1.5 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
           ref={el => sectionsRef.current[12] = el}
         >
           Eligibility
         </motion.h2>
         {[
-          { title: "Age", description: "Min. 21 yrs. Max. 65 yrs." },
-          { title: "Eligible Profiles", description: "Salaried: 1 year. Self-Employed: 2 years." },
+          { title: "Age", description: "Minimum 24 years" },
+          { title: "Eligible Profiles", description: <p>Salaried Individual – Min Salary 18K with 2 years of job continuation proof <br />
+Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof</p> },
           { title: "Limit", description: "Up to 50% of your monthly income." },
           { title: "Rate of Interest", description: "As per applicable guidelines." }
         ].map((item, index) => (
@@ -135,7 +136,7 @@ function OverDraft() {
           className="text-lg md:text-2xl font-semibold mb-2 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[16] ? 1 : 0, y: visibleSections[16] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 1.8 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
           ref={el => sectionsRef.current[16] = el}
         >
           📄 Required Documents

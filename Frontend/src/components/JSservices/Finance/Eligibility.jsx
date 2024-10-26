@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Eligibility({ age, eligibleProfiles, tenure, income, roi }) {
+function Eligibility({ income, roi }) {
   return (
     <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h2 className="text-3xl font-semibold text-gray-800 mb-6">Eligibility</h2>
 
       <div className="mb-4">
         <h3 className="text-xl font-semibold text-gray-700">Age</h3>
-        <p className="text-gray-600">{age}</p>
+        <p className="text-gray-600">Minimum 24 years</p>
       </div>
 
       <div className="mb-4">
         <h3 className="text-xl font-semibold text-gray-700">Eligible Profiles</h3>
-        <p className="text-gray-600">{eligibleProfiles}</p>
+        <p className="text-gray-600">
+          Salaried Individual – Min Salary 18K with 2 years of job continuation proof
+          <br />
+          Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof
+        </p>
       </div>
 
       <div className="mb-4">
-        <h3 className="text-xl font-semibold text-gray-700">Tenure</h3>
-        <p className="text-gray-600">{tenure}</p>
+        <h3 className="text-xl font-semibold text-gray-700">Max Tenure</h3>
+        <p className="text-gray-600">
+          Home Loan – 30 Years | Mortgage Loan – 15 Years | Specialized Property Loan – 10 Years
+        </p>
       </div>
 
       <div className="mb-4">
@@ -54,9 +60,6 @@ function Eligibility({ age, eligibleProfiles, tenure, income, roi }) {
 }
 
 Eligibility.propTypes = {
-  age: PropTypes.string.isRequired,
-  eligibleProfiles: PropTypes.string.isRequired,
-  tenure: PropTypes.string.isRequired,
   income: PropTypes.arrayOf(
     PropTypes.shape({
       country: PropTypes.string.isRequired,

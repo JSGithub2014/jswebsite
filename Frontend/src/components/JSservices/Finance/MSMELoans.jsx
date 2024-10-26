@@ -53,7 +53,7 @@ function MSMELoans() {
           className="text-lg md:text-2xl font-semibold mb-4 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[2] ? 1 : 0, y: visibleSections[2] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           ref={el => sectionsRef.current[2] = el}
         >
           ✨ Why Choose Our MSME Loans?
@@ -111,7 +111,7 @@ function MSMELoans() {
           className="text-lg md:text-3xl font-semibold text-gray-800 mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[12] ? 1 : 0, y: visibleSections[12] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 1.5 }}
+          transition={{ duration: 0.5, delay: 1 }}
           ref={el => sectionsRef.current[12] = el}
         >
           Eligibility
@@ -134,7 +134,7 @@ function MSMELoans() {
           className="text-lg md:text-2xl font-semibold mb-2 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[16] ? 1 : 0, y: visibleSections[16] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 1.8 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
           ref={el => sectionsRef.current[16] = el}
         >
           📄 Required Documents
