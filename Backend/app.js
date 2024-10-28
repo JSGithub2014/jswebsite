@@ -9,6 +9,7 @@ const { reviewRoute } = require("./routes/reviewRoute");
 require("dotenv").config();
 
 const app = express();
+// Uncomment this if you need to establish a DB connection
 // db()
 
 app.use(cors({
@@ -36,8 +37,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route handlers
 app.use("/api/contact", contactRoute);
-app.use("/api/review", loginRoute);
-app.use("/api/user", reviewRoute);
+app.use("/api/review", reviewRoute); // Fixed: Should use reviewRoute, not loginRoute
+app.use("/api/user", loginRoute); // Assuming this is the correct mapping
 
 // Health check route
 app.get("/", (req, res) => {
