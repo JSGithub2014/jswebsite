@@ -9,17 +9,19 @@ const { reviewRoute } = require("./routes/reviewRoute");
 require("dotenv").config();
 
 const app = express();
+
 // Uncomment this if you need to establish a DB connection
 // db()
 
+// CORS configuration
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'https://www.jsasia.net',
+    origin: process.env.CORS_ORIGIN || 'https://www.jsasia.net', // Ensure this matches your frontend URL
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
-    credentials: true,
+    credentials: true, // Allow credentials if needed
 }));
 
-app.options('*', cors());
+app.options('*', cors()); // Pre-flight options for all routes
 
 const PORT = process.env.PORT || 8000;
 
@@ -37,8 +39,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route handlers
 app.use("/api/contact", contactRoute);
-app.use("/api/review", reviewRoute); // Fixed: Should use reviewRoute, not loginRoute
-app.use("/api/user", loginRoute); // Assuming this is the correct mapping
+app.use("/api/review", reviewRoute); // Ensure this is correct
+app.use("/api/user", loginRoute); // Assuming this is correct
 
 // Health check route
 app.get("/", (req, res) => {
