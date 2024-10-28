@@ -3,9 +3,14 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 const dbgr = require("debug")("development:reviewRoute.js");
 
+// GET route to confirm that the review route is working
+router.get("/", (req, res) => {
+    res.send("Review route is working!"); // Simple confirmation message
+});
+
 // POST route to submit a review
 router.post("/", async (req, res) => {
-    const { name, email, quote, rating, mobile } = req.body; // Added mobile
+    const { name, email, quote, rating, mobile } = req.body;
 
     const transporter = nodemailer.createTransport({
         host: "smtpout.secureserver.net",
@@ -21,7 +26,7 @@ router.post("/", async (req, res) => {
         from: email,
         to: process.env.EMAIL_USER,
         subject: `New Review Submitted by ${name}`,
-        text: `You have received a new review from ${name} (${email}, ${mobile}):\n\n"${quote}"\nRating: ${rating}\n\nAccept: http://yourdomain.com/api/review/${reviewId}/accept\nReject: http://yourdomain.com/api/review/${reviewId}/reject`,
+        text: `You have received a new review from ${name} (${email}, ${mobile}):\n\n"${quote}"\nRating: ${rating}`,
     };
 
     try {
