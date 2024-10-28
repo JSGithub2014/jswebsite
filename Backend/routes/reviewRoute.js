@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
 });
 
 // PATCH route to accept a review
-router.patch("/review/:id/accept", async (req, res) => {
+router.patch("/:id/accept", async (req, res) => {
     const reviewId = req.params.id;
     const { email } = req.body;
 
@@ -67,7 +67,7 @@ router.patch("/review/:id/accept", async (req, res) => {
 });
 
 // PATCH route to reject a review
-router.patch("/review/:id/reject", async (req, res) => {
+router.patch("/:id/reject", async (req, res) => {
     const reviewId = req.params.id;
     const { email } = req.body;
 
