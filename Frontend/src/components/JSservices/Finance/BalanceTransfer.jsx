@@ -91,8 +91,8 @@ function BalanceTransfer() {
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Fill out our online balance transfer application.</li>
-            <li>Receive approval and your new interest rate.</li>
+            <li>Contact us to start your balance transfer application.</li>
+            <li>Receive approval and learn about your new interest rate.</li>
             <li>Transfer your existing balance to us.</li>
             <li>Enjoy your savings! 🎉</li>
           </ol>
@@ -163,7 +163,7 @@ Self-employed – Min ITR 3 lakhs and above with at least 3 years of business co
           className="text-lg md:text-2xl font-semibold mb-2 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[15] ? 1 : 0, y: visibleSections[15] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           ref={el => sectionsRef.current[15] = el}
         >
           📄 Required Documents

@@ -92,7 +92,7 @@ function MortgageLoan() {
         >
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Complete our online mortgage application.</li>
+            <li>Reach out to us to start your mortgage application.</li>
             <li>Receive pre-approval for your mortgage.</li>
             <li>Choose your dream property.</li>
             <li>Finalize your mortgage and move in! 🎉</li>

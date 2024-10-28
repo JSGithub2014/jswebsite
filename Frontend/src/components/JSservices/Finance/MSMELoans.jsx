@@ -91,8 +91,8 @@ function MSMELoans() {
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Fill out the MSME loan application form online.</li>
-            <li>Submit required documentation for verification.</li>
+            <li>Contact us to initiate the MSME loan application.</li>
+            <li>Submit the required documentation for verification.</li>
             <li>Receive a loan offer tailored to your business.</li>
             <li>Accept the offer and receive funds to grow your business! 🎉</li>
           </ol>
@@ -134,7 +134,7 @@ function MSMELoans() {
           className="text-lg md:text-2xl font-semibold mb-2 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[16] ? 1 : 0, y: visibleSections[16] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           ref={el => sectionsRef.current[16] = el}
         >
           📄 Required Documents

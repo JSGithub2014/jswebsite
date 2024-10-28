@@ -91,7 +91,7 @@ function CashCredit() {
          <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Apply for a cash credit facility online.</li>
+            <li>Reach out to us to apply for a cash credit facility.</li>
             <li>Receive approval based on your creditworthiness.</li>
             <li>Access funds directly as per your requirement.</li>
             <li>Repay as per the agreed terms. 🎉</li>
@@ -135,7 +135,7 @@ function CashCredit() {
           className="text-lg md:text-2xl font-semibold mb-2 text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[16] ? 1 : 0, y: visibleSections[16] ? 0 : -20 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           ref={el => sectionsRef.current[16] = el}
         >
           📄 Required Documents
