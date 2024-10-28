@@ -5,10 +5,11 @@ const dbgr = require("debug")("development:app.js");
 const db = require("./db/mongoConnection");
 const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
+const { reviewRoute } = require("./routes/reviewRoute");
 require("dotenv").config();
 
 const app = express();
-db()
+// db()
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN || 'https://www.jsasia.net',
@@ -35,7 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route handlers
 app.use("/api/contact", contactRoute);
-app.use("/api/user", loginRoute);
+app.use("/api/review", loginRoute);
+app.use("/api/user", reviewRoute);
 
 // Health check route
 app.get("/", (req, res) => {

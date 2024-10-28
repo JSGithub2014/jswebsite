@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import TestimonialCard from '../components/TestimonialCards';
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FiArrowUp, FiArrowDown } from "react-icons/fi";
@@ -9,7 +9,7 @@ import img4 from '../assets/testimonial/testimonial-male-4.jpeg';
 import img5 from '../assets/testimonial/testimonial-male-5.jpeg';
 import img6 from '../assets/testimonial/testimonial-female-6.jpeg';
 import img7 from '../assets/testimonial/testimonial-male-7.jpeg';
-
+import TestimonialReview from '../components/TestimonialReview';
 
 const testimonials = [
   {
@@ -17,49 +17,72 @@ const testimonials = [
     position: 'Diamond Merchant',
     quote: "PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.",
     photo: img1,
+    rating: 5,
   },
   {
     name: 'Sharad Dedhia',
     position: 'Entrepreneur',
-    quote: "Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.”",
+    quote: "Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.",
     photo: img2,
+    rating: 4,
   },
   {
     name: 'Hirji Jatrara',
     position: 'Entrepreneur',
-    quote: "“I have seen the efforts and quickness at the same time. PASPL never like to stop for any reason and it is seen in their hard work. The loan amount provided was much higher than any other firm in the market.”",
+    quote: "I have seen the efforts and quickness at the same time. PASPL never like to stop for any reason and it is seen in their hard work. The loan amount provided was much higher than any other firm in the market.",
     photo: img3,
+    rating: 5,
   },
-  // Add additional testimonials following the same structure
   {
     name: 'Sirtaj Shaikh',
     position: 'Chairman NGO',
-    quote: "“Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.”",
-    photo: img4, // Use different images as necessary
+    quote: "Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.",
+    photo: img4,
+    rating: 5,
   },
   {
     name: 'Poonam Raut',
     position: 'Manager MNC',
-    quote: "“The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.”",
+    quote: "The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.",
     photo: img6,
+    rating: 4,
   },
   {
     name: 'Dinesh Suthar',
     position: 'Entrepreneur',
-    quote: "“What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.”",
+    quote: "What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.",
     photo: img5,
+    rating: 5,
   },
   {
     name: 'Suresh Lohar',
     position: 'Interior Decorator',
-    quote: "“Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.”",
+    quote: "Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.",
     photo: img7,
+    rating: 5,
   },
-  // Continue adding all other testimonials...
 ];
 
 function Testimonial() {
   const scrollRef = useRef(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Reset to top if reached the bottom
+          scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ top: 200, behavior: 'smooth' });
+        }
+      }
+    }, 3000); // Scroll every 3 seconds
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, []);
 
   const scrollUp = () => {
     if (scrollRef.current) {
@@ -73,13 +96,35 @@ function Testimonial() {
     }
   };
 
+  const handleSubmit = async (newReview) => {
+    const response = await fetch('https://jswebsite-ocj7.vercel.app/api/review', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newReview),
+    });
+
+    if (response.ok) {
+      setModalOpen(false);
+      // Optionally, you might want to refresh testimonials or show a success message
+    }
+  };
+
   return (
-    <section className="flex flex-col md:flex-row justify-between px-4 md:px-[5vw] items-center py-10 bg-[#fc7b0386]">
+    <section className="relative flex flex-col md:flex-row justify-between px-4 md:px-[5vw] items-center py-10 bg-[#fc7b0386]">
       <div className="md:w-1/2 px-6 mb-8 md:mb-0 flex flex-col justify-center">
         <RiDoubleQuotesL className='text-8xl text-zinc-500 mb-[2vw]' aria-hidden="true" />
         <h1 className="text-4xl md:text-6xl font-thin mb-4 text-black heading-font tracking-wider text-shadow" aria-label="What Our Clients Say">
           <span className='text-[rgb(255,102,0)] heading-font'>W</span>hat <span className='text-[rgb(255,102,0)] heading-font tracking-wider'>Our</span><br /> Clients Say?
         </h1>
+        <button 
+          onClick={() => setModalOpen(true)} 
+          className="mt-4 bg-[rgb(255,102,0)] text-white px-4 py-2 rounded"
+          aria-label="Add Review"
+        >
+          Add Review
+        </button>
       </div>
 
       <div className="md:w-1/2 h-96 relative">
@@ -100,6 +145,7 @@ function Testimonial() {
                 position={testimonial.position}
                 quote={testimonial.quote}
                 photo={testimonial.photo}
+                rating={testimonial.rating} // Pass the rating to the TestimonialCard
               />
             ))}
           </div>
@@ -113,6 +159,12 @@ function Testimonial() {
           <FiArrowDown className="text-[rgb(255,102,0)]" size={24} />
         </button>
       </div>
+
+      <TestimonialReview 
+        isOpen={isModalOpen} 
+        onClose={() => setModalOpen(false)} 
+        onSubmit={handleSubmit} 
+      />
     </section>
   );
 }

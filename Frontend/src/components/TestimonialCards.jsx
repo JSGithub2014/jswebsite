@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
-function TestimonialCard({ name, position, quote, photo }) {
+function TestimonialCard({ name, position, quote, photo, rating }) {
   return (
     <motion.div 
       className="bg-white shadow-lg rounded-lg p-5 m-4 flex flex-col md:flex-row" 
@@ -25,6 +26,19 @@ function TestimonialCard({ name, position, quote, photo }) {
           {name}
         </h3>
         <p className="text-gray-500 text-xs md:text-sm">{position}</p>
+        
+        <div className="mt-2 flex items-center">
+          {[...Array(5)].map((_, index) => (
+            <span key={index}>
+              {index < rating ? (
+                <AiFillStar className="text-yellow-500" size={20} />
+              ) : (
+                <AiOutlineStar className="text-gray-400" size={20} />
+              )}
+            </span>
+          ))}
+        </div>
+
         <div className="mt-2">
           <p className="text-gray-600 italic text-sm md:text-base">{quote}</p>
         </div>
