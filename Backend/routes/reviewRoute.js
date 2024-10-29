@@ -3,6 +3,11 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 const dbgr = require("debug")("development:reviewRoute.js");
 
+// In-memory storage for reviews and testimonials
+let reviews = [];
+let testimonials = [];
+let currentId = 1;
+
 // GET route to confirm that the review route is working
 router.get("/", (req, res) => {
     res.send("Review route is working!"); // Simple confirmation message
@@ -22,11 +27,24 @@ router.post("/", async (req, res) => {
         },
     });
 
+    // Generate a new review ID and store the review
+    const reviewId = currentId++;
+    const newReview = { id: reviewId, name, email, quote, rating, mobile };
+    reviews.push(newReview); // Store the review in memory
+
     const mailOptions = {
         from: email,
         to: process.env.EMAIL_USER,
         subject: `New Review Submitted by ${name}`,
-        text: `You have received a new review from ${name} (${email}, ${mobile}):\n\n"${quote}"\nRating: ${rating}`,
+        html: `
+            <p>You have received a new review from ${name} (${email}, ${mobile}):</p>
+            <blockquote>"${quote}"</blockquote>
+            <p>Rating: ${rating}</p>
+            <p>
+                <a href="https://jswebsite-ocj7.vercel.app/api/review/${reviewId}/accept" style="padding: 10px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Accept</a>
+                <a href="https://jswebsite-ocj7.vercel.app/api/review/${reviewId}/reject" style="padding: 10px; background-color: red; color: white; text-decoration: none; border-radius: 5px;">Reject</a>
+            </p>
+        `,
     };
 
     try {
@@ -41,8 +59,24 @@ router.post("/", async (req, res) => {
 
 // PATCH route to accept a review
 router.patch("/:id/accept", async (req, res) => {
-    const reviewId = req.params.id;
+    const reviewId = parseInt(req.params.id);
     const { email } = req.body;
+
+    // Find the review by ID (in-memory)
+    const reviewIndex = reviews.findIndex(r => r.id === reviewId);
+    if (reviewIndex === -1) {
+        return res.status(404).send("Review not found.");
+    }
+
+    const review = reviews[reviewIndex];
+
+    // Add the accepted review to the testimonials array
+    testimonials.push({
+        name: review.name,
+        position: "Client", // Modify this if you have a position in the review
+        quote: review.quote,
+        rating: review.rating
+    });
 
     const transporter = nodemailer.createTransport({
         host: "smtpout.secureserver.net",
@@ -73,8 +107,14 @@ router.patch("/:id/accept", async (req, res) => {
 
 // PATCH route to reject a review
 router.patch("/:id/reject", async (req, res) => {
-    const reviewId = req.params.id;
+    const reviewId = parseInt(req.params.id);
     const { email } = req.body;
+
+    // Find the review by ID (in-memory)
+    const review = reviews.find(r => r.id === reviewId);
+    if (!review) {
+        return res.status(404).send("Review not found.");
+    }
 
     const transporter = nodemailer.createTransport({
         host: "smtpout.secureserver.net",
