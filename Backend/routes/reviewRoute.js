@@ -56,16 +56,15 @@ router.post("/", async (req, res) => {
     }
 });
 
-// PATCH route to accept a review
-router.patch("/:id/accept", async (req, res) => {
+// GET route to accept a review
+router.get("/:id/accept", async (req, res) => {
     const reviewId = parseInt(req.params.id);
-    const { email } = req.body;
-
-    // Find the review by ID (in-memory)
     const review = reviews.find(r => r.id === reviewId);
     if (!review) {
         return res.status(404).send("Review not found.");
     }
+
+    const email = review.email; // Get email from the review
 
     const transporter = nodemailer.createTransport({
         host: "smtpout.secureserver.net",
@@ -87,6 +86,8 @@ router.patch("/:id/accept", async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         dbgr(`Email sent to ${email} about acceptance of review ID: ${reviewId}`);
+        // Optionally, remove the accepted review from the array
+        reviews = reviews.filter(r => r.id !== reviewId);
         res.send("Review accepted and email sent.");
     } catch (error) {
         dbgr("Error sending acceptance email:", error.message);
@@ -125,6 +126,8 @@ router.patch("/:id/reject", async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         dbgr(`Email sent to ${email} about rejection of review ID: ${reviewId}`);
+        // Optionally, remove the rejected review from the array
+        reviews = reviews.filter(r => r.id !== reviewId);
         res.send("Review rejected and email sent.");
     } catch (error) {
         dbgr("Error sending rejection email:", error.message);
