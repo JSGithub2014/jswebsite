@@ -3,17 +3,25 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 const dbgr = require("debug")("development:reviewRoute.js");
 
-// In-memory storage for reviews and testimonials
-let reviews = [];
-let testimonials = [];
+let reviews = []; // Store unapproved reviews
+let testimonials = []; // Store approved testimonials
 let currentId = 1;
 
-// GET route to confirm that the review route is working
+// Mock current testimonials (replace with your database or persistent storage)
+testimonials = [
+    { name: "Existing User", position: "Client", quote: "Great service!", rating: 5 },
+    // Add more existing testimonials as needed
+];
+
 router.get("/", (req, res) => {
-    res.send("Review route is working!"); // Simple confirmation message
+    res.send("Review route is working!");
 });
 
-// POST route to submit a review
+// Endpoint to get all testimonials
+router.get("/testimonials", (req, res) => {
+    res.json(testimonials); // Return current testimonials
+});
+
 router.post("/", async (req, res) => {
     const { name, email, quote, rating, mobile } = req.body;
 
@@ -27,10 +35,9 @@ router.post("/", async (req, res) => {
         },
     });
 
-    // Generate a new review ID and store the review
     const reviewId = currentId++;
     const newReview = { id: reviewId, name, email, quote, rating, mobile };
-    reviews.push(newReview); // Store the review in memory
+    reviews.push(newReview);
 
     const mailOptions = {
         from: email,
@@ -57,71 +64,64 @@ router.post("/", async (req, res) => {
     }
 });
 
-// PATCH route to accept a review
 router.patch("/:id/accept", async (req, res) => {
     const reviewId = parseInt(req.params.id);
-    const { email } = req.body;
-
-    // Find the review by ID (in-memory)
     const reviewIndex = reviews.findIndex(r => r.id === reviewId);
     if (reviewIndex === -1) {
         return res.status(404).send("Review not found.");
     }
 
     const review = reviews[reviewIndex];
-
-    // Add the accepted review to the testimonials array
     testimonials.push({
         name: review.name,
-        position: "Client", // Modify this if you have a position in the review
+        position: "Client",
         quote: review.quote,
         rating: review.rating
     });
 
+    reviews.splice(reviewIndex, 1); // Remove from unapproved list
+
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: email,
+        to: review.email,
         subject: "Your Review Has Been Accepted",
         text: `Thank you for your review! Your submission has been accepted.`,
     };
 
     try {
         await transporter.sendMail(mailOptions);
-        dbgr(`Email sent to ${email} about acceptance of review ID: ${reviewId}`);
-        res.json({ message: "Review accepted successfully." }); // Send a JSON response
+        dbgr(`Email sent to ${review.email} about acceptance of review ID: ${reviewId}`);
+        res.json({ message: "Review accepted successfully." });
     } catch (error) {
         dbgr("Error sending acceptance email:", error.message);
         res.status(500).send("Failed to send acceptance email.");
     }
 });
 
-// PATCH route to reject a review
 router.patch("/:id/reject", async (req, res) => {
     const reviewId = parseInt(req.params.id);
-    const { email } = req.body;
-
-    // Find the review by ID (in-memory)
-    const review = reviews.find(r => r.id === reviewId);
-    if (!review) {
+    const reviewIndex = reviews.findIndex(r => r.id === reviewId);
+    if (reviewIndex === -1) {
         return res.status(404).send("Review not found.");
     }
 
+    const review = reviews[reviewIndex];
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: email,
+        to: review.email,
         subject: "Your Review Has Been Rejected",
         text: `Thank you for your submission. Unfortunately, your review has been rejected.`,
     };
 
     try {
         await transporter.sendMail(mailOptions);
-        dbgr(`Email sent to ${email} about rejection of review ID: ${reviewId}`);
-        res.json({ message: "Review rejected successfully." }); // Send a JSON response
+        dbgr(`Email sent to ${review.email} about rejection of review ID: ${reviewId}`);
+        reviews.splice(reviewIndex, 1); // Remove from unapproved list
+        res.json({ message: "Review rejected successfully." });
     } catch (error) {
         dbgr("Error sending rejection email:", error.message);
         res.status(500).send("Failed to send rejection email.");
     }
 });
 
-// Export the review route
 module.exports = { reviewRoute: router };

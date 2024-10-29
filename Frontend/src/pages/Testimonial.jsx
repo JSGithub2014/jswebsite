@@ -71,24 +71,33 @@ function Testimonial() {
     const [isModalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
+        const fetchTestimonials = async () => {
+            const response = await fetch('https://jswebsite-ocj7.vercel.app/api/review/testimonials');
+            if (response.ok) {
+                const data = await response.json();
+                setTestimonials(prev => [...prev, ...data]); // Merge existing and fetched testimonials
+            }
+        };
+
+        fetchTestimonials();
+
         const interval = setInterval(() => {
             if (scrollRef.current) {
                 scrollRef.current.scrollTo({
-                    top: scrollRef.current.scrollTop + 150, // Scroll down by 150 pixels
-                    behavior: 'smooth', // Smooth scroll effect
+                    top: scrollRef.current.scrollTop + 150,
+                    behavior: 'smooth',
                 });
-                
-                // Reset scroll to top if reached bottom
+
                 if (scrollRef.current.scrollTop >= scrollRef.current.scrollHeight - scrollRef.current.clientHeight) {
                     scrollRef.current.scrollTo({
                         top: 0,
-                        behavior: 'smooth', // Smooth scroll back to top
+                        behavior: 'smooth',
                     });
                 }
             }
-        }, 3000); // Every 3 seconds
+        }, 3000);
 
-        return () => clearInterval(interval); // Cleanup on unmount
+        return () => clearInterval(interval);
     }, []);
 
     const handleSubmit = async (newReview) => {
