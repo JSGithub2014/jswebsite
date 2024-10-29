@@ -41,8 +41,8 @@ router.post("/", async (req, res) => {
             <blockquote>"${quote}"</blockquote>
             <p>Rating: ${rating}</p>
             <p>
-                <a href="https://jswebsite-ocj7.vercel.app/api/review/${reviewId}/accept" style="padding: 10px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Accept</a>
-                <a href="https://jswebsite-ocj7.vercel.app/api/review/${reviewId}/reject" style="padding: 10px; background-color: red; color: white; text-decoration: none; border-radius: 5px;">Reject</a>
+                <a href="/api/review/${reviewId}/accept" style="padding: 10px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Accept</a>
+                <a href="/api/review/${reviewId}/reject" style="padding: 10px; background-color: red; color: white; text-decoration: none; border-radius: 5px;">Reject</a>
             </p>
         `,
     };
@@ -78,16 +78,6 @@ router.patch("/:id/accept", async (req, res) => {
         rating: review.rating
     });
 
-    const transporter = nodemailer.createTransport({
-        host: "smtpout.secureserver.net",
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: email,
@@ -98,7 +88,7 @@ router.patch("/:id/accept", async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         dbgr(`Email sent to ${email} about acceptance of review ID: ${reviewId}`);
-        res.send("Review accepted and email sent.");
+        res.json({ message: "Review accepted successfully." }); // Send a JSON response
     } catch (error) {
         dbgr("Error sending acceptance email:", error.message);
         res.status(500).send("Failed to send acceptance email.");
@@ -116,16 +106,6 @@ router.patch("/:id/reject", async (req, res) => {
         return res.status(404).send("Review not found.");
     }
 
-    const transporter = nodemailer.createTransport({
-        host: "smtpout.secureserver.net",
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: email,
@@ -136,7 +116,7 @@ router.patch("/:id/reject", async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         dbgr(`Email sent to ${email} about rejection of review ID: ${reviewId}`);
-        res.send("Review rejected and email sent.");
+        res.json({ message: "Review rejected successfully." }); // Send a JSON response
     } catch (error) {
         dbgr("Error sending rejection email:", error.message);
         res.status(500).send("Failed to send rejection email.");

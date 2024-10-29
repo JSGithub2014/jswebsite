@@ -73,12 +73,14 @@ function Testimonial() {
     useEffect(() => {
         const interval = setInterval(() => {
             if (scrollRef.current) {
-                scrollRef.current.scrollTop += 1;
-                if (scrollRef.current.scrollTop >= scrollRef.current.scrollHeight) {
+                scrollRef.current.scrollTop += 150; // Scroll down by 150 pixels
+                // Reset scroll to top if reached bottom
+                if (scrollRef.current.scrollTop >= scrollRef.current.scrollHeight - scrollRef.current.clientHeight) {
                     scrollRef.current.scrollTop = 0; // Reset scroll to top
                 }
             }
-        }, 50);
+        }, 3000); // Every 3 seconds
+
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
