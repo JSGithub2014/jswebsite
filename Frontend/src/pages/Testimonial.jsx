@@ -12,55 +12,55 @@ import img7 from '../assets/testimonial/testimonial-male-7.jpeg';
 import TestimonialReview from '../components/TestimonialReview';
 
 const initialTestimonials = [
-    {
-        name: 'Nandkumar Pawar',
-        position: 'Diamond Merchant',
-        quote: "PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.",
-        photo: img1,
-        rating: 5,
-    },
-    {
-        name: 'Sharad Dedhia',
-        position: 'Entrepreneur',
-        quote: "Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.",
-        photo: img2,
-        rating: 4,
-    },
-    {
-        name: 'Hirji Jatrara',
-        position: 'Entrepreneur',
-        quote: "I have seen the efforts and quickness at the same time. PASPL never like to stop for any reason and it is seen in their hard work. The loan amount provided was much higher than any other firm in the market.",
-        photo: img3,
-        rating: 5,
-    },
-    {
-        name: 'Sirtaj Shaikh',
-        position: 'Chairman NGO',
-        quote: "Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.",
-        photo: img4,
-        rating: 5,
-    },
-    {
-        name: 'Poonam Raut',
-        position: 'Manager MNC',
-        quote: "The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.",
-        photo: img6,
-        rating: 4,
-    },
-    {
-        name: 'Dinesh Suthar',
-        position: 'Entrepreneur',
-        quote: "What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.",
-        photo: img5,
-        rating: 5,
-    },
-    {
-        name: 'Suresh Lohar',
-        position: 'Interior Decorator',
-        quote: "Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.",
-        photo: img7,
-        rating: 5,
-    },
+  {
+      name: 'Nandkumar Pawar',
+      position: 'Diamond Merchant',
+      quote: "PASPL never quits, it is not in their blood, low ITR and low banking still a proud owner of 2 properties worth 8 crores. Loved to work with them.",
+      photo: img1,
+      rating: 5,
+  },
+  {
+      name: 'Sharad Dedhia',
+      position: 'Entrepreneur',
+      quote: "Practice makes the man perfect yes; it is a great line which shows how good they are with their products otherwise I won't have got loan at the age of 65 years on my ITR. Wonderful Product knowledge.",
+      photo: img2,
+      rating: 4,
+  },
+  {
+      name: 'Hirji Jatrara',
+      position: 'Entrepreneur',
+      quote: "I have seen the efforts and quickness at the same time. PASPL never like to stop for any reason and it is seen in their hard work. The loan amount provided was much higher than any other firm in the market.",
+      photo: img3,
+      rating: 5,
+  },
+  {
+      name: 'Sirtaj Shaikh',
+      position: 'Chairman NGO',
+      quote: "Never lose hopes, as PASPL is still working on your file. A Home Loan of 2 crore on a total ITR of 10 lakhs. Yes, PASPL has succeeded in the same. Great Efforts.",
+      photo: img4,
+      rating: 5,
+  },
+  {
+      name: 'Poonam Raut',
+      position: 'Manager MNC',
+      quote: "The commitment is important than any other thing. As committed, I got a loan with lesser ROI as compared to other institutions and also got a discount in Processing Fees. Thank you PASPL.",
+      photo: img6,
+      rating: 4,
+  },
+  {
+      name: 'Dinesh Suthar',
+      position: 'Entrepreneur',
+      quote: "What a doorstep service, even I m staying in Ahmedabad, my loan got sanctioned and disbursed from Mumbai and each time a person was coming to Ahmedabad from Mumbai for paperwork. Such a seriousness on their commitment. Great.",
+      photo: img5,
+      rating: 5,
+  },
+  {
+      name: 'Suresh Lohar',
+      position: 'Interior Decorator',
+      quote: "Once with PASPL always with PASPL. They care for us and call us on timely basis asking for any issues with the repayments. These people even guided us in lockdown period for moratorium service. Now, PASPL is like our family member.",
+      photo: img7,
+      rating: 5,
+  },
 ];
 
 const photos = [img1, img2, img3, img4, img5, img6, img7];
@@ -73,10 +73,17 @@ function Testimonial() {
     useEffect(() => {
         const interval = setInterval(() => {
             if (scrollRef.current) {
-                scrollRef.current.scrollTop += 150; // Scroll down by 150 pixels
+                scrollRef.current.scrollTo({
+                    top: scrollRef.current.scrollTop + 150, // Scroll down by 150 pixels
+                    behavior: 'smooth', // Smooth scroll effect
+                });
+                
                 // Reset scroll to top if reached bottom
                 if (scrollRef.current.scrollTop >= scrollRef.current.scrollHeight - scrollRef.current.clientHeight) {
-                    scrollRef.current.scrollTop = 0; // Reset scroll to top
+                    scrollRef.current.scrollTo({
+                        top: 0,
+                        behavior: 'smooth', // Smooth scroll back to top
+                    });
                 }
             }
         }, 3000); // Every 3 seconds
@@ -94,15 +101,14 @@ function Testimonial() {
         });
 
         if (response.ok) {
-            // Add the new review to local testimonials state with a random photo
             const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
             setTestimonials(prev => [
                 ...prev,
                 { 
                     name: newReview.name,
-                    position: "Client", // Static position
+                    position: "Client",
                     quote: newReview.quote,
-                    photo: randomPhoto, // Use random photo
+                    photo: randomPhoto,
                     rating: newReview.rating
                 }
             ]);
@@ -130,6 +136,7 @@ function Testimonial() {
                 <button 
                     className="absolute top-2 left-full transform -translate-x-[130%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
                     aria-label="Scroll up"
+                    onClick={() => scrollRef.current.scrollTo({ top: scrollRef.current.scrollTop - 150, behavior: 'smooth' })}
                 >
                     <FiArrowUp className="text-[rgb(255,102,0)]" size={24} />
                 </button>
@@ -152,6 +159,7 @@ function Testimonial() {
                 <button 
                     className="absolute bottom-0 left-full transform -translate-x-[140%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
                     aria-label="Scroll down"
+                    onClick={() => scrollRef.current.scrollTo({ top: scrollRef.current.scrollTop + 150, behavior: 'smooth' })}
                 >
                     <FiArrowDown className="text-[rgb(255,102,0)]" size={24} />
                 </button>
