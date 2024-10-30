@@ -60,9 +60,9 @@ function OverDraft() {
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Instant Access to Funds 🚀", description: "Get immediate access to cash when you need it most." },
-            { title: "Flexible Repayment Options 🔄", description: "Repay as per your convenience without any stress." },
-            { title: "No Hidden Charges 🔍", description: "Transparent terms with no surprises." },
+            { title: "Instant Access to Funds 🚀", description: "Get your funds when needed. The facility will be linked directly to your bank account. You can easily access the required fund as per the limit provided to you with hesitation." },
+            { title: "Flexible Repayment Options 🔄", description: "There is no such repayment terms in Over Draft Facility, we have to pay the interest on the amount utilized and the same is being deducted every month from the OD Account. It get closed automatically once the OD tenure is completed." },
+            { title: "Personalized Support 🔍", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process to see whether all the things are regular and there is no delay to complete the work." },
             { title: "Competitive Interest Rates 💸", description: "Benefit from some of the best rates in the market." }
           ].map((item, index) => (
             <motion.div
@@ -91,10 +91,12 @@ function OverDraft() {
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Reach out to us to apply for an overdraft facility.</li>
-            <li>Get your application approved quickly.</li>
-            <li>Access funds directly from your bank account.</li>
-            <li>Repay as per your convenience! 🎉</li>
+            <li>Provide the checklist documents as shared by our Relationship Manager</li>
+            <li>Upon analysis, all the documents will be provided to the concerned Bank to start the process.</li>
+            <li>Legal & Technical will be initiated of the property provided as collateral.</li>
+            <li>After receiving the Legal & Technical reports, sanction letter will be issued of the OD amount calculated.</li>
+            <li>After signing the Loan Agreement, and OD account will be opened</li>
+            <li>Once OD account is opened, disbursement will be done and post that the Facility Amount will be available for transaction</li>
           </ol>
         </div>
         </motion.div>
@@ -118,15 +120,15 @@ function OverDraft() {
           Eligibility
         </motion.h2>
         {[
-          { title: "Age", description: "Minimum 24 years" },
-          { title: "Eligible Profiles", description: <p>Salaried Individual – Min Salary 18K with 2 years of job continuation proof <br />
-Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof</p> },
-          { title: "Limit", description: "Up to 50% of your monthly income." },
-          { title: "Rate of Interest", description: "As per applicable guidelines." }
+          { title: "Age", description: "Minimum 3 years (This facility is available only in the name of Company)" },
+          { title: "Eligible Profiles", description: <p>Only Self-employed – Turnover above 1 Crore with profit margin of 8% to 12%</p> },
+          { title: "Max Tenure", description: "OD Facility – 15 years with auto renewal every year DOD Facility – Drop Line OD with a Drop Line of Equated Facility monthly." },
+          { title: "Rate of Interest", description: "As per company profile ranging between 9% to 12%." }
         ].map((item, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-base md:text-xl font-semibold text-gray-700">{item.title}</h3>
             <p className="text-sm md:text-gray-600">{item.description}</p>
+            <p className="text-sm md:text-gray-600">This facility is available only to companies that are incorporated in India. One can also get OD against FD</p>
           </div>
         ))}
       </section>
