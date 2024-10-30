@@ -8,11 +8,10 @@ const ScrollToTop = () => {
     return (
         <button 
             onClick={handleScrollToTop} 
-            className="fixed flex items-center justify-center text-2xl font-semibold bottom-4 right-4 bg-gradient-to-r from-[rgb(255,102,0)] to-[rgb(255,160,0)] text-white p-3 rounded-full w-12 h-12 shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-xl active:scale-95"
+            className="fixed flex items-center justify-center text-2xl font-semibold bottom-4 right-4 bg-gradient-to-r from-[rgb(255,102,0)] to-[rgb(255,160,0)] text-white p-3 rounded-full w-12 h-12 shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-xl active:scale-95 z-50"
             aria-label="Scroll to top" 
             title="Scroll to top"
         >
-            
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="w-8 h-8" 

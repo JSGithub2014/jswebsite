@@ -60,12 +60,12 @@ function MortgageLoan() {
         >
           ✨ Why Choose Our Mortgage Loans?
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-justify">
           {[
-            { title: "Low Interest Rates 💵", description: "We provide some of the lowest interest rates to help you save money." },
+            { title: "Low Interest Rates 💵", description: "Depending upon your profile and documentation, the Rate of Interest will be applicable. Our specialized team is more efficient" },
             { title: "Customizable Loan Terms 📅", description: "Select a loan term that suits your financial situation." },
-            { title: "Fast Processing 🏃‍♂️", description: "Our efficient process gets you approved quickly." },
-            { title: "Expert Guidance 📘", description: "Our team will assist you in navigating the mortgage process." }
+            { title: "Quick and Easy Application 🏃‍♂️", description: "Our experts will help you get your file login quickly and easily. We have specially dedicated sales coordinators in the backend taking care of all the loan process starting from Login to Disbursement." },
+            { title: "Personalized Support 📘", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process to see whether all the things are regular and there is no delay to complete the work." }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -91,11 +91,13 @@ function MortgageLoan() {
           ref={el => sectionsRef.current[7] = el}
         >
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
-          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Reach out to us to start your mortgage application.</li>
-            <li>Receive pre-approval for your mortgage.</li>
-            <li>Choose your dream property.</li>
-            <li>Finalize your mortgage and move in! 🎉</li>
+          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600 ">
+            <li>Provide all the required documents as per the check list provided.</li>
+            <li>Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process.</li>
+            <li>Your completed file will be forwarded to the bank for processing, which we call it as login.</li>
+            <li>Post login, we will proceed for Sanctioning of the loan.</li>
+            <li>Finalize your dream home</li>
+            <li>Finalize your loan and move in 🎉</li>
           </ol>
         </motion.div>
         <div className="w-full md:w-1/3 text-center">
@@ -123,34 +125,39 @@ function MortgageLoan() {
         </div>
         <div className="mb-4">
           <h3 className="text-base md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Eligible Profiles</h3>
-          <p className="text-sm md:text-gray-600"> Salaried Individual – Min Salary 18K with 2 years of job continuation proof <br /> Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof</p>
+          <p className="text-sm md:text-gray-600">Salaried Individual – Min Salary 18K with 2 years of job continuation proof <br />
+Self-employed – Min ITR 3 lakhs and above with atleast 3 years of business continuation proof
+</p>
         </div>
         <div className="mb-4">
           <h3 className="text-base md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Max Tenure</h3>
-          <p className="text-sm md:text-gray-600"> Home Loan – 30 Years | Mortgage Loan – 15 Years | Specialized Property Loan – 10 Years</p>
+          <p className="text-sm md:text-gray-600">Mortgage Loan – 15 Years</p>
         </div>
         <div className="mb-4">
           <h3 className="text-base md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Income</h3>
-          <div className="overflow-x-auto max-h-60 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-gray-200">
-            <table className="min-w-full mt-2 border-collapse border border-gray-200">
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="border border-gray-300 px-4 py-2 text-left text-sm md:text-base">Country/Employment Type</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left text-sm md:text-base">Monthly Income</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">GCC</td>
-                  <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">30,000.00 USD</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">Other Countries</td>
-                  <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">40,000.00 AED</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div className="mb-4 overflow-x-auto max-h-60 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-gray-200">
+          <table className="min-w-full mt-2 border-collapse border border-gray-200">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border border-gray-300 px-4 py-2 text-left">Country/Employment Type</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Merchant Navy</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Other Than Merchant Navy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2">GCC</td>
+                <td className="border border-gray-300 px-4 py-2">26,000.00 USD</td>
+                <td className="border border-gray-300 px-4 py-2">84,000.00 AED</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2">Other Countries</td>
+                <td className="border border-gray-300 px-4 py-2">26,000.00 USD</td>
+                <td className="border border-gray-300 px-4 py-2">42,000.00 AED</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         </div>
         <div className="mb-4">
           <h3 className="text-base md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Rate of Interest</h3>

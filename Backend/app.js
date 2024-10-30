@@ -11,7 +11,7 @@ require("dotenv").config();
 const app = express();
 
 // Uncomment this if you need to establish a DB connection
-// db()
+db()
 
 // CORS configuration
 app.use(cors({

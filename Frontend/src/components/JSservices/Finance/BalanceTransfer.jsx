@@ -60,10 +60,10 @@ function BalanceTransfer() {
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Low Rates 💸", description: "Save on interest with competitive rates." },
+            { title: "Low Rate of Interest 💸", description: "We definitely assure you that the Rate of Interest for your Balance Transfer will be at the lower side as compared to your current Rate of Interest. Along with the same, we also provide Top-up facilities." },
             { title: "Flexible Options 🔄", description: "Choose a repayment plan that fits you." },
-            { title: "Quick Process 🚀", description: "Transfer your balance in minutes." },
-            { title: "No Hidden Fees 🔍", description: "Transparent terms, no surprises." }
+            { title: "Quick and Easy Application 🚀", description: "Here the documentation part is little different, as few more documents are required to start the loan process. Our expert team will guide you with the same and provide you full support so as the documentation part could get completed." },
+            { title: "Personalized Support 🔍", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process to see whether all the things are regular and there is no delay to complete the work." }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -91,10 +91,13 @@ function BalanceTransfer() {
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Contact us to start your balance transfer application.</li>
-            <li>Receive approval and learn about your new interest rate.</li>
-            <li>Transfer your existing balance to us.</li>
-            <li>Enjoy your savings! 🎉</li>
+            <li>Provide all the required documents as per the check list provided.</li>
+            <li>Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process. Additional documents required will be Sanction Letter, List of Documents (LOD) and Foreclosure Letter.</li>
+            <li>Your completed file will be forwarded to the bank for processing, which we call it as login.</li>
+            <li>Along with it, the property documents will also be forwarded for Legal and Technical evaluation.</li>
+            <li>Post login, we will proceed for Sanctioning of the loan.</li>
+            <li>Upon receiving the Legal and Technical Reports, the disbursement will be processed and the Pay Order / DD / Cheque will be provided which will be submitted to the Parental Bank (Bank from where the previous loan was ongoing).</li>
+            <li>Once all the payment to Parental Bank is cleared, original documents will be received. Upon submitting the original documents, the Balance Transfer loan will be completed.</li>
           </ol>
         </div>
         </motion.div>
@@ -120,42 +123,45 @@ function BalanceTransfer() {
         {[
           { title: "Age", description: "Minimum 24 years" },
           { title: "Profiles", description:<p>Salaried Individual – Min Salary 18K with 2 years of job continuation proof <br />
-Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof</p> },
-          { title: "Tenure", description: "Up to 5 Years." },
-          { title: "Income", description: "See below for requirements." }
+            Self-employed – Min ITR 3 lakhs and above with atleast 3 years of business continuation proof
+            </p> },
+          { title: "Max Tenure", description: "Balance Transfer – The balance tenure of the parental loan will be carry forwarded" },
         ].map((item, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-base md:text-xl font-semibold text-gray-700">{item.title}</h3>
             <p className="text-sm md:text-gray-600">{item.description}</p>
           </div>
         ))}
+        <div className="mb-4">
+          <h3 className="text-base md:text-xl font-semibold text-gray-700">Rate of Interest</h3>
+          <p className="text-sm md:text-gray-600">Base Rate as per RBI guidelines and Margin as per guidelines of the Bank / NBFC.</p>
+        </div>
         
-        <div className="mb-4 overflow-x-auto">
-          <h3 className="text-base md:text-xl font-semibold text-gray-700">Income Requirements</h3>
+        <div className="mb-4 overflow-x-auto max-h-60 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-gray-200">
           <table className="min-w-full mt-2 border-collapse border border-gray-200">
             <thead>
               <tr className="bg-gray-200">
-                <th className="border border-gray-300 px-4 py-2 text-left text-sm md:text-base">Country/Employment</th>
-                <th className="border border-gray-300 px-4 py-2 text-left text-sm md:text-base">Monthly Income</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Country/Employment Type</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Merchant Navy</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Other Than Merchant Navy</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">GCC</td>
-                <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">25,000.00 USD</td>
+                <td className="border border-gray-300 px-4 py-2">GCC</td>
+                <td className="border border-gray-300 px-4 py-2">26,000.00 USD</td>
+                <td className="border border-gray-300 px-4 py-2">84,000.00 AED</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">Other Countries</td>
-                <td className="border border-gray-300 px-4 py-2 text-sm md:text-base">35,000.00 AED</td>
+                <td className="border border-gray-300 px-4 py-2">Other Countries</td>
+                <td className="border border-gray-300 px-4 py-2">26,000.00 USD</td>
+                <td className="border border-gray-300 px-4 py-2">42,000.00 AED</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="mb-4">
-          <h3 className="text-base md:text-xl font-semibold text-gray-700">Rate of Interest</h3>
-          <p className="text-sm md:text-gray-600">As per applicable guidelines.</p>
-        </div>
+        
       </section>
 
       <section className="mt-10 flex items-center justify-center text-center">

@@ -42,11 +42,12 @@ function FinanceHero({ scrollToSection }) {
     'homeLoan', 
     'mortgageLoan', 
     'balanceTransfer', 
+    'topUpLoan', 
     'overDraft', 
     'cashCredit', 
     'cgtmse', 
-    'msmeLoans'
-  ];
+    'msmeLoans',
+];
 
   const formatSectionName = (section) => {
     if (section === 'cgtmse') {

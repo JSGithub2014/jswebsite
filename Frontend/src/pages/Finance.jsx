@@ -8,12 +8,14 @@ import OverDraft from '../components/JSservices/Finance/OverDraft';
 import CashCredit from '../components/JSservices/Finance/CashCredit';
 import CGTMSE from '../components/JSservices/Finance/CGTMSE';
 import MSMELoans from '../components/JSservices/Finance/MSMELoans';
+import TopUpLoan from '../components/JSservices/Finance/TopUpLoan';
 import { Helmet } from 'react-helmet';
 
 const Finance = () => {
     const homeLoanRef = useRef(null);
     const mortgageLoanRef = useRef(null);
     const balanceTransferRef = useRef(null);
+    const TopUpLoanRef = useRef(null);
     const overDraftRef = useRef(null);
     const cashCreditRef = useRef(null);
     const cgtmseRef = useRef(null);
@@ -30,6 +32,9 @@ const Finance = () => {
                 break;
             case 'balanceTransfer':
                 ref = balanceTransferRef;
+                break;
+            case 'topUpLoan': // Change to 'topUpLoan' to match the string used in sections array
+                ref = TopUpLoanRef;
                 break;
             case 'overDraft':
                 ref = overDraftRef;
@@ -53,6 +58,7 @@ const Finance = () => {
             console.warn('Reference not found for section:', section);
         }
     };
+    
 
     return (
         <>
@@ -84,6 +90,13 @@ const Finance = () => {
 
                 <section ref={balanceTransferRef} className="my-10">
                     <BalanceTransfer />
+                    <div className="flex justify-center">
+                        <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
+                    </div>
+                </section>
+                
+                <section ref={TopUpLoanRef} className="my-10">
+                    <TopUpLoan />
                     <div className="flex justify-center">
                         <hr className="w-1/2 border-gray-300 md:my-6 my-0" />
                     </div>

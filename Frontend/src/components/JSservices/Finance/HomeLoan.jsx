@@ -104,18 +104,17 @@ function HomeLoan() {
           <p className="text-sm md:text-gray-600">
             Salaried Individual – Min Salary 18K with 2 years of job continuation proof
             <br />
-            Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof
+            Self-employed – Min ITR 3 lakhs and above with atleast 3 years of business continuation proof
           </p>
         </div>
         <div className="mb-4">
           <h3 className="text-lg md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Max Tenure</h3>
           <p className="text-sm md:text-gray-600">
-            Home Loan – 30 Years | Mortgage Loan – 15 Years | Specialized Property Loan – 10 Years
+            Home Loan – 30 Years
           </p>
         </div>
         {[
-          { title: "Income", description: "Refer to the table below for income eligibility." },
-          { title: "Rate of Interest", description: "As per RBI Guidelines." }
+          { title: "Rate of Interest", description: "Base Rate as per RBI guidelines and Margin as per guidelines of the Bank / NBFC." }
         ].map((item, index) => (
           <div className="mb-4" key={index}>
             <h3 className="text-lg md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">{item.title}</h3>
