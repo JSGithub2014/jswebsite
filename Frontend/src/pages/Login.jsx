@@ -1,18 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faEye } from '@fortawesome/free-solid-svg-icons';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import BrandLogo from '../assets/brand-logo-transperent.png';
-import { UserContext } from '../Context/UserContext'; 
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext); // Get setUser from context
 
     const togglePassword = () => {
         setPasswordVisible(prevState => !prevState);
@@ -35,25 +33,24 @@ const Login = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                const errorMessage = errorData.message || 'Failed to login'; // Get error message from server
-                toast.error(`Login failed: ${errorMessage}`); // Use Toastify for error message
-                return; // Exit if there was an error
+                const errorMessage = errorData.message || 'Failed to login';
+                toast.error(`Login failed: ${errorMessage}`);
+                return;
             }
 
             const data = await response.json();
             console.log(data);
-            setUser(data.user); // Set user in context
-            toast.success('Login successful!'); // Success message
+            toast.success('Login successful!');
             navigate('/'); // Redirect to home after login
         } catch (error) {
             console.error(error);
-            toast.error(`Login failed: ${error.message}`); // Use Toastify for error message
+            toast.error(`Login failed: ${error.message}`);
         }
     };
 
     return (
         <div className="flex h-screen justify-center items-center bg-gray-100 overflow-hidden relative p-4">
-            <ToastContainer /> {/* Add ToastContainer for displaying toasts */}
+            <ToastContainer />
             <div className="flex w-full max-w-4xl flex-col md:flex-row">
                 <div className="flex md:hidden w-full items-center justify-center mb-4">
                     <img src={BrandLogo} alt="Brand Logo" className="w-1/2" />
