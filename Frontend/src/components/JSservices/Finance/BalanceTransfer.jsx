@@ -58,7 +58,7 @@ function BalanceTransfer() {
         >
           ✨ Why Choose Us?
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-justify">
           {[
             { title: "Low Rate of Interest 💸", description: "We definitely assure you that the Rate of Interest for your Balance Transfer will be at the lower side as compared to your current Rate of Interest. Along with the same, we also provide Top-up facilities." },
             { title: "Flexible Options 🔄", description: "Choose a repayment plan that fits you." },
@@ -90,7 +90,7 @@ function BalanceTransfer() {
         >
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
-          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
+          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600 ">
             <li>Provide all the required documents as per the check list provided.</li>
             <li>Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process. Additional documents required will be Sanction Letter, List of Documents (LOD) and Foreclosure Letter.</li>
             <li>Your completed file will be forwarded to the bank for processing, which we call it as login.</li>

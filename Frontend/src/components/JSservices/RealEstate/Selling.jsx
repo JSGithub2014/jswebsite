@@ -15,7 +15,7 @@ const containerVariants = {
 };
 
 const Selling = () => {
-  const [visibleElements, setVisibleElements] = useState(Array(6).fill(false)); // Adjust size based on number of animated elements
+  const [visibleElements, setVisibleElements] = useState(Array(6).fill(false));
   const sectionRef = useRef(null);
 
   const observeElement = (entries) => {
@@ -33,12 +33,11 @@ const Selling = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observeElement, {
-      threshold: 0.2 // Trigger when 20% of the element is in view
+      threshold: 0.2,
     });
 
     const elements = document.querySelectorAll('.fade-in');
-    elements.forEach((element, index) => {
-      element.dataset.index = index; // Store index to identify which element is being observed
+    elements.forEach((element) => {
       observer.observe(element);
     });
 
@@ -48,8 +47,7 @@ const Selling = () => {
   }, []);
 
   useEffect(() => {
-    // Reset visibility state when the component mounts
-    setVisibleElements(Array(6).fill(false));
+    setVisibleElements(Array(6).fill(false)); // Reset on mount
   }, []);
 
   return (
@@ -64,15 +62,17 @@ const Selling = () => {
         initial="hidden"
         animate={visibleElements[0] ? "visible" : "hidden"}
         variants={containerVariants}
+        data-index={0} // Ensure the heading is observed
       >
         Ready to Sell <span className='heading-font font-semibold tracking-wider text-black'>Your Property?</span>
       </motion.h2>
 
       <motion.p 
-        className='text-lg mb-4 text-center fade-in'
+        className='text-lg mb-4 md:w-5/6 text-center fade-in'
         initial="hidden"
         animate={visibleElements[1] ? "visible" : "hidden"}
         variants={containerVariants}
+        data-index={1} // Ensure the paragraph is observed
       >
         Our expert team is here to help you get the best value for your property. 
         Whether it's residential or commercial, we provide personalized service to meet your needs.
@@ -88,7 +88,7 @@ const Selling = () => {
           <motion.article 
             key={index}
             className='fade-in bg-white p-4 rounded-lg shadow-md m-2 w-full sm:w-1/2 md:w-1/3 transform transition-transform duration-300 hover:scale-105'
-            data-index={index + 2} // Set index for visibility tracking
+            data-index={index + 2} // Adjust index for visibility tracking
             initial="hidden"
             animate={visibleElements[index + 2] ? "visible" : "hidden"}
             variants={containerVariants}

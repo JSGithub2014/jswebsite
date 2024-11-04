@@ -60,10 +60,9 @@ function MSMELoans() {
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Flexible Loan Amounts 💰", description: "Choose from a range of loan amounts tailored to your business needs." },
-            { title: "Quick Disbursement ⚡", description: "Get funds transferred to your account quickly and efficiently." },
-            { title: "Competitive Interest Rates 🏷️", description: "Enjoy attractive interest rates to help your business thrive." },
-            { title: "No Hidden Charges 🔍", description: "Transparent fee structure with no surprises." }
+            { title: "One-of-a-kind loan facility💰", description: "This facility is a special facility which is being provided only by the Nationalized Banks, to companies only. In MSME Loans, a Secured Over Draft is provided where a company has to provide a collateral of about 60% of the facility amount provided through MSME Loans. This property can be owned by a company or any Partner or Director or any family member of the Partner or Director." },
+            { title: "Flexible Repayment Options 🔁", description: "There is no such repayment terms in Over Draft Facility, we have to pay the interest on the amount utilized and the same is being deducted every month from the OD Account. It get closed automatically once the OD tenure is completed." },
+            { title: "Personalized Support 📞", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process to see whether all the things are regular and there is no delay to complete the work." }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -91,10 +90,12 @@ function MSMELoans() {
           <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Contact us to initiate the MSME loan application.</li>
-            <li>Submit the required documentation for verification.</li>
-            <li>Receive a loan offer tailored to your business.</li>
-            <li>Accept the offer and receive funds to grow your business! 🎉</li>
+            <li>Provide the checklist documents as shared by our Relationship Manager</li>
+            <li>Upon analysis, all the documents will be provided to the concerned Bank to start the process.</li>
+            <li>Legal & Technical will be initiated of the property provided as collateral.</li>
+            <li>After receiving the Legal & Technical reports, sanction letter will be issued of the OD amount calculated.</li>
+            <li>After signing the Loan Agreement, and OD account will be opened</li>
+            <li>Once OD account is opened, disbursement will be done and post that the Facility Amount will be available for transaction</li>
           </ol>
         </div>
         </motion.div>
@@ -117,10 +118,10 @@ function MSMELoans() {
           Eligibility
         </motion.h2>
         {[
-          { title: "Age", description: "Min. 18 yrs. No upper age limit." },
-          { title: "Eligible Profiles", description: "Registered MSMEs under the MSME Act." },
-          { title: "Loan Amount", description: "Amounts ranging from ₹50,000 to ₹2 crore." },
-          { title: "Rate of Interest", description: "Competitive rates as per market standards." }
+          { title: "Age", description: "Company Age to be min 5 years old" },
+          { title: "Eligible Profiles", description: "Only Self-employed – Turnover above 1 Crore with profit margin of 8% to 12%. Capital – 4% of the Facility provided including all the previous active disbursed amounts." },
+          { title: "Max Tenure", description: "MSME – Max Tenure is 15 Years (the facility will be renewed every year)" },
+          { title: "Rate of Interest", description: "As per company profile ranging between 9% to 12%." }
         ].map((item, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-base md:text-xl font-semibold text-gray-700">{item.title}</h3>

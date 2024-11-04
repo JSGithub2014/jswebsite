@@ -58,12 +58,12 @@ function CashCredit() {
         >
           ✨ Why Choose Our Cash Credit?
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-justify">
           {[
-            { title: "Flexible Withdrawal Options 🔄", description: "Withdraw as needed within your credit limit." },
-            { title: "Interest Only on Utilized Amount 💳", description: "Pay interest only on the amount you use." },
-            { title: "Quick Processing 🚀", description: "Get approved and access funds quickly." },
-            { title: "Tailored Solutions 🛠️", description: "Customizable terms to fit your business needs." }
+            { title: "Flexible Repayment Options🔄", description: "Just like Over Draft Facility, we have to pay the interest only on the amount utilized and the same is being deducted every month from the CC Account. It has to be renewed every year by providing latest financials, full details of Creditors and Debtors and details of stocks." },
+            { title: "Instant Access to Funds 💳", description: "Same as Over Draft Facility, The facility will be linked directly to your bank account. You can easily access the required fund as per the limit provided to you without hesitation." },
+            { title: "Quick Processing 🚀", description: "Our commitment to quick processing ensures that you can navigate financial challenges with ease. Don’t let slow approvals hold you back. With our Cash Credit Facility, you can enjoy rapid access to the funds you need to keep your business thriving. Apply today and experience the benefits of quick processing for yourself! " },
+            { title: "Personalized Support🛠️", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process till the facility is disbursed to see whether all the things are regular and there is no delay to complete the work. Further, at the time where the facility has to be renewed, the work has to be carried out by your Accounts team and the Bank Managers." }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -91,10 +91,12 @@ function CashCredit() {
          <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Reach out to us to apply for a cash credit facility.</li>
-            <li>Receive approval based on your creditworthiness.</li>
-            <li>Access funds directly as per your requirement.</li>
-            <li>Repay as per the agreed terms. 🎉</li>
+            <li>Provide the checklist documents as shared by our Relationship Manager</li>
+            <li>Upon analysis, all the documents will be provided to the concerned Bank to start the process.</li>
+            <li>Legal & Technical will be initiated of the property provided as collateral.</li>
+            <li>After receiving the Legal & Technical reports, sanction letter will be issued of the CC amount calculated.</li>
+            <li>After signing the Loan Agreement, and CC account will be opened</li>
+            <li>Once CC account is opened, disbursement will be done and post that the Facility Amount will be available for transaction</li>
           </ol>
         </div>
         </motion.div>
@@ -118,10 +120,10 @@ function CashCredit() {
           Eligibility
         </motion.h2>
         {[
-          { title: "Age", description: "Min. 21 yrs. Max. 65 yrs. or retirement age whichever is earlier at the time of application." },
-          { title: "Eligible Profiles", description: "Businesses with at least 2 years of operational history." },
-          { title: "Credit Limit", description: "Up to 100% of your working capital requirement." },
-          { title: "Rate of Interest", description: "As per applicable guidelines." }
+          { title: "Age", description: "Minimum 3 years (This facility is available only in the name of Company)" },
+          { title: "Eligible Profiles", description: "Only Self-employed – Turnover above 2 Crores with profit margin of 8% to 12%" },
+          { title: "Max Tenure", description: "CC Facility – 15 years with auto renewal every year" },
+          { title: "Rate of Interest", description: "As per company profile ranging between 9% to 12%." }
         ].map((item, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-base md:text-xl font-semibold text-gray-700">{item.title}</h3>

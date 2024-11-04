@@ -56,7 +56,7 @@ const LifeInsurance = () => {
         Comprehensive Life <span className='heading-font font-semibold tracking-wider text-black'>Insurance Solutions</span>
       </motion.h2>
 
-      <div className="w-5/6 flex flex-col items-start">
+      <div className="w-5/6 flex flex-col items-start text-center">
         <motion.p
           className="text-base md:text-lg mb-4 fade-in"
           initial="hidden"
@@ -78,28 +78,28 @@ const LifeInsurance = () => {
         </motion.h3>
 
         <div className="w-full flex justify-center">
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 max-w-4xl">
-            {[
-              { icon: <FaHeartbeat aria-hidden="true" />, title: "Term Life Insurance" },
-              { icon: <FaShieldAlt aria-hidden="true" />, title: "Whole Life Insurance" },
-              { icon: <FaMoneyBillWave aria-hidden="true" />, title: "Universal Life Insurance" },
-              { icon: <FaHandHoldingHeart aria-hidden="true" />, title: "Endowment Plans" },
-            ].map((item, index) => (
-              <motion.article
-                key={index}
-                className="fade-in flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                data-index={index + 3} // Set index for visibility tracking
-                initial="hidden"
-                animate={visibleElements[index + 3] ? "visible" : "hidden"}
-                variants={fadeInVariants}
-                transition={{ delay: 0.3 + index * 0.1 }} // Staggered delay
-              >
-                <div className="text-4xl mb-2 text-[rgb(255,102,0)]">{item.icon}</div>
-                <h4 className="text-base md:text-lg font-semibold">{item.title}</h4>
-              </motion.article>
-            ))}
-          </div>
-        </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 max-w-4xl">
+    {[
+      { icon: <FaHeartbeat aria-hidden="true" />, title: "Term Life Insurance" },
+      { icon: <FaShieldAlt aria-hidden="true" />, title: "Whole Life Insurance" },
+      { icon: <FaMoneyBillWave aria-hidden="true" />, title: "Universal Life Insurance" },
+      { icon: <FaHandHoldingHeart aria-hidden="true" />, title: "Endowment Plans" },
+    ].map((item, index) => (
+      <motion.article
+        key={index}
+        className="fade-in flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+        data-index={index + 3} // Set index for visibility tracking
+        initial="hidden"
+        animate={visibleElements[index + 3] ? "visible" : "hidden"}
+        variants={fadeInVariants}
+        transition={{ delay: 0.3 + index * 0.1 }} // Staggered delay
+      >
+        <div className="text-4xl mb-2 text-[rgb(255,102,0)]">{item.icon}</div>
+        <h4 className="text-base md:text-lg font-semibold">{item.title}</h4>
+      </motion.article>
+    ))}
+  </div>
+</div>
 
         <motion.h3
           className="text-xl md:text-2xl font-semibold text-[rgb(255,102,0)] mb-4 fade-in"
@@ -111,7 +111,7 @@ const LifeInsurance = () => {
           Why Choose Our Life Insurance?
         </motion.h3>
 
-        <ul className="list-disc list-inside mb-6">
+        <ul className="list-disc list-inside mb-6 text-left">
           {[
             "Financial security for your loved ones",
             "Flexible policy options to suit your needs",
@@ -134,7 +134,7 @@ const LifeInsurance = () => {
         </ul>
 
         <motion.p
-          className="text-base md:text-lg mb-4 fade-in"
+          className="text-base md:text-lg mb-4 fade-in text-left"
           initial="hidden"
           animate={visibleElements[13] ? "visible" : "hidden"}
           variants={fadeInVariants}

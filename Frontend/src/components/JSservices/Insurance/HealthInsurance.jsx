@@ -47,7 +47,7 @@ const HealthInsurance = () => {
         </h2>
       </header>
       
-      <article className="w-5/6 flex flex-col items-start">
+      <article className="w-5/6 flex flex-col items-start text-center">
         <motion.p
           className="fade-in text-lg mb-4"
           initial="hidden"
@@ -98,7 +98,7 @@ const HealthInsurance = () => {
           Why Choose Our Health Insurance?
         </motion.h3>
         
-        <ul className="list-disc list-inside mb-6">
+        <ul className="list-disc list-inside mb-6 text-left">
           {[
             "Modern treatment",
             "Bonus benefits every year",
@@ -123,7 +123,7 @@ const HealthInsurance = () => {
         </ul>
 
         <motion.p
-          className="fade-in text-lg mb-4"
+          className="fade-in text-lg mb-4 text-left"
           initial="hidden"
           animate={visibleElements[15] ? "visible" : "hidden"}
           variants={fadeInVariants}
@@ -132,7 +132,7 @@ const HealthInsurance = () => {
         </motion.p>
         
         <motion.p
-          className="fade-in text-lg mb-4"
+          className="fade-in text-lg mb-4 text-left"
           initial="hidden"
           animate={visibleElements[16] ? "visible" : "hidden"}
           variants={fadeInVariants}

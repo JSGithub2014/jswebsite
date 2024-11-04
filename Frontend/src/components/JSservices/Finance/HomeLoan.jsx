@@ -57,7 +57,7 @@ function HomeLoan() {
       >
         <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
-          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
+          <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600 ">
             {['Provide all the required documents as per the check list provided.',
               'Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process.',
               'Your completed file will be forwarded to the bank for processing, which we call it as login.',

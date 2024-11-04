@@ -13,14 +13,14 @@ const GoalCard = ({ title, description, direction }) => {
     setIsExpanded(!isExpanded);
   };
 
-  const renderIcon = (title) => {
+  const renderIcon = () => {
     switch (title) {
       case "Our Vision":
-        return <FaEye className="text-5xl text-indigo-600" />;
+        return <FaEye className="text-6xl text-indigo-600" />;
       case "Our Mission":
-        return <FaLightbulb className="text-5xl text-yellow-500" />;
+        return <FaLightbulb className="text-6xl text-yellow-500" />;
       case "Our Values":
-        return <FaHandsHelping className="text-5xl text-green-500" />;
+        return <FaHandsHelping className="text-6xl text-green-500" />;
       default:
         return null;
     }
@@ -29,7 +29,7 @@ const GoalCard = ({ title, description, direction }) => {
   return (
     <motion.article
       ref={ref}
-      className="bg-gradient-to-r from-zinc-300 to-zinc-400  rounded-xl p-6 m-2 flex flex-col max-w-5xl shadow-lg transition-transform transform hover:scale-105"
+      className="bg-white border border-gray-300 rounded-xl p-6 m-4 flex flex-col max-w-md shadow-lg transition-transform transform hover:scale-105"
       role="article"
       aria-labelledby={title}
       aria-expanded={isExpanded}
@@ -37,14 +37,12 @@ const GoalCard = ({ title, description, direction }) => {
       animate={isInView ? { x: 0, opacity: 1 } : initialPosition}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex w-1/4 justify-center">{renderIcon(title)}</div>
-        <h2 className="text-xl font-bold flex-grow text-center text-[rgb(255,102,0)] drop-shadow-lg" id={title}>
-          {title}
-        </h2>
-        <div className="flex w-1/4 justify-center">{renderIcon(title)}</div>
+      <div className="flex items-center justify-center mb-4">
+        {renderIcon()}
       </div>
-
+      <h2 className="text-2xl font-bold text-center text-[rgb(255,102,0)] mb-2" id={title}>
+        {title}
+      </h2>
       <motion.div
         className="flex-grow flex items-center justify-center"
         initial={{ height: 0 }}
@@ -56,15 +54,14 @@ const GoalCard = ({ title, description, direction }) => {
           {description}
         </p>
       </motion.div>
-
-      <button 
-        className="flex items-center justify-center text-zinc-700 font-semibold hover:text-zinc-900 mt-4 transition duration-300"
+      <button
+        className="flex items-center justify-center text-zinc-700 font-semibold hover:text-zinc-900 mt-4 transition duration-300 rounded-md p-2 bg-gray-100 hover:bg-gray-200"
         onClick={toggleExpand}
         aria-label={isExpanded ? 'Collapse description' : 'Expand description'}
       >
         <motion.span
-          animate={{ y: isExpanded ? 0 : [0, -5, 0] }} // Up and down movement
-          transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }} 
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
           className="mr-2"
         >
           {isExpanded ? <FaChevronUp /> : <FaChevronDown />}

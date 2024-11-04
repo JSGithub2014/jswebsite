@@ -56,7 +56,7 @@ const GeneralInsurance = () => {
         Comprehensive General <span className='heading-font font-semibold tracking-wider text-black'>Insurance Solutions</span>
       </motion.h2>
 
-      <div className="w-11/12 md:w-5/6 flex flex-col items-start">
+      <div className="w-11/12 md:w-5/6 flex flex-col items-start text-center">
         <motion.p
           className="text-base md:text-lg mb-4 fade-in"
           initial="hidden"
@@ -114,7 +114,7 @@ const GeneralInsurance = () => {
           Why Choose Our General Insurance?
         </motion.h3>
 
-        <ul className="list-disc list-inside mb-6">
+        <ul className="list-disc list-inside mb-6 text-left">
           {[
             "Comprehensive coverage against financial losses",
             "Peace of mind knowing you’re protected",
@@ -137,7 +137,7 @@ const GeneralInsurance = () => {
         </ul>
 
         <motion.p
-          className="text-base md:text-lg mb-4 fade-in"
+          className="text-base md:text-lg mb-4 fade-in text-left"
           initial="hidden"
           animate={visibleElements[15] ? "visible" : "hidden"}
           variants={fadeInVariants}
@@ -147,7 +147,7 @@ const GeneralInsurance = () => {
         </motion.p>
 
         <motion.p
-          className="text-base md:text-lg mb-4 fade-in"
+          className="text-base md:text-lg mb-4 fade-in text-left"
           initial="hidden"
           animate={visibleElements[16] ? "visible" : "hidden"}
           variants={fadeInVariants}

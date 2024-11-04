@@ -22,7 +22,7 @@ const ManagementTeam = ({ teamMembers }) => {
   };
 
   return (
-    <section className="w-full md:w-[80vw] mt-8 p-6">
+    <section className="w-full mt-8 p-6">
       <div className="p-4 gap-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }} 
@@ -42,29 +42,37 @@ const ManagementTeam = ({ teamMembers }) => {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center gap-10 ">
           {teamMembers.map((member, index) => (
-            <motion.div 
-              key={index} 
-              className="w-full sm:w-1/2 lg:w-1/3 p-4"
+            <motion.div
+              key={index}
+              className="w-full sm:w-2/3 lg:w-1/4 p-4"
               initial={{ opacity: 0, scale: 0.8 }} 
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5, delay: index * 0.1 }} 
             >
               <article
-                className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105"
+                className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 relative"
                 onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
                 role="button"
                 aria-label={`View details for ${member.name}`}
               >
-                <div className="w-full h-80 md:h-96 relative overflow-hidden rounded-lg">
+                <div className="w-full h-64 md:h-72 relative overflow-hidden rounded-lg mb-4">
                   <img
-                    className="w-full h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    className="w-full h-full object-fit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     src={member.image}
                     alt={`Image of ${member.name}, ${member.role}`}
                   />
+                  <div className="absolute inset-0 hidden md:flex bg-black opacity-0 hover:opacity-50 transition-opacity duration-300  items-end justify-center"> {/* Black overlay */}
+                    <button
+                      onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
+                      className="text-white text-xl font-bold mb-10 hover:text-zinc-400 hover:opacity-100 transition-opacity duration-300 bg-transparent border-none cursor-pointer"
+                    >
+                    Explore More
+                    </button>
+                  </div>
                 </div>
-                <p className="font-semibold text-lg text-center mt-2">{styledName(member.name)}</p>
+                <p className="font-semibold text-lg">{styledName(member.name)}</p>
                 <p className="text-gray-700 text-center mt-1">{member.role}</p>
               </article>
             </motion.div>

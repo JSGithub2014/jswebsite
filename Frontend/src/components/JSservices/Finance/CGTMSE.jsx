@@ -60,10 +60,9 @@ function CGTMSE() {
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Credit Guarantee 💼", description: "Receive guarantees for loans up to a specified limit." },
-            { title: "Support for MSMEs 🏢", description: "Designed specifically for Micro, Small, and Medium Enterprises." },
-            { title: "Boosts Confidence 🚀", description: "Facilitates easier access to credit." },
-            { title: "No Collateral Required 🔒", description: "Access funds without needing collateral." }
+            { title: "Quick Disbursement 🚀", description: "This facility is provided only when anyone (individual or company) has borrowed any collateral loan from a Bank. A Top-up like loan of 20% of the parental loan is being provided linked to the Parental Loan A/c. which gets disbursed and credited at your account for business needs. This scheme has a government backing hence you get a moratorium period of 12 months wherein you have to pay only interest for the first 12 months and after that the loan has to be repaid in 36 EMIs." },
+            { title: "Flexible Repayment Options 🔁", description: "Unlike Business Loans, this loan has a tenure 48 months with easy EMI deduction from your bank account. It is hassle-free." },
+            { title: "Personalized Support", description: "A dedicated Relationship Manager is assigned to every client to take care of the documentation part and overlook the process till the facility is disbursed to see whether all the things are regular and there is no delay to complete the work." }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -91,10 +90,11 @@ function CGTMSE() {
          <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
           <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600">
-            <li>Contact an accredited lending institution to express your interest in a loan.</li>
-            <li>Indicate that you wish to utilize the CGTMSE scheme.</li>
-            <li>Receive approval based on the eligibility criteria.</li>
-            <li>Get the loan amount with CGTMSE coverage! 🎉</li>
+            <li>Provide the checklist documents as shared by our Relationship Manager</li>
+            <li>The file will be put-up for login upon completion</li>
+            <li>Upon receiving the approval from the government, the Sanction Letter is released and the Loan Agreement is provided</li>
+            <li>After signing the Loan Agreement, the Disbursement process starts </li>
+            <li>Once the disbursement is done, the amount is credited in your current account 🎉</li>
           </ol>
         </div>
         </motion.div>
@@ -118,10 +118,10 @@ function CGTMSE() {
           Eligibility
         </motion.h2>
         {[
-          { title: "Age", description: "Minimum age of 18 years with no upper age limit." },
-          { title: "Eligible Profiles", description: "Micro, Small, and Medium Enterprises as defined by the MSME Act." },
-          { title: "Loan Amount", description: "Coverage up to ₹2 crore, depending on the specific scheme." },
-          { title: "Rate of Interest", description: "As per the lender's guidelines." }
+          { title: "Age", description: "Between 24 years to 65 years" },
+          { title: "Eligible Profiles", description: "Only Self-employed – There has to be an ongoing loan facility from any Bank where a minimum of 12 EMIs are paid." },
+          { title: "Max Tenure", description: "CGTMSE – 4 years (1st year only Interest has to be paid, further 3 years EMI has to be served)" },
+          { title: "Rate of Interest", description: "As per company profile ranging between 9% to 12%." }
         ].map((item, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-base md:text-xl font-semibold text-gray-700">{item.title}</h3>

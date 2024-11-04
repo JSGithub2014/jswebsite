@@ -6,16 +6,16 @@ const db = require("./db/mongoConnection");
 const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
 const { reviewRoute } = require("./routes/reviewRoute");
+const authRoute = require("./routes/auth")
 require("dotenv").config();
 
 const app = express();
 
-// Uncomment this if you need to establish a DB connection
 db()
 
 // CORS configuration
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'https://www.jsasia.net', // Ensure this matches your frontend URL
+    origin: [process.env.CORS_ORIGIN || 'https://www.jsasia.net','http://localhost:5173'],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
     credentials: true, // Allow credentials if needed
@@ -39,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route handlers
 app.use("/api/contact", contactRoute);
+app.use("/api/auth", authRoute);
 app.use("/api/review", reviewRoute); // Ensure this is correct
 app.use("/api/user", loginRoute); // Assuming this is correct
 

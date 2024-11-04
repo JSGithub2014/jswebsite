@@ -12,7 +12,7 @@ function Footer() {
 
         {/* Brand Logo */}
         <div className="brand-logo mb-2 md:mb-0 flex-shrink-0 w-full md:w-1/4 flex justify-center md:justify-start">
-          <a href="#landing" aria-label="Brand Logo">
+          <a href="/" aria-label="Brand Logo">
             <img
               className="w-20 md:w-24 hover:scale-110 transition-transform duration-300 lg:mt-8"
               src={brandLogo}

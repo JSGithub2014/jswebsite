@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaLinkedin } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const MemberDetail = () => {
   const location = useLocation();
@@ -20,34 +21,69 @@ const MemberDetail = () => {
     const words = name.split(' ');
     return (
       <span>
-        <span style={{ color: 'rgb(255,102,0)' }}>{words[0]} </span>
+        <span className="text-[rgb(255,102,0)]">{words[0]} </span>
         {words.slice(1).join(' ')}
       </span>
     );
   };
 
   return (
-    <section className="flex flex-col items-center justify-center pt-24 p-4 h-screen bg-gray-100">
-      <button
-        className="mb-4 text-[rgb(255,102,0)] hover:underline hover:scale-125 transition-transform duration-200"
-        onClick={handleBackClick}
-        aria-label="Go back to team page" 
+    <motion.section
+      className="full-screen flex flex-col items-center justify-center p-4 md:pt-20 "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.button
+  className="flex items-center mb-4 text-[rgb(255,102,0)] bg-white border border-[rgb(255,102,0)] rounded-lg px-4 py-2 transition-colors duration-200 ease-in-out transform hover:bg-[rgb(255,102,0)] hover:text-white hover:shadow-xl"
+  onClick={handleBackClick}
+  aria-label="Go back to team page"
+  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+  whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+>
+  <svg
+    className="w-4 h-4 mr-2"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M15 19l-7-7 7-7"
+    />
+  </svg>
+  &larr; Back
+</motion.button>
+
+      <motion.article
+        className="bg-white shadow-xl w-full max-w-md md:max-w-6xl mx-auto flex flex-col md:flex-row p-4 md:p-6 lg:p-8 relative"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        &larr; Back
-      </button>
-      <article className="bg-white rounded-lg shadow-lg w-full max-w-md md:max-w-5xl mx-auto flex flex-col md:flex-row p-4 md:p-6 lg:p-8">
-        <div className="flex justify-center items-center mb-4 md:w-1/2 md:mb-0">
-          <img
+        {/* Image Container */}
+        <motion.div className="flex justify-center items-center mb-4 md:w-1/2 md:mb-0 bg-transparent">
+          <motion.img
             src={member.image}
-            alt={`Image of ${member.name}`} // Descriptive alt text
-            className=" h-36 md:h-96 lg:h-96 w-auto object-fit:contain rounded-xl" 
+            alt={`Image of ${member.name}`}
+            className="h-36 md:h-96 lg:h-96 w-auto object-contain rounded-lg shadow-lg" 
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3 }}
           />
-        </div>
+        </motion.div>
+
+        {/* Information Container */}
         <div className="flex flex-col justify-center md:w-1/2 md:ml-4">
-          <h2 className="text-base md:text-lg lg:text-xl font-semibold">
+          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
             {styledName(member.name)}
           </h2>
-          <p className="text-sm md:text-base font-medium text-gray-600">{member.role}</p>
+          <p className="text-md md:text-lg font-medium text-gray-600">{member.role}</p>
           <p className="text-gray-800 text-sm md:text-base mt-2 text-justify">{member.description || 'No description available.'}</p>
           <div className="mt-4">
             <h3 className="font-semibold text-gray-700">Connect with {member.name}:</h3>
@@ -57,7 +93,7 @@ const MemberDetail = () => {
                   href={member.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-blue-600 hover:underline"
+                  className="flex items-center text-blue-600 hover:underline transition-colors duration-200"
                   aria-label={`Connect with ${member.name} on LinkedIn`}
                 >
                   <FaLinkedin className="mr-1" /> LinkedIn
@@ -66,8 +102,14 @@ const MemberDetail = () => {
             </div>
           </div>
         </div>
-      </article>
-    </section>
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </motion.article>
+    </motion.section>
   );
 };
 

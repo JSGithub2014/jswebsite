@@ -42,7 +42,7 @@ const Leasing = () => {
         Ready to Lease <span className='heading-font font-semibold text-black'>Your Property?</span>
       </motion.h2>
       <motion.p 
-        className='text-lg mb-4 text-center'
+        className='text-lg mb-4 md:w-5/6 text-center'
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -51,7 +51,7 @@ const Leasing = () => {
         We offer comprehensive leasing services to ensure a smooth experience.
       </motion.p>
 
-      <div className='flex flex-wrap justify-center my-6'>
+      <div className='flex flex-wrap justify-center my-6 '>
         {[
           { title: 'Tenant Screening', description: 'Thorough background checks to find reliable tenants.', icon: <FaUsers aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
           { title: 'Property Management', description: 'We manage your property for a hassle-free experience.', icon: <FaKey aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
