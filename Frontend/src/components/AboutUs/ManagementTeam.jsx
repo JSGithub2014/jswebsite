@@ -42,7 +42,7 @@ const ManagementTeam = ({ teamMembers }) => {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-10 ">
+        <div className="flex flex-wrap justify-center gap-10">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -57,9 +57,9 @@ const ManagementTeam = ({ teamMembers }) => {
                 role="button"
                 aria-label={`View details for ${member.name}`}
               >
-                <div className="w-full h-64 md:h-72 relative overflow-hidden rounded-lg mb-4">
+                <div className="w-full h-[300px] md:h-[350px] relative overflow-hidden rounded-lg mb-4">
                   <img
-                    className="w-full h-full object-fit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    className="w-auto h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     src={member.image}
                     alt={`Image of ${member.name}, ${member.role}`}
                   />
@@ -68,7 +68,7 @@ const ManagementTeam = ({ teamMembers }) => {
                       onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
                       className="text-white text-xl font-bold mb-10 hover:text-zinc-400 hover:opacity-100 transition-opacity duration-300 bg-transparent border-none cursor-pointer"
                     >
-                    Explore More
+                      Explore More
                     </button>
                   </div>
                 </div>
