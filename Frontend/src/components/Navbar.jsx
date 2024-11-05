@@ -23,7 +23,7 @@ function Navbar() {
     } else {
       setIsAuthenticated(false);
     }
-  }, [location]);
+  }, [location]); // Check on location change
 
   // Toggle Navbar visibility on scroll
   const handleScroll = () => {

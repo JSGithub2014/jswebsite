@@ -39,11 +39,9 @@ const Login = () => {
             }
 
             const data = await response.json();
-            console.log(data);
             toast.success('Login successful!');
-            navigate('/'); // Redirect to home after login
+            navigate('/'); 
         } catch (error) {
-            console.error(error);
             toast.error(`Login failed: ${error.message}`);
         }
     };
