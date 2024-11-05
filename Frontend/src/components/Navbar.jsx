@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import brandLogo from '../assets/Brand.png';
 import { AiFillBulb } from 'react-icons/ai';
 
@@ -10,14 +10,22 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [confirmChecked, setConfirmChecked] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Track if user is logged in
   const location = useLocation();
+  const navigate = useNavigate();
   const menuRef = useRef(null); // Create a ref for the menu
 
+  // Check if the user is authenticated
   useEffect(() => {
-    const path = location.pathname;
-    setShowNavbar(path !== '/login' && path !== '/signup');
+    const token = document.cookie.split('; ').find(row => row.startsWith('jwt='));
+    if (token) {
+      setIsAuthenticated(true); // If there's a token, user is logged in
+    } else {
+      setIsAuthenticated(false);
+    }
   }, [location]);
 
+  // Toggle Navbar visibility on scroll
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -35,10 +43,12 @@ function Navbar() {
     };
   }, [lastScrollY]);
 
+  // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Handle modal open and close
   const openModal = () => {
     setShowModal(true);
   };
@@ -65,6 +75,30 @@ function Navbar() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen]);
+
+  // Set API URL based on environment
+  const apiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://jswebsite-ocj7.vercel.app/api/auth/logout' 
+    : 'http://localhost:5000/api/auth/logout'; // Local dev API URL
+
+  // Handle logout
+  const logout = async () => {
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        credentials: 'include', // Ensures the cookie is sent with the request
+      });
+
+      if (response.ok) {
+        setIsAuthenticated(false);
+        navigate('/');
+      } else {
+        console.error('Logout failed');
+      }
+    } catch (error) {
+      console.error('Logout error', error);
+    }
+  };
 
   return (
     <>
@@ -100,8 +134,16 @@ function Navbar() {
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
-            <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Signup</Link>
+            {!isAuthenticated ? (
+              <>
+                <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Signup</Link>
+              </>
+            ) : (
+              <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
+                Logout
+              </button>
+            )}
             <button
               onClick={openModal}
               className="bg-blue-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-blue-600"
@@ -174,8 +216,8 @@ function Navbar() {
               <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
             </div>
             <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
-  This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained with in each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
-</p>
+            This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained with in each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
+            </p>
 
             <div className="flex items-center mb-4">
               <input
