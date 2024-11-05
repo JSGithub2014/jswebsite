@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.jsasia.net/</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://www.jsasia.net/about-us/our-team</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.jsasia.net/services/finance</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jsasia.net/services/insurance</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jsasia.net/services/real-estate</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Contact Us -->
+  <url>
+    <loc>https://www.jsasia.net/contact-us</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Partners -->
+  <url>
+    <loc>https://www.jsasia.net/about-us/our-story</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.jsasia.net/faqs</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Testimonials -->
+  <url>
+    <loc>https://www.jsasia.net/testimonial</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Robust Foundation -->
+  <url>
+    <loc>https://www.jsasia.net/robustfoundation</loc>
+    <lastmod>2024-11-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>
