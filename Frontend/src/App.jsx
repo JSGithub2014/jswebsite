@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './pages/Footer';
 import MotionWrapper from './components/MotionWrapper';
 import NotFound from './components/NotFound';
+import LoctionMap from './components/LocationMap'
 
 // Lazy load pages
 const Login = lazy(() => import('./pages/Login'));
@@ -122,6 +123,7 @@ const App = () => {
                 <WhyUs />
                 <Faqs />
                 <RobustFoundation />
+                <LoctionMap/>
                 <ContactUs />
               </MotionWrapper>
             } />

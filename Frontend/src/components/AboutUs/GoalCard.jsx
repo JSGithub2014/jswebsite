@@ -7,7 +7,8 @@ const GoalCard = ({ title, description, direction }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: false });
 
-  const initialPosition = direction === 'left' ? { x: -100 } : { x: 100 };
+  // Set initial position based on the 'direction' prop
+  const initialPosition = direction === 'bottom' ? { y: 80 } : { y: 80 };
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -33,9 +34,9 @@ const GoalCard = ({ title, description, direction }) => {
       role="article"
       aria-labelledby={title}
       aria-expanded={isExpanded}
-      initial={{ ...initialPosition, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : initialPosition}
-      transition={{ duration: 0.5 }}
+      initial={{ ...initialPosition, opacity: 0 }} // Initial state with 0 opacity and moved down
+      animate={isInView ? { y: 0, opacity: 1 } : initialPosition} // Animate to full opacity and move up to normal position
+      transition={{ duration: 0.6, ease: "easeOut" }} // Smooth transition, no bounce
     >
       <div className="flex items-center justify-center mb-4">
         {renderIcon()}

@@ -25,17 +25,7 @@ function OurStory() {
     {
       title: "Our Values",
       description: (
-        <>
-          Integrity: Our values are founded on integrity, upholding the highest standards of honesty and ethics in all our dealings. Trust is the cornerstone of lasting relationships, and we strive to earn it through our actions.
-          <br />
-          Innovation: Innovation is at the heart of our approach; we embrace creativity and new ideas to drive progress, ensuring that we remain adaptable in an ever-changing landscape.
-          <br />
-          Collaboration: Collaboration is key to our success; we work together across teams and disciplines, leveraging diverse perspectives to achieve common goals.
-          <br />
-          Excellence: We strive for excellence, aiming for the highest quality in everything we do, from the services we provide to the relationships we cultivate.
-          <br />
-          Continuous Improvement: Our commitment to these values guides our decisions and inspires us to continuously improve and deliver exceptional results. As Robert Collier said, 'Success is the sum of small efforts, repeated day in and day out.'
-        </>
+        "At the core of our business are values that drive our success: Integrity, where we uphold honesty and ethics in every interaction; Innovation, which fuels our adaptability and progress in a constantly changing world; Collaboration, as we believe in working together to achieve common goals through diverse perspectives; Excellence, striving for the highest quality in everything we do; and Continuous Improvement, as we are committed to refining our practices and delivering exceptional results. As Robert Collier said, “Success is the sum of small efforts, repeated day in and day out,” and we live by this principle every day."
       )
     }
   ];
@@ -43,24 +33,25 @@ function OurStory() {
 
   return (
     <React.Fragment>
-      <div className="min-h-screen w-full bg-white flex flex-col items-center text-black p-6 relative">
-        <StoryHero />
-        <StoryShowCase />
-        <h2 className="font-bold text-center my-12 heading-font tracking-wider text-black text-3xl md:text-5xl">
-          <span className='heading-font tracking-wider text-[rgb(255,102,0)]'>The Heart</span> of Our Organization
-        </h2>
-        <div className="flex flex-col lg:flex-row justify-center items-stretch w-full">
-          {sections.map((section, index) => (
-            <div className="flex-1 min-w-[300px] max-w-md m-4" key={index}>
-              <GoalCard
-                title={section.title}
-                description={Array.isArray(section.description) ? section.description.join(' ') : section.description}
-                direction={index % 2 === 0 ? 'left' : 'right'}
-              />
-            </div>
-          ))}
-        </div>
+     <main className="min-h-screen w-full bg-white flex flex-col items-center text-black p-6 relative">
+  <StoryHero />
+  <StoryShowCase />
+  
+  <h2 className="font-bold text-center my-12 heading-font tracking-wider text-black text-3xl md:text-5xl">
+    <span className='heading-font tracking-wider text-[rgb(255,102,0)]'>The Heart</span> of Our Organization
+  </h2>
+  
+  <div className="flex flex-col lg:flex-row justify-center items-stretch w-full">
+    {sections.map((section, index) => (
+      <div className="flex-1 min-w-[300px] max-w-md m-4" key={index}>
+        <GoalCard
+          title={section.title}
+          description={Array.isArray(section.description) ? section.description.join(' ') : section.description}
+        />
       </div>
+    ))}
+  </div>
+</main>
     </React.Fragment>
   );
 }

@@ -34,7 +34,6 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
     <article 
       ref={cardRef} 
       className={`bg-white shadow-lg rounded-lg p-6 transition-all duration-300 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col justify-between`} 
-      style={{ height: isExpanded ? 'auto' : '300px' }} // Auto height when expanded
       aria-labelledby={`service-${title.toLowerCase()}`}
     >
       <img 
@@ -54,7 +53,7 @@ function ServicesCard({ logo, title, description, additionalInfo, generalInfo })
         {description}
       </p>
       <div 
-        className={`mt-2 transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-40' : 'max-h-0 overflow-hidden'}`} 
+        className={`mt-2 transition-all duration-500 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[300px]' : 'max-h-0'}`} 
       >
         <p className="text-sm sm:text-gray-600 text-justify">{additionalInfo}</p>
         <p className="mt-2 text-sm sm:text-gray-600">{generalInfo}</p>

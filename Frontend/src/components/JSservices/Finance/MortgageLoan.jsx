@@ -87,22 +87,25 @@ function MortgageLoan() {
           className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: visibleSections[7] ? 1 : 0, y: visibleSections[7] ? 0 : -20 }}
-          transition={{ duration: 0.3, delay: 0.3 }} // Faster animation
+          transition={{ duration: 0.3, delay: 0.3 }}
           ref={el => sectionsRef.current[7] = el}
         >
-          <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
+          <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
+          <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600 ">
             <li>Provide all the required documents as per the check list provided.</li>
             <li>Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process.</li>
             <li>Your completed file will be forwarded to the bank for processing, which we call it as login.</li>
+            <li>Along with it, the property documents will also be forwarded for Legal and Technical evaluation.</li>
             <li>Post login, we will proceed for Sanctioning of the loan.</li>
-            <li>Finalize your dream home</li>
-            <li>Finalize your loan and move in 🎉</li>
+            <li>Upon receiving the Legal and Technical Reports, the disbursement will be processed and the amount will be transferred to your respective bank account.</li>
           </ol>
+        </div>
         </motion.div>
+
         <div className="w-full md:w-1/3 text-center">
-          <h3 className="text-sm md:text-lg font-semibold mb-2" role="heading" aria-level="3">Need Assistance? 📞</h3>
-          <a href="tel:+918012091209" className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
+          <h3 className="text-sm md:text-lg font-semibold mb-2">Need Help? 📞</h3>
+          <a href="tel:++918012091209" className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
             <FaPhoneAlt className="mr-2" /> Connect Now!!
           </a>
         </div>

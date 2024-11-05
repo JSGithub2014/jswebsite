@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react'; // Import useState and useRef
 import { FaFileDownload, FaPhoneAlt } from 'react-icons/fa';
 import RequiredDocument from '../../../assets/Services/LOD.pdf';
 import { motion } from 'framer-motion';
@@ -9,11 +9,34 @@ const sectionVariants = {
 };
 
 function HomeLoan() {
+  const [visibleSections, setVisibleSections] = useState({});
+  const sectionsRef = useRef([]);
+
+  // Handle the scroll event to determine section visibility
+  const handleScroll = () => {
+    const sectionVisibility = {};
+    sectionsRef.current.forEach((section, index) => {
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        sectionVisibility[index] = rect.top < window.innerHeight && rect.bottom > 0;
+      }
+    });
+    setVisibleSections(sectionVisibility);
+  };
+
+  // Add scroll event listener on mount and cleanup on unmount
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <main className="max-w-7xl mx-auto p-6">
       <header className="text-center py-10">
         <h1 className="text-4xl md:text-5xl heading-font mb-4 text-orange-600" role="heading" aria-level="1">
-          🏡 Home Loans <span className='text-black heading-font'>Made Easy</span>
+          🏡 Home Loans <span className="text-black heading-font">Made Easy</span>
         </h1>
         <p className="text-base md:text-lg text-gray-700">Get the keys to your dream home with our flexible home loan options.</p>
       </header>
@@ -48,45 +71,39 @@ function HomeLoan() {
         </div>
       </motion.section>
 
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false }}
-        className="mt-10 flex flex-col md:flex-row justify-center"
-      >
-        <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800" role="heading" aria-level="2">🚀 How It Works</h2>
+      {/* How It Works Section */}
+      <section className="mt-10 flex flex-col md:flex-row justify-center">
+        <motion.div
+          className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: visibleSections[7] ? 1 : 0, y: visibleSections[7] ? 0 : -20 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+          ref={el => sectionsRef.current[7] = el}
+        >
+          <div className="text-left flex flex-col w-full md:w-2/3 mb-6 md:mb-0">
+          <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800">🚀 How It Works</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm md:text-gray-600 ">
-            {['Provide all the required documents as per the check list provided.',
-              'Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process.',
-              'Your completed file will be forwarded to the bank for processing, which we call it as login.',
-              'Post login, we will proceed for Sanctioning of the loan.',
-              'Finalize your dream home',
-              'Finalize your loan and move in',].map((step, index) => (
-                <motion.li
-                  key={index}
-                  variants={sectionVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false }}
-                >
-                  {step}
-                </motion.li>
-              ))}
+            <li>Provide all the required documents as per the check list provided.</li>
+            <li>Our dedicated Relationship Manager will be assigned who will complete all the workings and documentation process.</li>
+            <li>Your completed file will be forwarded to the bank for processing, which we call it as login.</li>
+            <li>Post login, we will proceed for Sanctioning of the loan.</li>
+            <li>Finalize your dream home</li>
+            <li>Finalize your loan and move in</li>
           </ol>
         </div>
+        </motion.div>
+
         <div className="w-full md:w-1/3 text-center">
-          <h3 className="text-lg font-semibold mb-2" role="heading" aria-level="3">Need Expert Guidance? </h3>
-          <a
-            href="tel:+918012091209"
-            className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap"
-          >
+          <h3 className="text-sm md:text-lg font-semibold mb-2">Need Help? 📞</h3>
+          <a href="tel:++918012091209" className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-300 whitespace-nowrap">
             <FaPhoneAlt className="mr-2" /> Connect Now!!
           </a>
         </div>
-      </motion.section>
+      </section>
 
+
+
+      {/* Eligibility Section */}
       <motion.section
         variants={sectionVariants}
         initial="hidden"
@@ -104,14 +121,12 @@ function HomeLoan() {
           <p className="text-sm md:text-gray-600">
             Salaried Individual – Min Salary 18K with 2 years of job continuation proof
             <br />
-            Self-employed – Min ITR 3 lakhs and above with atleast 3 years of business continuation proof
+            Self-employed – Min ITR 3 lakhs and above with at least 3 years of business continuation proof
           </p>
         </div>
         <div className="mb-4">
           <h3 className="text-lg md:text-xl font-semibold text-gray-700" role="heading" aria-level="3">Max Tenure</h3>
-          <p className="text-sm md:text-gray-600">
-            Home Loan – 30 Years
-          </p>
+          <p className="text-sm md:text-gray-600">Home Loan – 30 Years</p>
         </div>
         {[
           { title: "Rate of Interest", description: "Base Rate as per RBI guidelines and Margin as per guidelines of the Bank / NBFC." }
@@ -146,6 +161,7 @@ function HomeLoan() {
         </div>
       </motion.section>
 
+      {/* Required Documents Section */}
       <motion.section
         variants={sectionVariants}
         initial="hidden"
