@@ -62,7 +62,7 @@ const TestimonialReview = ({ isOpen, onClose, onSubmit }) => {
   }, [isOpen, onClose]);
 
   return (
-    <div className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ transform: isOpen ? 'translateY(0)' : 'translateY(-100%)' }}>
+    <div className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-all duration-300 z-50 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ transform: isOpen ? 'translateY(0)' : 'translateY(-100%)' }}>
       <div ref={formRef} className="bg-white p-4 rounded-lg shadow-lg w-11/12 sm:w-96 lg:w-[700px] xl:w-[900px]" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-xl font-bold mb-3">Submit Your Review</h2>
         {!isSubmitted ? (
