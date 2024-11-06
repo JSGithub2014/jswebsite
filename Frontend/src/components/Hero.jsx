@@ -28,7 +28,7 @@ function Hero() {
           animate="visible"
           variants={leftVariants}
         >
-          <h1 className='magnify text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white whitespace-nowrap'>
+          <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold mb-4 landing-font text-white whitespace-nowrap'>
             Securing Your <br /> Success<span className='text-5xl lg:text-7xl font-serif'>!</span> <br />
           </h1>
           <div className='landing-text-animation text-lg md:text-xl lg:text-2xl overflow-hidden my-10'>
