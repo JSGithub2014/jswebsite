@@ -59,11 +59,12 @@ const ManagementTeam = ({ teamMembers }) => {
               >
                 <div className="w-full h-[300px] md:h-[350px] relative overflow-hidden rounded-lg mb-4">
                   <img
-                    className="w-auto h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    className="w-full h-full object-cover"
                     src={member.image}
                     alt={`Image of ${member.name}, ${member.role}`}
                   />
-                  <div className="absolute inset-0 hidden md:flex bg-black opacity-0 hover:opacity-50 transition-opacity duration-300  items-end justify-center"> {/* Black overlay */}
+                  <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300 flex items-end justify-center">
+                    {/* Black overlay */}
                     <button
                       onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
                       className="text-white text-xl font-bold mb-10 hover:text-zinc-400 hover:opacity-100 transition-opacity duration-300 bg-transparent border-none cursor-pointer"

@@ -1,8 +1,8 @@
 import React from 'react';
 import ManagementTeam from '../components/AboutUs/ManagementTeam';
-import j_m_Img from '../assets/ourTeam/j.mittal.jpeg';
-import s_p_Img from '../assets/ourTeam/s.p.jpeg';
-import s_chaurasiya from '../assets/ourTeam/s.chaurasia.jpeg';
+import j_m_Img from '../assets/ourTeam/j.mittal.jpg';
+import s_p_Img from '../assets/ourTeam/s.p.jpg';
+import s_chaurasiya from '../assets/ourTeam/s.chaurasia.jpg';
 import AboutMain from '../components/AboutUs/AboutHero';
 
 const managementTeamMembers = [
