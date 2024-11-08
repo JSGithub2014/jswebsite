@@ -17,11 +17,27 @@ import RBL from '../assets/partners/RBL.jpg';
 
 const PartnerSection = () => {
   const partnersLine1 = [
-    BOI, BOM, DCB, HDFC_Ltd, HDFC, HSBC, RBL, BOI, BOM,
+    { src: BOI, alt: "Logo of Bank of India" },
+    { src: BOM, alt: "Logo of Bank of Maharashtra" },
+    { src: DCB, alt: "Logo of DCB Bank" },
+    { src: HDFC_Ltd, alt: "Logo of HDFC Limited" },
+    { src: HDFC, alt: "Logo of HDFC Bank" },
+    { src: HSBC, alt: "Logo of HSBC Bank" },
+    { src: RBL, alt: "Logo of RBL Bank" },
+    { src: BOI, alt: "Logo of Bank of India" },
+    { src: BOM, alt: "Logo of Bank of Maharashtra" }
   ];
 
   const partnersLine2 = [
-    ICICI_Finance, ICICI, IDBI, IDFC1st, LT_Fin_1, LIC_HFL, PNB, ICICI_Finance, ICICI,
+    { src: ICICI_Finance, alt: "Logo of ICICI Finance" },
+    { src: ICICI, alt: "Logo of ICICI Bank" },
+    { src: IDBI, alt: "Logo of IDBI Bank" },
+    { src: IDFC1st, alt: "Logo of IDFC First Bank" },
+    { src: LT_Fin_1, alt: "Logo of L&T Finance" },
+    { src: LIC_HFL, alt: "Logo of LIC Housing Finance" },
+    { src: PNB, alt: "Logo of Punjab National Bank" },
+    { src: ICICI_Finance, alt: "Logo of ICICI Finance" },
+    { src: ICICI, alt: "Logo of ICICI Bank" }
   ];
 
   return (
@@ -33,14 +49,14 @@ const PartnerSection = () => {
         <MarqueeGroup>
           {partnersLine1.map((el, index) => (
             <ImageGroup key={index}>
-              <Image src={el} />
+              <Image src={el.src} alt={el.alt} />
             </ImageGroup>
           ))}
         </MarqueeGroup>
         <MarqueeGroup>
           {partnersLine1.map((el, index) => (
             <ImageGroup key={index}>
-              <Image src={el} />
+              <Image src={el.src} alt={el.alt} />
             </ImageGroup>
           ))}
         </MarqueeGroup>
@@ -50,14 +66,14 @@ const PartnerSection = () => {
         <MarqueeGroup2>
           {partnersLine2.map((el, index) => (
             <ImageGroup key={index}>
-              <Image src={el} />
+              <Image src={el.src} alt={el.alt} />
             </ImageGroup>
           ))}
         </MarqueeGroup2>
         <MarqueeGroup2>
           {partnersLine2.map((el, index) => (
             <ImageGroup key={index}>
-              <Image src={el} />
+              <Image src={el.src} alt={el.alt} />
             </ImageGroup>
           ))}
         </MarqueeGroup2>
@@ -110,7 +126,7 @@ const MarqueeGroup2 = styled.div`
 const ImageGroup = styled.div`
   display: grid;
   place-items: center;
-  width: 100px; /* Increased width for larger screens */
+  width: 110px; /* Increased width for larger screens */
   height: auto; /* Allow height to adjust based on image */
   padding: 0; /* Remove padding */
   margin-right: 50px; /* Set consistent margin for both lines */
@@ -138,4 +154,3 @@ const Image = styled.img`
 const Gap = styled.div`
   height: 20px; /* Adjust this value to increase or decrease the gap between the lines */
 `;
-

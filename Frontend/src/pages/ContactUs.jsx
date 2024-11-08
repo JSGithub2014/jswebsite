@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import contactShowcase from '../assets/contact-us.gif';
-import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
