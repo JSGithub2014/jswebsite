@@ -59,7 +59,7 @@ const ManagementTeam = ({ teamMembers }) => {
               >
                 <div className="w-full h-[300px] md:h-[350px] relative overflow-hidden rounded-lg mb-4">
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fit"
                     src={member.image}
                     alt={`Image of ${member.name}, ${member.role}`}
                   />
