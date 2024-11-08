@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import contactShowcase from '../assets/contact-us.gif';
+import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +9,6 @@ const ContactUs = () => {
     email: '',
     message: ''
   });
-  const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -28,24 +29,25 @@ const ContactUs = () => {
         });
 
         if (response.ok) {
-            setStatus('Email sent successfully!');
+            toast.success('Email sent successfully!');
             setFormData({ name: '', email: '', message: '' });
         } else {
             const errorData = await response.json();
             console.error('Error response:', errorData);
-            setStatus('Failed to send email.');
+            toast.error('Failed to send email.');
         }
     } catch (error) {
         console.error('Fetch error:', error);
-        setStatus('Failed to send email.');
+        toast.error('Failed to send email.');
     } finally {
         setLoading(false);
     }
-};
-
+  };
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-zinc-200">
+      <ToastContainer /> {/* Add ToastContainer to display toasts */}
+
       <h1 className="text-3xl md:text-5xl font-thin mb-6 text-center text-[rgb(255,102,0)] heading-font tracking-wider py-2 w-full text-shadow">
         <span className='heading-font'>Contact</span>
         <span className='text-black heading-font tracking-wider'> Us</span>
@@ -121,8 +123,6 @@ const ContactUs = () => {
                 {loading ? 'Sending...' : 'Send Message'}
               </button>
             </div>
-
-            {status && <p className="mt-4 text-green-500">{status}</p>}
           </form>
         </div>
       </div>

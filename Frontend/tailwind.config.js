@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      clipPath: {
+        'circle': 'circle(50% at 50% 50%)', // Clip the element into a circle
+      },
+    },
   },
   plugins: [],
 }

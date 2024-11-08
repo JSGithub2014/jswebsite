@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './pages/Footer';
 import MotionWrapper from './components/MotionWrapper';
 import NotFound from './components/NotFound';
-import LoctionMap from './components/LocationMap'
+import LoctionMap from './components/LocationMap';
 
 // Lazy load pages
 const Login = lazy(() => import('./pages/Login'));
@@ -97,7 +97,9 @@ const App = () => {
         <meta name="keywords" content="Real Estate Finance, Insurance, J&S Group" />
       </Helmet>
 
-      <Navbar />
+      {/* Conditionally render Navbar */}
+      {!isAuthPage && !isMemberDetailPage && <Navbar />}
+      
       <ScrollToTop />
       
       <ErrorBoundary>
@@ -111,7 +113,7 @@ const App = () => {
             <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
             <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
             <Route path="/member/:name" element={<MotionWrapper><MemberDetail /></MotionWrapper>} />
-            <Route path="/" element={
+            <Route path="/" element={ 
               <MotionWrapper>
                 <Landing />
                 <AboutUs />
@@ -123,7 +125,7 @@ const App = () => {
                 <WhyUs />
                 <Faqs />
                 <RobustFoundation />
-                <LoctionMap/>
+                <LoctionMap />
                 <ContactUs />
               </MotionWrapper>
             } />

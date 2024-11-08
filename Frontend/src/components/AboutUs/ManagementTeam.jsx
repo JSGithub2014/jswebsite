@@ -57,7 +57,7 @@ const ManagementTeam = ({ teamMembers }) => {
                 role="button"
                 aria-label={`View details for ${member.name}`}
               >
-                <div className="w-full h-[300px] md:h-[350px] relative overflow-hidden rounded-lg mb-4">
+                <div className="w-full h-[300px] md:h-[320px] relative overflow-hidden rounded-lg mb-4">
                   <img
                     className="w-full h-full object-fit"
                     src={member.image}

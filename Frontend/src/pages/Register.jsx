@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faEye, faUser, faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faEye, faUser, faMars, faVenus, faGenderless } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
@@ -59,26 +59,26 @@ const Register = () => {
     };
 
     return (
-        <div className="flex h-screen justify-center items-center bg-gray-100 p-4">
+        <div className="flex h-screen justify-center items-center bg-gray-100 overflow-hidden relative p-4">
             <ToastContainer /> {/* Add ToastContainer for displaying toasts */}
             <div className="flex w-full max-w-4xl flex-col md:flex-row">
                 <div className="flex md:hidden w-full items-center justify-center mb-4">
                     <img src={BrandLogo} alt="Brand Logo" className="w-1/2" />
                 </div>
 
-                <div className="w-full md:w-1/2 p-8 bg-white rounded-lg shadow-md">
+                <div className="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md">
                     <Link 
                         to="/" 
-                        className="inline-block mb-4 text-sm text-center text-[rgb(255,102,0)] font-medium hover:underline transition-transform duration-300 transform hover:scale-105"
+                        className="inline-block mb-4 text-xs text-center text-[rgb(255,102,0)] font-medium hover:underline transition-transform duration-300 transform hover:scale-105"
                     >
                         &larr; Back to Home
                     </Link>
 
-                    <h2 className="text-3xl font-bold mb-6 text-center tracking-wider">Register</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-center tracking-wider">Register</h2>
 
                     <form onSubmit={handleSubmit}>
                         {/* Name Field */}
-                        <div className="mb-4">
+                        <div className="mb-3">
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Enter your name</label>
                             <div className="relative mt-1">
                                 <FontAwesomeIcon icon={faUser} className="absolute left-3 top-3 text-gray-400" />
@@ -86,7 +86,7 @@ const Register = () => {
                                     type="text"
                                     id="name"
                                     required
-                                    className="pl-10 py-2 border border-gray-300 rounded-md w-full"
+                                    className="pl-10 py-1.5 border border-gray-300 rounded-md w-full"
                                     placeholder="Name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
@@ -95,7 +95,7 @@ const Register = () => {
                         </div>
 
                         {/* Email Field */}
-                        <div className="mb-4">
+                        <div className="mb-3">
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Enter your email</label>
                             <div className="relative mt-1">
                                 <FontAwesomeIcon icon={faEnvelope} className="absolute left-3 top-3 text-gray-400" />
@@ -103,7 +103,7 @@ const Register = () => {
                                     type="email"
                                     id="email"
                                     required
-                                    className="pl-10 py-2 border border-gray-300 rounded-md w-full"
+                                    className="pl-10 py-1.5 border border-gray-300 rounded-md w-full"
                                     placeholder="Email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -112,10 +112,10 @@ const Register = () => {
                         </div>
 
                         {/* Gender Field */}
-                        <div className="mb-4">
+                        <div className="mb-3">
                             <label className="block text-sm font-medium text-gray-700">Gender</label>
                             <div className="mt-1 flex items-center">
-                                <label className="inline-flex items-center mr-6">
+                                <label className="inline-flex items-center mr-4">
                                     <input
                                         type="radio"
                                         name="gender"
@@ -129,7 +129,7 @@ const Register = () => {
                                         Male
                                     </span>
                                 </label>
-                                <label className="inline-flex items-center">
+                                <label className="inline-flex items-center mr-4">
                                     <input
                                         type="radio"
                                         name="gender"
@@ -143,11 +143,25 @@ const Register = () => {
                                         Female
                                     </span>
                                 </label>
+                                <label className="inline-flex items-center">
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="other"
+                                        checked={gender === 'other'}
+                                        onChange={(e) => setGender(e.target.value)}
+                                        className="form-radio"
+                                    />
+                                    <span className="ml-2 flex items-center">
+                                        <FontAwesomeIcon icon={faGenderless} className="text-[rgb(255,102,0)] mr-1" />
+                                        Other
+                                    </span>
+                                </label>
                             </div>
                         </div>
 
                         {/* Password Field */}
-                        <div className="mb-4">
+                        <div className="mb-3">
                             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
                             <div className="relative mt-1">
                                 <FontAwesomeIcon icon={faLock} className="absolute left-3 top-3 text-gray-400" />
@@ -155,7 +169,7 @@ const Register = () => {
                                     type={passwordVisible ? "text" : "password"}
                                     id="password"
                                     required
-                                    className="pl-10 py-2 border border-gray-300 rounded-md w-full"
+                                    className="pl-10 py-1.5 border border-gray-300 rounded-md w-full"
                                     placeholder="Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -169,7 +183,7 @@ const Register = () => {
                         </div>
 
                         {/* Confirm Password Field */}
-                        <div className="mb-6">
+                        <div className="mb-5">
                             <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
                             <div className="relative mt-1">
                                 <FontAwesomeIcon icon={faLock} className="absolute left-3 top-3 text-gray-400" />
@@ -177,7 +191,7 @@ const Register = () => {
                                     type={confirmPasswordVisible ? "text" : "password"}
                                     id="confirmPassword"
                                     required
-                                    className="pl-10 py-2 border border-gray-300 rounded-md w-full"
+                                    className="pl-10 py-1.5 border border-gray-300 rounded-md w-full"
                                     placeholder="Confirm Password"
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -191,7 +205,7 @@ const Register = () => {
                         </div>
 
                         {/* Register Button */}
-                        <button type="submit" className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300 transform hover:scale-105">
+                        <button type="submit" className="bg-[rgb(255,102,0)] text-white py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300">
                             Register
                         </button>
                     </form>
@@ -204,7 +218,7 @@ const Register = () => {
                 </div>
             </div>
 
-            <div className='hidden md:block absolute w-[40vw] h-[40vw] bg-[rgb(255,102,0)] rounded-full -right-[15%] -top-[30%]'></div>
+            <div className='hidden md:block absolute w-[40vw] h-[40vw] bg-[rgb(255,102,0)] rounded-full -right-[15%] -top-[30%] clip-path-circle'></div>
         </div>
     );
 };
