@@ -23,7 +23,12 @@ const Register = () => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            toast.error('Passwords do not match. Please try again.'); // Use Toastify for error message
+            toast.error('Confirm password does not match. Please try again.'); 
+            return;
+        }
+
+        if (!gender) {
+            toast.error('Please select your gender.'); // Error message if gender is not selected
             return;
         }
 
