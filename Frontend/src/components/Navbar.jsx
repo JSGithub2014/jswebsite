@@ -11,6 +11,7 @@ function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Track if user is logged in
+  const [userName, setUserName] = useState(''); // Store the user's name
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null); // Create a ref for the menu
@@ -20,6 +21,9 @@ function Navbar() {
     const token = document.cookie.split('; ').find(row => row.startsWith('jwt='));
     if (token) {
       setIsAuthenticated(true); // If there's a token, user is logged in
+      // Decode the token and set the user's name (assuming it's stored in the token)
+      const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode the token (assuming it's a JWT)
+      setUserName(decodedToken?.user?.name || ''); // Get the user's name from the token payload
     } else {
       setIsAuthenticated(false);
     }
@@ -91,6 +95,7 @@ function Navbar() {
 
       if (response.ok) {
         setIsAuthenticated(false);
+        setUserName(''); // Reset the user's name on logout
         navigate('/');
       } else {
         console.error('Logout failed');
@@ -134,15 +139,18 @@ function Navbar() {
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            {!isAuthenticated ? (
+            {isAuthenticated ? (
+              <>
+                <span className="text-white text-lg">Hello, {userName}</span>
+                <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
+                  Logout
+                </button>
+              </>
+            ) : (
               <>
                 <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
                 <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Signup</Link>
               </>
-            ) : (
-              <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
-                Logout
-              </button>
             )}
             <button
               onClick={openModal}
@@ -184,10 +192,19 @@ function Navbar() {
                 <Link to="/services/real-estate" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Real Estate</Link>
               </div>
             </div>
-            <div className="flex space-x-2 mt-2">
-              <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Login</Link>
-              <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Signup</Link>
-            </div>
+            {isAuthenticated ? (
+              <>
+                <span className="text-orange-500 py-2">Hello, {userName}</span>
+                <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Signup</Link>
+              </>
+            )}
             <button
               onClick={openModal}
               className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2"
@@ -216,7 +233,7 @@ function Navbar() {
               <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
             </div>
             <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
-            This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained with in each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
+              This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained within each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
             </p>
 
             <div className="flex items-center mb-4">
