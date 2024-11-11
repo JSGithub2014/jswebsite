@@ -10,6 +10,7 @@ const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false); // Track loading state
     const navigate = useNavigate();
 
     const togglePassword = () => {
@@ -18,6 +19,8 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setLoading(true); // Start loading
 
         const apiUrl = process.env.NODE_ENV === 'production'
             ? 'https://jswebsite-ocj7.vercel.app/api/auth/login'
@@ -35,14 +38,17 @@ const Login = () => {
                 const errorData = await response.json();
                 const errorMessage = errorData.message || 'Failed to login';
                 toast.error(`Login failed: ${errorMessage}`);
+                setLoading(false); // Stop loading
                 return;
             }
 
             const data = await response.json();
             toast.success('Login successful!');
+            setLoading(false); // Stop loading
             navigate('/'); 
         } catch (error) {
             toast.error(`Login failed: ${error.message}`);
+            setLoading(false); // Stop loading
         }
     };
 
@@ -103,7 +109,7 @@ const Login = () => {
                         </div>
 
                         <button type="submit" className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300 transform hover:scale-105">
-                            Login Now
+                            {loading ? 'Logging in...' : 'Login Now'}
                         </button>
                     </form>
 
