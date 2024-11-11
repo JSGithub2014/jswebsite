@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaHome, FaChartLine, FaHandshake, FaFileContract } from 'react-icons/fa';
+import { FaSearch, FaDollarSign, FaRegHandshake, FaHome } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,7 +14,7 @@ const containerVariants = {
   },
 };
 
-const Selling = () => {
+const Buying = () => {
   const [visibleElements, setVisibleElements] = useState(Array(6).fill(false));
   const sectionRef = useRef(null);
 
@@ -54,17 +54,17 @@ const Selling = () => {
     <section 
       className='w-full flex flex-col items-center px-4 my-10'
       ref={sectionRef}
-      aria-labelledby="selling-section-title"
+      aria-labelledby="buying-section-title"
     >
       <motion.h2 
-        id="selling-section-title" 
+        id="buying-section-title" 
         className='text-4xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-6 fade-in'
         initial="hidden"
         animate={visibleElements[0] ? "visible" : "hidden"}
         variants={containerVariants}
         data-index={0} // Ensure the heading is observed
       >
-        Ready to Sell <span className='heading-font font-semibold tracking-wider text-black'>Your Property?</span>
+        Ready to Buy Your<span className='heading-font font-semibold tracking-wider text-black'> Dream Property?</span>
       </motion.h2>
 
       <motion.p 
@@ -74,16 +74,15 @@ const Selling = () => {
         variants={containerVariants}
         data-index={1} // Ensure the paragraph is observed
       >
-        Our expert team is here to help you get the best value for your property. 
-        Whether it's residential or commercial, we provide personalized service to meet your needs.
+        Whether you’re a first-time homebuyer or searching for an investment property, our team is dedicated to finding the right fit for you.
       </motion.p>
 
       <div className='flex flex-wrap justify-center my-6'>
-        {[
-          { title: 'Free Property Valuation', description: 'Get an accurate assessment of your property’s worth.', icon: <FaHome className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Marketing Strategies', description: 'We use effective marketing techniques to reach potential buyers.', icon: <FaChartLine className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Expert Negotiation', description: 'Our team members are skilled negotiators to ensure you get the best deal.', icon: <FaHandshake className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Smooth Closing Process', description: 'We handle all the paperwork for a hassle-free experience.', icon: <FaFileContract className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+        {[ 
+          { title: 'Wide Range of Listings', description: 'Explore a variety of properties that suit your preferences and budget.', icon: <FaSearch className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Financial Guidance', description: 'Our experts will assist you with financing options to make your purchase easy and affordable.', icon: <FaDollarSign className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Professional Negotiation', description: 'We ensure you get the best deal possible with our skilled negotiators.', icon: <FaRegHandshake className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Seamless Closing Process', description: 'We handle all paperwork and ensure a smooth transaction from start to finish.', icon: <FaHome className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
         ].map((item, index) => (
           <motion.article 
             key={index}
@@ -94,7 +93,7 @@ const Selling = () => {
             variants={containerVariants}
           >
             <div className='flex items-center justify-center'>{item.icon}</div>
-            <h3 id={`selling-card-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)] text-center'>{item.title}</h3>
+            <h3 id={`buying-card-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)] text-center'>{item.title}</h3>
             <p className='text-center'>{item.description}</p>
           </motion.article>
         ))}
@@ -104,7 +103,7 @@ const Selling = () => {
         <a 
           href="tel:+918012091209" 
           className='px-6 py-2 bg-[rgb(255,102,0)] text-white rounded-full hover:bg-orange-600 transition duration-300 shadow-lg transform hover:scale-105'
-          aria-label="Contact us to get started with selling your property"
+          aria-label="Contact us to get started with buying your property"
         >
           Contact Us to Get Started!
         </a>
@@ -113,4 +112,4 @@ const Selling = () => {
   );
 };
 
-export default Selling;
+export default Buying;

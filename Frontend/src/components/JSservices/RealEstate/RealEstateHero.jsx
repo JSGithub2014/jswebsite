@@ -33,7 +33,8 @@ const containerVariants = {
 const RealEstateHero = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const sections = ['Selling', 'Leasing'];
+  // Updated sections to include 'Buying'
+  const sections = ['Buying','Selling', 'Leasing'];
 
   const formatSectionName = (section) => {
     return section.charAt(0).toUpperCase() + section.slice(1);
@@ -113,7 +114,7 @@ const RealEstateHero = ({ scrollToSection }) => {
             </motion.a>
           ))}
         </div>
-      </div>
+      </div> 
 
       <div className='w-full md:w-5/6 mt-10 text-center'>
         <h2 className='text-3xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-4'>
@@ -123,7 +124,7 @@ const RealEstateHero = ({ scrollToSection }) => {
           Our experienced team is dedicated to providing you with the best solutions for buying, selling, and leasing properties. We understand the market and are here to guide you every step of the way.
         </p>
         <div className='flex flex-wrap justify-center mt-6'>
-          {[
+          {[ 
             { title: 'Market Expertise', text: 'We know the real estate market inside and out.' },
             { title: 'Personalized Service', text: 'Tailored strategies to meet your specific needs.' },
             { title: 'Full Support', text: 'From listing to closing, we’re with you every step.' }
@@ -138,6 +139,36 @@ const RealEstateHero = ({ scrollToSection }) => {
               aria-labelledby={`benefit-${index}`}
             >
               <h3 id={`benefit-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)]'>{item.title}</h3>
+              <p>{item.text}</p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+
+      {/* Buying Section */}
+      <div className='w-full md:w-5/6 mt-12 text-center'>
+        <h2 className='text-3xl heading-font font-semibold tracking-wider text-[rgb(255,102,0)] mb-4'>
+          Find Your Perfect <span className='heading-font font-semibold tracking-wider text-black'>Property</span>
+        </h2>
+        <p className='text-lg mb-4'>
+          Whether you’re buying your first home or looking for an investment, we are committed to helping you find the perfect property at the best price.
+        </p>
+        <div className='flex flex-wrap justify-center mt-6'>
+          {[ 
+            { title: 'Wide Range of Listings', text: 'Explore a variety of properties that suit your needs and budget.' },
+            { title: 'Expert Advice', text: 'Our team provides personalized advice for your property search.' },
+            { title: 'Seamless Process', text: 'From initial consultation to final purchase, we ensure a smooth experience.' }
+          ].map((item, index) => (
+            <motion.article 
+              key={index}
+              className='bg-gray-100 p-4 rounded-lg w-full md:w-1/3 m-2'
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              aria-labelledby={`buying-benefit-${index}`}
+            >
+              <h3 id={`buying-benefit-${index}`} className='text-xl font-semibold text-[rgb(255,102,0)]'>{item.title}</h3>
               <p>{item.text}</p>
             </motion.article>
           ))}
