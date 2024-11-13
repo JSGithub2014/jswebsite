@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
     try {
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(404).json({ message: "Email doesn't exsist" });
+            return res.status(404).json({ message: "Email doesn't exist" });
         }
 
         // Check password
@@ -61,11 +61,15 @@ router.post("/login", async (req, res) => {
 
         // Create and send JWT token
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        // Set cookie based on environment
         res.cookie('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'None', // Adjust based on your requirements
+            httpOnly: true,                // Prevent client-side JS from accessing the cookie
+            secure: process.env.NODE_ENV === 'production', // Set secure to true only in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite settings for cross-origin requests
+            maxAge: 3600000,               // Cookie expires in 1 hour (optional)
         });
+
         res.status(200).json({ message: "Login successful!" });
     } catch (err) {
         dbgr(err.message);

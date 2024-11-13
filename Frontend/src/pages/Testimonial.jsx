@@ -96,18 +96,26 @@ function Testimonial() {
     }
   };
 
+  // Handle submitting new review
   const handleSubmit = async (newReview) => {
-    const response = await fetch('https://jswebsite-ocj7.vercel.app/api/review', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newReview),
-    });
+    try {
+      const response = await fetch('https://jswebsite-ocj7.vercel.app/api/review', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newReview),
+      });
 
-    if (response.ok) {
-      setModalOpen(false);
-      // Optionally, you might want to refresh testimonials or show a success message
+      if (response.ok) {
+        // Optionally, refresh testimonials or show a success message
+        setModalOpen(false);
+        console.log("Review submitted successfully.");
+      } else {
+        console.error("Failed to submit review.");
+      }
+    } catch (error) {
+      console.error("Error submitting review:", error);
     }
   };
 
@@ -160,6 +168,7 @@ function Testimonial() {
         </button>
       </div>
 
+      {/* Modal to add a review */}
       <TestimonialReview 
         isOpen={isModalOpen} 
         onClose={() => setModalOpen(false)} 
