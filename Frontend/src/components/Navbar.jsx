@@ -11,19 +11,15 @@ function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Track if user is logged in
-  const [userName, setUserName] = useState(''); // Store the user's name
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null); // Create a ref for the menu
 
   // Check if the user is authenticated
   useEffect(() => {
-    const token = document.cookie.split('; ').find(row => row.startsWith('token='));
+    const token = document.cookie.split('; ').find(row => row.startsWith('jwt='));
     if (token) {
       setIsAuthenticated(true); // If there's a token, user is logged in
-      // Decode the token and set the user's name (assuming it's stored in the token)
-      const decodedToken = JSON.parse(atob(token.split('=')[1].split('.')[1])); // Decode the token (assuming it's a JWT)
-      setUserName(decodedToken?.user?.name || ''); // Get the user's name from the token payload
     } else {
       setIsAuthenticated(false);
     }
@@ -94,12 +90,8 @@ function Navbar() {
       });
 
       if (response.ok) {
-        // Reset authentication state
         setIsAuthenticated(false);
-        setUserName(''); // Reset the user's name on logout
         navigate('/');
-        // Clear the authentication token from cookies or localStorage if needed
-        document.cookie = 'token=; Max-Age=0; path=/';
       } else {
         console.error('Logout failed');
       }
@@ -142,20 +134,15 @@ function Navbar() {
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            {isAuthenticated ? (
+            {!isAuthenticated ? (
               <>
-                <span className="text-white text-lg">Hello, {userName}</span>
-                <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
-                  Logout
-                </button>
+                <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Signup</Link>
               </>
             ) : (
-              <>
-                <div className="flex space-x-4">
-                  <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                  <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-orange-500" onClick={() => setIsMenuOpen(false)}>Signup</Link>
-                </div>
-              </>
+              <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
+                Logout
+              </button>
             )}
             <button
               onClick={openModal}
@@ -170,37 +157,102 @@ function Navbar() {
             onClick={toggleMenu}
             aria-label="Toggle Menu"
           >
-            {isMenuOpen ? <HiX className="text-white" size={30} /> : <HiMenu className="text-white" size={30} />}
+            {isMenuOpen ? <HiX className="w-8 h-8 text-white" /> : <HiMenu className="w-8 h-8 text-white" />}
           </button>
         </nav>
+        {isMenuOpen && (
+          <div ref={menuRef} className="md:hidden flex flex-col items-center bg-[rgb(58,59,59)] -mt-2 p-4">
+            <Link to="/" className="text-orange-500 py-2 text-lg uppercase rounded-full" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <div className="relative group">
+              <button className="text-orange-500 py-2 text-lg rounded-full uppercase flex items-center">
+                About
+                <HiChevronDown className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute left-0 mt-2 z-50 bg-white text-black shadow-lg rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
+                <Link to="/about-us/our-team" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
+                <Link to="/about-us/our-story" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
+              </div>
+            </div>
+            <div className="relative group">
+              <button className="text-orange-500 py-2 text-lg rounded-full uppercase flex items-center">
+                Services
+                <HiChevronDown className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-lg w-40 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
+                <Link to="/services/finance" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Finance</Link>
+                <Link to="/services/insurance" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Insurance</Link>
+                <Link to="/services/real-estate" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setIsMenuOpen(false)}>Real Estate</Link>
+              </div>
+            </div>
+            <div className="flex space-x-2 mt-2">
+              <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Login</Link>
+              <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Signup</Link>
+            </div>
+            <button
+              onClick={openModal}
+              className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2"
+              aria-label="Check Your CIBIL Score"
+            >
+              CIBIL Score
+            </button>
+          </div>
+        )}
       </header>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div ref={menuRef} className="md:hidden flex flex-col items-center bg-[rgb(58,59,59)] -mt-2 p-4">
-          <Link to="/" className="text-orange-500 py-2 text-lg uppercase rounded-full" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 mt-4 w-full">
-            {isAuthenticated ? (
-              <>
-                <span className="text-orange-500 py-2">Hello, {userName}</span>
-                <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-300 hover:text-white md:hover:bg-red-600">
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="bg-white text-orange-500 px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                <Link to="/signup" className="bg-black text-white px-4 py-2 rounded-full" onClick={() => setIsMenuOpen(false)}>Signup</Link>
-              </>
-            )}
+      {/* Modal for CIBIL Score */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50" onClick={closeModal}>
+          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-xs sm:max-w-lg w-full relative z-60 shadow-lg transition-transform transform-gpu" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl sm:text-3xl" onClick={closeModal} aria-label="Close Modal">
+              &times;
+            </button>
+            <h2 className="text-lg sm:text-xl font-semibold mb-2">CREDIT SCORE</h2>
+            <hr className="border-gray-300 mb-4" />
+            <p className="mb-4 text-gray-700 text-sm sm:text-base">
+              You will be redirected to the TransUnion CIBIL official website to view your CIBIL report.
+            </p>
+            <div className="flex items-center text-gray-600 mb-2">
+              <AiFillBulb className="w-5 h-5 mr-2 text-yellow-500" />
+              <span className="flex-1 text-sm sm:text-lg font-semibold text-[rgb(255,102,0)]">Disclaimer:</span>
+            </div>
+            <p className="text-gray-600 mb-4 text-xs sm:text-sm text-justify py-2">
+            This is to inform you that by clicking on the CONFIRM button, you will be leaving PASPL portal and entering website operated by other parties. Such links are provided only for the convenience of the client and PASPL portal does not control or endorse such website, and is not responsible for their contents. The use of such websites is also subject to the terms of use and other terms and guidelines, if any, contained with in each such website. In the event that any of the terms contained herein conflict with the terms of use or other terms and guidelines contained within any such website, then the terms of use and other terms guidelines for such website shall prevail.
+            </p>
+
+            <div className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                checked={confirmChecked}
+                onChange={(e) => setConfirmChecked(e.target.checked)}
+                className="mr-2"
+              />
+              <label className="text-gray-700 text-xs sm:text-sm">I confirm that I have read the above disclaimer</label>
+            </div>
+            <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 mt-4">
+              <a
+                href="https://www.cibil.com/cibilrank"
+                className={`bg-gray-300 text-black px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''} mb-2 sm:mb-0`}
+                onClick={(e) => {
+                  if (!confirmChecked) e.preventDefault();
+                }}
+                aria-label="View CIBIL Rank & CCR"
+                disabled={!confirmChecked}
+              >
+                CIBIL RANK & CCR
+              </a>
+              <a
+                href="https://www.cibil.com/choose-subscription" 
+                className={`bg-blue-500 text-zinc-100 px-3 py-1 rounded-full text-center transition duration-300 ${!confirmChecked ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={(e) => {
+                  if (!confirmChecked) e.preventDefault();
+                }}
+                aria-label="Individual CIBIL Button"
+                disabled={!confirmChecked}
+              >
+                INDIVIDUAL CIBIL
+              </a>
+            </div>
           </div>
-          <button
-            onClick={openModal}
-            className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2"
-            aria-label="Check Your CIBIL Score"
-          >
-            CIBIL Score
-          </button>
         </div>
       )}
     </>

@@ -110,7 +110,6 @@ function Testimonial() {
       if (response.ok) {
         // Optionally, refresh testimonials or show a success message
         setModalOpen(false);
-        console.log("Review submitted successfully.");
       } else {
         console.error("Failed to submit review.");
       }

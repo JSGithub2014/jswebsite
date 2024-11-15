@@ -147,7 +147,6 @@ function Footer() {
 
     {/* Creative Address Section */}
     <div className="bg-orange-500 p-4 rounded-lg shadow-lg mb-6 mx-auto max-w-xs">
-  <h3 className="font-bold text-xl text-white mb-2">Our Location</h3>
   <div className="flex justify-center items-center text-sm font-medium text-gray-200">
     <FaMapMarkerAlt className="text-3xl mr-3 text-[rgb(59,58,58)]" />
     <div className="flex flex-col text-left">
