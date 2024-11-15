@@ -37,7 +37,7 @@ const ManagementTeam = ({ teamMembers }) => {
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font text-gray-500 tracking-wider text-shadow">
             Passionate. Proactive. Expert.
           </h2>
-          <p className="text-md text-gray-700 font-semibold text-justify pr-8 mt-5">
+          <p className="text-md text-gray-700 font-semibold pr-8 mt-5">
             We prioritize empathy in our leadership fostering connections <br /> that unite the world.
           </p>
         </motion.div>
