@@ -91,10 +91,10 @@ function WhyUs() {
                 className='flex items-center text-[#F3BA73] transition duration-300 group'
                 href="#learn-more" 
               >
-                <span className='text-base md:text-lg'>Learn More</span>
+                {/* <span className='text-base md:text-lg'>Learn More</span>
                 <span className='ml-2 flex items-center justify-center w-8 h-8 border-2 border-transparent rounded-full transition duration-300 transform group-hover:border-[#F3BA73] group-hover:bg-[#F3BA73] group-hover:scale-110'>
                   <FaArrowRight className='text-[#F3BA73] transition duration-300 transform group-hover:text-white' />
-                </span>
+                </span> */}
               </a>
             </div>
           </div>
