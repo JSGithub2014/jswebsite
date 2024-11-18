@@ -126,12 +126,12 @@ function Testimonial() {
           <span className='text-[rgb(255,102,0)] heading-font'>W</span>hat <span className='text-[rgb(255,102,0)] heading-font tracking-wider'>Our</span><br /> Clients Say?
         </h1>
         <button 
-          onClick={() => setModalOpen(true)} 
-          className="mt-4 bg-[rgb(255,102,0)] text-white px-4 py-2 rounded"
-          aria-label="Add Review"
-        >
-          Add Review
-        </button>
+  onClick={() => setModalOpen(true)} 
+  className="mt-4 w-1/2 sm:w-1/3 bg-[rgb(255,102,0)] text-white px-3 py-1 rounded text-sm sm:text-base"
+  aria-label="Add Review"
+>
+  Add Review
+</button>
       </div>
 
       <div className="md:w-1/2 h-96 relative">

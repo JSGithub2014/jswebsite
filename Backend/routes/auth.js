@@ -8,6 +8,7 @@ const dbgr = require("debug")("development:authRoutes.js");
 // Middleware to check for authentication
 const authenticate = (req, res, next) => {
     const token = req.cookies.jwt;
+    console.log("Token in authRoutes (middleware):", token); // Debug token
     if (!token) {
         return res.status(401).json({ message: "Unauthorized" });
     }
@@ -62,12 +63,15 @@ router.post("/login", async (req, res) => {
         // Create and send JWT token
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
+        // Log token for debugging
+        console.log("Generated token:", token); // Debug token
+
         // Set cookie based on environment
         res.cookie('token', token, {
-            httpOnly: true,                // Prevent client-side JS from accessing the cookie
-            secure: process.env.NODE_ENV === 'production', // Set secure to true only in production
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite settings for cross-origin requests
-            maxAge: 3600000,               // Cookie expires in 1 hour (optional)
+            httpOnly: true, // Makes cookie inaccessible via JavaScript
+            secure: process.env.NODE_ENV === 'production', // For HTTPS in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+            maxAge: 3600000, // Expires in 1 hour
         });
 
         res.status(200).json({ message: "Login successful!" });
@@ -78,9 +82,9 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout Route
-router.post("/logout", authenticate, (req, res) => {
-    res.clearCookie("token");
-    res.status(200).json({ message: "Logout successful!" });
+router.post('/logout', (req, res) => {
+    res.clearCookie('jwt'); // Clear the JWT cookie
+    res.status(200).send({ message: 'Logged out successfully' });
 });
 
 module.exports = router;

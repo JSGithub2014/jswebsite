@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 
 const ManagementTeam = ({ teamMembers }) => {
-  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();  // Hook to navigate to different pages
 
   useEffect(() => {
     setIsVisible(true);
@@ -21,18 +21,25 @@ const ManagementTeam = ({ teamMembers }) => {
     );
   };
 
+  // Function to handle card click and navigate
+  const handleCardClick = (member) => {
+    // Navigate to the member's detail page, passing the member data via state
+    navigate(`/member/${member.name}`, { state: { member } });
+  };
+
   return (
     <section className="w-full mt-8 p-6">
       <div className="p-4 gap-10">
+        {/* Heading Section */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }} 
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }} 
+          initial={{ opacity: 0, y: -20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
           className="w-full mb-6"
         >
           <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font tracking-wider text-shadow">
-            Meet our  
-            <span className='text-[rgb(255,102,0)] heading-font tracking-wider'> Management</span>
+            Meet our
+            <span className="text-[rgb(255,102,0)] heading-font tracking-wider"> Management</span>
           </h1>
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 heading-font text-gray-500 tracking-wider text-shadow">
             Passionate. Proactive. Expert.
@@ -42,40 +49,38 @@ const ManagementTeam = ({ teamMembers }) => {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-10">
+        {/* Team Members Grid Section */}
+        <div className="flex justify-center items-center flex-wrap gap-0"> {/* No gap between images */}
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              className="w-full sm:w-2/3 lg:w-1/4 p-4"
-              initial={{ opacity: 0, scale: 0.8 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              transition={{ duration: 0.5, delay: index * 0.1 }} 
+              className="sm:w-1/4 px-0 mb-0" // Ensure no padding and margin between images
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => handleCardClick(member)}  // Handle the click to navigate
             >
-              <article
-                className="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 relative"
-                onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
-                role="button"
-                aria-label={`View details for ${member.name}`}
-              >
-                <div className="w-full h-[300px] md:h-[320px] relative overflow-hidden rounded-lg mb-4">
-                  <img
-                    className="w-full h-full object-fit"
-                    src={member.image}
-                    alt={`Image of ${member.name}, ${member.role}`}
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300 flex items-end justify-center">
-                    {/* Black overlay */}
-                    <button
-                      onClick={() => navigate(`/member/${member.name}`, { state: { member } })}
-                      className="text-white text-xl font-bold mb-10 hover:text-zinc-400 hover:opacity-100 transition-opacity duration-300 bg-transparent border-none cursor-pointer"
-                    >
-                      Explore More
-                    </button>
-                  </div>
+              <div className="relative group overflow-hidden"> {/* Added overflow-hidden */}
+                {/* Image with hover zoom effect */}
+                <img
+                  src={member.image}
+                  alt={`Image of ${member.name}`}
+                  className="w-full h-[500px] object-cover transition-all duration-300 transform group-hover:scale-105" // Image with zoom on hover
+                />
+                {/* Overlay for the hover effect */}
+                <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                {/* Hover Text: 2-3 words elaborating their role */}
+                <div className="absolute inset-0 flex items-end mb-20 justify-center text-zinc-400 text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {member.hoverText}
                 </div>
-                <p className="font-semibold text-lg">{styledName(member.name)}</p>
-                <p className="text-gray-700 text-center mt-1">{member.role}</p>
-              </article>
+              </div>
+
+              {/* Name and Role displayed below the image */}
+              <div className="mt-4 text-center">
+                <p className="font-semibold text-xl">{styledName(member.name)}</p>
+                <p className="text-gray-700 text-lg">{member.role}</p>
+              </div>
             </motion.div>
           ))}
         </div>
