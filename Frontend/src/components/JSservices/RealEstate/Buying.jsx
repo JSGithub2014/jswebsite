@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaSearch, FaDollarSign, FaRegHandshake, FaHome } from 'react-icons/fa';
+import { FaSearch, FaRegHandshake, FaHome } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -80,7 +80,7 @@ const Buying = () => {
       <div className='flex flex-wrap justify-center my-6'>
         {[ 
           { title: 'Wide Range of Listings', description: 'Explore a variety of properties that suit your preferences and budget.', icon: <FaSearch className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Financial Guidance', description: 'Our experts will assist you with financing options to make your purchase easy and affordable.', icon: <FaDollarSign className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Financial Guidance', description: 'Our experts will assist you with financing options to make your purchase easy and affordable.', icon: <span className='text-[rgb(255,102,0)] text-4xl mb-2 font-extrabold'>₹</span> },
           { title: 'Professional Negotiation', description: 'We ensure you get the best deal possible with our skilled negotiators.', icon: <FaRegHandshake className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
           { title: 'Seamless Closing Process', description: 'We handle all paperwork and ensure a smooth transaction from start to finish.', icon: <FaHome className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
         ].map((item, index) => (

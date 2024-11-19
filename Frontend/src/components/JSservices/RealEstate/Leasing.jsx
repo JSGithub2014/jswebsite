@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaKey, FaUsers, FaDollarSign, FaClipboardCheck } from 'react-icons/fa';
+import { FaKey, FaUsers, FaClipboardCheck } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -51,11 +51,11 @@ const Leasing = () => {
         We offer comprehensive leasing services to ensure a smooth experience.
       </motion.p>
 
-      <div className='flex flex-wrap justify-center my-6 '>
-        {[
+      <div className='flex flex-wrap justify-center my-6'>
+        {[ 
           { title: 'Tenant Screening', description: 'Thorough background checks to find reliable tenants.', icon: <FaUsers aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
           { title: 'Property Management', description: 'We manage your property for a hassle-free experience.', icon: <FaKey aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
-          { title: 'Competitive Pricing', description: 'We help set the right price to maximize your income.', icon: <FaDollarSign aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
+          { title: 'Competitive Pricing', description: 'We help set the right price to maximize your income.', icon: <span className='text-[rgb(255,102,0)] text-4xl mb-2 font-extrabold'>₹</span> },
           { title: 'Legal Support', description: 'Comprehensive lease agreements and legal advice.', icon: <FaClipboardCheck aria-hidden="true" className='text-[rgb(255,102,0)] w-8 h-8 mb-2' /> },
         ].map((item, index) => (
           <motion.article 
