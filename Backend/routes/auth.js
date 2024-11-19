@@ -64,22 +64,23 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         // Log token for debugging
-        console.log("Generated token:", token); // Debug token
+        dbgr("Generated token:", token); // Debug token
 
         // Set cookie based on environment
         res.cookie('token', token, {
             httpOnly: true, // Makes cookie inaccessible via JavaScript
             secure: process.env.NODE_ENV === 'production', // For HTTPS in production
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite=None in production for cross-site cookies
             maxAge: 3600000, // Expires in 1 hour
         });
 
         res.status(200).json({ message: "Login successful!" });
     } catch (err) {
-        dbgr(err.message);
+        console.error(err.message);  // Use `console.error` for error logging
         res.status(500).json({ message: "Server error" });
     }
 });
+
 
 // Logout Route
 router.post('/logout', (req, res) => {

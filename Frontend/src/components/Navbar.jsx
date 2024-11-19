@@ -15,14 +15,21 @@ function Navbar() {
   const navigate = useNavigate();
   const menuRef = useRef(null); // Create a ref for the menu
 
+  const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  };
+
   // Check if the user is authenticated
   useEffect(() => {
-    const token = document.cookie.split('; ').find(row => row.startsWith('token='));
+    // Get the token from cookies
+    const token = getCookie('token'); // Replace 'token' with the name of your cookie
     console.log('Token in Navbar:', token); // Debug token
+
     if (token) {
-        setIsAuthenticated(true);
+      setIsAuthenticated(true); // Token exists, user is authenticated
     } else {
-        setIsAuthenticated(false);
+      setIsAuthenticated(false); // No token, user is not authenticated
     }
   }, [location]);
 
@@ -92,12 +99,45 @@ function Navbar() {
 
       if (response.ok) {
         setIsAuthenticated(false);
+        document.cookie = 'token=; path=/; max-age=0;'; // Clear the cookie
         navigate('/');
       } else {
         console.error('Logout failed');
       }
     } catch (error) {
       console.error('Logout error', error);
+    }
+  };
+
+  // Handle login (assuming you already have a login form somewhere)
+  const login = async (username, password) => {
+    const loginApiUrl = process.env.NODE_ENV === 'production'
+      ? 'https://jswebsite-ocj7.vercel.app/api/auth/login'
+      : 'http://localhost:5000/api/auth/login';
+
+    try {
+      const response = await fetch(loginApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include', // Include credentials (cookies) with the request
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // If login is successful, store the token in the cookie
+        const token = data.token;
+        document.cookie = `token=${token}; path=/; max-age=86400; Secure; HttpOnly`;  // Store token in cookie with 1-day expiration
+        setIsAuthenticated(true);
+        navigate('/');  // Redirect to homepage or dashboard
+      } else {
+        console.error('Login failed:', data.message || 'Unknown error');
+      }
+    } catch (error) {
+      console.error('Login request error:', error);
     }
   };
 
