@@ -69,14 +69,12 @@ router.post("/login", async (req, res) => {
         // Set cookie based on environment
         res.cookie('token', token, {
             httpOnly: true, // Makes cookie inaccessible via JavaScript
-            secure: process.env.NODE_ENV === 'production', // For HTTPS in production
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite=None in production for cross-site cookies
             maxAge: 3600000, // Expires in 1 hour
         });
 
         res.status(200).json({ message: "Login successful!" });
     } catch (err) {
-        console.error(err.message);  // Use `console.error` for error logging
+        dbgr(err.message);  // Use `console.error` for error logging
         res.status(500).json({ message: "Server error" });
     }
 });

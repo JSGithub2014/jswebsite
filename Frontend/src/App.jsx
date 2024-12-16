@@ -30,6 +30,7 @@ const Finance = lazy(() => import('./pages/Finance'));
 const Insurance = lazy(() => import('./pages/Insurance'));
 const RealEstate = lazy(() => import('./pages/RealEstate'));
 const MemberDetail = lazy(() => import('./components/AboutUs/MemberDetail'));
+const AdminPage = lazy(() => import('./components/AdminPage'));
 
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false);
@@ -112,6 +113,7 @@ const App = () => {
             <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
             <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
             <Route path="/member/:name" element={<MotionWrapper><MemberDetail /></MotionWrapper>} />
+            <Route path="/api/admin" element={<MotionWrapper><AdminPage /></MotionWrapper>} />
             <Route path="/" element={ 
               <MotionWrapper>
                 <Landing />
