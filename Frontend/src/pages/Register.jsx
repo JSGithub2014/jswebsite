@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
 import BrandLogo from '../assets/brand-logo-transperent.png';
+import { useFirebaseContext } from '../context/Firebase';
 
 const Register = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -15,6 +16,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
     const navigate = useNavigate();
+    const firebase = useFirebaseContext();
 
     const togglePassword = () => setPasswordVisible(!passwordVisible);
     const toggleConfirmPassword = () => setConfirmPasswordVisible(!confirmPasswordVisible);
@@ -22,10 +24,13 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+
         if (password !== confirmPassword) {
             toast.error('Confirm password does not match. Please try again.'); 
             return;
         }
+        
+        firebase.SignUpUsingEmailAndPassword(email,password);
 
         if (!gender) {
             toast.error('Please select your gender.'); // Error message if gender is not selected
@@ -47,13 +52,13 @@ const Register = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                toast.error(errorData.message || 'Registration failed. Please try again.'); // Use error message from API
+                // toast.error(errorData.message || 'Registration failed. Please try again.'); // Use error message from API
                 return;
             }
 
             const data = await response.json();
             console.log(data);
-            toast.success('Registration successful! Redirecting to login...'); // Success message
+            // toast.success('Registration successful! Redirecting to login...'); // Success message
             setTimeout(() => {
                 navigate('/login');
             }, 2000); // Redirect after 2 seconds
