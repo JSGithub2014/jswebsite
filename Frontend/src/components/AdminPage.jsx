@@ -7,7 +7,7 @@ const AdminReviewPage = () => {
 
   useEffect(() => {
     // Fetch all reviews from the server
-    fetch('http://localhost:3000/api/review/all')
+    fetch('http://localhost:3000/api/review/all') // Use localhost:3000 since your backend is running locally
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch reviews');
@@ -29,7 +29,7 @@ const AdminReviewPage = () => {
       formData.append('profileImage', selectedImage);
     }
 
-    fetch(`http://localhost:3000/api/review/update/${id}`, {
+    fetch(`http://localhost:3000/api/review/update/${id}`, { // Corrected URL with localhost
       method: 'POST',
       body: formData,
     })
@@ -50,7 +50,7 @@ const AdminReviewPage = () => {
   };
 
   const handleRejectReview = (id) => {
-    fetch(`http://localhost:3000/api/review/delete/${id}`, {
+    fetch(`http://localhost:3000/api/review/delete/${id}`, { // Corrected URL with localhost
       method: 'DELETE',
     })
       .then(response => {
@@ -130,14 +130,14 @@ const AdminReviewPage = () => {
                 <p><strong>Position:</strong> {review.position}</p>
                 <p><strong>Quote:</strong> {review.quote}</p>
                 <p><strong>Rating:</strong> {renderStars(review.rating)}</p>
-                <p><strong>Status:</strong> {review.status}</p>  
+                <p><strong>Status:</strong> {review.status}</p>
 
                 {/* Display the profile image if it exists */}
                 {review.profileImage && (
                   <div>
                     <img
-                      src={`http://localhost:3000/uploads/${review.profileImage}`}
-                      alt="Profile" 
+                      src={`http://localhost:3000/uploads/${review.profileImage}`} // Corrected path with localhost
+                      alt="Profile"
                       className="w-32 h-32 object-cover rounded-full mt-2"
                     />
                   </div>
@@ -178,4 +178,3 @@ const AdminReviewPage = () => {
 };
 
 export default AdminReviewPage;
-    

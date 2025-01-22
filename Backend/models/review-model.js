@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
+// Define the schema for reviews
 const reviewSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  position: { type: String, required: true },
   quote: { type: String, required: true },
   rating: { type: Number, required: true },
-  status: { type: String, default: 'pending' },
-  profileImage: { type: String, required: false }, // Store the image path
+  position: { type: String, required: true },
+  profileImage: { type: String }, // Store the image path
+  status: { type: String, default: 'pending' }, // Pending, accepted, rejected
 }, { timestamps: true });
 
 const Review = mongoose.model('Review', reviewSchema);

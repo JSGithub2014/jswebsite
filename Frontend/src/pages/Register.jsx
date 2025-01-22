@@ -57,13 +57,13 @@ const Register = () => {
             }
 
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             // toast.success('Registration successful! Redirecting to login...'); // Success message
             setTimeout(() => {
                 navigate('/login');
             }, 2000); // Redirect after 2 seconds
         } catch (error) {
-            console.error(error);
+            // console.error(error);
             toast.error('Registration failed. Please try again.'); // General error message
         }
     };

@@ -128,9 +128,8 @@ const Login = () => {
                 />
                 <FontAwesomeIcon
                   icon={faEye}
-                  className={`absolute right-3 top-3 cursor-pointer ${
-                    passwordVisible ? "text-[rgb(255,121,44)]" : "text-gray-400"
-                  }`}
+                  className={`absolute right-3 top-3 cursor-pointer ${passwordVisible ? "text-[rgb(255,121,44)]" : "text-gray-400"
+                    }`}
                   onClick={togglePassword}
                   aria-label={
                     passwordVisible ? "Hide password" : "Show password"
@@ -155,11 +154,11 @@ const Login = () => {
             </div>
             <div>Signin With Google</div>
           </div>
-          <p className="mt-4 text-center text-sm">
+          <p className="mt-4  text-center text-sm">
             Don't have an account?
             <Link
               to="/signup"
-              className="text-[rgb(255,102,0)] font-medium hover:underline"
+              className="text-[rgb(255,102,0)] font-medium hover:underline mx-2"
             >
               Sign Up
             </Link>

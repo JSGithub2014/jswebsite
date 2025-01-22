@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
 // Set up multer for file uploads
@@ -80,33 +80,7 @@ const upload = multer({
 // Serve static files from 'uploads' folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Review submission route with file upload
-reviewRoute.post("/", upload.single("profileImage"), async (req, res, next) => {
-  try {
-    if (req.file) {
-      const filePath = req.file.path;
-      
-      // Example: Save review with file path in the database (pseudo code)
-      const reviewData = {
-        name: req.body.name,
-        quote: req.body.quote,
-        rating: req.body.rating,
-        position: req.body.position,
-        profileImage: filePath,  // Store the image path in your review
-      };
-
-      // Save the review to the database (your database logic here)
-
-      return res.status(200).json({ message: "Review submitted successfully", review: reviewData });
-    }
-
-    res.status(400).json({ error: "No file uploaded" });
-  } catch (err) {
-    next(err);
-  }
-});
-
-// Route handlers
+// Routes
 app.use("/api/contact", contactRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/review", reviewRoute); // Ensure this is correct
