@@ -12,6 +12,7 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false); // Track admin login state
   const [loading, setLoading] = useState(false); // Track loading state
   const navigate = useNavigate();
   const firebase = useFirebaseContext();
@@ -39,7 +40,7 @@ const Login = () => {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, isAdmin }), // Include isAdmin state
         credentials: "include", // Include this line to send cookies
       });
 
@@ -54,7 +55,7 @@ const Login = () => {
       const data = await response.json();
       // toast.success('Login successful!');
       setLoading(false); // Stop loading
-      navigate("/");
+      navigate(isAdmin ? "/admin/dashboard" : "/"); // Redirect to admin dashboard if logged in as admin
     } catch (error) {
       // toast.error(`Login failed: ${error.message}`);
       setLoading(false); // Stop loading
@@ -138,6 +139,22 @@ const Login = () => {
               </div>
             </div>
 
+            <div className="mb-4 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="admin"
+                checked={isAdmin}
+                onChange={() => setIsAdmin((prevState) => !prevState)}
+                className="h-4 w-4 text-[rgb(255,102,0)]"
+              />
+              <label
+                htmlFor="admin"
+                className="text-sm text-gray-700"
+              >
+                Login as Admin
+              </label>
+            </div>
+
             <button
               type="submit"
               className="bg-[rgb(255,102,0)] text-white hover:text-[rgb(58,59,59)] py-2 rounded-md w-full font-medium hover:bg-[rgb(255,121,44)] transition duration-300 transform hover:scale-105"
@@ -145,6 +162,7 @@ const Login = () => {
               {loading ? "Logging in..." : "Login Now"}
             </button>
           </form>
+
           <div
             onClick={handleGoogleSingIn}
             className="flex flex-col md:flex-row justify-center items-center cursor-pointer  my-4 gap-3"

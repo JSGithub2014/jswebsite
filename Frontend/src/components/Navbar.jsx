@@ -44,18 +44,6 @@ function Navbar() {
     });
   }, [user]);
 
-  // Check if the user is authenticated
-  useEffect(() => {
-    // Get the token from cookies
-    const token = getCookie("token"); // Replace 'token' with the name of your cookie
-    console.log("Token in Navbar:", token); // Debug token
-
-    if (token) {
-      setIsAuthenticated(true); // Token exists, user is authenticated
-    } else {
-      setIsAuthenticated(false); // No token, user is not authenticated
-    }
-  }, [location]);
 
   // Toggle Navbar visibility on scroll
   const handleScroll = () => {
