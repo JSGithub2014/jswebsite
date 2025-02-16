@@ -35,6 +35,7 @@ const AdminPage = lazy(() => import('./components/AdminPage'));
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false);
 
+
   const handleError = () => setHasError(true);
 
   if (hasError) {

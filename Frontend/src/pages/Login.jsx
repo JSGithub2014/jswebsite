@@ -129,30 +129,15 @@ const Login = () => {
                 />
                 <FontAwesomeIcon
                   icon={faEye}
-                  className={`absolute right-3 top-3 cursor-pointer ${passwordVisible ? "text-[rgb(255,121,44)]" : "text-gray-400"
-                    }`}
+                  className={`absolute right-3 top-3 cursor-pointer ${
+                    passwordVisible ? "text-[rgb(255,121,44)]" : "text-gray-400"
+                  }`}
                   onClick={togglePassword}
                   aria-label={
                     passwordVisible ? "Hide password" : "Show password"
                   }
                 />
               </div>
-            </div>
-
-            <div className="mb-4 flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="admin"
-                checked={isAdmin}
-                onChange={() => setIsAdmin((prevState) => !prevState)}
-                className="h-4 w-4 text-[rgb(255,102,0)]"
-              />
-              <label
-                htmlFor="admin"
-                className="text-sm text-gray-700"
-              >
-                Login as Admin
-              </label>
             </div>
 
             <button
