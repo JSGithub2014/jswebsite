@@ -21,7 +21,7 @@ const AdminReviewPage = () => {
         // firebase.Logout();
         setUser(null);
         navigate("/");
-        alert("this is not an admin");
+        alert("You are not an admin");
       }
       setUser(user);
     });
