@@ -23,8 +23,7 @@ const ManagementTeam = ({ teamMembers }) => {
 
   // Function to handle card click and navigate
   const handleCardClick = (member) => {
-    // Navigate to the member's detail page, passing the member data via state
-    navigate(`/member/${member.name}`, { state: { member } });
+    navigate(`/member/${member.name}`, { state: { member } });  // Pass member data including the detail image
   };
 
   return (
@@ -50,40 +49,42 @@ const ManagementTeam = ({ teamMembers }) => {
         </motion.div>
 
         {/* Team Members Grid Section */}
-        <div className="flex justify-center items-center flex-wrap gap-0"> {/* No gap between images */}
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              className="sm:w-1/4 px-0 mb-0" // Ensure no padding and margin between images
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => handleCardClick(member)}  // Handle the click to navigate
-            >
-              <div className="relative group overflow-hidden"> {/* Added overflow-hidden */}
-                {/* Image with hover zoom effect */}
-                <img
-                  src={member.image}
-                  alt={`Image of ${member.name}`}
-                  className="w-full h-[500px] object-cover transition-all duration-300 transform group-hover:scale-105" // Image with zoom on hover
-                />
-                {/* Overlay for the hover effect */}
-                <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="flex justify-center gap-10 flex-wrap">
+  {teamMembers.map((member, index) => (
+    <motion.div
+      key={index}
+      className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 relative"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onClick={() => handleCardClick(member)} // Handle the click to navigate
+    >
+      <div className="relative group overflow-hidden rounded-lg shadow-lg transition-all duration-300">
+        {/* Image with hover zoom effect */}
+        <motion.img
+          src={member.image} // Image for the team grid
+          alt={`Image of ${member.name}`}
+          className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        
+        {/* Overlay for hover effect */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                {/* Hover Text: 2-3 words elaborating their role */}
-                <div className="absolute inset-0 flex items-end mb-20 justify-center text-zinc-400 text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {member.hoverText}
-                </div>
-              </div>
-
-              {/* Name and Role displayed below the image */}
-              <div className="mt-4 text-center">
-                <p className="font-semibold text-xl">{styledName(member.name)}</p>
-                <p className="text-gray-700 text-lg">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Hover Text (Role) */}
+        <div className="absolute inset-0 flex items-end justify-center pb-10 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          {member.hoverText}
         </div>
+      </div>
+
+      {/* Name and Role displayed below the image */}
+      <div className="mt-4 text-center">
+        <p className="font-semibold text-2xl">{styledName(member.name)}</p>
+        <p className="text-lg text-gray-500 font-extrabold">{member.role}</p>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
       </div>
     </section>
   );
