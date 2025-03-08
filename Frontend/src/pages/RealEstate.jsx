@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'; // Importing Helmet for SEO
 import RealEstateHero from '../components/JSservices/RealEstate/RealEstateHero';
 import Selling from '../components/JSservices/RealEstate/Selling';
 import Leasing from '../components/JSservices/RealEstate/Leasing';
-import Buying from '../components/JSservices/RealEstate/Buying';  // Import the new Buying component
+import Buying from '../components/JSservices/RealEstate/PropertyBuying/Buying';  // Import the new Buying component
 
 const RealEstate = () => {
   const buyingRef = useRef(null); // Ref for the Buying section

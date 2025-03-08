@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
-const ManagementTeam = ({ teamMembers }) => {
+const ManagementTeam = ({ teamMembers = [] }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate();  // Hook to navigate to different pages
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -21,9 +21,8 @@ const ManagementTeam = ({ teamMembers }) => {
     );
   };
 
-  // Function to handle card click and navigate
   const handleCardClick = (member) => {
-    navigate(`/member/${member.name}`, { state: { member } });  // Pass member data including the detail image
+    navigate(`/member/${member.name}`, { state: { member } });
   };
 
   return (
@@ -49,42 +48,48 @@ const ManagementTeam = ({ teamMembers }) => {
         </motion.div>
 
         {/* Team Members Grid Section */}
-        <div className="flex justify-center gap-10 flex-wrap">
-  {teamMembers.map((member, index) => (
-    <motion.div
-      key={index}
-      className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 relative"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onClick={() => handleCardClick(member)} // Handle the click to navigate
-    >
-      <div className="relative group overflow-hidden rounded-lg shadow-lg transition-all duration-300">
-        {/* Image with hover zoom effect */}
-        <motion.img
-          src={member.image} // Image for the team grid
-          alt={`Image of ${member.name}`}
-          className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        
-        {/* Overlay for hover effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              className={`relative flex flex-col md:flex-row ${
+                index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
+              } bg-white shadow-lg rounded-lg cursor-pointer transition-all hover:shadow-xl`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => handleCardClick(member)}
+            >
+              {/* Role Badge (Outside Top-Left) */}
+              <div className="z-20 absolute -top-4 -left-4 bg-orange-500 text-white text-xs md:text-sm font-semibold px-3 py-1 rounded-md shadow-md">
+                {member.role}
+              </div>
 
-        {/* Hover Text (Role) */}
-        <div className="absolute inset-0 flex items-end justify-center pb-10 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          {member.hoverText}
+              {/* Image Section */}
+              <div className="relative w-full md:w-1/3">
+                <motion.img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-95"
+                />
+                <div className="absolute bottom-0 w-full bg-black bg-opacity-75 text-white text-center p-2">
+                  <p className="font-semibold text-lg">{styledName(member.name)}</p>
+                  <p className="text-sm  text-gray-300">{member.designation}</p>
+                </div>
+              </div>
+
+              {/* Description Section */}
+              <div className="p-6 w-full md:w-2/3 flex flex-col justify-center">
+                <p className="text-gray-700 text-xs sm:text-[15px] text-justify leading-relaxed">
+                  {member.description}
+                </p>
+                <p className="text-orange-500 font-bold mt-2 cursor-pointer text-sm sm:text-md md:text-lg">
+                  Read more...
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
-
-      {/* Name and Role displayed below the image */}
-      <div className="mt-4 text-center">
-        <p className="font-semibold text-2xl">{styledName(member.name)}</p>
-        <p className="text-lg text-gray-500 font-extrabold">{member.role}</p>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 import Lenis from 'lenis';
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import Loading from './components/Loading';
 import ScrollToTop from './components/ScrollToTop';
@@ -10,7 +9,7 @@ import Footer from './pages/Footer';
 import MotionWrapper from './components/MotionWrapper';
 import NotFound from './components/NotFound';
 
-// Lazy load pages
+// Lazy loading pages for better performance
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const Landing = lazy(() => import('./pages/Landing'));
@@ -31,29 +30,34 @@ const Insurance = lazy(() => import('./pages/Insurance'));
 const RealEstate = lazy(() => import('./pages/RealEstate'));
 const MemberDetail = lazy(() => import('./components/AboutUs/MemberDetail'));
 const AdminPage = lazy(() => import('./components/AdminPage'));
-
+const BuyingDetails = lazy(() => import('./components/JSservices/RealEstate/PropertyBuying/AllBuyingOptions'));
+const PropertyDetails = lazy(() => import('./components/JSservices/RealEstate/PropertyBuying/PropertyDetails')); // ✅ Import PropertyDetails
+const AddProperty = lazy(() => import('./components/JSservices/RealEstate/PropertyBuying/AddProperty'));
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false);
 
-
-  const handleError = () => setHasError(true);
-
-  if (hasError) {
-    return <h1>Something went wrong.</h1>;
-  }
-
-  return (
-    <React.Fragment>
-      {React.Children.map(children, child =>
-        React.cloneElement(child, { onError: handleError })
+  return hasError ? (
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-2xl font-bold text-red-600">Oops! Something went wrong.</h1>
+      <button
+        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+        onClick={() => window.location.reload()}
+      >
+        Refresh Page
+      </button>
+    </div>
+  ) : (
+    <React.Suspense fallback={<Loading />}>
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child, { onError: () => setHasError(true) })
       )}
-    </React.Fragment>
+    </React.Suspense>
   );
 };
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -71,7 +75,7 @@ const App = () => {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -80,42 +84,61 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Always scroll to top on page change
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   if (loading) {
     return <Loading />;
   }
 
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
+  const isAuthPage = ["/login", "/signup"].includes(location.pathname);
   const isMemberDetailPage = location.pathname.startsWith('/member/');
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className="overflow-x-hidden">
       <Helmet>
-        <title>J&S Group | Real Estate Finance and Insurance Experts</title>
-        <meta name="description" content="Expert solutions in real estate finance and insurance." />
-        <meta name="keywords" content="Real Estate Finance, Insurance, J&S Group" />
+        <title>J&S Group | Real Estate, Finance & Insurance Experts</title>
+        <meta name="description" content="Expert solutions in real estate, finance, and insurance. Connect with J&S Group today!" />
+        <meta name="keywords" content="Real Estate, Finance, Insurance, J&S Group" />
       </Helmet>
 
-      {/* Conditionally render Navbar */}
       {!isAuthPage && !isMemberDetailPage && <Navbar />}
-      
+
       <ScrollToTop />
-      
+
       <ErrorBoundary>
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/login" element={<MotionWrapper><Login /></MotionWrapper>} />
-            <Route path="/signup" element={<MotionWrapper><Register /></MotionWrapper>} />
-            <Route path="/about-us/our-team" element={<MotionWrapper><OurTeam /></MotionWrapper>} />
-            <Route path="/about-us/our-story" element={<MotionWrapper><OurStory /></MotionWrapper>} />
-            <Route path="/services/finance" element={<MotionWrapper><Finance /></MotionWrapper>} />
-            <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
-            <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
-            <Route path="/member/:name" element={<MotionWrapper><MemberDetail /></MotionWrapper>} />
-            <Route path="/api/admin" element={<MotionWrapper><AdminPage /></MotionWrapper>} />
-            <Route path="/" element={ 
+        <Routes>
+          {/* Authentication Routes */}
+          <Route path="/login" element={<MotionWrapper><Login /></MotionWrapper>} />
+          <Route path="/signup" element={<MotionWrapper><Register /></MotionWrapper>} />
+
+          {/* About Us */}
+          <Route path="/about-us/our-team" element={<MotionWrapper><OurTeam /></MotionWrapper>} />
+          <Route path="/about-us/our-story" element={<MotionWrapper><OurStory /></MotionWrapper>} />
+
+          {/* Services */}
+          <Route path="/services/finance" element={<MotionWrapper><Finance /></MotionWrapper>} />
+          <Route path="/services/insurance" element={<MotionWrapper><Insurance /></MotionWrapper>} />
+          <Route path="/services/real-estate" element={<MotionWrapper><RealEstate /></MotionWrapper>} />
+
+          {/* Member Details */}
+          <Route path="/member/:name" element={<MotionWrapper><MemberDetail /></MotionWrapper>} />
+
+          {/* Admin Page */}
+          <Route path="/api/admin" element={<MotionWrapper><AdminPage /></MotionWrapper>} />
+
+          {/* Buying Details */}
+          <Route path="/buying-details" element={<MotionWrapper><BuyingDetails /></MotionWrapper>} />
+
+          {/* Property Details Page ✅ */}
+          <Route path="/property/:id" element={<MotionWrapper><PropertyDetails /></MotionWrapper>} />
+
+          <Route path="/add-property" element={<MotionWrapper><AddProperty /></MotionWrapper>} />
+
+          {/* Landing Page & Other Sections */}
+          <Route
+            path="/"
+            element={
               <MotionWrapper>
                 <Landing />
                 <AboutUs />
@@ -129,17 +152,20 @@ const App = () => {
                 <RobustFoundation />
                 <ContactUs />
               </MotionWrapper>
-            } />
-            <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
-          </Routes>
-        </Suspense>
+            }
+          />
+
+          {/* 404 Not Found */}
+          <Route path="*" element={<MotionWrapper><NotFound /></MotionWrapper>} />
+        </Routes>
       </ErrorBoundary>
-      
+
       {!isAuthPage && !isMemberDetailPage && <Footer />}
     </div>
   );
 };
 
+// Wrapping the app inside Router
 const WrappedApp = () => (
   <Router>
     <App />

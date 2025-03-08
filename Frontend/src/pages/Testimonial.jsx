@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import TestimonialCard from '../components/TestimonialCards';
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FiArrowUp, FiArrowDown } from "react-icons/fi";
+import config from './config';
 import img1 from '../assets/testimonial/testimonial-male.jpeg';
 import img2 from '../assets/testimonial/testimonial-male-2.jpeg';
 import img3 from '../assets/testimonial/testimonial-male-3.jpeg';
@@ -69,58 +70,37 @@ const Testimonial = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch accepted reviews from the server (Admin's accepted reviews)
-    fetch('http://localhost:3000/api/review/all') // Change URL to fetch accepted reviews
+    fetch(`${config.API_BASE_URL}/review/all`)
       .then((response) => response.json())
       .then((data) => {
         const accepted = data.reviews.filter((review) => review.status === 'accepted');
         setAcceptedReviews(accepted);
       })
-      .catch((error) => {
-        console.error('Error fetching reviews:', error);
-      });
+      .catch((error) => console.error('Error fetching reviews:', error));
 
-    // Auto scroll functionality
     const interval = setInterval(() => {
       if (scrollRef.current) {
         const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-
         if (scrollTop + clientHeight >= scrollHeight) {
           scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           scrollRef.current.scrollBy({ top: 200, behavior: 'smooth' });
         }
       }
-    }, 3000); // Scroll every 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
-  const scrollUp = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ top: -100, behavior: 'smooth' });
-    }
-  };
-
-  const scrollDown = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ top: 100, behavior: 'smooth' });
-    }
-  };
-
-  // Handle submitting new review
   const handleSubmit = async (newReview) => {
     try {
-      const response = await fetch('https://jswebsite-ocj7.vercel.app/api/review', {
+      const response = await fetch(`${config.API_BASE_URL}/review`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newReview),
       });
 
       if (response.ok) {
-        // Optionally, refresh testimonials or show a success message
         setModalOpen(false);
       } else {
         console.error("Failed to submit review.");
@@ -134,70 +114,36 @@ const Testimonial = () => {
     <section className="relative flex flex-col md:flex-row justify-between px-4 md:px-[5vw] items-center py-10 bg-[#fc7b0386]">
       <div className="md:w-1/2 px-6 mb-8 md:mb-0 flex flex-col justify-center">
         <RiDoubleQuotesL className="text-8xl text-zinc-500 mb-[2vw]" aria-hidden="true" />
-        <h1 className="text-4xl md:text-6xl font-thin mb-4 text-black heading-font tracking-wider text-shadow" aria-label="What Our Clients Say">
+        <h1 className="text-4xl md:text-6xl font-thin mb-4 text-black heading-font tracking-wider text-shadow">
           <span className="text-[rgb(255,102,0)] heading-font">W</span>hat <span className="text-[rgb(255,102,0)] heading-font tracking-wider">Our</span><br /> Clients Say?
         </h1>
-        <button
-          onClick={() => setModalOpen(true)}
-          className="mt-4 w-1/2 sm:w-1/3 bg-[rgb(255,102,0)] text-white px-3 py-1 rounded text-sm sm:text-base"
-          aria-label="Add Review"
-        >
+        <button onClick={() => setModalOpen(true)} className="mt-4 w-1/2 sm:w-1/3 bg-[rgb(255,102,0)] text-white px-3 py-1 rounded text-sm sm:text-base">
           Add Review
         </button>
       </div>
 
       <div className="md:w-1/2 h-96 relative">
-        <button
-          onClick={scrollUp}
-          className="absolute top-2 left-full transform -translate-x-[130%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
-          aria-label="Scroll up"
-        >
+        <button onClick={() => scrollRef.current?.scrollBy({ top: -100, behavior: 'smooth' })} className="absolute top-2 left-full transform -translate-x-[130%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200">
           <FiArrowUp className="text-[rgb(255,102,0)]" size={24} />
         </button>
 
         <div ref={scrollRef} className="overflow-y-auto h-full w-full custom-scrollbar p-4 relative">
           <div className="flex flex-col space-y-6">
-            {/* Display accepted reviews */}
             {acceptedReviews.map((review, index) => (
-              <TestimonialCard
-                key={index}
-                name={review.name}
-                position={review.position}
-                quote={review.quote}
-                photo={review.profileImage || img1} // Fallback to img1 if no profileImage
-                rating={review.rating}
-              />
+              <TestimonialCard key={index} name={review.name} position={review.position} quote={review.quote} photo={review.profileImage || img1} rating={review.rating} />
             ))}
-
-            {/* Display static testimonials */}
             {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                name={testimonial.name}
-                position={testimonial.position}
-                quote={testimonial.quote}
-                photo={testimonial.photo}
-                rating={testimonial.rating}
-              />
+              <TestimonialCard key={index} {...testimonial} />
             ))}
           </div>
         </div>
 
-        <button
-          onClick={scrollDown}
-          className="absolute bottom-0 left-full transform -translate-x-[140%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200"
-          aria-label="Scroll down"
-        >
+        <button onClick={() => scrollRef.current?.scrollBy({ top: 100, behavior: 'smooth' })} className="absolute bottom-0 left-full transform -translate-x-[140%] z-10 bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200">
           <FiArrowDown className="text-[rgb(255,102,0)]" size={24} />
         </button>
       </div>
 
-      {/* Modal to add a review */}
-      <TestimonialReview
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        onSubmit={handleSubmit}
-      />
+      <TestimonialReview isOpen={isModalOpen} onClose={() => setModalOpen(false)} onSubmit={handleSubmit} />
     </section>
   );
 };

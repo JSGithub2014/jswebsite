@@ -6,6 +6,7 @@ const db = require("./db/mongoConnection");
 const { loginRoute } = require("./routes/loginRoute");
 const { contactRoute } = require("./routes/contactRoute");
 const reviewRoute = require("./routes/reviewRoute");
+const propertyRoutes = require("./routes/propertyRoutes");
 const authRoute = require("./routes/auth");
 const multer = require("multer");
 const fs = require("fs");
@@ -85,6 +86,7 @@ app.use("/api/contact", contactRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/review", reviewRoute); // Ensure this is correct
 app.use("/api/user", loginRoute); // Assuming this is correct
+app.use("/api/properties", propertyRoutes);
 
 // Health check route
 app.get("/", (req, res) => {
